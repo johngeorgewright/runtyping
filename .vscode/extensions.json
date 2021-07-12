@@ -1,7 +1,3 @@
 {
-  "recommendations": [
-    "arcanis.vscode-zipfs",
-    "esbenp.prettier-vscode",
-    "orta.vscode-jest"
-  ]
+  "recommendations": ["esbenp.prettier-vscode", "orta.vscode-jest"]
 }
