@@ -828,34 +828,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngeorgewright/ts-module@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@johngeorgewright/ts-module@workspace:."
-  dependencies:
-    "@commitlint/cli": 12.1.4
-    "@commitlint/config-conventional": 12.1.4
-    "@semantic-release/commit-analyzer": 8.0.1
-    "@semantic-release/git": 9.0.0
-    "@semantic-release/github": 7.2.3
-    "@semantic-release/npm": 7.1.3
-    "@semantic-release/release-notes-generator": 9.0.3
-    "@types/jest": 26.0.24
-    "@types/node": 14.17.5
-    commitizen: 4.2.4
-    concurrently: 6.2.0
-    cz-conventional-changelog: 3.3.0
-    husky: 7.0.1
-    jest: 27.0.6
-    lint-staged: 11.0.0
-    prettier: 2.3.2
-    rimraf: 3.0.2
-    semantic-release: 17.4.4
-    ts-jest: 27.0.3
-    tslib: 2.3.0
-    typescript: 4.3.5
-  languageName: unknown
-  linkType: soft
-
 "@nodelib/fs.scandir@npm:2.1.4":
   version: 2.1.4
   resolution: "@nodelib/fs.scandir@npm:2.1.4"
@@ -6892,6 +6864,34 @@ fsevents@^2.3.2:
   checksum: 3d12f0251ad043ed52689523b1e5fa5b7e5395a6ae0d2cbfb880a3009bb297de6d7e96ba4ad5a818e2722b42cea78a5ee6842d6d864736a7ca755ec119ed097c
   languageName: node
   linkType: hard
+
+"runtypes-generator@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "runtypes-generator@workspace:."
+  dependencies:
+    "@commitlint/cli": 12.1.4
+    "@commitlint/config-conventional": 12.1.4
+    "@semantic-release/commit-analyzer": 8.0.1
+    "@semantic-release/git": 9.0.0
+    "@semantic-release/github": 7.2.3
+    "@semantic-release/npm": 7.1.3
+    "@semantic-release/release-notes-generator": 9.0.3
+    "@types/jest": 26.0.24
+    "@types/node": 14.17.5
+    commitizen: 4.2.4
+    concurrently: 6.2.0
+    cz-conventional-changelog: 3.3.0
+    husky: 7.0.1
+    jest: 27.0.6
+    lint-staged: 11.0.0
+    prettier: 2.3.2
+    rimraf: 3.0.2
+    semantic-release: 17.4.4
+    ts-jest: 27.0.3
+    tslib: 2.3.0
+    typescript: 4.3.5
+  languageName: unknown
+  linkType: soft
 
 "rxjs@npm:^6.4.0, rxjs@npm:^6.6.3, rxjs@npm:^6.6.7":
   version: 6.6.7

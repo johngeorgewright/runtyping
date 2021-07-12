@@ -1,9 +1,8 @@
 {
-  "name": "@johngeorgewright/ts-module",
+  "name": "runtypes-generator",
   "version": "1.4.0",
   "description": "Compose and react upon redux actions",
-  "private": true,
-  "main": "dist/ts-module.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "yarn clean && tsc && rimraf 'dist/**/?(__tests__|__mocks__|__setup__|*.test.*)'",
     "clean": "rimraf dist",
@@ -15,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johngeorgewright/ts-module.git"
+    "url": "git+https://github.com/johngeorgewright/runtypes-generator.git"
   },
   "keywords": [],
   "author": "John Wright <johngeorge.wright@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/johngeorgewright/ts-module/issues"
+    "url": "https://github.com/johngeorgewright/runtypes-generator/issues"
   },
-  "homepage": "https://github.com/johngeorgewright/ts-module#readme",
+  "homepage": "https://github.com/johngeorgewright/runtypes-generator#readme",
   "devDependencies": {
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
