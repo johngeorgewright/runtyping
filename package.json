@@ -10,7 +10,7 @@
     "prebuild": "npm run clean",
     "build": "ts-node src/cli.ts && tsc",
     "postbuild": "rimraf 'dist/**/?(__tests__|__mocks__|__setup__|*.test.*)'",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && rimraf src/runtypes.ts",
     "start": "concurrently yarn:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
     "start:test": "jest src --watch",
