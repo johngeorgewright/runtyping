@@ -78,7 +78,7 @@ function renderInterface(type: Type, indent: number, imports: Set<string>) {
 
   if (isBuiltInType) {
     imports.add('InstanceOf')
-    return 'InstanceOf(' + type.getText() + ')'
+    return `InstanceOf(${type.getText()})`
   }
 
   if (type.getStringIndexType()) {
@@ -92,19 +92,19 @@ function renderInterface(type: Type, indent: number, imports: Set<string>) {
   }
 
   imports.add('Record')
-  return `${type
+  return `Record({\n${type
     .getProperties()
     .reduce(
       (rendered, property) =>
-        `${rendered}\n${renderIndent(
+        `${rendered}${renderIndent(
           indent + 1
         )}${property.getName()}: ${renderType(
           property.getValueDeclarationOrThrow().getType(),
           indent + 1,
           imports
-        )},`,
-      'Record({'
-    )}\n${renderIndent(indent)}})`
+        )},\n`,
+      ''
+    )}${renderIndent(indent)}})`
 }
 
 function renderIndent(size: number) {
