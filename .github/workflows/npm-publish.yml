@@ -19,16 +19,13 @@ jobs:
           node-version: 14
 
       - name: Setup
-        run: yarn
-
-      - name: Test
-        run: yarn test
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Release
-        run: yarn semantic-release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
