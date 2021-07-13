@@ -7,12 +7,14 @@
     "rungen": "dist/cli.js"
   },
   "scripts": {
-    "build": "yarn clean && tsc && rimraf 'dist/**/?(__tests__|__mocks__|__setup__|*.test.*)'",
+    "prebuild": "npm run clean",
+    "build": "ts-node src/cli.ts && tsc",
+    "postbuild": "rimraf 'dist/**/?(__tests__|__mocks__|__setup__|*.test.*)'",
     "clean": "rimraf dist",
     "start": "concurrently yarn:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
-    "start:test": "yarn jest src --watch",
-    "test": "yarn jest",
+    "start:test": "jest src --watch",
+    "test": "jest",
     "prepare": "husky install"
   },
   "repository": {
@@ -54,7 +56,7 @@
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
-      "yarn prettier --ignore-path .gitignore --write"
+      "npx prettier --ignore-path .gitignore --write"
     ]
   },
   "config": {
