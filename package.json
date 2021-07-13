@@ -44,7 +44,6 @@
     "cz-conventional-changelog": "3.3.0",
     "husky": "7.0.1",
     "jest": "27.0.6",
-    "js-yaml": "^4.1.0",
     "lint-staged": "11.0.0",
     "prettier": "2.3.2",
     "rimraf": "3.0.2",
@@ -66,6 +65,7 @@
   },
   "dependencies": {
     "@johngw/error": "^2.1.0",
+    "js-yaml": "^4.1.0",
     "ts-morph": "^11.0.3",
     "tslib": "2.3.0",
     "yargs": "^17.0.1"
