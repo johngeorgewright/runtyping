@@ -9,6 +9,7 @@ This is still very much a work in progress, but you should be able to get up and
 ### Install
 
 ```
+npm install runtypes
 npm install -D runtypes-generator
 ```
 
