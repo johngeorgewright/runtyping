@@ -38,4 +38,6 @@ const argv = yargs(process.argv.slice(2))
     buildInstructions: Instructions.check(buildInstructions),
     project,
   })
-})()
+})().catch((error) => {
+  console.error(error)
+})
