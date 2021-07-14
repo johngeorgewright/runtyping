@@ -1,17 +1,16 @@
-import { Type } from 'ts-morph'
+import { CodeBlockWriter, Type } from 'ts-morph'
 
 export default function renderType(
+  writer: CodeBlockWriter,
   type: Type,
-  indent: number,
   imports: Set<string>
-): string {
+): CodeBlockWriter {
   if (type.isArray()) {
-    imports.add('Array')
-    return `Array(\n${renderIndent(indent + 1)}${renderType(
+    return renderType(
+      writer.write('Array('),
       type.getArrayElementTypeOrThrow(),
-      indent + 1,
-      imports
-    )}\n${renderIndent(indent)})`
+      imports.add('Array')
+    ).write(')')
   }
 
   if (type.isUnion()) {
@@ -26,49 +25,53 @@ export default function renderType(
 
     if (!first) {
       imports.add('Undefined')
-      return 'Undefined'
+      return writer.write('Undefined')
     }
 
     return rest.reduce(
-      (rendered, restEl) =>
-        `${rendered}.Or(${renderType(restEl, indent, imports)})`,
-      renderType(first, indent, imports)
+      (writer, restEl) =>
+        renderType(writer.write('.Or('), restEl, imports).write(')'),
+      renderType(writer, first, imports)
     )
   }
 
   if (type.isStringLiteral()) {
     imports.add('Literal')
-    return `Literal(${type.getText()})`
+    return writer.write(`Literal(${type.getText()})`)
   }
 
   if (type.isString()) {
     imports.add('String')
-    return 'String'
+    return writer.write('String')
   }
 
   if (type.isNumber()) {
     imports.add('Number')
-    return 'Number'
+    return writer.write('Number')
   }
 
   if (type.isAny()) {
     imports.add('Unknown')
-    return 'Unknown'
+    return writer.write('Unknown')
   }
 
   if (type.isUndefined()) {
     imports.add('Undefined')
-    return 'Undefined'
+    return writer.write('Undefined')
   }
 
   if (type.isInterface() || type.isObject()) {
-    return renderInterface(type, indent, imports)
+    return renderInterface(type, imports, writer)
   }
 
   throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
 }
 
-function renderInterface(type: Type, indent: number, imports: Set<string>) {
+function renderInterface(
+  type: Type,
+  imports: Set<string>,
+  writer: CodeBlockWriter
+) {
   const isBuiltInType = type
     .getSymbolOrThrow()
     .getDeclarations()
@@ -78,35 +81,27 @@ function renderInterface(type: Type, indent: number, imports: Set<string>) {
 
   if (isBuiltInType) {
     imports.add('InstanceOf')
-    return `InstanceOf(${type.getText()})`
+    return writer.write(`InstanceOf(${type.getText()})`)
   }
 
   if (type.getStringIndexType()) {
-    imports.add('Dictionary')
-    imports.add('String')
-    return `Dictionary(${renderType(
+    return renderType(
+      writer.write('Dictionary('),
       type.getStringIndexType()!,
-      indent,
-      imports
-    )}, String)`
+      imports.add('Dictionary').add('String')
+    ).write(')')
   }
 
-  imports.add('Record')
-  return `Record({\n${type
+  return type
     .getProperties()
     .reduce(
-      (rendered, property) =>
-        `${rendered}${renderIndent(
-          indent + 1
-        )}${property.getName()}: ${renderType(
+      (writer, property) =>
+        renderType(
+          writer.write(`${property.getName()}:`),
           property.getValueDeclarationOrThrow().getType(),
-          indent + 1,
-          imports
-        )},\n`,
-      ''
-    )}${renderIndent(indent)}})`
-}
-
-function renderIndent(size: number) {
-  return '  '.repeat(size)
+          imports.add('Record')
+        ).write(','),
+      writer.write('Record({')
+    )
+    .write('})')
 }
