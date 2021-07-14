@@ -45,7 +45,6 @@
     "husky": "7.0.1",
     "jest": "27.0.6",
     "lint-staged": "11.0.1",
-    "prettier": "2.3.2",
     "rimraf": "3.0.2",
     "runtypes": "6.3.1",
     "semantic-release": "17.4.4",
@@ -55,7 +54,7 @@
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
-      "npx prettier --ignore-path .gitignore --write"
+      "npx prettier --write"
     ]
   },
   "config": {
@@ -66,6 +65,7 @@
   "dependencies": {
     "@johngw/error": "^2.1.0",
     "js-yaml": "^4.1.0",
+    "prettier": "2.3.2",
     "ts-morph": "^11.0.3",
     "tslib": "2.3.0",
     "yargs": "^17.0.1"

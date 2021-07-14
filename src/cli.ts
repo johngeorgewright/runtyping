@@ -2,7 +2,7 @@
 
 import { readFile } from 'fs/promises'
 import yaml from 'js-yaml'
-import { Project } from 'ts-morph'
+import { IndentationText, NewLineKind, Project, QuoteKind } from 'ts-morph'
 import yargs from 'yargs/yargs'
 import generate from './generate'
 import { Instructions } from './runtypes'
@@ -23,6 +23,14 @@ const argv = yargs(process.argv.slice(2))
 
 ;(async () => {
   const project = new Project({
+    manipulationSettings: {
+      indentationText: IndentationText.TwoSpaces,
+      newLineKind: NewLineKind.LineFeed,
+      quoteKind: QuoteKind.Single,
+      usePrefixAndSuffixTextForRename: false,
+      useTrailingCommas: true,
+    },
+    skipAddingFilesFromTsConfig: true,
     tsConfigFilePath: argv.project,
   })
 
@@ -38,4 +46,6 @@ const argv = yargs(process.argv.slice(2))
     buildInstructions: Instructions.check(buildInstructions),
     project,
   })
-})()
+})().catch((error) => {
+  console.error(error)
+})
