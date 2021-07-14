@@ -46,7 +46,7 @@ export default async function generate({
               typeDeclaration = sourceFile.getTypeAliasOrThrow(sourceType.type)
             }
           } catch (error) {
-            throw new Error(`No interface of type called ${sourceType.type}.`)
+            throw new Error(`No interface or type called ${sourceType.type}.`)
           }
 
           const runtype = `export const ${sourceType.type} = ${renderType(
