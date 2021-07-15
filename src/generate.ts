@@ -5,9 +5,9 @@ import {
   VariableDeclarationKind,
 } from 'ts-morph'
 import { Instruction } from './types'
-import renderType from './renderType'
 import prettier from 'prettier'
 import { readFile, writeFile } from 'fs/promises'
+import generateType, { Import, Writer } from './generateType'
 
 export default async function generate({
   buildInstructions,
@@ -54,14 +54,30 @@ export default async function generate({
           throw new Error(`No interface or type called ${sourceType.type}.`)
         }
 
+        let writer = project.createWriter()
+        const generator = generateType(writer, typeDeclaration.getType())
+        let item = generator.next(writer)
+
+        while (!item.done) {
+          switch (item.value[0]) {
+            case Writer:
+              writer = item.value[1]
+              break
+            case Import:
+              imports.add(item.value[1])
+              break
+          }
+
+          item = generator.next(writer)
+        }
+
         targetFile.addVariableStatement({
           isExported: true,
           declarationKind: VariableDeclarationKind.Const,
           declarations: [
             {
               name: sourceType.type,
-              initializer: (writer) =>
-                renderType(writer, typeDeclaration.getType(), imports),
+              initializer: item.value.toString(),
             },
           ],
         })
