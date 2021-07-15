@@ -5,7 +5,7 @@ import yaml from 'js-yaml'
 import { IndentationText, NewLineKind, Project, QuoteKind } from 'ts-morph'
 import yargs from 'yargs/yargs'
 import generate from './generate'
-// import { Instructions } from './runtypes'
+import { Instructions } from './runtypes'
 
 const argv = yargs(process.argv.slice(2))
   .option('config', {
@@ -43,7 +43,7 @@ const argv = yargs(process.argv.slice(2))
   }
 
   await generate({
-    buildInstructions: buildInstructions as any,
+    buildInstructions: Instructions.check(buildInstructions),
     project,
   })
 })().catch((error) => {
