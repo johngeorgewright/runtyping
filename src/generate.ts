@@ -1,50 +1,35 @@
-import {
-  Project,
-  InterfaceDeclaration,
-  TypeAliasDeclaration,
-  VariableDeclarationKind,
-  SourceFile,
-} from 'ts-morph'
+import { Project, VariableDeclarationKind, SourceFile } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
-import prettier from 'prettier'
-import { readFile, writeFile } from 'fs/promises'
-import { tryCatch } from '@johngw/error'
 import RuntypeGenerator, { Import, Variable, Writer } from './RuntypeGenerator'
 
-export default async function generate({
+export default function* generate({
   buildInstructions,
   project,
 }: {
   buildInstructions: Instruction[]
   project: Project
 }) {
-  await Promise.all(
-    buildInstructions.map(async (buildInstruction) => {
-      const imports = new Set<string>()
-      const exports = new Set<string>()
-      const targetFile = project.createSourceFile(
-        buildInstruction.targetFile,
-        '',
-        { overwrite: true }
-      )
+  for (const buildInstruction of buildInstructions) {
+    const imports = new Set<string>()
+    const exports = new Set<string>()
+    const targetFile = project.createSourceFile(
+      buildInstruction.targetFile,
+      '',
+      { overwrite: true }
+    )
 
-      for (const sourceType of buildInstruction.sourceTypes) {
-        generateRuntype(project, sourceType, targetFile, imports, exports)
-      }
+    for (const sourceType of buildInstruction.sourceTypes) {
+      generateRuntype(project, sourceType, targetFile, imports, exports)
+    }
 
-      targetFile.addImportDeclaration({
-        namedImports: [...imports],
-        moduleSpecifier: 'runtypes',
-      })
-
-      await targetFile.save()
-      await format(targetFile.getFilePath())
-
-      console.log(`Generated ${buildInstruction.targetFile}`)
+    targetFile.addImportDeclaration({
+      namedImports: [...imports],
+      moduleSpecifier: 'runtypes',
     })
-  )
 
-  console.log('All done!')
+    targetFile.formatText()
+    yield targetFile
+  }
 }
 
 function generateRuntype(
@@ -111,37 +96,25 @@ function generateRuntype(
 }
 
 function getTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
-  return tryCatch<InterfaceDeclaration | TypeAliasDeclaration, []>(
-    () => sourceFile.getInterfaceOrThrow(sourceType),
-    () =>
-      tryCatch(
-        () => sourceFile.getTypeAliasOrThrow(sourceType),
-        () => {
-          throw new Error(`No interface or type called ${sourceType}.`)
-        }
-      )
-  )
+  try {
+    return sourceFile.getInterfaceOrThrow(sourceType)
+  } catch (error) {}
+
+  try {
+    return sourceFile.getTypeAliasOrThrow(sourceType)
+  } catch (error) {}
+
+  try {
+    return sourceFile.getEnumOrThrow(sourceType)
+  } catch (error) {
+    throw new Error(`No interface, type or enum called ${sourceType}.`)
+  }
 }
 
 function hasTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
-  return tryCatch(
-    () => !!sourceFile.getInterfaceOrThrow(sourceType),
-    () =>
-      tryCatch(
-        () => !!sourceFile.getTypeAliasOrThrow(sourceType),
-        () => false
-      )
-  )
-}
-
-async function format(fileName: string) {
-  const config = (await prettier.resolveConfig(fileName)) || {}
-  const contents = await readFile(fileName)
-  await writeFile(
-    fileName,
-    prettier.format(contents.toString(), {
-      ...config,
-      filepath: fileName,
-    })
-  )
+  try {
+    return !!getTypeDeclaration(sourceFile, sourceType)
+  } catch (error) {
+    return false
+  }
 }

@@ -17,5 +17,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "includes": ["src"]
+  "includes": ["src", "test"]
 }

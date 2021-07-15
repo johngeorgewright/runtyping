@@ -13,7 +13,7 @@
     "clean": "rimraf dist",
     "start": "concurrently yarn:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
-    "start:test": "jest src --watch",
+    "start:test": "jest --watch",
     "test": "jest",
     "prepare": "husky install"
   },

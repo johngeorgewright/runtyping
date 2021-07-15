@@ -49,44 +49,69 @@ export default class RuntypeGenerator {
   }
 
   *#generateType(type: Type): TypeGenerator {
-    if (type.isArray()) {
-      return yield* this.#generateArrayType(type)
+    switch (true) {
+      case type.isString():
+        return yield* this.#generateSimpleType('String')
+
+      case type.isNumber():
+        return yield* this.#generateSimpleType('Number')
+
+      case type.isBoolean():
+        return yield* this.#generateSimpleType('Boolean')
+
+      case type.isArray():
+        return yield* this.#generateArrayType(type)
+
+      case type.isEnum():
+        return yield* this.#generateEnumType(type)
+
+      case type.isUnion():
+        return yield* this.#generateUnionType(type)
+
+      case type.isStringLiteral():
+        yield [Import, 'Literal']
+        return yield [Writer, this.#writer.write(`Literal(${type.getText()})`)]
+
+      case type.isAny():
+        return yield* this.#generateSimpleType('Unknown')
+
+      case type.isUndefined():
+        return yield* this.#generateSimpleType('Undefined')
+
+      case type.isInterface():
+      case type.isObject():
+        return yield* this.#generateObjectType(type)
+
+      default:
+        throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
+    }
+  }
+
+  /**
+   * @todo Members is always empty
+   */
+  *#generateEnumType(type: Type): TypeGenerator {
+    const members = type
+      .getSymbolOrThrow()
+      .getMembers()
+      .map((member) => member.getDeclaredType())
+
+    if (!members.length) return this.#writer
+
+    let writer = yield* this.#generatePossiblyReusableType(members.shift()!)
+
+    for (const member of members) {
+      writer = yield [Writer, writer.write('.Or(')]
+      writer = yield* this.#generatePossiblyReusableType(member)
+      writer = yield [Writer, writer.write(')')]
     }
 
-    if (type.isUnion()) {
-      return yield* this.#generateUnionType(type)
-    }
+    return writer
+  }
 
-    if (type.isStringLiteral()) {
-      yield [Import, 'Literal']
-      return yield [Writer, this.#writer.write(`Literal(${type.getText()})`)]
-    }
-
-    if (type.isString()) {
-      yield [Import, 'String']
-      return yield [Writer, this.#writer.write('String')]
-    }
-
-    if (type.isNumber()) {
-      yield [Import, 'Number']
-      return yield [Writer, this.#writer.write('Number')]
-    }
-
-    if (type.isAny()) {
-      yield [Import, 'Unknown']
-      return yield [Writer, this.#writer.write('Unknown')]
-    }
-
-    if (type.isUndefined()) {
-      yield [Import, 'Undefined']
-      return yield [Writer, this.#writer.write('Undefined')]
-    }
-
-    if (type.isInterface() || type.isObject()) {
-      return yield* this.#generateObjectType(type)
-    }
-
-    throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
+  *#generateSimpleType(type: string): TypeGenerator {
+    yield [Import, type]
+    return yield [Writer, this.#writer.write(type)]
   }
 
   *#generateArrayType(type: Type): TypeGenerator {
