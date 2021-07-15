@@ -1,32 +1,39 @@
-import {
-  CodeBlockWriter,
-  // OptionalKind,
-  Type,
-  // VariableDeclarationStructure,
-} from 'ts-morph'
+import { CodeBlockWriter, Type } from 'ts-morph'
+import { tryCatch } from '@johngw/error'
 
 export const Writer = Symbol('Writer')
 export const Import = Symbol('Import')
-// export const Variable = Symbol('Variable')
+export const Variable = Symbol('Variable')
 
-type TypeGenerator = Generator<
+export type TypeGenerator = Generator<
   | [typeof Import, string]
-  // | [typeof Variable, OptionalKind<VariableDeclarationStructure>]
-  | [typeof Writer, CodeBlockWriter],
+  | [typeof Writer, CodeBlockWriter]
+  | [typeof Variable, string],
   CodeBlockWriter,
   CodeBlockWriter
 >
 
 export default function* generateType(
   writer: CodeBlockWriter,
-  type: Type
+  type: Type,
+  hasTypeDeclaration: (typeName: string) => boolean,
+  reuse: boolean = false
 ): TypeGenerator {
+  const typeName = tryCatch(
+    () => type.getSymbolOrThrow().getName(),
+    () => null
+  )
+  if (typeName && reuse && hasTypeDeclaration(typeName)) {
+    yield [Variable, typeName]
+    return yield [Writer, writer.write(typeName)]
+  }
+
   if (type.isArray()) {
-    return yield* generateArrayType(writer, type)
+    return yield* generateArrayType(writer, type, hasTypeDeclaration)
   }
 
   if (type.isUnion()) {
-    return yield* generateUnionType(writer, type)
+    return yield* generateUnionType(writer, type, hasTypeDeclaration)
   }
 
   if (type.isStringLiteral()) {
@@ -55,7 +62,7 @@ export default function* generateType(
   }
 
   if (type.isInterface() || type.isObject()) {
-    return yield* generateObjectType(writer, type)
+    return yield* generateObjectType(writer, type, hasTypeDeclaration)
   }
 
   throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
@@ -63,17 +70,24 @@ export default function* generateType(
 
 function* generateArrayType(
   writer: CodeBlockWriter,
-  type: Type
+  type: Type,
+  hasTypeDeclaration: (typeName: string) => boolean
 ): TypeGenerator {
   yield [Import, 'Array']
   writer = yield [Writer, writer.write('Array(')]
-  writer = yield* generateType(writer, type.getArrayElementTypeOrThrow())
+  writer = yield* generateType(
+    writer,
+    type.getArrayElementTypeOrThrow(),
+    hasTypeDeclaration,
+    true
+  )
   return yield [Writer, writer.write(')')]
 }
 
 function* generateUnionType(
   writer: CodeBlockWriter,
-  type: Type
+  type: Type,
+  hasTypeDeclaration: (typeName: string) => boolean
 ): TypeGenerator {
   const [first, ...rest] = type
     .getUnionTypes()
@@ -89,10 +103,10 @@ function* generateUnionType(
     return yield [Writer, writer.write('Undefined')]
   }
 
-  writer = yield* generateType(writer, first)
+  writer = yield* generateType(writer, first, hasTypeDeclaration, true)
   for (const item of rest) {
     writer = yield [Writer, writer.write('.Or()')]
-    writer = yield* generateType(writer, item)
+    writer = yield* generateType(writer, item, hasTypeDeclaration, true)
     writer = yield [Writer, writer.write(')')]
   }
   return writer
@@ -100,7 +114,8 @@ function* generateUnionType(
 
 function* generateObjectType(
   writer: CodeBlockWriter,
-  type: Type
+  type: Type,
+  hasTypeDeclaration: (typeName: string) => boolean
 ): TypeGenerator {
   const isBuiltInType = type
     .getSymbolOrThrow()
@@ -118,7 +133,12 @@ function* generateObjectType(
     yield [Import, 'Dictionary']
     yield [Import, 'String']
     writer = yield [Writer, writer.write('Dictionary(')]
-    writer = yield* generateType(writer, type.getStringIndexType()!)
+    writer = yield* generateType(
+      writer,
+      type.getStringIndexType()!,
+      hasTypeDeclaration,
+      true
+    )
     return yield [Writer, writer.write(')')]
   }
 
@@ -128,7 +148,9 @@ function* generateObjectType(
     writer = yield [Writer, writer.write(`${property.getName()}:`)]
     writer = yield* generateType(
       writer,
-      property.getValueDeclarationOrThrow().getType()
+      property.getValueDeclarationOrThrow().getType(),
+      hasTypeDeclaration,
+      true
     )
     writer = yield [Writer, writer.write(',')]
   }

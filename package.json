@@ -63,7 +63,7 @@
     }
   },
   "dependencies": {
-    "@johngw/error": "^2.1.0",
+    "@johngw/error": "^2.1.1",
     "js-yaml": "^4.1.0",
     "prettier": "2.3.2",
     "ts-morph": "^11.0.3",

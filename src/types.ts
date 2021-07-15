@@ -1,4 +1,4 @@
-export interface Instruction {
+export type Instruction = {
   targetFile: string
   sourceTypes: InstructionSourceType[]
 }

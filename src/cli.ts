@@ -34,13 +34,7 @@ const argv = yargs(process.argv.slice(2))
     tsConfigFilePath: argv.project,
   })
 
-  let buildInstructions: ReturnType<typeof yaml.load>
-
-  try {
-    buildInstructions = yaml.load(await readFile(argv.config, 'utf8'))
-  } catch (error) {
-    console.log(error)
-  }
+  const buildInstructions = yaml.load(await readFile(argv.config, 'utf8'))
 
   await generate({
     buildInstructions: Instructions.check(buildInstructions),
