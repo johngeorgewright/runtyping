@@ -8,8 +8,8 @@ import {
 import { Instruction, InstructionSourceType } from './types'
 import prettier from 'prettier'
 import { readFile, writeFile } from 'fs/promises'
-import generateType, { Import, Variable, Writer } from './generateType'
 import { tryCatch } from '@johngw/error'
+import RuntypeGenerator, { Import, Variable, Writer } from './RuntypeGenerator'
 
 export default async function generate({
   buildInstructions,
@@ -57,8 +57,10 @@ function generateRuntype(
   const sourceFile = project.addSourceFileAtPath(sourceType.file)
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType.type)
   let writer = project.createWriter()
-  const generator = generateType(writer, typeDeclaration.getType(), (type) =>
-    hasTypeDeclaration(sourceFile, type)
+  const generator = RuntypeGenerator.generateType(
+    writer,
+    typeDeclaration.getType(),
+    (type) => hasTypeDeclaration(sourceFile, type)
   )
   let item = generator.next(writer)
 
