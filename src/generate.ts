@@ -3,11 +3,12 @@ import {
   InterfaceDeclaration,
   TypeAliasDeclaration,
   VariableDeclarationKind,
+  SourceFile,
 } from 'ts-morph'
-import { Instruction } from './types'
+import { Instruction, InstructionSourceType } from './types'
 import prettier from 'prettier'
 import { readFile, writeFile } from 'fs/promises'
-import generateType, { Import, Writer } from './generateType'
+import generateType, { Import, Variable, Writer } from './generateType'
 
 export default async function generate({
   buildInstructions,
@@ -40,56 +41,9 @@ export default async function generate({
         { overwrite: true }
       )
 
-      buildInstruction.sourceTypes.forEach((sourceType) => {
-        let typeDeclaration: InterfaceDeclaration | TypeAliasDeclaration
-        const sourceFile = project.addSourceFileAtPath(sourceType.file)
-
-        try {
-          try {
-            typeDeclaration = sourceFile.getInterfaceOrThrow(sourceType.type)
-          } catch (error) {
-            typeDeclaration = sourceFile.getTypeAliasOrThrow(sourceType.type)
-          }
-        } catch (error) {
-          throw new Error(`No interface or type called ${sourceType.type}.`)
-        }
-
-        let writer = project.createWriter()
-        const generator = generateType(writer, typeDeclaration.getType())
-        let item = generator.next(writer)
-
-        while (!item.done) {
-          switch (item.value[0]) {
-            case Writer:
-              writer = item.value[1]
-              break
-            case Import:
-              imports.add(item.value[1])
-              break
-          }
-
-          item = generator.next(writer)
-        }
-
-        targetFile.addVariableStatement({
-          isExported: true,
-          declarationKind: VariableDeclarationKind.Const,
-          declarations: [
-            {
-              name: sourceType.type,
-              initializer: item.value.toString(),
-            },
-          ],
-        })
-
-        imports.add('Static')
-
-        targetFile.addTypeAlias({
-          isExported: true,
-          name: sourceType.type,
-          type: `Static<typeof ${sourceType.type}>`,
-        })
-      })
+      for (const sourceType of buildInstruction.sourceTypes) {
+        generateRuntype(project, sourceType, targetFile, imports)
+      }
 
       targetFile.addImportDeclaration({
         namedImports: [...imports],
@@ -104,6 +58,81 @@ export default async function generate({
   )
 
   console.log('All done!')
+}
+
+function generateRuntype(
+  project: Project,
+  sourceType: InstructionSourceType,
+  targetFile: SourceFile,
+  imports: Set<string>
+) {
+  const typeDeclaration = getTypeDeclaration(project, sourceType)
+  let writer = project.createWriter()
+  const generator = generateType(writer, typeDeclaration.getType())
+  let item = generator.next(writer)
+
+  while (!item.done) {
+    switch (item.value[0]) {
+      case Writer:
+        writer = item.value[1]
+        break
+      case Import:
+        imports.add(item.value[1])
+        break
+      case Variable:
+        generateRuntype(
+          project,
+          {
+            file: sourceType.file,
+            type: item.value[1],
+          },
+          targetFile,
+          imports
+        )
+        break
+    }
+
+    item = generator.next(writer)
+  }
+
+  targetFile.addVariableStatement({
+    isExported: true,
+    declarationKind: VariableDeclarationKind.Const,
+    declarations: [
+      {
+        name: sourceType.type,
+        initializer: item.value.toString(),
+      },
+    ],
+  })
+
+  imports.add('Static')
+
+  targetFile.addTypeAlias({
+    isExported: true,
+    name: sourceType.type,
+    type: `Static<typeof ${sourceType.type}>`,
+  })
+}
+
+function getTypeDeclaration(
+  project: Project,
+  sourceType: InstructionSourceType
+) {
+  const sourceFile = project.addSourceFileAtPath(sourceType.file)
+  let typeDeclaration: InterfaceDeclaration | TypeAliasDeclaration
+
+  try {
+    try {
+      typeDeclaration = sourceFile.getInterfaceOrThrow(sourceType.type)
+    } catch (error) {
+      typeDeclaration = sourceFile.getTypeAliasOrThrow(sourceType.type)
+    }
+  } catch (error) {
+    throw new Error(`No interface or type called ${sourceType.type}.`)
+  }
+
+  return typeDeclaration
 }
 
 async function format(fileName: string) {
