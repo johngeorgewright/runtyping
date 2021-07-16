@@ -20,10 +20,11 @@ export default class RuntypeGenerator {
   static generateType(
     writer: CodeBlockWriter,
     type: Type,
-    hasTypeDeclaration: (typeName: string) => boolean
+    hasTypeDeclaration: (typeName: string) => boolean,
+    isRecursive: boolean
   ) {
     const generator = new RuntypeGenerator(writer, hasTypeDeclaration)
-    return generator.#generate(type)
+    return generator.#generate(type, isRecursive)
   }
 
   private constructor(
@@ -34,46 +35,71 @@ export default class RuntypeGenerator {
     this.#hasTypeDeclaration = hasTypeDeclaration
   }
 
-  *#generate(type: Type): TypeGenerator {
+  *#generate(type: Type, isRecursive = false): TypeGenerator {
+    if (isRecursive) {
+      yield [Import, 'Lazy']
+      this.#writer = yield [Writer, this.#writer.write('Lazy(() => ')]
+    }
+
     switch (true) {
       case type.isString():
-        return yield* this.#generateSimpleType('String')
+        this.#writer = yield* this.#generateSimpleType('String')
+        break
 
       case type.isNumber():
-        return yield* this.#generateSimpleType('Number')
+        this.#writer = yield* this.#generateSimpleType('Number')
+        break
 
       case type.isBoolean():
-        return yield* this.#generateSimpleType('Boolean')
+        this.#writer = yield* this.#generateSimpleType('Boolean')
+        break
 
       case type.isArray():
-        return yield* this.#generateArrayType(type)
+        this.#writer = yield* this.#generateArrayType(type)
+        break
 
       case type.isEnum():
-        return yield* this.#generateEnumType(type)
+        this.#writer = yield* this.#generateEnumType(type)
+        break
 
       case type.isIntersection():
-        return yield* this.#generateIntersectionType(type)
+        this.#writer = yield* this.#generateIntersectionType(type)
+        break
 
       case type.isUnion():
-        return yield* this.#generateUnionType(type)
+        this.#writer = yield* this.#generateUnionType(type)
+        break
 
       case type.isLiteral():
         yield [Import, 'Literal']
-        return yield [Writer, this.#writer.write(`Literal(${type.getText()})`)]
+        this.#writer = yield [
+          Writer,
+          this.#writer.write(`Literal(${type.getText()})`),
+        ]
+        break
 
       case type.isAny():
-        return yield* this.#generateSimpleType('Unknown')
+        this.#writer = yield* this.#generateSimpleType('Unknown')
+        break
 
       case type.isUndefined():
-        return yield* this.#generateSimpleType('Undefined')
+        this.#writer = yield* this.#generateSimpleType('Undefined')
+        break
 
       case type.isInterface():
       case type.isObject():
-        return yield* this.#generateObjectType(type)
+        this.#writer = yield* this.#generateObjectType(type)
+        break
 
       default:
         throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
     }
+
+    if (isRecursive) {
+      this.#writer = yield [Writer, this.#writer.write(')')]
+    }
+
+    return this.#writer
   }
 
   *#generateType(type: Type): TypeGenerator {

@@ -1,4 +1,12 @@
-import { Project, VariableDeclarationKind, SourceFile } from 'ts-morph'
+import {
+  Project,
+  VariableDeclarationKind,
+  SourceFile,
+  InterfaceDeclaration,
+  TypeAliasDeclaration,
+  EnumDeclaration,
+  SyntaxKind,
+} from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
 import RuntypeGenerator, { Import, Variable, Writer } from './RuntypeGenerator'
 
@@ -42,11 +50,14 @@ function generateRuntype(
   const sourceFile = project.addSourceFileAtPath(sourceType.file)
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType.type)
   let writer = project.createWriter()
+  const recursive = isRecursive(typeDeclaration)
   const generator = RuntypeGenerator.generateType(
     writer,
     typeDeclaration.getType(),
-    (type) => hasTypeDeclaration(sourceFile, type)
+    (type) => recursive || hasTypeDeclaration(sourceFile, type),
+    recursive
   )
+
   let item = generator.next(writer)
 
   while (!item.done) {
@@ -58,7 +69,7 @@ function generateRuntype(
         imports.add(item.value[1])
         break
       case Variable:
-        if (!exports.has(item.value[1]))
+        if (!exports.has(item.value[1]) && !recursive)
           generateRuntype(
             project,
             {
@@ -121,4 +132,18 @@ function hasTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
   } catch (error) {
     return false
   }
+}
+
+function isRecursive(
+  typeDeclaration: InterfaceDeclaration | TypeAliasDeclaration | EnumDeclaration
+) {
+  const name = typeDeclaration.getName()
+
+  for (const node of typeDeclaration.getDescendantsOfKind(
+    SyntaxKind.TypeReference
+  )) {
+    if (node.getText() === name) return true
+  }
+
+  return false
 }
