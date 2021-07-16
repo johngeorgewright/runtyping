@@ -23,7 +23,7 @@ export default class RuntypeGenerator {
     hasTypeDeclaration: (typeName: string) => boolean
   ) {
     const generator = new RuntypeGenerator(writer, hasTypeDeclaration)
-    return generator.#generateType(type)
+    return generator.#generate(type)
   }
 
   private constructor(
@@ -34,21 +34,7 @@ export default class RuntypeGenerator {
     this.#hasTypeDeclaration = hasTypeDeclaration
   }
 
-  *#generatePossiblyReusableType(type: Type): TypeGenerator {
-    const typeName = tryCatch(
-      () => type.getSymbolOrThrow().getName(),
-      () => null
-    )
-
-    if (typeName && this.#hasTypeDeclaration(typeName)) {
-      yield [Variable, typeName]
-      return yield [Writer, this.#writer.write(typeName)]
-    }
-
-    return yield* this.#generateType(type)
-  }
-
-  *#generateType(type: Type): TypeGenerator {
+  *#generate(type: Type): TypeGenerator {
     switch (true) {
       case type.isString():
         return yield* this.#generateSimpleType('String')
@@ -65,10 +51,13 @@ export default class RuntypeGenerator {
       case type.isEnum():
         return yield* this.#generateEnumType(type)
 
+      case type.isIntersection():
+        return yield* this.#generateIntersectionType(type)
+
       case type.isUnion():
         return yield* this.#generateUnionType(type)
 
-      case type.isStringLiteral():
+      case type.isLiteral():
         yield [Import, 'Literal']
         return yield [Writer, this.#writer.write(`Literal(${type.getText()})`)]
 
@@ -87,26 +76,40 @@ export default class RuntypeGenerator {
     }
   }
 
+  *#generateType(type: Type): TypeGenerator {
+    const typeName = tryCatch(
+      () => type.getSymbolOrThrow().getName(),
+      () => null
+    )
+
+    if (typeName && this.#hasTypeDeclaration(typeName)) {
+      yield [Variable, typeName]
+      return yield [Writer, this.#writer.write(typeName)]
+    }
+
+    return yield* this.#generate(type)
+  }
+
   /**
    * @todo Members is always empty
    */
   *#generateEnumType(type: Type): TypeGenerator {
-    const members = type
+    const [first, ...members] = type
       .getSymbolOrThrow()
       .getMembers()
       .map((member) => member.getDeclaredType())
 
-    if (!members.length) return this.#writer
+    if (!first) return yield* this.#generateSimpleType('Undefined')
 
-    let writer = yield* this.#generatePossiblyReusableType(members.shift()!)
+    this.#writer = yield* this.#generateType(first)
 
     for (const member of members) {
-      writer = yield [Writer, writer.write('.Or(')]
-      writer = yield* this.#generatePossiblyReusableType(member)
-      writer = yield [Writer, writer.write(')')]
+      this.#writer = yield [Writer, this.#writer.write('.Or(')]
+      this.#writer = yield* this.#generateType(member)
+      this.#writer = yield [Writer, this.#writer.write(')')]
     }
 
-    return writer
+    return this.#writer
   }
 
   *#generateSimpleType(type: string): TypeGenerator {
@@ -117,9 +120,7 @@ export default class RuntypeGenerator {
   *#generateArrayType(type: Type): TypeGenerator {
     yield [Import, 'Array']
     this.#writer = yield [Writer, this.#writer.write('Array(')]
-    this.#writer = yield* this.#generatePossiblyReusableType(
-      type.getArrayElementTypeOrThrow()
-    )
+    this.#writer = yield* this.#generateType(type.getArrayElementTypeOrThrow())
     return yield [Writer, this.#writer.write(')')]
   }
 
@@ -140,10 +141,14 @@ export default class RuntypeGenerator {
       yield [Import, 'Dictionary']
       yield [Import, 'String']
       this.#writer = yield [Writer, this.#writer.write('Dictionary(')]
-      this.#writer = yield* this.#generatePossiblyReusableType(
-        type.getStringIndexType()!
-      )
-      return yield [Writer, this.#writer.write(')')]
+      this.#writer = yield* this.#generateType(type.getStringIndexType()!)
+      return yield [Writer, this.#writer.write(', String)')]
+    } else if (type.getNumberIndexType()) {
+      yield [Import, 'Dictionary']
+      yield [Import, 'Number']
+      this.#writer = yield [Writer, this.#writer.write('Dictionary(')]
+      this.#writer = yield* this.#generateType(type.getStringIndexType()!)
+      return yield [Writer, this.#writer.write(', Number)')]
     }
 
     yield [Import, 'Record']
@@ -153,7 +158,7 @@ export default class RuntypeGenerator {
         Writer,
         this.#writer.write(`${property.getName()}:`),
       ]
-      this.#writer = yield* this.#generatePossiblyReusableType(
+      this.#writer = yield* this.#generateType(
         property.getValueDeclarationOrThrow().getType()
       )
       this.#writer = yield [Writer, this.#writer.write(',')]
@@ -161,27 +166,39 @@ export default class RuntypeGenerator {
     return yield [Writer, this.#writer.write('})')]
   }
 
-  *#generateUnionType(type: Type): TypeGenerator {
+  *#generateIntersectionType(type: Type): TypeGenerator {
     const [first, ...rest] = type
-      .getUnionTypes()
-      .sort(
-        (a, b) =>
-          Number(a.isUndefined()) - Number(b.isUndefined()) ||
-          +(a > b) ||
-          -(a < b)
-      )
+      .getIntersectionTypes()
+      .sort(sortUndefinedFirst)
 
-    if (!first) {
-      yield [Import, 'Undefined']
-      return yield [Writer, this.#writer.write('Undefined')]
-    }
+    if (!first) return yield* this.#generateSimpleType('Undefined')
 
-    this.#writer = yield* this.#generatePossiblyReusableType(first)
+    this.#writer = yield* this.#generateType(first)
     for (const item of rest) {
-      this.#writer = yield [Writer, this.#writer.write('.Or()')]
-      this.#writer = yield* this.#generatePossiblyReusableType(item)
+      this.#writer = yield [Writer, this.#writer.write('.And(')]
+      this.#writer = yield* this.#generateType(item)
       this.#writer = yield [Writer, this.#writer.write(')')]
     }
     return this.#writer
   }
+
+  *#generateUnionType(type: Type): TypeGenerator {
+    const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
+
+    if (!first) return yield* this.#generateSimpleType('Undefined')
+
+    this.#writer = yield* this.#generateType(first)
+    for (const item of rest) {
+      this.#writer = yield [Writer, this.#writer.write('.Or(')]
+      this.#writer = yield* this.#generateType(item)
+      this.#writer = yield [Writer, this.#writer.write(')')]
+    }
+    return this.#writer
+  }
+}
+
+function sortUndefinedFirst(a: Type, b: Type) {
+  return (
+    Number(a.isUndefined()) - Number(b.isUndefined()) || +(a > b) || -(a < b)
+  )
 }

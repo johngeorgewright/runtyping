@@ -93,6 +93,8 @@ function generateRuntype(
     name: sourceType.type,
     type: `Static<typeof ${sourceType.type}>`,
   })
+
+  exports.add(sourceType.type)
 }
 
 function getTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
@@ -107,7 +109,9 @@ function getTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
   try {
     return sourceFile.getEnumOrThrow(sourceType)
   } catch (error) {
-    throw new Error(`No interface, type or enum called ${sourceType}.`)
+    throw new Error(
+      `Cannot find any interface, type or enum called "${sourceType}" in ${sourceFile.getFilePath()}.`
+    )
   }
 }
 
