@@ -8,7 +8,11 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
-import RuntypeGenerator, { Import, Variable, Writer } from './RuntypeGenerator'
+import RuntypeGenerator, {
+  Import,
+  UseIdentifier,
+  Write,
+} from './RuntypeGenerator'
 
 export default function* generate({
   buildInstructions,
@@ -52,29 +56,26 @@ function generateRuntype(
   let writer = project.createWriter()
   const recursive = isRecursive(typeDeclaration)
   const generator = RuntypeGenerator.generateType(
-    writer,
     typeDeclaration.getType(),
     (type) => recursive || hasTypeDeclaration(sourceFile, type),
     recursive
   )
 
-  let item = generator.next(writer)
-
-  while (!item.done) {
-    switch (item.value[0]) {
-      case Writer:
-        writer = item.value[1]
+  for (const item of generator) {
+    switch (item[0]) {
+      case Write:
+        writer = writer.write(item[1])
         break
       case Import:
-        imports.add(item.value[1])
+        imports.add(item[1])
         break
-      case Variable:
-        if (!exports.has(item.value[1]) && !recursive)
+      case UseIdentifier:
+        if (!exports.has(item[1]) && !recursive)
           generateRuntype(
             project,
             {
               file: sourceType.file,
-              type: item.value[1],
+              type: item[1],
             },
             targetFile,
             imports,
@@ -82,8 +83,6 @@ function generateRuntype(
           )
         break
     }
-
-    item = generator.next(writer)
   }
 
   targetFile.addVariableStatement({
@@ -92,7 +91,7 @@ function generateRuntype(
     declarations: [
       {
         name: sourceType.type,
-        initializer: item.value.toString(),
+        initializer: writer.toString(),
       },
     ],
   })
