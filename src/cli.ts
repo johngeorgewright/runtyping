@@ -36,10 +36,13 @@ const argv = yargs(process.argv.slice(2))
 
   const buildInstructions = yaml.load(await readFile(argv.config, 'utf8'))
 
-  await generate({
+  for (const file of generate({
     buildInstructions: Instructions.check(buildInstructions),
     project,
-  })
+  })) {
+    await file.save()
+    console.info(`Generated ${file.getFilePath()}`)
+  }
 })().catch((error) => {
   console.error(error)
 })
