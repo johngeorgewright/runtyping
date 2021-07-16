@@ -8,8 +8,7 @@
   },
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc",
-    "postbuild": "rimraf 'dist/test'",
+    "build": "tsc --project tsconfig.json",
     "clean": "rimraf dist",
     "start": "concurrently yarn:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
