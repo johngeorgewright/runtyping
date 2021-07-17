@@ -53,25 +53,34 @@ function generateRuntype(
   const recursive = isRecursive(typeDeclaration)
   const generator = RuntypeGenerator.generateType(
     typeDeclaration.getType(),
-    (type) => recursive || hasTypeDeclaration(sourceFile, type),
     recursive
   )
 
-  for (const item of generator) {
-    switch (item[0]) {
+  let item = generator.next()
+
+  while (!item.done) {
+    let next: true | undefined
+
+    switch (item.value[0]) {
       case Write:
-        writer = writer.write(item[1])
+        writer = writer.write(item.value[1])
         break
+
       case Import:
-        imports.add(item[1])
+        imports.add(item.value[1])
         break
+
       case Declare:
-        if (!exports.has(item[1]) && !recursive)
+        if (recursive || hasTypeDeclaration(sourceFile, item.value[1])) {
+          next = true
+          writer = writer.write(item.value[1])
+        }
+        if (next && !recursive && !exports.has(item.value[1]))
           generateRuntype(
             project,
             {
               file: sourceType.file,
-              type: item[1],
+              type: item.value[1],
             },
             targetFile,
             imports,
@@ -79,6 +88,8 @@ function generateRuntype(
           )
         break
     }
+
+    item = generator.next(next)
   }
 
   targetFile.addVariableStatement({

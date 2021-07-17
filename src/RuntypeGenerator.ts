@@ -6,24 +6,18 @@ export const Import = Symbol('Import')
 export const Declare = Symbol('Declare')
 
 export type TypeGenerator = Generator<
-  [typeof Import, string] | [typeof Write, string] | [typeof Declare, string]
+  [typeof Import, string] | [typeof Write, string] | [typeof Declare, string],
+  any,
+  undefined | boolean
 >
 
 export default class RuntypeGenerator {
-  #hasTypeDeclaration: (typeName: string) => boolean
-
-  static generateType(
-    type: Type,
-    hasTypeDeclaration: (typeName: string) => boolean,
-    isRecursive: boolean
-  ) {
-    const generator = new RuntypeGenerator(hasTypeDeclaration)
+  static generateType(type: Type, isRecursive: boolean) {
+    const generator = new RuntypeGenerator()
     return generator.#generate(type, isRecursive)
   }
 
-  private constructor(hasTypeDeclaration: (typeName: string) => boolean) {
-    this.#hasTypeDeclaration = hasTypeDeclaration
-  }
+  private constructor() {}
 
   *#generate(type: Type, isRecursive = false): TypeGenerator {
     if (isRecursive) {
@@ -93,9 +87,7 @@ export default class RuntypeGenerator {
       () => null
     )
 
-    if (typeName && this.#hasTypeDeclaration(typeName)) {
-      yield [Declare, typeName]
-      yield [Write, typeName]
+    if (!!typeName && (yield [Declare, typeName])) {
       return
     }
 
