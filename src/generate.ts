@@ -8,11 +8,7 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
-import RuntypeGenerator, {
-  Import,
-  UseIdentifier,
-  Write,
-} from './RuntypeGenerator'
+import RuntypeGenerator, { Declare, Import, Write } from './RuntypeGenerator'
 
 export default function* generate({
   buildInstructions,
@@ -69,7 +65,7 @@ function generateRuntype(
       case Import:
         imports.add(item[1])
         break
-      case UseIdentifier:
+      case Declare:
         if (!exports.has(item[1]) && !recursive)
           generateRuntype(
             project,

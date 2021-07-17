@@ -3,12 +3,10 @@ import { Type } from 'ts-morph'
 
 export const Write = Symbol('Write')
 export const Import = Symbol('Import')
-export const UseIdentifier = Symbol('UseIdentifier')
+export const Declare = Symbol('Declare')
 
 export type TypeGenerator = Generator<
-  | [typeof Import, string]
-  | [typeof Write, string]
-  | [typeof UseIdentifier, string]
+  [typeof Import, string] | [typeof Write, string] | [typeof Declare, string]
 >
 
 export default class RuntypeGenerator {
@@ -96,7 +94,7 @@ export default class RuntypeGenerator {
     )
 
     if (typeName && this.#hasTypeDeclaration(typeName)) {
-      yield [UseIdentifier, typeName]
+      yield [Declare, typeName]
       yield [Write, typeName]
       return
     }
@@ -148,24 +146,15 @@ export default class RuntypeGenerator {
       )
 
     if (isBuiltInType) {
-      yield [Import, 'InstanceOf']
-      yield [Write, `InstanceOf(${type.getText()})`]
+      yield* this.#generateBuildInType(type)
       return
     }
 
     if (type.getStringIndexType()) {
-      yield [Import, 'Dictionary']
-      yield [Import, 'String']
-      yield [Write, 'Dictionary(']
-      yield* this.#generateType(type.getStringIndexType()!)
-      yield [Write, ', String)']
+      yield* this.#generateStringIndexType(type)
       return
     } else if (type.getNumberIndexType()) {
-      yield [Import, 'Dictionary']
-      yield [Import, 'Number']
-      yield [Write, 'Dictionary(']
-      yield* this.#generateType(type.getStringIndexType()!)
-      yield [Write, ', Number)']
+      yield* this.#generateNumberIndexType(type)
       return
     }
 
@@ -177,6 +166,27 @@ export default class RuntypeGenerator {
       yield [Write, ',']
     }
     yield [Write, '})']
+  }
+
+  *#generateBuildInType(type: Type): TypeGenerator {
+    yield [Import, 'InstanceOf']
+    yield [Write, `InstanceOf(${type.getText()})`]
+  }
+
+  *#generateStringIndexType(type: Type): TypeGenerator {
+    yield [Import, 'Dictionary']
+    yield [Import, 'String']
+    yield [Write, 'Dictionary(']
+    yield* this.#generateType(type.getStringIndexType()!)
+    yield [Write, ', String)']
+  }
+
+  *#generateNumberIndexType(type: Type): TypeGenerator {
+    yield [Import, 'Dictionary']
+    yield [Import, 'Number']
+    yield [Write, 'Dictionary(']
+    yield* this.#generateType(type.getNumberIndexType()!)
+    yield [Write, ', Number)']
   }
 
   *#generateIntersectionType(type: Type): TypeGenerator {
