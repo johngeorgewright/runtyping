@@ -5,214 +5,206 @@ export const Write = Symbol('Write')
 export const Import = Symbol('Import')
 export const Declare = Symbol('Declare')
 
-export type TypeGenerator = Generator<
+export type RuntypeGenerator = Generator<
   [typeof Import, string] | [typeof Write, string] | [typeof Declare, string],
   any,
   undefined | boolean
 >
 
-export default class RuntypeGenerator {
-  static generateType(type: Type, isRecursive: boolean) {
-    const generator = new RuntypeGenerator()
-    return generator.#generate(type, isRecursive)
+export default function* runtypeGenerator(
+  type: Type,
+  isRecursive = false
+): RuntypeGenerator {
+  if (isRecursive) {
+    yield [Import, 'Lazy']
+    yield [Write, 'Lazy(() => ']
   }
 
-  private constructor() {}
+  switch (true) {
+    case type.isString():
+      yield* generateSimpleType('String')
+      break
 
-  *#generate(type: Type, isRecursive = false): TypeGenerator {
-    if (isRecursive) {
-      yield [Import, 'Lazy']
-      yield [Write, 'Lazy(() => ']
-    }
+    case type.isNumber():
+      yield* generateSimpleType('Number')
+      break
 
-    switch (true) {
-      case type.isString():
-        yield* this.#generateSimpleType('String')
-        break
+    case type.isBoolean():
+      yield* generateSimpleType('Boolean')
+      break
 
-      case type.isNumber():
-        yield* this.#generateSimpleType('Number')
-        break
+    case type.isArray():
+      yield* generateArrayType(type)
+      break
 
-      case type.isBoolean():
-        yield* this.#generateSimpleType('Boolean')
-        break
+    case type.isEnum():
+      yield* generateEnumType(type)
+      break
 
-      case type.isArray():
-        yield* this.#generateArrayType(type)
-        break
+    case type.isIntersection():
+      yield* generateIntersectionType(type)
+      break
 
-      case type.isEnum():
-        yield* this.#generateEnumType(type)
-        break
+    case type.isUnion():
+      yield* generateUnionType(type)
+      break
 
-      case type.isIntersection():
-        yield* this.#generateIntersectionType(type)
-        break
+    case type.isLiteral():
+      yield [Import, 'Literal']
+      yield [Write, `Literal(${type.getText()})`]
+      break
 
-      case type.isUnion():
-        yield* this.#generateUnionType(type)
-        break
+    case type.isAny():
+      yield* generateSimpleType('Unknown')
+      break
 
-      case type.isLiteral():
-        yield [Import, 'Literal']
-        yield [Write, `Literal(${type.getText()})`]
-        break
+    case type.isUndefined():
+      yield* generateSimpleType('Undefined')
+      break
 
-      case type.isAny():
-        yield* this.#generateSimpleType('Unknown')
-        break
+    case type.isInterface():
+    case type.isObject():
+      yield* generateObjectType(type)
+      break
 
-      case type.isUndefined():
-        yield* this.#generateSimpleType('Undefined')
-        break
-
-      case type.isInterface():
-      case type.isObject():
-        yield* this.#generateObjectType(type)
-        break
-
-      default:
-        throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
-    }
-
-    if (isRecursive) {
-      yield [Write, ')']
-    }
+    default:
+      throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
   }
 
-  *#generateType(type: Type): TypeGenerator {
-    const typeName = tryCatch(
-      () => type.getSymbolOrThrow().getName(),
-      () => null
-    )
-
-    if (!!typeName && (yield [Declare, typeName])) {
-      return
-    }
-
-    yield* this.#generate(type)
-  }
-
-  /**
-   * @todo Members is always empty
-   */
-  *#generateEnumType(type: Type): TypeGenerator {
-    const [first, ...members] = type
-      .getSymbolOrThrow()
-      .getMembers()
-      .map((member) => member.getDeclaredType())
-
-    if (!first) {
-      yield* this.#generateSimpleType('Undefined')
-      return
-    }
-
-    yield* this.#generateType(first)
-
-    for (const member of members) {
-      yield [Write, '.Or(']
-      yield* this.#generateType(member)
-      yield [Write, ')']
-    }
-  }
-
-  *#generateSimpleType(type: string): TypeGenerator {
-    yield [Import, type]
-    yield [Write, type]
-  }
-
-  *#generateArrayType(type: Type): TypeGenerator {
-    yield [Import, 'Array']
-    yield [Write, 'Array(']
-    yield* this.#generateType(type.getArrayElementTypeOrThrow())
+  if (isRecursive) {
     yield [Write, ')']
   }
+}
 
-  *#generateObjectType(type: Type): TypeGenerator {
-    const isBuiltInType = type
-      .getSymbolOrThrow()
-      .getDeclarations()
-      .some((d) =>
-        d.getSourceFile().getFilePath().includes(require.resolve('typescript'))
-      )
+function* generateType(type: Type): RuntypeGenerator {
+  const typeName = tryCatch(
+    () => type.getSymbolOrThrow().getName(),
+    () => null
+  )
 
-    if (isBuiltInType) {
-      yield* this.#generateBuildInType(type)
-      return
-    }
-
-    if (type.getStringIndexType()) {
-      yield* this.#generateStringIndexType(type)
-      return
-    } else if (type.getNumberIndexType()) {
-      yield* this.#generateNumberIndexType(type)
-      return
-    }
-
-    yield [Import, 'Record']
-    yield [Write, 'Record({']
-    for (const property of type.getProperties()) {
-      yield [Write, `${property.getName()}:`]
-      yield* this.#generateType(property.getValueDeclarationOrThrow().getType())
-      yield [Write, ',']
-    }
-    yield [Write, '})']
+  if (!!typeName && (yield [Declare, typeName])) {
+    return
   }
 
-  *#generateBuildInType(type: Type): TypeGenerator {
-    yield [Import, 'InstanceOf']
-    yield [Write, `InstanceOf(${type.getText()})`]
+  yield* runtypeGenerator(type)
+}
+
+/**
+ * @todo Members is always empty
+ */
+function* generateEnumType(type: Type): RuntypeGenerator {
+  const [first, ...members] = type
+    .getSymbolOrThrow()
+    .getMembers()
+    .map((member) => member.getDeclaredType())
+
+  if (!first) {
+    yield* generateSimpleType('Undefined')
+    return
   }
 
-  *#generateStringIndexType(type: Type): TypeGenerator {
-    yield [Import, 'Dictionary']
-    yield [Import, 'String']
-    yield [Write, 'Dictionary(']
-    yield* this.#generateType(type.getStringIndexType()!)
-    yield [Write, ', String)']
+  yield* generateType(first)
+
+  for (const member of members) {
+    yield [Write, '.Or(']
+    yield* generateType(member)
+    yield [Write, ')']
+  }
+}
+
+function* generateSimpleType(type: string): RuntypeGenerator {
+  yield [Import, type]
+  yield [Write, type]
+}
+
+function* generateArrayType(type: Type): RuntypeGenerator {
+  yield [Import, 'Array']
+  yield [Write, 'Array(']
+  yield* generateType(type.getArrayElementTypeOrThrow())
+  yield [Write, ')']
+}
+
+function* generateObjectType(type: Type): RuntypeGenerator {
+  const isBuiltInType = type
+    .getSymbolOrThrow()
+    .getDeclarations()
+    .some((d) =>
+      d.getSourceFile().getFilePath().includes(require.resolve('typescript'))
+    )
+
+  if (isBuiltInType) {
+    yield* generateBuildInType(type)
+    return
   }
 
-  *#generateNumberIndexType(type: Type): TypeGenerator {
-    yield [Import, 'Dictionary']
-    yield [Import, 'Number']
-    yield [Write, 'Dictionary(']
-    yield* this.#generateType(type.getNumberIndexType()!)
-    yield [Write, ', Number)']
+  if (type.getStringIndexType()) {
+    yield* generateStringIndexType(type)
+    return
+  } else if (type.getNumberIndexType()) {
+    yield* generateNumberIndexType(type)
+    return
   }
 
-  *#generateIntersectionType(type: Type): TypeGenerator {
-    const [first, ...rest] = type
-      .getIntersectionTypes()
-      .sort(sortUndefinedFirst)
+  yield [Import, 'Record']
+  yield [Write, 'Record({']
+  for (const property of type.getProperties()) {
+    yield [Write, `${property.getName()}:`]
+    yield* generateType(property.getValueDeclarationOrThrow().getType())
+    yield [Write, ',']
+  }
+  yield [Write, '})']
+}
 
-    if (!first) {
-      yield* this.#generateSimpleType('Undefined')
-      return
-    }
+function* generateBuildInType(type: Type): RuntypeGenerator {
+  yield [Import, 'InstanceOf']
+  yield [Write, `InstanceOf(${type.getText()})`]
+}
 
-    yield* this.#generateType(first)
-    for (const item of rest) {
-      yield [Write, '.And(']
-      yield* this.#generateType(item)
-      yield [Write, ')']
-    }
+function* generateStringIndexType(type: Type): RuntypeGenerator {
+  yield [Import, 'Dictionary']
+  yield [Import, 'String']
+  yield [Write, 'Dictionary(']
+  yield* generateType(type.getStringIndexType()!)
+  yield [Write, ', String)']
+}
+
+function* generateNumberIndexType(type: Type): RuntypeGenerator {
+  yield [Import, 'Dictionary']
+  yield [Import, 'Number']
+  yield [Write, 'Dictionary(']
+  yield* generateType(type.getNumberIndexType()!)
+  yield [Write, ', Number)']
+}
+
+function* generateIntersectionType(type: Type): RuntypeGenerator {
+  const [first, ...rest] = type.getIntersectionTypes().sort(sortUndefinedFirst)
+
+  if (!first) {
+    yield* generateSimpleType('Undefined')
+    return
   }
 
-  *#generateUnionType(type: Type): TypeGenerator {
-    const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
+  yield* generateType(first)
+  for (const item of rest) {
+    yield [Write, '.And(']
+    yield* generateType(item)
+    yield [Write, ')']
+  }
+}
 
-    if (!first) {
-      yield* this.#generateSimpleType('Undefined')
-      return
-    }
+function* generateUnionType(type: Type): RuntypeGenerator {
+  const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
 
-    yield* this.#generateType(first)
-    for (const item of rest) {
-      yield [Write, '.Or(']
-      yield* this.#generateType(item)
-      yield [Write, ')']
-    }
+  if (!first) {
+    yield* generateSimpleType('Undefined')
+    return
+  }
+
+  yield* generateType(first)
+  for (const item of rest) {
+    yield [Write, '.Or(']
+    yield* generateType(item)
+    yield [Write, ')']
   }
 }
 

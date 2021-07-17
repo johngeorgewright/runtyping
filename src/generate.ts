@@ -9,6 +9,7 @@ import {
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
 import RuntypeGenerator, { Declare, Import, Write } from './RuntypeGenerator'
+import runtypeGenerator from './RuntypeGenerator'
 
 export default function* generate({
   buildInstructions,
@@ -49,13 +50,10 @@ function generateRuntype(
 ) {
   const sourceFile = project.addSourceFileAtPath(sourceType.file)
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType.type)
-  let writer = project.createWriter()
   const recursive = isRecursive(typeDeclaration)
-  const generator = RuntypeGenerator.generateType(
-    typeDeclaration.getType(),
-    recursive
-  )
+  const generator = runtypeGenerator(typeDeclaration.getType(), recursive)
 
+  let writer = project.createWriter()
   let item = generator.next()
 
   while (!item.done) {
