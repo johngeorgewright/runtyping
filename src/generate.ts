@@ -8,8 +8,7 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
-import RuntypeGenerator, { Declare, Import, Write } from './RuntypeGenerator'
-import runtypeGenerator from './RuntypeGenerator'
+import runtypeGenerator, { Declare, Import, Write } from './runtypeGenerator'
 
 export default function* generate({
   buildInstructions,
