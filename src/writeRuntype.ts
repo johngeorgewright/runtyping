@@ -221,7 +221,7 @@ function* generateEnumType(type: Type): RuntypeGenerator {
   yield [ImportFromSource, name]
   yield [
     Write,
-    `Guard((x: any): x is ${name} => Object.values(${name}).includes(x))`,
+    `Guard((x: any): x is _${name} => Object.values(_${name}).includes(x))`,
   ]
 }
 

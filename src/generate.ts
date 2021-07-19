@@ -89,7 +89,10 @@ export default async function* generate(
           path.relative(targetDir, sourceDir) || '.'
         }/${sourceBaseName}`
         targetFile.addImportDeclaration({
-          namedImports: [...sourceImports],
+          namedImports: [...sourceImports].map((name) => ({
+            name,
+            alias: `_${name}`,
+          })),
           moduleSpecifier,
         })
       }
