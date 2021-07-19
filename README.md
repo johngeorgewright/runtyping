@@ -31,7 +31,3 @@ npm install -D runtypes-generator
 ```
 npx rungen
 ```
-
-### Known Issues
-
-- [ ] Unable to parse enums

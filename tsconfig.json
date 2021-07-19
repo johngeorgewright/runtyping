@@ -3,7 +3,7 @@
     "incremental": true,
     "target": "es6",
     "module": "commonjs",
-    "lib": ["es2018"],
+    "lib": ["es2020"],
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,

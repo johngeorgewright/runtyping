@@ -205,26 +205,25 @@ function* generateType(type: Type): RuntypeGenerator {
   yield* generate(type)
 }
 
-/**
- * @todo Members is always empty
- */
 function* generateEnumType(type: Type): RuntypeGenerator {
-  const [first, ...members] = type
-    .getSymbolOrThrow()
-    .getMembers()
-    .map((member) => member.getDeclaredType())
+  const symbol = type.getSymbolOrThrow()
+  const [first, ...members] = symbol
+    .getDeclarations()
+    .map((declaration) =>
+      declaration.getSourceFile().getEnumOrThrow(symbol.getName()).getMembers()
+    )
+    .flat()
 
   if (!first) {
     yield* generateSimpleType('Undefined')
     return
   }
 
-  yield* generateType(first)
+  yield [Import, 'Literal']
+  yield [Write, `Literal(${JSON.stringify(first.getValue())})`]
 
   for (const member of members) {
-    yield [Write, '.Or(']
-    yield* generateType(member)
-    yield [Write, ')']
+    yield [Write, `.Or(Literal(${JSON.stringify(member.getValue())}))`]
   }
 }
 
