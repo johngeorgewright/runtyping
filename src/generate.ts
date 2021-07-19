@@ -11,32 +11,18 @@ import { compileFromFile } from 'json-schema-to-typescript'
 import path, { extname } from 'path'
 import { cast as castArray } from '@johngw/array'
 
-export default async function* generate(
-  options:
-    | {
-        buildInstructions: Instruction[]
-        tsConfigFile?: string
-      }
-    | {
-        buildInstructions: Instruction[]
-        project?: Project
-      }
-) {
-  const project =
-    'project' in options && options.project
-      ? options.project
-      : new Project({
-          manipulationSettings: {
-            indentationText: IndentationText.TwoSpaces,
-            newLineKind: NewLineKind.LineFeed,
-            quoteKind: QuoteKind.Single,
-            usePrefixAndSuffixTextForRename: false,
-            useTrailingCommas: true,
-          },
-          skipAddingFilesFromTsConfig: true,
-          tsConfigFilePath:
-            'tsConfigFile' in options ? options.tsConfigFile : undefined,
-        })
+type GenerateOptions =
+  | {
+      buildInstructions: Instruction[]
+      tsConfigFile?: string
+    }
+  | {
+      buildInstructions: Instruction[]
+      project?: Project
+    }
+
+export default async function* generate(options: GenerateOptions) {
+  const project = getProject(options)
 
   for (const buildInstruction of options.buildInstructions) {
     const runtypesImports = new Set<string>()
@@ -79,22 +65,7 @@ export default async function* generate(
       }
 
       if (sourceImports.size) {
-        const sourceDir = path.dirname(sourceType.file)
-        const targetDir = path.dirname(targetFile.getFilePath())
-        const sourceBaseName = path.basename(
-          sourceType.file,
-          path.extname(sourceType.file)
-        )
-        const moduleSpecifier = `${
-          path.relative(targetDir, sourceDir) || '.'
-        }/${sourceBaseName}`
-        targetFile.addImportDeclaration({
-          namedImports: [...sourceImports].map((name) => ({
-            name,
-            alias: `_${name}`,
-          })),
-          moduleSpecifier,
-        })
+        addSourceImports(sourceType.file, targetFile, sourceImports)
       }
     }
 
@@ -106,6 +77,46 @@ export default async function* generate(
     targetFile.formatText()
     yield targetFile
   }
+}
+
+function getProject(options: GenerateOptions) {
+  return 'project' in options && options.project
+    ? options.project
+    : new Project({
+        manipulationSettings: {
+          indentationText: IndentationText.TwoSpaces,
+          newLineKind: NewLineKind.LineFeed,
+          quoteKind: QuoteKind.Single,
+          usePrefixAndSuffixTextForRename: false,
+          useTrailingCommas: true,
+        },
+        skipAddingFilesFromTsConfig: true,
+        tsConfigFilePath:
+          'tsConfigFile' in options ? options.tsConfigFile : undefined,
+      })
+}
+
+function addSourceImports(
+  sourceFilePath: string,
+  targetFile: SourceFile,
+  imports: Set<string>
+) {
+  const sourceDir = path.dirname(sourceFilePath)
+  const targetDir = path.dirname(targetFile.getFilePath())
+  const sourceBaseName = path.basename(
+    sourceFilePath,
+    path.extname(sourceFilePath)
+  )
+  const moduleSpecifier = `${
+    path.relative(targetDir, sourceDir) || '.'
+  }/${sourceBaseName}`
+  targetFile.addImportDeclaration({
+    namedImports: [...imports].map((name) => ({
+      name,
+      alias: `_${name}`,
+    })),
+    moduleSpecifier,
+  })
 }
 
 async function generateRuntypeFromJSON(
