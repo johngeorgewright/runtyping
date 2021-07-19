@@ -1,5 +1,5 @@
 import { tryCatch } from '@johngw/error'
-import { Type } from 'ts-morph'
+import { SymbolFlags, Type } from 'ts-morph'
 
 export const Write = Symbol('Write')
 export const Import = Symbol('Import')
@@ -147,11 +147,14 @@ function* generateObjectType(type: Type): RuntypeGenerator {
 
   yield [Import, 'Record']
   yield [Write, 'Record({']
+
   for (const property of type.getProperties()) {
     yield [Write, `${property.getName()}:`]
     yield* generateType(property.getValueDeclarationOrThrow().getType())
+    if (property.hasFlags(SymbolFlags.Optional)) yield [Write, '.optional()']
     yield [Write, ',']
   }
+
   yield [Write, '})']
 }
 

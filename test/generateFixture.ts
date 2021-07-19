@@ -1,18 +1,21 @@
 import * as pathHelper from 'path'
 import generate from '../src/generate'
+import { accumulate } from '@johngw/async-iterator'
 
 export default async function generateFixture(name: string, types: string[]) {
-  for await (const file of generate({
-    buildInstructions: [
-      {
-        targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
-        sourceTypes: types.map((type) => ({
-          file: pathHelper.join(__dirname, `${name}.ts`),
-          type,
-        })),
-      },
-    ],
-  })) {
-    return file
-  }
+  const [file] = await accumulate(
+    generate({
+      buildInstructions: [
+        {
+          targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
+          sourceTypes: types.map((type) => ({
+            file: pathHelper.join(__dirname, `${name}.ts`),
+            type,
+          })),
+        },
+      ],
+    })
+  )
+
+  return file
 }
