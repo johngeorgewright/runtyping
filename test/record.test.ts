@@ -1,7 +1,8 @@
 import generateFixture from './generateFixture'
 
-test('record', () => {
-  expect(generateFixture('record', ['A']).getText()).toMatchInlineSnapshot(`
+test('record', async () => {
+  expect((await generateFixture('record', ['A'])).getText())
+    .toMatchInlineSnapshot(`
 "import { Dictionary, String, Static } from 'runtypes';
 
 export const A = Dictionary(String, String);

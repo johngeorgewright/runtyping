@@ -12,8 +12,10 @@ import {
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
 import runtypeGenerator, { Declare, Import, Write } from './runtypeGenerator'
+import { compileFromFile } from 'json-schema-to-typescript'
+import { extname } from 'path'
 
-export default function* generate(
+export default async function* generate(
   options:
     | {
         buildInstructions: Instruction[]
@@ -50,7 +52,25 @@ export default function* generate(
     )
 
     for (const sourceType of buildInstruction.sourceTypes) {
-      generateRuntype(project, sourceType, targetFile, imports, exports)
+      switch (extname(sourceType.file)) {
+        case '.json':
+          await generateRuntypeFromJSON(
+            project,
+            sourceType,
+            targetFile,
+            imports,
+            exports
+          )
+          break
+
+        case '.d.ts':
+        case '.ts':
+          generateRuntype(project, sourceType, targetFile, imports, exports)
+          break
+
+        default:
+          throw new Error(`${sourceType.file} is not a typescript or json file`)
+      }
     }
 
     targetFile.addImportDeclaration({
@@ -61,6 +81,24 @@ export default function* generate(
     targetFile.formatText()
     yield targetFile
   }
+}
+
+async function generateRuntypeFromJSON(
+  project: Project,
+  sourceType: InstructionSourceType,
+  targetFile: SourceFile,
+  imports: Set<string>,
+  exports: Set<string>
+) {
+  const schema = await compileFromFile(sourceType.file)
+  const sourceFile = project.createSourceFile('__temp.ts', schema)
+  generateRuntype(
+    project,
+    { file: sourceFile.getFilePath(), type: sourceType.type },
+    targetFile,
+    imports,
+    exports
+  )
 }
 
 function generateRuntype(

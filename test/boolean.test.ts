@@ -1,7 +1,8 @@
 import generateFixture from './generateFixture'
 
-test('boolean', () => {
-  expect(generateFixture('boolean', ['A']).getText()).toMatchInlineSnapshot(`
+test('boolean', async () => {
+  expect((await generateFixture('boolean', ['A'])).getText())
+    .toMatchInlineSnapshot(`
 "import { Boolean, Static } from 'runtypes';
 
 export const A = Boolean;

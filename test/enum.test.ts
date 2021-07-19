@@ -1,5 +1,7 @@
 import generateFixture from './generateFixture'
 
-test.skip('enum', () => {
-  expect(generateFixture('enum', ['A', 'B']).getText()).toMatchInlineSnapshot()
+test.skip('enum', async () => {
+  expect(
+    (await generateFixture('enum', ['A', 'B'])).getText()
+  ).toMatchInlineSnapshot()
 })
