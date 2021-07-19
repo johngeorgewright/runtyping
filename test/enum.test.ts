@@ -3,13 +3,14 @@ import generateFixture from './generateFixture'
 test('enum', async () => {
   expect((await generateFixture('enum', ['A', 'B'])).getText())
     .toMatchInlineSnapshot(`
-    "import { Literal, Static } from 'runtypes';
+    "import { A, B } from './enum';
+    import { Guard, Static } from 'runtypes';
 
-    export const A = Literal(0).Or(Literal(1)).Or(Literal(2));
+    export const A = Guard((x: any): x is A => Object.values(A).includes(x));
 
     export type A = Static<typeof A>;
 
-    export const B = Literal(\\"a\\").Or(Literal(\\"b\\"));
+    export const B = Guard((x: any): x is B => Object.values(B).includes(x));
 
     export type B = Static<typeof B>;
     "

@@ -8,7 +8,7 @@ import {
 import { Instruction, InstructionSourceType } from './types'
 import writeRuntype from './writeRuntype'
 import { compileFromFile } from 'json-schema-to-typescript'
-import { extname } from 'path'
+import path, { extname } from 'path'
 import { cast as castArray } from '@johngw/array'
 
 export default async function* generate(
@@ -39,7 +39,7 @@ export default async function* generate(
         })
 
   for (const buildInstruction of options.buildInstructions) {
-    const imports = new Set<string>()
+    const runtypesImports = new Set<string>()
     const exports = new Set<string>()
     const targetFile = project.createSourceFile(
       buildInstruction.targetFile,
@@ -48,29 +48,55 @@ export default async function* generate(
     )
 
     for (const sourceType of buildInstruction.sourceTypes) {
+      const sourceImports = new Set<string>()
+
       switch (extname(sourceType.file)) {
         case '.json':
           await generateRuntypeFromJSON(
             project,
             sourceType,
             targetFile,
-            imports,
+            runtypesImports,
+            sourceImports,
             exports
           )
           break
 
         case '.d.ts':
         case '.ts':
-          generateRuntype(project, sourceType, targetFile, imports, exports)
+          generateRuntype(
+            project,
+            sourceType,
+            targetFile,
+            runtypesImports,
+            sourceImports,
+            exports
+          )
           break
 
         default:
           throw new Error(`${sourceType.file} is not a typescript or json file`)
       }
+
+      if (sourceImports.size) {
+        const sourceDir = path.dirname(sourceType.file)
+        const targetDir = path.dirname(targetFile.getFilePath())
+        const sourceBaseName = path.basename(
+          sourceType.file,
+          path.extname(sourceType.file)
+        )
+        const moduleSpecifier = `${
+          path.relative(targetDir, sourceDir) || '.'
+        }/${sourceBaseName}`
+        targetFile.addImportDeclaration({
+          namedImports: [...sourceImports],
+          moduleSpecifier,
+        })
+      }
     }
 
     targetFile.addImportDeclaration({
-      namedImports: [...imports],
+      namedImports: [...runtypesImports],
       moduleSpecifier: 'runtypes',
     })
 
@@ -83,7 +109,8 @@ async function generateRuntypeFromJSON(
   project: Project,
   sourceType: InstructionSourceType,
   targetFile: SourceFile,
-  imports: Set<string>,
+  runtypesImports: Set<string>,
+  sourceImports: Set<string>,
   exports: Set<string>
 ) {
   const schema = await compileFromFile(sourceType.file)
@@ -95,7 +122,8 @@ async function generateRuntypeFromJSON(
     project,
     { file: sourceFile.getFilePath(), type: sourceType.type },
     targetFile,
-    imports,
+    runtypesImports,
+    sourceImports,
     exports
   )
   project.removeSourceFile(sourceFile)
@@ -105,12 +133,21 @@ function generateRuntype(
   project: Project,
   sourceType: InstructionSourceType,
   targetFile: SourceFile,
-  imports: Set<string>,
+  runtypesImports: Set<string>,
+  sourceImports: Set<string>,
   exports: Set<string>
 ) {
   const sourceFile = project.addSourceFileAtPath(sourceType.file)
 
   for (const type of castArray(sourceType.type)) {
-    writeRuntype(project, sourceFile, type, targetFile, imports, exports)
+    writeRuntype(
+      project,
+      sourceFile,
+      type,
+      targetFile,
+      runtypesImports,
+      sourceImports,
+      exports
+    )
   }
 }

@@ -13,10 +13,14 @@ import {
 
 const Write = Symbol('Write')
 const Import = Symbol('Import')
+const ImportFromSource = Symbol('ImportFromSource')
 const Declare = Symbol('Declare')
 
 export type RuntypeGenerator = Generator<
-  [typeof Import, string] | [typeof Write, string] | [typeof Declare, string],
+  | [typeof Import, string]
+  | [typeof ImportFromSource, string]
+  | [typeof Write, string]
+  | [typeof Declare, string],
   any,
   undefined | boolean
 >
@@ -26,7 +30,8 @@ export default function writeRuntype(
   sourceFile: SourceFile,
   sourceType: string,
   targetFile: SourceFile,
-  imports: Set<string>,
+  runtypeImports: Set<string>,
+  sourceImports: Set<string>,
   exports: Set<string>
 ) {
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
@@ -45,7 +50,11 @@ export default function writeRuntype(
         break
 
       case Import:
-        imports.add(item.value[1])
+        runtypeImports.add(item.value[1])
+        break
+
+      case ImportFromSource:
+        sourceImports.add(item.value[1])
         break
 
       case Declare:
@@ -59,7 +68,8 @@ export default function writeRuntype(
             sourceFile,
             item.value[1],
             targetFile,
-            imports,
+            runtypeImports,
+            sourceImports,
             exports
           )
         break
@@ -79,7 +89,7 @@ export default function writeRuntype(
     ],
   })
 
-  imports.add('Static')
+  runtypeImports.add('Static')
 
   targetFile.addTypeAlias({
     isExported: true,
@@ -206,25 +216,13 @@ function* generateType(type: Type): RuntypeGenerator {
 }
 
 function* generateEnumType(type: Type): RuntypeGenerator {
-  const symbol = type.getSymbolOrThrow()
-  const [first, ...members] = symbol
-    .getDeclarations()
-    .map((declaration) =>
-      declaration.getSourceFile().getEnumOrThrow(symbol.getName()).getMembers()
-    )
-    .flat()
-
-  if (!first) {
-    yield* generateSimpleType('Undefined')
-    return
-  }
-
-  yield [Import, 'Literal']
-  yield [Write, `Literal(${JSON.stringify(first.getValue())})`]
-
-  for (const member of members) {
-    yield [Write, `.Or(Literal(${JSON.stringify(member.getValue())}))`]
-  }
+  const name = type.getSymbolOrThrow().getName()
+  yield [Import, 'Guard']
+  yield [ImportFromSource, name]
+  yield [
+    Write,
+    `Guard((x: any): x is ${name} => Object.values(${name}).includes(x))`,
+  ]
 }
 
 function* generateSimpleType(type: string): RuntypeGenerator {
