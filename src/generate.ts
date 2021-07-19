@@ -91,7 +91,10 @@ async function generateRuntypeFromJSON(
   exports: Set<string>
 ) {
   const schema = await compileFromFile(sourceType.file)
-  const sourceFile = project.createSourceFile('__temp.ts', schema)
+  const sourceFile = project.createSourceFile(
+    `__temp__${sourceType.file}.ts`,
+    schema
+  )
   generateRuntype(
     project,
     { file: sourceFile.getFilePath(), type: sourceType.type },
@@ -99,6 +102,7 @@ async function generateRuntypeFromJSON(
     imports,
     exports
   )
+  project.removeSourceFile(sourceFile)
 }
 
 function generateRuntype(
