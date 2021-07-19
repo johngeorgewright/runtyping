@@ -3,7 +3,7 @@ import generateFixture from './generateFixture'
 test('literal', () => {
   expect(generateFixture('literal', ['A', 'B', 'C']).getText())
     .toMatchInlineSnapshot(`
-    "import { Literal, Static } from \\"runtypes\\";
+    "import { Literal, Static } from 'runtypes';
 
     export const A = Literal(\\"foo\\");
 
