@@ -8,10 +8,12 @@ export default async function generateFixture(name: string, types: string[]) {
       buildInstructions: [
         {
           targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
-          sourceTypes: types.map((type) => ({
-            file: pathHelper.join(__dirname, `${name}.ts`),
-            type,
-          })),
+          sourceTypes: [
+            {
+              file: pathHelper.join(__dirname, `${name}.ts`),
+              type: types,
+            },
+          ],
         },
       ],
     })

@@ -62,6 +62,7 @@
     }
   },
   "dependencies": {
+    "@johngw/array": "^3.1.5",
     "@johngw/error": "^2.1.1",
     "js-yaml": "^4.1.0",
     "json-schema-to-typescript": "^10.1.4",

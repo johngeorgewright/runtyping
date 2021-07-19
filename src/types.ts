@@ -7,5 +7,5 @@ export type Instructions = Instruction[]
 
 export interface InstructionSourceType {
   file: string
-  type: string
+  type: string | string[]
 }
