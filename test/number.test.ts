@@ -1,7 +1,8 @@
 import generateFixture from './generateFixture'
 
-test('numbers', () => {
-  expect(generateFixture('number', ['A']).getText()).toMatchInlineSnapshot(`
+test('numbers', async () => {
+  expect((await generateFixture('number', ['A'])).getText())
+    .toMatchInlineSnapshot(`
 "import { Number, Static } from 'runtypes';
 
 export const A = Number;

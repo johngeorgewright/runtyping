@@ -1,7 +1,7 @@
 import generateFixture from './generateFixture'
 
-test('literal', () => {
-  expect(generateFixture('literal', ['A', 'B', 'C']).getText())
+test('literal', async () => {
+  expect((await generateFixture('literal', ['A', 'B', 'C'])).getText())
     .toMatchInlineSnapshot(`
     "import { Literal, Static } from 'runtypes';
 

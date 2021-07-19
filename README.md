@@ -21,6 +21,9 @@ npm install -D runtypes-generator
   sourceTypes:
     - file: src/types.ts # The file where your type lives
       type: Foo # The type you want to convert to a runtype
+
+    - file: json/my-json-schema.json # You can even use JSON schema files!!
+      type: ExampleType
 ```
 
 ### Run

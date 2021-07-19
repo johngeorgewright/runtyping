@@ -1,8 +1,8 @@
 import * as pathHelper from 'path'
 import generate from '../src/generate'
 
-export default function generateFixture(name: string, types: string[]) {
-  const [file] = generate({
+export default async function generateFixture(name: string, types: string[]) {
+  for await (const file of generate({
     buildInstructions: [
       {
         targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
@@ -12,7 +12,7 @@ export default function generateFixture(name: string, types: string[]) {
         })),
       },
     ],
-  })
-
-  return file
+  })) {
+    return file
+  }
 }

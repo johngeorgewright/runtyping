@@ -1,7 +1,8 @@
 import generateFixture from './generateFixture'
 
-test('strings', () => {
-  expect(generateFixture('string', ['A']).getText()).toMatchInlineSnapshot(`
+test('strings', async () => {
+  expect((await generateFixture('string', ['A'])).getText())
+    .toMatchInlineSnapshot(`
 "import { String, Static } from 'runtypes';
 
 export const A = String;

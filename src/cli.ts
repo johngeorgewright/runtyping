@@ -23,7 +23,7 @@ const argv = yargs(process.argv.slice(2))
 ;(async () => {
   const buildInstructions = yaml.load(await readFile(argv.config, 'utf8'))
 
-  for (const file of generate({
+  for await (const file of generate({
     buildInstructions: Instructions.check(buildInstructions),
     tsConfigFile: argv.project,
   })) {
