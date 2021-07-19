@@ -3,7 +3,7 @@ import generateFixture from './generateFixture'
 test('intersection', () => {
   expect(generateFixture('intersection', ['C']).getText())
     .toMatchInlineSnapshot(`
-    "import { Record, String, Static } from \\"runtypes\\";
+    "import { Record, String, Static } from 'runtypes';
 
     export const A = Record({ foo: String, });
 

@@ -2,7 +2,7 @@ import generateFixture from './generateFixture'
 
 test('interface', () => {
   expect(generateFixture('interface', ['B']).getText()).toMatchInlineSnapshot(`
-"import { Record, String, Number, Static, Literal } from \\"runtypes\\";
+"import { Record, String, Number, Static, Literal } from 'runtypes';
 
 export const A = Record({ foo: String, bar: Number, });
 

@@ -6,18 +6,41 @@ import {
   TypeAliasDeclaration,
   EnumDeclaration,
   SyntaxKind,
+  IndentationText,
+  NewLineKind,
+  QuoteKind,
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
 import runtypeGenerator, { Declare, Import, Write } from './runtypeGenerator'
 
-export default function* generate({
-  buildInstructions,
-  project,
-}: {
-  buildInstructions: Instruction[]
-  project: Project
-}) {
-  for (const buildInstruction of buildInstructions) {
+export default function* generate(
+  options:
+    | {
+        buildInstructions: Instruction[]
+        tsConfigFile?: string
+      }
+    | {
+        buildInstructions: Instruction[]
+        project?: Project
+      }
+) {
+  const project =
+    'project' in options && options.project
+      ? options.project
+      : new Project({
+          manipulationSettings: {
+            indentationText: IndentationText.TwoSpaces,
+            newLineKind: NewLineKind.LineFeed,
+            quoteKind: QuoteKind.Single,
+            usePrefixAndSuffixTextForRename: false,
+            useTrailingCommas: true,
+          },
+          skipAddingFilesFromTsConfig: true,
+          tsConfigFilePath:
+            'tsConfigFile' in options ? options.tsConfigFile : undefined,
+        })
+
+  for (const buildInstruction of options.buildInstructions) {
     const imports = new Set<string>()
     const exports = new Set<string>()
     const targetFile = project.createSourceFile(
