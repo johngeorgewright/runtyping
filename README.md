@@ -1,6 +1,6 @@
 # runtypes-generator
 
-Generate [runtypes](https://github.com/pelotom/runtypes) from static types.
+Generate [runtypes](https://github.com/pelotom/runtypes) from static types & JSON schema.
 
 ## Instructions
 
