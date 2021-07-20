@@ -1,6 +1,6 @@
 import { tryCatch } from '@johngw/error'
 import { Type } from 'ts-morph'
-import typeGenerator from './typeGenerator'
+import factory from './factory'
 import RuntypeGenerator from './RuntypeGenerator'
 import { Declare } from './symbols'
 
@@ -14,5 +14,5 @@ export default function* generateOrReuseType(type: Type): RuntypeGenerator {
     return
   }
 
-  yield* typeGenerator(type)
+  yield* factory(type)
 }

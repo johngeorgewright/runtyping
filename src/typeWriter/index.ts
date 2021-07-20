@@ -8,7 +8,7 @@ import {
   VariableDeclarationKind,
 } from 'ts-morph'
 import { Declare, Import, ImportFromSource, Write } from './symbols'
-import typeGenerator from './typeGenerator'
+import factory from './factory'
 
 export default function writeRuntype(
   project: Project,
@@ -21,9 +21,15 @@ export default function writeRuntype(
 ) {
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
   const recursive = isRecursive(typeDeclaration)
-  const generator = typeGenerator(typeDeclaration.getType(), recursive)
+  const generator = factory(typeDeclaration.getType())
 
   let writer = project.createWriter()
+
+  if (recursive) {
+    runtypeImports.add('Lazy')
+    writer = writer.write('Lazy(() => ')
+  }
+
   let item = generator.next()
 
   while (!item.done) {
@@ -61,6 +67,10 @@ export default function writeRuntype(
     }
 
     item = generator.next(next)
+  }
+
+  if (recursive) {
+    writer = writer.write(')')
   }
 
   targetFile.addVariableStatement({
