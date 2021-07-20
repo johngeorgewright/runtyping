@@ -1,6 +1,6 @@
 {
   "name": "runtypes-generator",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Compose and react upon redux actions",
   "main": "dist/index.js",
   "bin": {
