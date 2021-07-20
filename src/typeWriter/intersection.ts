@@ -3,7 +3,7 @@ import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
 import simpleTypeGenerator from './simple'
 import sortUndefinedFirst from './sortUndefinedFirst'
-import { Write } from './symbols'
+import { Import, Write } from './symbols'
 
 export default function* intersecionTypeGenerator(
   type: Type
@@ -11,6 +11,7 @@ export default function* intersecionTypeGenerator(
   const [first, ...rest] = type.getIntersectionTypes().sort(sortUndefinedFirst)
 
   if (!first) {
+    yield [Import, 'Undefined']
     yield* simpleTypeGenerator('Undefined')
     return
   }

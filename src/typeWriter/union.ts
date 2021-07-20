@@ -3,12 +3,13 @@ import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
 import simpleTypeGenerator from './simple'
 import sortUndefinedFirst from './sortUndefinedFirst'
-import { Write } from './symbols'
+import { Import, Write } from './symbols'
 
 export default function* unionTypeGenerator(type: Type): RuntypeGenerator {
   const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
 
   if (!first) {
+    yield [Import, 'Undefined']
     yield* simpleTypeGenerator('Undefined')
     return
   }
