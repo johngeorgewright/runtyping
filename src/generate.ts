@@ -6,7 +6,7 @@ import {
   QuoteKind,
 } from 'ts-morph'
 import { Instruction, InstructionSourceType } from './types'
-import writeRuntype from './writeRuntype'
+import typeWriter from './typeWriter'
 import { compileFromFile } from 'json-schema-to-typescript'
 import path, { extname } from 'path'
 import { cast as castArray } from '@johngw/array'
@@ -152,9 +152,8 @@ function generateRuntype(
   exports: Set<string>
 ) {
   const sourceFile = project.addSourceFileAtPath(sourceType.file)
-
   for (const type of castArray(sourceType.type)) {
-    writeRuntype(
+    typeWriter(
       project,
       sourceFile,
       type,
