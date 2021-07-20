@@ -34,6 +34,7 @@ export default function factory(type: Type) {
       return literalTypeGenerator(type)
 
     case type.isAny():
+    case type.isUnknown():
       return simpleTypeGenerator('Unknown')
 
     case type.isUndefined():
