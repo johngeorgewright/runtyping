@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtypes-generator#readme",
   "devDependencies": {
-    "@commitlint/cli": "12.1.4",
-    "@commitlint/config-conventional": "12.1.4",
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-conventional": "13.1.0",
     "@johngw/async-iterator": "2.2.1",
     "@semantic-release/commit-analyzer": "8.0.1",
     "@semantic-release/git": "9.0.0",
