@@ -1,6 +1,7 @@
 import { Type } from 'ts-morph'
 import arrayTypeGenerator from './array'
 import enumTypeGenerator from './enum'
+import functionTypeGenerator from './function'
 import intersecionTypeGenerator from './intersection'
 import literalTypeGenerator from './literal'
 import objectTypeGenerator from './object'
@@ -39,6 +40,12 @@ export default function factory(type: Type) {
 
     case type.isUndefined():
       return simpleTypeGenerator('Undefined')
+
+    case type.getText() === 'void':
+      return simpleTypeGenerator('Void')
+
+    case type.getCallSignatures().length > 0:
+      return functionTypeGenerator(type)
 
     case type.isInterface():
     case type.isObject():
