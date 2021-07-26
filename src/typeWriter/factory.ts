@@ -44,9 +44,11 @@ export default function factory(type: Type) {
     case type.getText() === 'void':
       return simpleTypeGenerator('Void')
 
+    case type.getCallSignatures().length > 0:
+      return functionTypeGenerator(type)
+
     case type.isInterface():
     case type.isObject():
-      if (type.getCallSignatures().length) return functionTypeGenerator(type)
       return objectTypeGenerator(type)
 
     default:
