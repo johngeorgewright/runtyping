@@ -1,5 +1,6 @@
 import {
   EnumDeclaration,
+  FunctionDeclaration,
   InterfaceDeclaration,
   Project,
   SourceFile,
@@ -104,7 +105,8 @@ function getTypeDeclaration(sourceFile: SourceFile, typeName: string) {
   const declaration =
     sourceFile.getInterface(typeName) ||
     sourceFile.getTypeAlias(typeName) ||
-    sourceFile.getEnum(typeName)
+    sourceFile.getEnum(typeName) ||
+    sourceFile.getFunction(typeName)
 
   if (!declaration)
     throw new Error(
@@ -123,7 +125,11 @@ function hasTypeDeclaration(sourceFile: SourceFile, typeName: string) {
 }
 
 function isRecursive(
-  typeDeclaration: InterfaceDeclaration | TypeAliasDeclaration | EnumDeclaration
+  typeDeclaration:
+    | InterfaceDeclaration
+    | TypeAliasDeclaration
+    | EnumDeclaration
+    | FunctionDeclaration
 ) {
   const name = typeDeclaration.getName()
 
