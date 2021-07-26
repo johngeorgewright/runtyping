@@ -13,3 +13,7 @@ export interface C {
 export function D(foo: number) {
   return foo + 'foo'
 }
+
+export async function E(foo: number) {
+  return D(foo)
+}
