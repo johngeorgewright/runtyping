@@ -1,4 +1,4 @@
-import { Type } from 'ts-morph'
+import { FunctionDeclaration, Type } from 'ts-morph'
 import { last } from '../util'
 import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
@@ -19,6 +19,19 @@ export default function* functionTypeGenerator(type: Type): RuntypeGenerator {
   }
 
   yield* generateOrReuseType(signature.getReturnType())
-  yield [Write, `)`]
-  yield [Static, `_${name}`]
+  yield [Write, ')']
+
+  if (isFunctionDeclaration(type)) {
+    yield [Write, `.enforce(_${name})`]
+    yield [Static, `typeof ${name}`]
+  } else {
+    yield [Static, `_${name}`]
+  }
+}
+
+function isFunctionDeclaration(type: Type) {
+  return type
+    .getSymbol()
+    ?.getDeclarations()
+    .some((d) => d instanceof FunctionDeclaration)
 }

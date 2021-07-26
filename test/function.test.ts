@@ -1,9 +1,9 @@
 import generateFixture from './generateFixture'
 
 test('function', async () => {
-  expect((await generateFixture('function', ['A', 'B', 'C'])).getText())
+  expect((await generateFixture('function', ['A', 'B', 'C', 'D'])).getText())
     .toMatchInlineSnapshot(`
-    "import { A as _A, B as _B, C as _C } from './function';
+    "import { A as _A, B as _B, C as _C, D as _D } from './function';
     import { Contract, String, Number, Void, Static, Unknown } from 'runtypes';
 
     export const A = Contract(String, Number, Void);
@@ -17,6 +17,10 @@ test('function', async () => {
     export const C = Contract(String, Number, Unknown);
 
     export type C = _C;
+
+    export const D = Contract(Number, String).enforce(_D);
+
+    export type D = typeof D;
     "
   `)
 })
