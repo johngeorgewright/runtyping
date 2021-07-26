@@ -2,7 +2,7 @@ import { Type } from 'ts-morph'
 import { last } from '../util'
 import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
-import { Import, ImportFromSource, Write } from './symbols'
+import { Import, ImportFromSource, Static, Write } from './symbols'
 
 export default function* functionTypeGenerator(type: Type): RuntypeGenerator {
   const signature = last(type.getCallSignatures())
@@ -19,6 +19,6 @@ export default function* functionTypeGenerator(type: Type): RuntypeGenerator {
   }
 
   yield* generateOrReuseType(signature.getReturnType())
-
-  yield [Write, `).enforce(_${name})`]
+  yield [Write, `)`]
+  yield [Static, `_${name}`]
 }

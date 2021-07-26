@@ -7,7 +7,7 @@ import {
   TypeAliasDeclaration,
   VariableDeclarationKind,
 } from 'ts-morph'
-import { Declare, Import, ImportFromSource, Write } from './symbols'
+import { Declare, Import, ImportFromSource, Static, Write } from './symbols'
 import factory from './factory'
 
 export default function writeRuntype(
@@ -22,6 +22,7 @@ export default function writeRuntype(
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
   const recursive = isRecursive(typeDeclaration)
   const generator = factory(typeDeclaration.getType())
+  let staticImplementation = `Static<typeof ${sourceType}>`
 
   let writer = project.createWriter()
 
@@ -64,6 +65,10 @@ export default function writeRuntype(
             exports
           )
         break
+
+      case Static:
+        staticImplementation = item.value[1]
+        break
     }
 
     item = generator.next(next)
@@ -89,7 +94,7 @@ export default function writeRuntype(
   targetFile.addTypeAlias({
     isExported: true,
     name: sourceType,
-    type: `Static<typeof ${sourceType}>`,
+    type: staticImplementation,
   })
 
   exports.add(sourceType)

@@ -6,17 +6,17 @@ test('function', async () => {
     "import { A as _A, B as _B, C as _C } from './function';
     import { Contract, String, Number, Void, Static, Unknown } from 'runtypes';
 
-    export const A = Contract(String, Number, Void).enforce(_A);
+    export const A = Contract(String, Number, Void);
 
-    export type A = Static<typeof A>;
+    export type A = _A;
 
-    export const B = Contract(Number, Void).enforce(_B);
+    export const B = Contract(Number, Void);
 
-    export type B = Static<typeof B>;
+    export type B = _B;
 
-    export const C = Contract(String, Number, Unknown).enforce(_C);
+    export const C = Contract(String, Number, Unknown);
 
-    export type C = Static<typeof C>;
+    export type C = _C;
     "
   `)
 })

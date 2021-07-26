@@ -14,9 +14,9 @@ test('interface', async () => {
 
     export type B = Static<typeof B>;
 
-    export const C = Record({ foo: Contract(String).enforce(_foo), bar: Number, boo: Contract(String, Void).enforce(_boo), });
+    export const C = Record({ foo: Contract(String), bar: Number, boo: Contract(String, Void), });
 
-    export type C = Static<typeof C>;
+    export type C = _boo;
     "
   `)
 })

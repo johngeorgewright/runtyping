@@ -1,7 +1,7 @@
 import { Type } from 'ts-morph'
 import arrayTypeGenerator from './array'
 import enumTypeGenerator from './enum'
-import functionTypeGenerator from './function'
+import functionTypeGenerator from './functionType'
 import intersecionTypeGenerator from './intersection'
 import literalTypeGenerator from './literal'
 import objectTypeGenerator from './object'
