@@ -1,6 +1,6 @@
 {
-  "name": "runtypes-generator",
-  "version": "2.3.1",
+  "name": "runtyping",
+  "version": "0.0.0",
   "description": "Compose and react upon redux actions",
   "main": "dist/index.js",
   "bin": {
@@ -18,15 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johngeorgewright/runtypes-generator.git"
+    "url": "git+https://github.com/johngeorgewright/runtyping.git"
   },
   "keywords": [],
   "author": "John Wright <johngeorge.wright@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/johngeorgewright/runtypes-generator/issues"
+    "url": "https://github.com/johngeorgewright/runtyping/issues"
   },
-  "homepage": "https://github.com/johngeorgewright/runtypes-generator#readme",
+  "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",

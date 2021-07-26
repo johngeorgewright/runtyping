@@ -1,4 +1,4 @@
-# runtypes-generator
+# runtyping
 
 Generate [runtypes](https://github.com/pelotom/runtypes) from static types & JSON schema.
 
@@ -8,7 +8,7 @@ Generate [runtypes](https://github.com/pelotom/runtypes) from static types & JSO
 
 ```
 npm install runtypes
-npm install -D runtypes-generator
+npm install -D runtyping
 ```
 
 ### Configure
