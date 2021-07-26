@@ -95,27 +95,23 @@ export default function writeRuntype(
   exports.add(sourceType)
 }
 
-function getTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
-  try {
-    return sourceFile.getInterfaceOrThrow(sourceType)
-  } catch (error) {}
+function getTypeDeclaration(sourceFile: SourceFile, typeName: string) {
+  const declaration =
+    sourceFile.getInterface(typeName) ||
+    sourceFile.getTypeAlias(typeName) ||
+    sourceFile.getEnum(typeName)
 
-  try {
-    return sourceFile.getTypeAliasOrThrow(sourceType)
-  } catch (error) {}
-
-  try {
-    return sourceFile.getEnumOrThrow(sourceType)
-  } catch (error) {
+  if (!declaration)
     throw new Error(
-      `Cannot find any interface, type or enum called "${sourceType}" in ${sourceFile.getFilePath()}.`
+      `Cannot find any interface, type or enum called "${typeName}" in ${sourceFile.getFilePath()}.`
     )
-  }
+
+  return declaration
 }
 
-function hasTypeDeclaration(sourceFile: SourceFile, sourceType: string) {
+function hasTypeDeclaration(sourceFile: SourceFile, typeName: string) {
   try {
-    return !!getTypeDeclaration(sourceFile, sourceType)
+    return !!getTypeDeclaration(sourceFile, typeName)
   } catch (error) {
     return false
   }
