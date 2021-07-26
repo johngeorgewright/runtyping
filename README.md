@@ -13,6 +13,8 @@ npm install -D runtypes-generator
 
 ### Configure
 
+Create a file, in the root of your project, called "runtypes.gen.yml".
+
 ```yaml
 # runtypes.gen.yml
 
@@ -31,3 +33,7 @@ npm install -D runtypes-generator
 ```
 npx rungen
 ```
+
+## Thanks
+
+Inspired by a [gist](https://gist.github.com/skurfuerst/a07ab23c3e40a45f2268f7700ceeceaf) by [skurfuerst](https://gist.github.com/skurfuerst).
