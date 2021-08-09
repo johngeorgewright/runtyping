@@ -6,6 +6,7 @@ import intersecionTypeGenerator from './intersection'
 import literalTypeGenerator from './literal'
 import objectTypeGenerator from './object'
 import simpleTypeGenerator from './simple'
+import tupleTypeGenerator from './tuple'
 import unionTypeGenerator from './union'
 
 export default function factory(type: Type) {
@@ -21,6 +22,9 @@ export default function factory(type: Type) {
 
     case type.isArray():
       return arrayTypeGenerator(type)
+
+    case type.isTuple():
+      return tupleTypeGenerator(type)
 
     case type.isEnum():
       return enumTypeGenerator(type)
