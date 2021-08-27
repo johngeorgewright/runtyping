@@ -1,4 +1,4 @@
-import { FunctionDeclaration, Signature, Type } from 'ts-morph'
+import { FunctionDeclaration, Node, Signature, Type } from 'ts-morph'
 import { last } from '../util'
 import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
@@ -16,7 +16,11 @@ export default function* functionTypeGenerator(type: Type): RuntypeGenerator {
   yield [Write, `${contract}(`]
 
   for (const param of signature.getParameters()) {
-    yield* generateOrReuseType(last(param.getDeclarations()).getType())
+    const paramDec = last(param.getDeclarations())
+    yield* generateOrReuseType(paramDec.getType())
+    if (isOptionalParam(paramDec)) {
+      yield [Write, '.optional()']
+    }
     yield [Write, ',']
   }
 
@@ -45,4 +49,8 @@ function isFunctionDeclaration(type: Type) {
 
 function isAsync(signature: Signature) {
   return signature.getReturnType().getTargetType()?.getText() === 'Promise<T>'
+}
+
+function isOptionalParam(node: Node) {
+  return node.getText().includes('?: ')
 }
