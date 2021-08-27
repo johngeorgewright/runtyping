@@ -2,9 +2,11 @@ import generateFixture from './generateFixture'
 
 test('function', async () => {
   expect(
-    (await generateFixture('function', ['A', 'B', 'C', 'D', 'E'])).getText()
+    (
+      await generateFixture('function', ['A', 'B', 'C', 'D', 'E', 'F'])
+    ).getText()
   ).toMatchInlineSnapshot(`
-    "import { A as _A, B as _B, C as _C, D as _D, E as _E } from './function';
+    "import { A as _A, B as _B, C as _C, D as _D, E as _E, F as _F } from './function';
     import { Contract, String, Number, Void, Static, Unknown, AsyncContract } from 'runtypes';
 
     export const A = Contract(String, Number, Void);
@@ -26,6 +28,10 @@ test('function', async () => {
     export const E = AsyncContract(Number, String).enforce(_E);
 
     export type E = typeof E;
+
+    export const F = Contract(Number, String);
+
+    export type F = _F;
     "
   `)
 })

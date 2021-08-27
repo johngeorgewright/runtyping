@@ -4,10 +4,15 @@ import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
 import { Import, ImportFromSource, Static, Write } from './symbols'
 
-export default function* functionTypeGenerator(type: Type): RuntypeGenerator {
+export default function* functionTypeGenerator(
+  type: Type,
+  name?: string
+): RuntypeGenerator {
   const signature = last(type.getCallSignatures())
-  const name =
-    type.getAliasSymbol()?.getName() || type.getSymbolOrThrow().getName()
+  name =
+    name ||
+    type.getAliasSymbol()?.getName() ||
+    type.getSymbolOrThrow().getName()
 
   const contract = isAsync(signature) ? 'AsyncContract' : 'Contract'
 

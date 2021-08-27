@@ -6,6 +6,7 @@ import {
   SourceFile,
   SyntaxKind,
   TypeAliasDeclaration,
+  VariableDeclaration,
   VariableDeclarationKind,
 } from 'ts-morph'
 import { Declare, Import, ImportFromSource, Static, Write } from './symbols'
@@ -22,7 +23,10 @@ export default function writeRuntype(
 ) {
   const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
   const recursive = isRecursive(typeDeclaration)
-  const generator = factory(typeDeclaration.getType())
+  const generator = factory(
+    typeDeclaration.getType(),
+    typeDeclaration.getName()
+  )
   let staticImplementation = `Static<typeof ${sourceType}>`
 
   let writer = project.createWriter()
@@ -106,7 +110,8 @@ function getTypeDeclaration(sourceFile: SourceFile, typeName: string) {
     sourceFile.getInterface(typeName) ||
     sourceFile.getTypeAlias(typeName) ||
     sourceFile.getEnum(typeName) ||
-    sourceFile.getFunction(typeName)
+    sourceFile.getFunction(typeName) ||
+    sourceFile.getVariableDeclaration(typeName)
 
   if (!declaration)
     throw new Error(
@@ -130,6 +135,7 @@ function isRecursive(
     | TypeAliasDeclaration
     | EnumDeclaration
     | FunctionDeclaration
+    | VariableDeclaration
 ) {
   const name = typeDeclaration.getName()
 

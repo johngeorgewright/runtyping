@@ -9,7 +9,7 @@ import simpleTypeGenerator from './simple'
 import tupleTypeGenerator from './tuple'
 import unionTypeGenerator from './union'
 
-export default function factory(type: Type) {
+export default function factory(type: Type, name?: string) {
   switch (true) {
     case type.isString():
       return simpleTypeGenerator('String')
@@ -49,7 +49,7 @@ export default function factory(type: Type) {
       return simpleTypeGenerator('Void')
 
     case type.getCallSignatures().length > 0:
-      return functionTypeGenerator(type)
+      return functionTypeGenerator(type, name)
 
     case type.isInterface():
     case type.isObject():

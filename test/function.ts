@@ -17,3 +17,5 @@ export function D(foo: number) {
 export async function E(foo: number) {
   return D(foo)
 }
+
+export const F = (foo: number) => foo.toString()
