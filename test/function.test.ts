@@ -15,7 +15,7 @@ test('function', async () => {
 
     export type B = _B;
 
-    export const C = Contract(String, Number, Unknown);
+    export const C = Contract(String, Number.optional(), Unknown);
 
     export type C = _C;
 
