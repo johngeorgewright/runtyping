@@ -4,7 +4,8 @@
   "description": "Compose and react upon redux actions",
   "main": "dist/index.js",
   "bin": {
-    "rungen": "dist/cli.js"
+    "rungen": "dist/cli.js",
+    "runtyping": "dist/cli.js"
   },
   "scripts": {
     "prebuild": "npm run clean",

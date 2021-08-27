@@ -13,10 +13,10 @@ npm install -D runtyping
 
 ### Configure
 
-Create a file, in the root of your project, called "runtypes.gen.yml".
+Create a file, in the root of your project, called "runtyping.yml".
 
 ```yaml
-# runtypes.gen.yml
+# runtyping.yml
 
 # This config represents a list of files to create.
 - targetFile: src/runtypes.ts # The file to create
@@ -31,7 +31,7 @@ Create a file, in the root of your project, called "runtypes.gen.yml".
 ### Run
 
 ```
-npx rungen
+npx runtyping
 ```
 
 ## Thanks
