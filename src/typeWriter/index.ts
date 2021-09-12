@@ -55,7 +55,7 @@ export default function writeRuntype(
         break
 
       case Declare:
-        if (recursive || hasTypeDeclaration(targetFile, item.value[1])) {
+        if (recursive || hasTypeDeclaration(sourceFile, item.value[1])) {
           next = true
           writer = writer.write(item.value[1])
         }
