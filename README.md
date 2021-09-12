@@ -11,9 +11,9 @@ npm install runtypes
 npm install -D runtyping
 ```
 
-### Configure
+### Use from the command line
 
-Create a file, in the root of your project, called "runtyping.yml".
+1. Create a file, in the root of your project, called "runtyping.yml".
 
 ```yaml
 # runtyping.yml
@@ -28,10 +28,60 @@ Create a file, in the root of your project, called "runtyping.yml".
       type: ExampleType
 ```
 
-### Run
+2. Then run: `npx runtyping`
 
+### Use from a script
+
+Basic example:
+
+```ts
+import {generate} from 'runtyping';
+
+const generator = generate({
+  buildInstructions: [
+      {
+        targetFile: `src/runtypes.ts`,
+        sourceTypes: [
+            { file: 'src/types.ts', type: 'Foo' },
+            { file: 'json/my-json-schema.json', type: 'ExampleType' }
+        ]
+      },
+      // Add more as needed
+  ]
+});
+
+for await (const file of generator) {
+  console.log(`Writing runtype: ${file.getFilePath()}`);
+  file.saveSync();
+}
 ```
-npx runtyping
+
+You can also pass a custom tsconfig file:
+
+```ts
+const generator = generate({
+  buildInstructions: [ /* ... */ ],
+  tsConfigFile: '/path/to/tsconfig.json'
+});
+```
+
+...or a custom ts-morph project (for the internal compiler):
+
+(see [generate.ts](src/generate.ts) for the defaults)
+
+```ts
+import {Project} from "ts-morph";
+
+const generator = generate({
+  buildInstructions: [ /* ... */ ],
+  project: new Project({
+    compilerOptions: {
+        // Enable this if you need nulls to be considered
+      strictNullChecks: true
+    },
+    // ...
+  })
+});
 ```
 
 ## Thanks
