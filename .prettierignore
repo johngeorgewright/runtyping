@@ -2,4 +2,3 @@ dist
 *.log
 .pnp.js
 package-lock.json
-.yarn/*

@@ -11,7 +11,7 @@
     "prebuild": "npm run clean",
     "build": "tsc --project tsconfig.json",
     "clean": "rimraf dist",
-    "start": "concurrently yarn:start:*",
+    "start": "concurrently npm:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
     "start:test": "jest --watch",
     "test": "jest",
