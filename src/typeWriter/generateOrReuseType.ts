@@ -4,7 +4,11 @@ import RuntypeGenerator from './RuntypeGenerator'
 import { Declare } from './symbols'
 
 export default function* generateOrReuseType(type: Type): RuntypeGenerator {
-  const typeName = type.getSymbol()?.getName()
+  let typeName = type.getSymbol()?.getName()
+
+  if (typeName === '__type') {
+    typeName = type.getText()
+  }
 
   if (!!typeName && (yield [Declare, typeName])) {
     return
