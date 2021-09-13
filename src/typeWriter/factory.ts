@@ -11,6 +11,9 @@ import unionTypeGenerator from './union'
 
 export default function factory(type: Type, name?: string) {
   switch (true) {
+    case type.isNull():
+      return simpleTypeGenerator('Null')
+
     case type.isString():
       return simpleTypeGenerator('String')
 
