@@ -23,7 +23,7 @@ export default function* functionTypeGenerator(
   for (const param of signature.getParameters()) {
     const paramDec = last(param.getDeclarations())
     yield* generateOrReuseType(paramDec.getType())
-    if (isOptionalParam(paramDec)) {
+    if (!paramDec.getType().isNullable() && isOptionalParam(paramDec)) {
       yield [Write, '.optional()']
     }
     yield [Write, ',']

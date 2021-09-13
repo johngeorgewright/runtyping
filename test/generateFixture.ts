@@ -1,8 +1,13 @@
 import * as pathHelper from 'path'
 import generate from '../src/generate'
 import { accumulate } from '@johngw/async-iterator'
+import { Project } from 'ts-morph'
 
-export default async function generateFixture(name: string, types: string[]) {
+export default async function generateFixture(
+  name: string,
+  types: string[],
+  project?: Project
+) {
   const [file] = await accumulate(
     generate({
       buildInstructions: [
@@ -16,6 +21,7 @@ export default async function generateFixture(name: string, types: string[]) {
           ],
         },
       ],
+      project,
     })
   )
 

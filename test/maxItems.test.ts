@@ -23,9 +23,9 @@ test('json schema', async () => {
   }
 
   expect(file!.getText()).toMatchInlineSnapshot(`
-"import { Record, Tuple, Dictionary, String, Unknown, Static } from 'runtypes';
+"import { Record, Tuple, Dictionary, String, Unknown, Undefined, Static } from 'runtypes';
 
-export const ExampleSchema = Record({ testArray: Tuple().Or(Tuple(Dictionary(Unknown, String),)).Or(Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String),)).optional(), });
+export const ExampleSchema = Record({ testArray: Tuple().Or(Tuple(Dictionary(Unknown, String),)).Or(Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String),)).Or(Undefined), });
 
 export type ExampleSchema = Static<typeof ExampleSchema>;
 "
