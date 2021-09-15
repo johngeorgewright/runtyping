@@ -9,7 +9,7 @@ test('tuple', async () => {
 
     export type A = Static<typeof A>;
 
-    export const B = Tuple(Tuple(Number, String, Number,), Tuple(Number, String, Number,),);
+    export const B = Tuple(A, A,);
 
     export type B = Static<typeof B>;
     "
