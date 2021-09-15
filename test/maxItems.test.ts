@@ -6,12 +6,10 @@ test('json schema', async () => {
     targetFile: pathHelper.join(__dirname, `maxItems.schema.runtypes.ts`),
   })
 
-  const file = await generator.generate([
-    {
-      file: pathHelper.join(__dirname, 'maxItems.schema.json'),
-      type: 'ExampleSchema',
-    },
-  ])
+  const file = await generator.generate({
+    file: pathHelper.join(__dirname, 'maxItems.schema.json'),
+    type: 'ExampleSchema',
+  })
 
   expect(file!.getText()).toMatchInlineSnapshot(`
 "import { Record, Tuple, Dictionary, String, Unknown, Static } from 'runtypes';

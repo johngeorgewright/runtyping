@@ -63,8 +63,8 @@ export default class Generator {
     })
   }
 
-  async generate(sourceTypes: InstructionSourceType[]) {
-    for (const sourceType of sourceTypes) {
+  async generate(sourceTypes: InstructionSourceType | InstructionSourceType[]) {
+    for (const sourceType of castArray(sourceTypes)) {
       const sourceImports = new Set<string>()
 
       switch (extname(sourceType.file)) {
