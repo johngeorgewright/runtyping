@@ -1,31 +1,20 @@
 import * as pathHelper from 'path'
-import { SourceFile } from 'ts-morph'
-import generate from '../src/generate'
+import Generator from '../src/Generator'
 
 test('json schema', async () => {
-  let file: SourceFile
+  const generator = new Generator({
+    targetFile: pathHelper.join(__dirname, `schema.runtypes.ts`),
+  })
 
-  for await (const _file of generate({
-    buildInstructions: [
-      {
-        targetFile: pathHelper.join(__dirname, `schema.runtypes.ts`),
-        sourceTypes: [
-          {
-            file: pathHelper.join(__dirname, 'schema.json'),
-            type: 'ExampleSchema',
-          },
-        ],
-      },
-    ],
-  })) {
-    file = _file
-    break
-  }
+  const file = await generator.generate({
+    file: pathHelper.join(__dirname, 'schema.json'),
+    type: 'ExampleSchema',
+  })
 
   expect(file!.getText()).toMatchInlineSnapshot(`
-"import { Record, String, Number, Literal, Static } from 'runtypes';
+"import { Record, String, Number, Undefined, Literal, Static } from 'runtypes';
 
-export const ExampleSchema = Record({ firstName: String, lastName: String, age: Number.optional(), hairColor: Literal(\\"black\\").Or(Literal(\\"brown\\")).Or(Literal(\\"blue\\")).optional(), });
+export const ExampleSchema = Record({ firstName: String, lastName: String, age: Number.Or(Undefined), hairColor: Literal(\\"black\\").Or(Literal(\\"brown\\")).Or(Literal(\\"blue\\")).Or(Undefined), });
 
 export type ExampleSchema = Static<typeof ExampleSchema>;
 "

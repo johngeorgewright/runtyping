@@ -48,6 +48,7 @@
     "lint-staged": "11.1.2",
     "prettier": "2.4.0",
     "rimraf": "3.0.2",
+    "runtypes": "6.4.0",
     "semantic-release": "17.4.7",
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
@@ -63,12 +64,14 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "peerDependencies": {
+    "runtypes": "^6.4.0"
+  },
   "dependencies": {
     "@johngw/array": "^3.1.5",
     "@johngw/error": "^2.1.1",
     "js-yaml": "^4.1.0",
     "json-schema-to-typescript": "^10.1.4",
-    "runtypes": "6.4.0",
     "ts-morph": "^12.0.0",
     "tslib": "2.3.1",
     "yargs": "^17.0.1"
