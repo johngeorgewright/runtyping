@@ -25,7 +25,7 @@ npm install -D runtyping
       type: Foo # The type you want to convert to a runtype
 
     - file: json/my-json-schema.json # You can even use JSON schema files!!
-      type: ExampleType
+      type: [ExampleType, AnotherExampleType]
 ```
 
 2. Then run: `npx runtyping`
@@ -35,34 +35,41 @@ npm install -D runtyping
 Basic example:
 
 ```ts
-import {generate} from 'runtyping';
+import { generate } from 'runtyping'
 
 const generator = generate({
   buildInstructions: [
-      {
-        targetFile: `src/runtypes.ts`,
-        sourceTypes: [
-            { file: 'src/types.ts', type: 'Foo' },
-            { file: 'json/my-json-schema.json', type: 'ExampleType' }
-        ]
-      },
-      // Add more as needed
-  ]
-});
+    {
+      targetFile: `src/runtypes.ts`,
+      sourceTypes: [
+        { file: 'src/types.ts', type: 'Foo' },
+        {
+          file: 'json/my-json-schema.json',
+          type: ['ExampleType', 'AnotherExampleType'],
+        },
+      ],
+    },
+    // Add more as needed
+  ],
+})
 
-for await (const file of generator) {
-  console.log(`Writing runtype: ${file.getFilePath()}`);
-  file.saveSync();
-}
+;(async () => {
+  for await (const file of generator) {
+    console.log(`Writing runtype: ${file.getFilePath()}`)
+    await file.save()
+  }
+})()
 ```
 
 You can also pass a custom tsconfig file:
 
 ```ts
 const generator = generate({
-  buildInstructions: [ /* ... */ ],
-  tsConfigFile: '/path/to/tsconfig.json'
-});
+  buildInstructions: [
+    /* ... */
+  ],
+  tsConfigFile: '/path/to/tsconfig.json',
+})
 ```
 
 ...or a custom ts-morph project (for the internal compiler):
@@ -70,18 +77,16 @@ const generator = generate({
 (see [generate.ts](src/generate.ts) for the defaults)
 
 ```ts
-import {Project} from "ts-morph";
+import { Project } from 'ts-morph'
 
 const generator = generate({
-  buildInstructions: [ /* ... */ ],
+  buildInstructions: [
+    /* ... */
+  ],
   project: new Project({
-    compilerOptions: {
-        // Enable this if you need nulls to be considered
-      strictNullChecks: true
-    },
     // ...
-  })
-});
+  }),
+})
 ```
 
 ## Thanks

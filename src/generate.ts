@@ -83,6 +83,7 @@ function getProject(options: GenerateOptions) {
   return 'project' in options && options.project
     ? options.project
     : new Project({
+        compilerOptions: { strictNullChecks: true },
         manipulationSettings: {
           indentationText: IndentationText.TwoSpaces,
           newLineKind: NewLineKind.LineFeed,

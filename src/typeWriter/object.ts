@@ -29,8 +29,10 @@ export default function* objectTypeGenerator(type: Type): RuntypeGenerator {
 
   for (const property of type.getProperties()) {
     yield [Write, `${property.getName()}:`]
-    yield* generateOrReuseType(property.getValueDeclarationOrThrow().getType())
-    if (property.hasFlags(SymbolFlags.Optional)) yield [Write, '.optional()']
+    const propertyType = property.getValueDeclarationOrThrow().getType()
+    yield* generateOrReuseType(propertyType)
+    if (property.hasFlags(SymbolFlags.Optional) && !propertyType.isNullable())
+      yield [Write, '.optional()']
     yield [Write, ',']
   }
 

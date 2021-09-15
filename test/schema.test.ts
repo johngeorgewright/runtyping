@@ -23,9 +23,9 @@ test('json schema', async () => {
   }
 
   expect(file!.getText()).toMatchInlineSnapshot(`
-"import { Record, String, Number, Literal, Static } from 'runtypes';
+"import { Record, String, Number, Undefined, Literal, Static } from 'runtypes';
 
-export const ExampleSchema = Record({ firstName: String, lastName: String, age: Number.optional(), hairColor: Literal(\\"black\\").Or(Literal(\\"brown\\")).Or(Literal(\\"blue\\")).optional(), });
+export const ExampleSchema = Record({ firstName: String, lastName: String, age: Number.Or(Undefined), hairColor: Literal(\\"black\\").Or(Literal(\\"brown\\")).Or(Literal(\\"blue\\")).Or(Undefined), });
 
 export type ExampleSchema = Static<typeof ExampleSchema>;
 "
