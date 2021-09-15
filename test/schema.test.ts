@@ -1,26 +1,15 @@
 import * as pathHelper from 'path'
-import { SourceFile } from 'ts-morph'
-import generate from '../src/generate'
+import Generator from '../src/Generator'
 
 test('json schema', async () => {
-  let file: SourceFile
+  const generator = new Generator({
+    targetFile: pathHelper.join(__dirname, `schema.runtypes.ts`),
+  })
 
-  for await (const _file of generate({
-    buildInstructions: [
-      {
-        targetFile: pathHelper.join(__dirname, `schema.runtypes.ts`),
-        sourceTypes: [
-          {
-            file: pathHelper.join(__dirname, 'schema.json'),
-            type: 'ExampleSchema',
-          },
-        ],
-      },
-    ],
-  })) {
-    file = _file
-    break
-  }
+  const file = await generator.generate({
+    file: pathHelper.join(__dirname, 'schema.json'),
+    type: 'ExampleSchema',
+  })
 
   expect(file!.getText()).toMatchInlineSnapshot(`
 "import { Record, String, Number, Undefined, Literal, Static } from 'runtypes';

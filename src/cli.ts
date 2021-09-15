@@ -4,7 +4,7 @@ import { constants } from 'fs'
 import { access, readFile } from 'fs/promises'
 import yaml from 'js-yaml'
 import yargs from 'yargs/yargs'
-import generate from './generate'
+import Generator from './Generator'
 import { Instructions } from './runtypes'
 
 if (process.argv[1] === 'rungen') {
@@ -28,12 +28,16 @@ const argv = yargs(process.argv.slice(2))
 
 ;(async () => {
   const configFile = await getConfigFile(argv.config)
-  const buildInstructions = yaml.load(await readFile(configFile, 'utf8'))
+  const buildInstructions = Instructions.check(
+    yaml.load(await readFile(configFile, 'utf8'))
+  )
 
-  for await (const file of generate({
-    buildInstructions: Instructions.check(buildInstructions),
-    tsConfigFile: argv.project,
-  })) {
+  for (const { targetFile, sourceTypes } of buildInstructions) {
+    const generator = new Generator({
+      targetFile,
+      tsConfigFile: argv.project,
+    })
+    const file = await generator.generate(sourceTypes)
     await file.save()
     console.info(`Generated ${file.getFilePath()}`)
   }

@@ -35,39 +35,25 @@ npm install -D runtyping
 Basic example:
 
 ```ts
-import { generate } from 'runtyping'
+import { Generator } from 'runtyping'
 
-const generator = generate({
-  buildInstructions: [
-    {
-      targetFile: `src/runtypes.ts`,
-      sourceTypes: [
-        { file: 'src/types.ts', type: 'Foo' },
-        {
-          file: 'json/my-json-schema.json',
-          type: ['ExampleType', 'AnotherExampleType'],
-        },
-      ],
-    },
-    // Add more as needed
-  ],
+const generator = new Generator({
+  targetFile: 'src/runtypes.ts',
 })
 
-;(async () => {
-  for await (const file of generator) {
-    console.log(`Writing runtype: ${file.getFilePath()}`)
-    await file.save()
-  }
-})()
+generator
+  .generate([
+    { file: 'src/types.ts', type: 'Foo' },
+    { file: 'json/my-json-schema.json', type: 'ExampleType' },
+  ])
+  .then((file) => file.save())
 ```
 
 You can also pass a custom tsconfig file:
 
 ```ts
-const generator = generate({
-  buildInstructions: [
-    /* ... */
-  ],
+const generator = new Generator({
+  targetFile: 'src/runtypes.ts',
   tsConfigFile: '/path/to/tsconfig.json',
 })
 ```
@@ -79,10 +65,8 @@ const generator = generate({
 ```ts
 import { Project } from 'ts-morph'
 
-const generator = generate({
-  buildInstructions: [
-    /* ... */
-  ],
+const generator = new Generator({
+  targetFile: 'src/runtypes.ts',
   project: new Project({
     // ...
   }),
