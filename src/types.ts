@@ -3,7 +3,7 @@ export interface Instruction {
   sourceTypes: InstructionSourceType | InstructionSourceType[]
 }
 
-export type Instructions = Instruction[]
+export type Instructions = Instruction | Instruction[]
 
 export interface InstructionSourceType {
   file: string

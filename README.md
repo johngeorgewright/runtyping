@@ -15,26 +15,36 @@ npm install -D runtyping
 
 1. Create a file, in the root of your project, called "runtyping.yml".
 
-```yaml
-# runtyping.yml
+   ```yaml
+   # runtyping.yml
 
-# This config represents a list of files to create
-- targetFile: src/runtypes.ts # The file to create
-  sourceTypes:
-    - file: src/types.ts # The file where your type lives
-      type: Foo # The type you want to convert to a runtype
+   targetFile: src/other-runtypes.ts # The file to create
+   sourceTypes:
+     file: src/types.ts # The file where your type lives
+     type: Foo # The type you want to convert to a runtype
+   ```
 
-    - file: json/my-json-schema.json # You can even use JSON schema files!!
-      type: [ExampleType, AnotherExampleType] # You may use an array of types
+   You can also specify a list of target files, if you want to create more than one:
 
-- targetFile: src/other-runtypes.ts
-  sourceTypes:
-    # You can also specify a singular source type
-    file: src/types.ts
-    type: Foo
-```
+   ```yaml
+   # runtyping.yml
 
-2. Then run: `npx runtyping`
+   - targetFile: src/other-runtypes.ts
+     sourceTypes:
+       file: src/types.ts
+       type: Foo
+
+   - targetFile: src/runtypes.ts
+     sourceTypes:
+       # Source types can also be a list
+       - file: src/types.ts
+         type: Foo
+
+       - file: json/my-json-schema.json # You can even use JSON schema files!!
+         type: [ExampleType, AnotherExampleType] # You may use an array of types
+   ```
+
+1. Then run: `npx runtyping`
 
 ### Use from a script
 
