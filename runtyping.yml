@@ -1,4 +1,4 @@
 - targetFile: src/runtypes.ts
   sourceTypes:
-    - file: src/types.ts
-      type: Instructions
+    file: src/types.ts
+    type: Instructions

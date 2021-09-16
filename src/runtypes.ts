@@ -9,7 +9,7 @@ export type InstructionSourceType = Static<typeof InstructionSourceType>
 
 export const Instruction = Record({
   targetFile: String,
-  sourceTypes: Array(InstructionSourceType),
+  sourceTypes: InstructionSourceType.Or(Array(InstructionSourceType)),
 })
 
 export type Instruction = Static<typeof Instruction>

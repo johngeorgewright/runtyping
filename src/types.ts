@@ -1,6 +1,6 @@
 export interface Instruction {
   targetFile: string
-  sourceTypes: InstructionSourceType[]
+  sourceTypes: InstructionSourceType | InstructionSourceType[]
 }
 
 export type Instructions = Instruction[]

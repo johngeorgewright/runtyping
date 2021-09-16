@@ -11,6 +11,8 @@
     "prebuild": "npm run clean",
     "build": "tsc --project tsconfig.json",
     "clean": "rimraf dist",
+    "runtyping": "ts-node src/cli",
+    "postruntyping": "prettier --write src/runtypes.ts",
     "start": "concurrently npm:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
     "start:test": "jest --watch",
