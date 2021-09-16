@@ -137,7 +137,8 @@ export default class Generator {
   ) {
     const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
     for (const type of castArray(sourceType.type)) {
-      this.#writeRuntype(sourceFile, type, sourceImports)
+      if (!this.#exports.has(type))
+        this.#writeRuntype(sourceFile, type, sourceImports)
     }
   }
 
