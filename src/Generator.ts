@@ -25,7 +25,7 @@ import {
   Write,
 } from './typeWriter/symbols'
 
-type GeneratorOptions =
+type GeneratorOptionsBase =
   | {
       targetFile: string
       tsConfigFile?: string
@@ -35,13 +35,22 @@ type GeneratorOptions =
       project?: Project
     }
 
+type StringMapper = (type: string) => string
+
+export type GeneratorOptions = GeneratorOptionsBase & {
+  mapRuntypeName?: StringMapper
+}
+
 export default class Generator {
   #exports = new Set<string>()
+  #mapRuntypeName: StringMapper
   #project: Project
   #runtypesImports = new Set<string>()
   #targetFile: SourceFile
 
   constructor(options: GeneratorOptions) {
+    this.#mapRuntypeName = options.mapRuntypeName ?? ((str) => str)
+
     this.#project =
       'project' in options && options.project
         ? options.project
@@ -147,13 +156,14 @@ export default class Generator {
     sourceType: string,
     sourceImports: Set<string>
   ) {
+    const sourceTypeRt = this.#mapRuntypeName(sourceType)
     const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
     const generator = factory(
       typeDeclaration.getType(),
       typeDeclaration.getName()
     )
-    let staticImplementation = `Static<typeof ${sourceType}>`
+    let staticImplementation = `Static<typeof ${sourceTypeRt}>`
     let writer = this.#project.createWriter()
 
     if (recursive) {
@@ -182,7 +192,7 @@ export default class Generator {
         case Declare:
           if (recursive || hasTypeDeclaration(sourceFile, item.value[1])) {
             next = true
-            writer = writer.write(item.value[1])
+            writer = writer.write(this.#mapRuntypeName(item.value[1]))
           }
           if (next && !recursive && !this.#exports.has(item.value[1]))
             this.#writeRuntype(sourceFile, item.value[1], sourceImports)
@@ -205,7 +215,7 @@ export default class Generator {
       declarationKind: VariableDeclarationKind.Const,
       declarations: [
         {
-          name: sourceType,
+          name: sourceTypeRt,
           initializer: writer.toString(),
         },
       ],

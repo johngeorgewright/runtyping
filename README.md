@@ -49,7 +49,7 @@ generator
   .then((file) => file.save())
 ```
 
-You can also pass a custom tsconfig file:
+#### Passing a custom tsconfig file
 
 ```ts
 const generator = new Generator({
@@ -58,7 +58,7 @@ const generator = new Generator({
 })
 ```
 
-...or a custom ts-morph project (for the internal compiler):
+#### Passing a custom ts-morph project (for the internal compiler)
 
 (see [generate.ts](src/generate.ts) for the defaults)
 
@@ -70,6 +70,15 @@ const generator = new Generator({
   project: new Project({
     // ...
   }),
+})
+```
+
+#### Setting a custom name for the exported runtypes
+
+```ts
+const generator = new Generator({
+  // ...
+  mapRuntypeName: (type) => `${type}Rt`, // Suffix all resulting runtypes with "Rt"
 })
 ```
 
