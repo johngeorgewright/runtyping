@@ -29,7 +29,7 @@ npm install -D runtyping
 
 - targetFile: src/other-runtypes.ts
   sourceTypes:
-    # You can also just specify a singular source type
+    # You can also specify a singular source type
     file: src/types.ts
     type: Foo
 ```
