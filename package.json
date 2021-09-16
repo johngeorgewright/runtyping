@@ -11,6 +11,7 @@
     "prebuild": "npm run clean",
     "build": "tsc --project tsconfig.json",
     "clean": "rimraf dist",
+    "schema": "typescript-json-schema --out runtyping.schema.json src/types.ts Instructions",
     "start": "concurrently npm:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
     "start:test": "jest --watch",
@@ -52,11 +53,16 @@
     "semantic-release": "17.4.7",
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
-    "typescript": "4.4.3"
+    "typescript": "4.4.3",
+    "typescript-json-schema": "0.50.1"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
       "npx prettier --write"
+    ],
+    "src/types.ts": [
+      "npm run runtyping",
+      "npm run schema"
     ]
   },
   "config": {
