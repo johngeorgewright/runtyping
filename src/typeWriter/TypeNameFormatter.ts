@@ -8,6 +8,7 @@ class TypeNameFormatter {
     runtypeFormat,
     typeFormat,
   }: { runtypeFormat?: string; typeFormat?: string } = {}) {
+    // Make sure the (run)typeFormat look as we expect them to (but only IF they were supplied at all)
     if (runtypeFormat && runtypeFormat.indexOf(TYPE_PLACEHOLDER) === -1) {
       throw new Error(
         `runtypeFormat must contain placeholder '${TYPE_PLACEHOLDER}'`
