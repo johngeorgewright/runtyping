@@ -32,10 +32,17 @@ const argv = yargs(process.argv.slice(2))
     yaml.load(await readFile(configFile, 'utf8'))
   )
 
-  for (const { targetFile, sourceTypes } of buildInstructions) {
+  for (const {
+    targetFile,
+    sourceTypes,
+    runtypeFormat,
+    typeFormat,
+  } of buildInstructions) {
     const generator = new Generator({
       targetFile,
       tsConfigFile: argv.project,
+      runtypeFormat,
+      typeFormat,
     })
     const file = await generator.generate(sourceTypes)
     await file.save()
