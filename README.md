@@ -26,6 +26,8 @@ npm install -D runtyping
 
     - file: json/my-json-schema.json # You can even use JSON schema files!!
       type: [ExampleType, AnotherExampleType]
+  runtypeFormat: {type}Rt # Optional: use a custom name format for the created runtype
+  typeFormat: {type}Type  # Optional: use a custom name format for the created type
 ```
 
 2. Then run: `npx runtyping`
@@ -39,6 +41,7 @@ import { Generator } from 'runtyping'
 
 const generator = new Generator({
   targetFile: 'src/runtypes.ts',
+  // optional: runtypeFormat / typeFormat (see above)
 })
 
 generator
@@ -70,15 +73,6 @@ const generator = new Generator({
   project: new Project({
     // ...
   }),
-})
-```
-
-#### Setting a custom name for the exported runtypes
-
-```ts
-const generator = new Generator({
-  // ...
-  mapRuntypeName: (type) => `${type}Rt`, // Suffix all resulting runtypes with "Rt"
 })
 ```
 
