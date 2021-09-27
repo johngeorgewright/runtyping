@@ -1,3 +1,7 @@
 {
-  "recommendations": ["esbenp.prettier-vscode", "orta.vscode-jest"]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "orta.vscode-jest",
+    "redhat.vscode-yaml"
+  ]
 }

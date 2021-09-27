@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Instruction": {
+      "properties": {
+        "sourceTypes": {
+          "items": {
+            "$ref": "#/definitions/InstructionSourceType"
+          },
+          "type": "array"
+        },
+        "targetFile": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "InstructionSourceType": {
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "items": {
+    "$ref": "#/definitions/Instruction"
+  },
+  "type": "array"
+}
