@@ -10,6 +10,8 @@ export type InstructionSourceType = Static<typeof InstructionSourceType>
 export const Instruction = Record({
   targetFile: String,
   sourceTypes: InstructionSourceType.Or(Array(InstructionSourceType)),
+  runtypeFormat: String.optional(),
+  typeFormat: String.optional(),
 })
 
 export type Instruction = Static<typeof Instruction>

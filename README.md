@@ -19,6 +19,8 @@ npm install -D runtyping
    # runtyping.yml
 
    targetFile: src/other-runtypes.ts # The file to create
+   runtypeFormat: {type}Rt # Optional: use a custom name format for the created runtype
+   typeFormat: {type}Type  # Optional: use a custom name format for the created type
    sourceTypes:
      file: src/types.ts # The file where your type lives
      type: Foo # The type you want to convert to a runtype
@@ -55,6 +57,7 @@ import { Generator } from 'runtyping'
 
 const generator = new Generator({
   targetFile: 'src/runtypes.ts',
+  // optional: runtypeFormat / typeFormat (see above)
 })
 
 generator
@@ -65,7 +68,7 @@ generator
   .then((file) => file.save())
 ```
 
-You can also pass a custom tsconfig file:
+#### Passing a custom tsconfig file
 
 ```ts
 const generator = new Generator({
@@ -74,7 +77,7 @@ const generator = new Generator({
 })
 ```
 
-...or a custom ts-morph project (for the internal compiler):
+#### Passing a custom ts-morph project (for the internal compiler)
 
 (see [generate.ts](src/generate.ts) for the defaults)
 
