@@ -1,6 +1,6 @@
 {
   "name": "runtyping",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "Compose and react upon redux actions",
   "main": "dist/index.js",
   "bin": {
@@ -54,7 +54,7 @@
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
     "typescript": "4.4.3",
-    "typescript-json-schema": "0.50.1"
+    "typescript-json-schema": "0.51.0"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
