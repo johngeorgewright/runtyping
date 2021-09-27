@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { cast as castArray } from '@johngw/array'
 import { constants } from 'fs'
 import { access, readFile } from 'fs/promises'
 import yaml from 'js-yaml'
@@ -32,7 +33,7 @@ const argv = yargs(process.argv.slice(2))
     yaml.load(await readFile(configFile, 'utf8'))
   )
 
-  for (const { targetFile, sourceTypes } of buildInstructions) {
+  for (const { targetFile, sourceTypes } of castArray(buildInstructions)) {
     const generator = new Generator({
       targetFile,
       tsConfigFile: argv.project,

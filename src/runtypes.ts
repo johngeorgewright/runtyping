@@ -1,4 +1,4 @@
-import { Array, Record, String, Static } from 'runtypes'
+import { Record, String, Array, Static } from 'runtypes'
 
 export const InstructionSourceType = Record({
   file: String,
@@ -9,11 +9,11 @@ export type InstructionSourceType = Static<typeof InstructionSourceType>
 
 export const Instruction = Record({
   targetFile: String,
-  sourceTypes: Array(InstructionSourceType),
+  sourceTypes: InstructionSourceType.Or(Array(InstructionSourceType)),
 })
 
 export type Instruction = Static<typeof Instruction>
 
-export const Instructions = Array(Instruction)
+export const Instructions = Instruction.Or(Array(Instruction))
 
 export type Instructions = Static<typeof Instructions>
