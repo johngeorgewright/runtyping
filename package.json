@@ -60,7 +60,7 @@
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
       "npx prettier --write"
     ],
-    "src/types.ts": [
+    "src/runtypes.ts": [
       "npm run schema"
     ]
   },
