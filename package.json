@@ -11,8 +11,6 @@
     "prebuild": "npm run clean",
     "build": "tsc --project tsconfig.json",
     "clean": "rimraf dist",
-    "runtyping": "ts-node src/cli",
-    "postruntyping": "prettier --write src/runtypes.ts",
     "schema": "typescript-json-schema --out runtyping.schema.json src/types.ts Instructions",
     "start": "concurrently npm:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
@@ -63,7 +61,6 @@
       "npx prettier --write"
     ],
     "src/types.ts": [
-      "npm run runtyping",
       "npm run schema"
     ]
   },
