@@ -11,18 +11,11 @@ export default function* objectTypeGenerator(type: Type): RuntypeGenerator {
       d.getSourceFile().getFilePath().includes(require.resolve('typescript'))
     )
 
-  if (isBuiltInType) {
-    yield* generateBuildInType(type)
-    return
-  }
-
-  if (type.getStringIndexType()) {
-    yield* generateStringIndexType(type)
-    return
-  } else if (type.getNumberIndexType()) {
-    yield* generateNumberIndexType(type)
-    return
-  }
+  if (isBuiltInType) return yield* generateBuildInType(type)
+  else if (type.getStringIndexType())
+    return yield* generateStringIndexType(type)
+  else if (type.getNumberIndexType())
+    return yield* generateNumberIndexType(type)
 
   yield [Import, 'Record']
   yield [Write, 'Record({']

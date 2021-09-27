@@ -23,9 +23,8 @@ export default function* functionTypeGenerator(
   for (const param of signature.getParameters()) {
     const paramDec = last(param.getDeclarations())
     yield* generateOrReuseType(paramDec.getType())
-    if (!paramDec.getType().isNullable() && isOptionalParam(paramDec)) {
+    if (!paramDec.getType().isNullable() && isOptionalParam(paramDec))
       yield [Write, '.optional()']
-    }
     yield [Write, ',']
   }
 
@@ -40,9 +39,7 @@ export default function* functionTypeGenerator(
   if (isFunctionDeclaration(type)) {
     yield [Write, `.enforce(_${name})`]
     yield [Static, `typeof ${name}`]
-  } else {
-    yield [Static, `_${name}`]
-  }
+  } else yield [Static, `_${name}`]
 }
 
 function isFunctionDeclaration(type: Type) {
