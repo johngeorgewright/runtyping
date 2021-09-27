@@ -24,7 +24,7 @@ import {
   Static,
   Write,
 } from './typeWriter/symbols'
-import TypeNameFormatter from './typeWriter/TypeNameFormatter'
+import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
 
 type GeneratorOptionsBase =
   | {
@@ -43,7 +43,8 @@ export type GeneratorOptions = GeneratorOptionsBase & {
 
 export default class Generator {
   #exports = new Set<string>()
-  #nameFormatter: TypeNameFormatter
+  #formatRuntypeName: TypeNameFormatter
+  #formatTypeName: TypeNameFormatter
   #project: Project
   #runtypesImports = new Set<string>()
   #targetFile: SourceFile
@@ -70,8 +71,8 @@ export default class Generator {
       overwrite: true,
     })
 
-    const { runtypeFormat, typeFormat } = options
-    this.#nameFormatter = new TypeNameFormatter({ runtypeFormat, typeFormat })
+    this.#formatRuntypeName = typeNameFormatter(options.runtypeFormat)
+    this.#formatTypeName = typeNameFormatter(options.typeFormat)
   }
 
   async generate(sourceTypes: InstructionSourceType | InstructionSourceType[]) {
@@ -157,15 +158,14 @@ export default class Generator {
     sourceType: string,
     sourceImports: Set<string>
   ) {
-    let sourceTypeRt = this.#nameFormatter.formatRuntypeName(sourceType)
-
+    const sourceTypeName = this.#formatRuntypeName(sourceType)
     const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
     const generator = factory(
       typeDeclaration.getType(),
       typeDeclaration.getName()
     )
-    let staticImplementation = `Static<typeof ${sourceTypeRt}>`
+    let staticImplementation = `Static<typeof ${sourceTypeName}>`
     let writer = this.#project.createWriter()
 
     if (recursive) {
@@ -194,9 +194,7 @@ export default class Generator {
         case Declare:
           if (recursive || hasTypeDeclaration(sourceFile, item.value[1])) {
             next = true
-            writer = writer.write(
-              this.#nameFormatter.formatRuntypeName(item.value[1])
-            )
+            writer = writer.write(this.#formatRuntypeName(item.value[1]))
           }
           if (next && !recursive && !this.#exports.has(item.value[1]))
             this.#writeRuntype(sourceFile, item.value[1], sourceImports)
@@ -219,7 +217,7 @@ export default class Generator {
       declarationKind: VariableDeclarationKind.Const,
       declarations: [
         {
-          name: sourceTypeRt,
+          name: sourceTypeName,
           initializer: writer.toString(),
         },
       ],
@@ -229,7 +227,7 @@ export default class Generator {
 
     this.#targetFile.addTypeAlias({
       isExported: true,
-      name: this.#nameFormatter.formatTypeName(sourceType),
+      name: this.#formatTypeName(sourceType),
       type: staticImplementation,
     })
 
