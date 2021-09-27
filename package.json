@@ -11,7 +11,7 @@
     "prebuild": "npm run clean",
     "build": "tsc --project tsconfig.json",
     "clean": "rimraf dist",
-    "schema": "typescript-json-schema --out runtyping.schema.json src/types.ts Instructions",
+    "schema": "typescript-json-schema --out runtyping.schema.json src/runtypes.ts Instructions",
     "start": "concurrently npm:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
     "start:test": "jest --watch",
