@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+rm -rf .yarn .yarnrc.yml .pnp.cjs yarn.lock .vscode
+yarn set version berry
+yarn plugin import interactive-tools
+yarn plugin import version
+yarn
+yarn dlx @yarnpkg/sdks vscode
