@@ -14,20 +14,20 @@ if (process.argv[1] === 'rungen') {
   )
 }
 
-const argv = yargs(process.argv.slice(2))
-  .option('config', {
-    alias: 'c',
-    describe: 'The path to the generator config file.',
-    type: 'string',
-  })
-  .option('project', {
-    alias: 'p',
-    default: 'tsconfig.json',
-    describe: 'The typescript project file.',
-    type: 'string',
-  }).argv
-
 ;(async () => {
+  const argv = await yargs(process.argv.slice(2))
+    .option('config', {
+      alias: 'c',
+      describe: 'The path to the generator config file.',
+      type: 'string',
+    })
+    .option('project', {
+      alias: 'p',
+      default: 'tsconfig.json',
+      describe: 'The typescript project file.',
+      type: 'string',
+    }).argv
+
   const configFile = await getConfigFile(argv.config)
   const buildInstructions = Instructions.check(
     yaml.load(await readFile(configFile, 'utf8'))
