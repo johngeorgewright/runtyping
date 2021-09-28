@@ -1,6 +1,6 @@
 import { Declare, Import, ImportFromSource, Static, Write } from './symbols'
 
-type RuntypeGenerator = Generator<
+type TypeWriter = Generator<
   | [typeof Import, string]
   | [typeof ImportFromSource, string]
   | [typeof Write, string]
@@ -10,4 +10,4 @@ type RuntypeGenerator = Generator<
   undefined | boolean
 >
 
-export default RuntypeGenerator
+export default TypeWriter

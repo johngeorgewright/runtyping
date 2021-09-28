@@ -1,9 +1,9 @@
 import { SymbolFlags, Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import { Import, Write } from './symbols'
 
-export default function* objectTypeGenerator(type: Type): RuntypeGenerator {
+export default function* objectTypeGenerator(type: Type): TypeWriter {
   const isBuiltInType = type
     .getSymbolOrThrow()
     .getDeclarations()
@@ -32,12 +32,12 @@ export default function* objectTypeGenerator(type: Type): RuntypeGenerator {
   yield [Write, '})']
 }
 
-function* generateBuildInType(type: Type): RuntypeGenerator {
+function* generateBuildInType(type: Type): TypeWriter {
   yield [Import, 'InstanceOf']
   yield [Write, `InstanceOf(${type.getText()})`]
 }
 
-function* generateStringIndexType(type: Type): RuntypeGenerator {
+function* generateStringIndexType(type: Type): TypeWriter {
   yield [Import, 'Dictionary']
   yield [Import, 'String']
   yield [Write, 'Dictionary(']
@@ -45,7 +45,7 @@ function* generateStringIndexType(type: Type): RuntypeGenerator {
   yield [Write, ', String)']
 }
 
-function* generateNumberIndexType(type: Type): RuntypeGenerator {
+function* generateNumberIndexType(type: Type): TypeWriter {
   yield [Import, 'Dictionary']
   yield [Import, 'Number']
   yield [Write, 'Dictionary(']

@@ -1,9 +1,9 @@
 import { Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import { Import, Write } from './symbols'
 
-export default function* tupleTypeGenerator(type: Type): RuntypeGenerator {
+export default function* tupleTypeGenerator(type: Type): TypeWriter {
   yield [Import, 'Tuple']
   yield [Write, 'Tuple(']
   for (const element of type.getTupleElements()) {

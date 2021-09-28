@@ -1,13 +1,11 @@
 import { Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import simpleTypeGenerator from './simple'
 import sortUndefinedFirst from '../sortUndefinedFirst'
 import { Write } from './symbols'
 
-export default function* intersecionTypeGenerator(
-  type: Type
-): RuntypeGenerator {
+export default function* intersecionTypeGenerator(type: Type): TypeWriter {
   const [first, ...rest] = type.getIntersectionTypes().sort(sortUndefinedFirst)
 
   if (!first) return yield* simpleTypeGenerator('Undefined')

@@ -1,9 +1,9 @@
 import { Type } from 'ts-morph'
 import factory from './factory'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import { Declare } from './symbols'
 
-export default function* generateOrReuseType(type: Type): RuntypeGenerator {
+export default function* generateOrReuseType(type: Type): TypeWriter {
   const typeName =
     type.getAliasSymbol()?.getName() || type.getSymbol()?.getName()
 

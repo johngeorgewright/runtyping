@@ -1,13 +1,13 @@
 import { FunctionDeclaration, Node, Signature, Type } from 'ts-morph'
 import { last } from '../util'
 import generateOrReuseType from './generateOrReuseType'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import { Import, ImportFromSource, Static, Write } from './symbols'
 
 export default function* functionTypeGenerator(
   type: Type,
   name?: string
-): RuntypeGenerator {
+): TypeWriter {
   const signature = last(type.getCallSignatures())
   name =
     name ||
