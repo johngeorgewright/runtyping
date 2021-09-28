@@ -1,4 +1,4 @@
 dist
 *.log
-.pnp.js
+.pnp.cjs
 package-lock.json
