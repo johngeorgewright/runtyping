@@ -7,9 +7,7 @@ export default function* generateOrReuseType(type: Type): RuntypeGenerator {
   const typeName =
     type.getAliasSymbol()?.getName() || type.getSymbol()?.getName()
 
-  if (!!typeName && (yield [Declare, typeName])) {
-    return
-  }
+  if (!!typeName && (yield [Declare, typeName])) return
 
   yield* factory(type)
 }
