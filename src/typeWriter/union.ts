@@ -2,7 +2,7 @@ import { Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
 import RuntypeGenerator from './RuntypeGenerator'
 import simpleTypeGenerator from './simple'
-import sortUndefinedFirst from './sortUndefinedFirst'
+import sortUndefinedFirst from '../sortUndefinedFirst'
 import { Write } from './symbols'
 
 export default function* unionTypeGenerator(type: Type): RuntypeGenerator {
