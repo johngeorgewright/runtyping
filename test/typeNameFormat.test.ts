@@ -21,3 +21,13 @@ export type MappedBBar = Static<typeof MappedBFoo>;
 "
 `)
 })
+
+test('incorrect formatting', async () => {
+  await expect(() =>
+    generateFixture('typeNameFormat', ['B'], undefined, {
+      runtypeFormat: 'notypeparam',
+    })
+  ).rejects.toThrow(
+    `Type format must contain placeholder '{type}'. Got: "notypeparam".`
+  )
+})
