@@ -13,19 +13,26 @@ jobs:
         with:
           token: ${{ secrets.PUSH_TOKEN }}
 
+      - name: Get Node Version from NVM
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+        id: nvm
+
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
 
       - name: Setup
-        run: npm ci
+        run: yarn --immutable
 
       - name: Build
-        run: npm run build
+        run: yarn build
+
+      - name: Test
+        run: yarn test
 
       - name: Release
-        run: npx semantic-release
+        run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
