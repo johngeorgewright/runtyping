@@ -8,10 +8,9 @@
     "runtyping": "dist/cli.js"
   },
   "scripts": {
-    "prebuild": "npm run clean",
-    "build": "tsc --project tsconfig.json",
+    "build": "npm run clean && tsc --project tsconfig.json",
     "clean": "rimraf dist",
-    "schema": "typescript-json-schema --out runtyping.schema.json src/runtypes.ts Instructions",
+    "schema": "typescript-json-schema --out runtyping.schema.json src/runtypes.ts Instructions && prettier --write runtype.schema.json",
     "start": "concurrently npm:start:*",
     "start:build": "tsc --watch --preserveWatchOutput",
     "start:test": "jest --watch",
@@ -76,9 +75,9 @@
     "@johngw/error": "^2.1.1",
     "@johngw/iterator": "^1.0.2",
     "js-yaml": "^4.1.0",
-    "json-schema-to-typescript": "^10.1.4",
+    "json-schema-to-typescript": "^10.1.5",
     "ts-morph": "^12.0.0",
     "tslib": "2.3.1",
-    "yargs": "^17.0.1"
+    "yargs": "^17.2.1"
   }
 }
