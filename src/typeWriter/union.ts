@@ -1,11 +1,11 @@
 import { Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import simpleTypeGenerator from './simple'
 import sortUndefinedFirst from '../sortUndefinedFirst'
 import { Write } from './symbols'
 
-export default function* unionTypeGenerator(type: Type): RuntypeGenerator {
+export default function* unionTypeGenerator(type: Type): TypeWriter {
   const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
 
   if (!first) return yield* simpleTypeGenerator('Undefined')

@@ -1,8 +1,8 @@
 import { Type } from 'ts-morph'
-import RuntypeGenerator from './RuntypeGenerator'
+import TypeWriter from './TypeWriter'
 import { Import, ImportFromSource, Write } from './symbols'
 
-export default function* enumTypeGenerator(type: Type): RuntypeGenerator {
+export default function* enumTypeGenerator(type: Type): TypeWriter {
   const name = type.getSymbolOrThrow().getName()
   yield [Import, 'Guard']
   yield [ImportFromSource, name]
