@@ -1,4 +1,5 @@
 import { cast as castArray } from '@johngw/array'
+import { IteratorHandler } from '@johngw/iterator'
 import { compileFromFile } from 'json-schema-to-typescript'
 import { basename, dirname, extname, relative } from 'path'
 import {
@@ -111,15 +112,14 @@ export default class Generator {
     const sourceDir = dirname(sourceFilePath)
     const targetDir = dirname(this.#targetFile.getFilePath())
     const sourceBaseName = basename(sourceFilePath, extname(sourceFilePath))
-    const moduleSpecifier = `${
-      relative(targetDir, sourceDir) || '.'
-    }/${sourceBaseName}`
     this.#targetFile.addImportDeclaration({
       namedImports: [...imports].map((name) => ({
         name,
         alias: `_${name}`,
       })),
-      moduleSpecifier,
+      moduleSpecifier: `${
+        relative(targetDir, sourceDir) || '.'
+      }/${sourceBaseName}`,
     })
   }
 
@@ -147,10 +147,9 @@ export default class Generator {
     sourceImports: Set<string>
   ) {
     const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
-    for (const type of castArray(sourceType.type)) {
+    for (const type of castArray(sourceType.type))
       if (!this.#exports.has(type))
         this.#writeRuntype(sourceFile, type, sourceImports)
-    }
   }
 
   #writeRuntype(
@@ -161,10 +160,7 @@ export default class Generator {
     const sourceTypeName = this.#formatRuntypeName(sourceType)
     const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
-    const generator = factory(
-      typeDeclaration.getType(),
-      typeDeclaration.getName()
-    )
+
     let staticImplementation = `Static<typeof ${sourceTypeName}>`
     let writer = this.#project.createWriter()
 
@@ -173,40 +169,32 @@ export default class Generator {
       writer = writer.write('Lazy(() => ')
     }
 
-    let item = generator.next()
-
-    while (!item.done) {
-      let next: true | undefined
-
-      switch (item.value[0]) {
-        case Write:
-          writer = writer.write(item.value[1])
-          break
-
-        case Import:
-          this.#runtypesImports.add(item.value[1])
-          break
-
-        case ImportFromSource:
-          sourceImports.add(item.value[1])
-          break
-
-        case Declare:
-          if (recursive || hasTypeDeclaration(sourceFile, item.value[1])) {
-            next = true
-            writer = writer.write(this.#formatRuntypeName(item.value[1]))
-          }
-          if (next && !recursive && !this.#exports.has(item.value[1]))
-            this.#writeRuntype(sourceFile, item.value[1], sourceImports)
-          break
-
-        case Static:
-          staticImplementation = item.value[1]
-          break
-      }
-
-      item = generator.next(next)
-    }
+    IteratorHandler.create(
+      factory(typeDeclaration.getType(), typeDeclaration.getName())
+    )
+      .handle(Write, (value) => {
+        writer = writer.write(value)
+      })
+      .handle(Import, (value) => {
+        this.#runtypesImports.add(value)
+      })
+      .handle(ImportFromSource, (value) => {
+        sourceImports.add(value)
+      })
+      .handle(Static, (value) => {
+        staticImplementation = value
+      })
+      .handle(Declare, (value) => {
+        let next: true | undefined
+        if (recursive || hasTypeDeclaration(sourceFile, value)) {
+          next = true
+          writer = writer.write(this.#formatRuntypeName(value))
+        }
+        if (next && !recursive && !this.#exports.has(value))
+          this.#writeRuntype(sourceFile, value, sourceImports)
+        return next
+      })
+      .run()
 
     if (recursive) {
       writer = writer.write(')')

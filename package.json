@@ -32,7 +32,6 @@
   "devDependencies": {
     "@commitlint/cli": "13.2.0",
     "@commitlint/config-conventional": "13.2.0",
-    "@johngw/async-iterator": "2.2.2",
     "@semantic-release/commit-analyzer": "9.0.1",
     "@semantic-release/git": "10.0.0",
     "@semantic-release/github": "8.0.1",
@@ -75,6 +74,7 @@
   "dependencies": {
     "@johngw/array": "^3.1.5",
     "@johngw/error": "^2.1.1",
+    "@johngw/iterator": "^1.0.2",
     "js-yaml": "^4.1.0",
     "json-schema-to-typescript": "^10.1.4",
     "ts-morph": "^12.0.0",
