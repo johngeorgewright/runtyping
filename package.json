@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "devDependencies": {
-    "@commitlint/cli": "13.1.0",
-    "@commitlint/config-conventional": "13.1.0",
+    "@commitlint/cli": "13.2.0",
+    "@commitlint/config-conventional": "13.2.0",
     "@johngw/async-iterator": "2.2.2",
     "@semantic-release/commit-analyzer": "9.0.1",
     "@semantic-release/git": "10.0.0",
