@@ -161,7 +161,7 @@ export default class Generator {
     const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
 
-    let staticImplementation = `Static<typeof ${sourceTypeName}>`
+    let staticImplementation: string | undefined
     let writer = this.#project.createWriter()
 
     if (recursive) {
@@ -211,7 +211,10 @@ export default class Generator {
       ],
     })
 
-    this.#runtypesImports.add('Static')
+    if (!staticImplementation) {
+      this.#runtypesImports.add('Static')
+      staticImplementation = `Static<typeof ${sourceTypeName}>`
+    }
 
     this.#targetFile.addTypeAlias({
       isExported: true,
