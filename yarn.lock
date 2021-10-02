@@ -2640,9 +2640,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:6.2.2":
-  version: 6.2.2
-  resolution: "concurrently@npm:6.2.2"
+"concurrently@npm:6.3.0":
+  version: 6.3.0
+  resolution: "concurrently@npm:6.3.0"
   dependencies:
     chalk: ^4.1.0
     date-fns: ^2.16.1
@@ -2654,7 +2654,7 @@ __metadata:
     yargs: ^16.2.0
   bin:
     concurrently: bin/concurrently.js
-  checksum: 42e4eb4a0f72e7d20db48c256284ed8e25b52c72d152a60cd46a2257bc8bb92365494b82f6f342080484126319f612d4c76b5448ee2d3432d0cd8fa0e17b6dfe
+  checksum: fb68236899259a3b0c05d27db608ee9150f11fc785552c14937e5e1421c9448d03704cdc2acb5f842a91c465d50005b4229f348eb9594d84cbef54e5a93ffde7
   languageName: node
   linkType: hard
 
@@ -7414,7 +7414,7 @@ fsevents@^2.3.2:
     "@types/node": 14.17.20
     "@types/yargs": 17.0.3
     commitizen: 4.2.4
-    concurrently: 6.2.2
+    concurrently: 6.3.0
     cz-conventional-changelog: 3.3.0
     husky: 7.0.2
     jest: 27.2.4
