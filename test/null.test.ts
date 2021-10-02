@@ -14,7 +14,7 @@ test('strict nulls', async () => {
 
     export type B = Static<typeof B>;
 
-    export const C = Record({ a: Null, b: Null.Or(String), c: Null.Or(String).Or(Undefined), });
+    export const C = Record({ a: Null, b: Null.Or(String), c: Null.Or(String).Or(Undefined).optional(), });
 
     export type C = Static<typeof C>;
     "

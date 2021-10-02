@@ -5,7 +5,7 @@ test('optional property', async () => {
     .toMatchInlineSnapshot(`
     "import { Record, String, Undefined, Static } from 'runtypes';
 
-    export const A = Record({ foo: String.Or(Undefined), });
+    export const A = Record({ foo: String.Or(Undefined).optional(), });
 
     export type A = Static<typeof A>;
     "

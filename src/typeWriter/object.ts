@@ -24,8 +24,7 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
     yield [Write, `${property.getName()}:`]
     const propertyType = property.getValueDeclarationOrThrow().getType()
     yield* generateOrReuseType(propertyType)
-    if (property.hasFlags(SymbolFlags.Optional) && !propertyType.isNullable())
-      yield [Write, '.optional()']
+    if (property.hasFlags(SymbolFlags.Optional)) yield [Write, '.optional()']
     yield [Write, ',']
   }
 

@@ -12,11 +12,11 @@ test('json schema', async () => {
   })
 
   expect(file!.getText()).toMatchInlineSnapshot(`
-"import { Record, Tuple, Dictionary, String, Unknown, Undefined, Static } from 'runtypes';
+    "import { Record, Tuple, Dictionary, String, Unknown, Undefined, Static } from 'runtypes';
 
-export const ExampleSchema = Record({ testArray: Tuple().Or(Tuple(Dictionary(Unknown, String),)).Or(Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String),)).Or(Undefined), });
+    export const ExampleSchema = Record({ testArray: Tuple().Or(Tuple(Dictionary(Unknown, String),)).Or(Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String),)).Or(Undefined).optional(), });
 
-export type ExampleSchema = Static<typeof ExampleSchema>;
-"
-`)
+    export type ExampleSchema = Static<typeof ExampleSchema>;
+    "
+  `)
 })
