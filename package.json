@@ -45,7 +45,7 @@
     "cz-conventional-changelog": "3.3.0",
     "husky": "7.0.2",
     "jest": "27.2.5",
-    "lint-staged": "11.2.0",
+    "lint-staged": "11.2.1",
     "prettier": "2.4.1",
     "rimraf": "3.0.2",
     "runtypes": "6.4.1",
