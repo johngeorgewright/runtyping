@@ -5542,9 +5542,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:11.2.2":
-  version: 11.2.2
-  resolution: "lint-staged@npm:11.2.2"
+"lint-staged@npm:11.2.3":
+  version: 11.2.3
+  resolution: "lint-staged@npm:11.2.3"
   dependencies:
     cli-truncate: 2.1.0
     colorette: ^1.4.0
@@ -5562,7 +5562,7 @@ fsevents@^2.3.2:
     supports-color: 8.1.1
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 53d94e876ed76a6a61c4c54a84a722c8de321cc1b363c7f6decd50e8745019db7f1e90799a09d27d030c9ff4bc653a7eba0e690b24750e3acfc5c49144fd617e
+  checksum: cf3a1612a8cb3790030fb1eaf98071b97be0c71e9ee87f2f65741321974178e9b15b480dac695bb126d2cd8751dd7d72071b13d7ea0e1a97a735d88bd3cc8bb7
   languageName: node
   linkType: hard
 
@@ -7421,7 +7421,7 @@ fsevents@^2.3.2:
     jest: 27.2.5
     js-yaml: 4.1.0
     json-schema-to-typescript: 10.1.5
-    lint-staged: 11.2.2
+    lint-staged: 11.2.3
     prettier: 2.4.1
     rimraf: 3.0.2
     runtypes: 6.4.1
