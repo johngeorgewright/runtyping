@@ -1610,10 +1610,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:14.17.22":
-  version: 14.17.22
-  resolution: "@types/node@npm:14.17.22"
-  checksum: e1e047cdf9a219a97c66064ef38769220d9ae7c819f3ac29170cafa4ffc8a8616bafa28326c0b02a3bf974e21c17f03f2c17c330572b84c9c51e0f62b0aecf88
+"@types/node@npm:14.17.25":
+  version: 14.17.25
+  resolution: "@types/node@npm:14.17.25"
+  checksum: 2fdf3f782546e500fd92d129a19a2e194fee811af0dad17e396a53a6355477c201ecdf3185af8a79dbcf1db2244a92feb0d5a0ab529f7050fa8e520613ad13d3
   languageName: node
   linkType: hard
 
@@ -7421,7 +7421,7 @@ fsevents@^2.3.2:
     "@semantic-release/release-notes-generator": 10.0.2
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.3
-    "@types/node": 14.17.22
+    "@types/node": 14.17.25
     "@types/yargs": 17.0.3
     commitizen: 4.2.4
     concurrently: 6.3.0
