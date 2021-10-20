@@ -1358,7 +1358,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:8.0.0, @semantic-release/npm@npm:^8.0.0":
+"@semantic-release/npm@npm:8.0.2":
+  version: 8.0.2
+  resolution: "@semantic-release/npm@npm:8.0.2"
+  dependencies:
+    "@semantic-release/error": ^3.0.0
+    aggregate-error: ^3.0.0
+    execa: ^5.0.0
+    fs-extra: ^10.0.0
+    lodash: ^4.17.15
+    nerf-dart: ^1.0.0
+    normalize-url: ^6.0.0
+    npm: ^7.0.0
+    rc: ^1.2.8
+    read-pkg: ^5.0.0
+    registry-auth-token: ^4.0.0
+    semver: ^7.1.2
+    tempy: ^1.0.0
+  peerDependencies:
+    semantic-release: ">=18.0.0"
+  checksum: ade2226a85830df101248805b9254ced284fe3d024de100b1669ecda3499f9f9170ac701f88f22742dee9440f57a768215031a0e19e5d8899b27061d43e415b3
+  languageName: node
+  linkType: hard
+
+"@semantic-release/npm@npm:^8.0.0":
   version: 8.0.0
   resolution: "@semantic-release/npm@npm:8.0.0"
   dependencies:
@@ -7424,7 +7447,7 @@ fsevents@^2.3.2:
     "@semantic-release/commit-analyzer": 9.0.1
     "@semantic-release/git": 10.0.0
     "@semantic-release/github": 8.0.1
-    "@semantic-release/npm": 8.0.0
+    "@semantic-release/npm": 8.0.2
     "@semantic-release/release-notes-generator": 10.0.2
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.3
