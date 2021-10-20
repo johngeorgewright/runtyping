@@ -893,12 +893,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/array@npm:3.1.5":
-  version: 3.1.5
-  resolution: "@johngw/array@npm:3.1.5"
+"@johngw/array@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@johngw/array@npm:3.2.0"
   dependencies:
-    tslib: ^2.2.0
-  checksum: 9d150fcac6678e7b626226ebca66d4502aa14f172b79157957fa17bed9b02d35bfa40168f1109463399948d62a67d0635f90f49b5396cb8c8f6d654d5f35fe94
+    tslib: ^2.3.1
+  checksum: 351ddf4f441aaa97ae9a93a9653d53403010ae55aa351e32327fe2dbaaf8106e17fff70a6dedae4cb136faa1f4e12f2f12c13d726b24861cce967a04a0126cb2
   languageName: node
   linkType: hard
 
@@ -7454,7 +7454,7 @@ fsevents@^2.3.2:
   dependencies:
     "@commitlint/cli": 13.2.1
     "@commitlint/config-conventional": 13.2.0
-    "@johngw/array": 3.1.5
+    "@johngw/array": 3.2.0
     "@johngw/error": 2.1.1
     "@johngw/iterator": 1.0.3
     "@semantic-release/commit-analyzer": 9.0.1
