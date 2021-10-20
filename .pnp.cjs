@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@commitlint/cli", "npm:13.2.1"],
             ["@commitlint/config-conventional", "npm:13.2.0"],
-            ["@johngw/array", "npm:3.1.5"],
+            ["@johngw/array", "npm:3.2.0"],
             ["@johngw/error", "npm:2.1.1"],
             ["@johngw/iterator", "npm:1.0.3"],
             ["@semantic-release/commit-analyzer", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:9.0.1"],
@@ -1388,10 +1388,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@johngw/array", [
-        ["npm:3.1.5", {
-          "packageLocation": "./.yarn/cache/@johngw-array-npm-3.1.5-8e99aa59e7-9d150fcac6.zip/node_modules/@johngw/array/",
+        ["npm:3.2.0", {
+          "packageLocation": "./.yarn/cache/@johngw-array-npm-3.2.0-d9d53978e2-351ddf4f44.zip/node_modules/@johngw/array/",
           "packageDependencies": [
-            ["@johngw/array", "npm:3.1.5"],
+            ["@johngw/array", "npm:3.2.0"],
             ["tslib", "npm:2.3.1"]
           ],
           "linkType": "HARD",
@@ -8897,7 +8897,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["runtyping", "workspace:."],
             ["@commitlint/cli", "npm:13.2.1"],
             ["@commitlint/config-conventional", "npm:13.2.0"],
-            ["@johngw/array", "npm:3.1.5"],
+            ["@johngw/array", "npm:3.2.0"],
             ["@johngw/error", "npm:2.1.1"],
             ["@johngw/iterator", "npm:1.0.3"],
             ["@semantic-release/commit-analyzer", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:9.0.1"],
