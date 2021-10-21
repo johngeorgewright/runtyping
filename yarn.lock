@@ -902,12 +902,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/error@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@johngw/error@npm:2.1.1"
+"@johngw/error@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@johngw/error@npm:2.2.0"
   dependencies:
-    tslib: ^2.2.0
-  checksum: 75dcb3faf2e83424202f164da337be4229ceb4513847d24437aae79342d2b7dff84be2a219b852f98eb48df94e68584e1a759b5dbf7c3458eb8048232be9630e
+    tslib: ^2.3.1
+  checksum: 77ea2944b5d353d2c69789d29fced3bc4651959b08da8bfd0ceda2dfb0fd9e18a63ecc53027586d8c64bd9fac5a71d863226db5babe1006abf5e9b3f3dafa5c7
   languageName: node
   linkType: hard
 
@@ -7455,7 +7455,7 @@ fsevents@^2.3.2:
     "@commitlint/cli": 13.2.1
     "@commitlint/config-conventional": 13.2.0
     "@johngw/array": 3.2.0
-    "@johngw/error": 2.1.1
+    "@johngw/error": 2.2.0
     "@johngw/iterator": 1.0.3
     "@semantic-release/commit-analyzer": 9.0.1
     "@semantic-release/git": 10.0.0
@@ -8486,7 +8486,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.3.1, tslib@npm:^2, tslib@npm:^2.2.0, tslib@npm:^2.3.1":
+"tslib@npm:2.3.1, tslib@npm:^2, tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9

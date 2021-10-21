@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@johngw/array": "3.2.0",
-    "@johngw/error": "2.1.1",
+    "@johngw/error": "2.2.0",
     "@johngw/iterator": "1.0.3",
     "js-yaml": "4.1.0",
     "json-schema-to-typescript": "10.1.5",
