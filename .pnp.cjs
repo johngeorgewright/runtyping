@@ -46,7 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/npm", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:8.0.2"],
             ["@semantic-release/release-notes-generator", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:10.0.2"],
             ["@types/jest", "npm:27.0.2"],
-            ["@types/js-yaml", "npm:4.0.3"],
+            ["@types/js-yaml", "npm:4.0.4"],
             ["@types/node", "npm:16.11.3"],
             ["@types/yargs", "npm:17.0.4"],
             ["commitizen", "npm:4.2.4"],
@@ -2251,10 +2251,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/js-yaml", [
-        ["npm:4.0.3", {
-          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.3-ae7bc639a1-4be74c029f.zip/node_modules/@types/js-yaml/",
+        ["npm:4.0.4", {
+          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.4-60374f736f-de38075a6b.zip/node_modules/@types/js-yaml/",
           "packageDependencies": [
-            ["@types/js-yaml", "npm:4.0.3"]
+            ["@types/js-yaml", "npm:4.0.4"]
           ],
           "linkType": "HARD",
         }]
@@ -8906,7 +8906,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/npm", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:8.0.2"],
             ["@semantic-release/release-notes-generator", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:10.0.2"],
             ["@types/jest", "npm:27.0.2"],
-            ["@types/js-yaml", "npm:4.0.3"],
+            ["@types/js-yaml", "npm:4.0.4"],
             ["@types/node", "npm:16.11.3"],
             ["@types/yargs", "npm:17.0.4"],
             ["commitizen", "npm:4.2.4"],
