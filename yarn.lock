@@ -2811,7 +2811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^7.0.0":
+"cosmiconfig@npm:^7.0.0, cosmiconfig@npm:^7.0.1":
   version: 7.0.1
   resolution: "cosmiconfig@npm:7.0.1"
   dependencies:
@@ -5573,13 +5573,6 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"lilconfig@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "lilconfig@npm:2.0.3"
-  checksum: 39fcd06c9f94bec0f7be969f89abcead96cf9334682007df63e6fbe9bdb0566cf8e1ca53a8f56d2acca802f28e8acbabe8ed4e6265ed5e419b6a1397db003741
-  languageName: node
-  linkType: hard
-
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6"
@@ -5587,18 +5580,17 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:11.2.5":
-  version: 11.2.5
-  resolution: "lint-staged@npm:11.2.5"
+"lint-staged@npm:11.2.6":
+  version: 11.2.6
+  resolution: "lint-staged@npm:11.2.6"
   dependencies:
     cli-truncate: 2.1.0
     colorette: ^1.4.0
     commander: ^8.2.0
+    cosmiconfig: ^7.0.1
     debug: ^4.3.2
     enquirer: ^2.3.6
     execa: ^5.1.1
-    js-yaml: ^4.1.0
-    lilconfig: ^2.0.3
     listr2: ^3.12.2
     micromatch: ^4.0.4
     normalize-path: ^3.0.0
@@ -5608,7 +5600,7 @@ fsevents@^2.3.2:
     supports-color: 8.1.1
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: d5fd11560f28d448de6318cc6792895e55cf87f850a5ac125d7f5e2777baf004e05482e224450e0f13354fa527c13276792f3650b6d53dd3016a67344f97d632
+  checksum: b9071621db351c553579bd18df3d80fb753f851c4f1f72db0aaf12e713eab25b6d8a044dab2957817de7da02054a63f7725a49c763aee09295133f0d554f4d3f
   languageName: node
   linkType: hard
 
@@ -7481,7 +7473,7 @@ fsevents@^2.3.2:
     jest: 27.3.1
     js-yaml: 4.1.0
     json-schema-to-typescript: 10.1.5
-    lint-staged: 11.2.5
+    lint-staged: 11.2.6
     prettier: 2.4.1
     rimraf: 3.0.2
     runtypes: 6.4.1
