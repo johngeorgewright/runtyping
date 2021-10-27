@@ -72,7 +72,7 @@
     "runtypes": "^6.4.0"
   },
   "dependencies": {
-    "@johngw/array": "3.2.0",
+    "@johngw/array": "3.3.0",
     "@johngw/error": "2.2.0",
     "@johngw/iterator": "1.0.3",
     "js-yaml": "4.1.0",
