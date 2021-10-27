@@ -48,7 +48,7 @@
     "lint-staged": "11.2.6",
     "prettier": "2.4.1",
     "rimraf": "3.0.2",
-    "runtypes": "6.4.1",
+    "runtypes": "6.5.0",
     "semantic-release": "18.0.0",
     "ts-jest": "27.0.7",
     "ts-node": "10.4.0",
