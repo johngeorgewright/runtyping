@@ -7441,10 +7441,10 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"runtypes@npm:6.4.1":
-  version: 6.4.1
-  resolution: "runtypes@npm:6.4.1"
-  checksum: 9d703100c3fe43c1b5310d9230741cba0f5930b0850bc4e1d3c4060483a487c700ebce72c8e8cf082d13b7a3279f9f1bbab7b56acb5863729c97d49b8d5aafcb
+"runtypes@npm:6.5.0":
+  version: 6.5.0
+  resolution: "runtypes@npm:6.5.0"
+  checksum: 72f9cbd392b2c3ca3920b922990bdf59b51f0c5a96456c40da50e43f4d89106f4871cd981f1114f4095521fd6eeb6049d375d1c6818c5cbf8119c219d2c1a075
   languageName: node
   linkType: hard
 
@@ -7476,7 +7476,7 @@ fsevents@^2.3.2:
     lint-staged: 11.2.6
     prettier: 2.4.1
     rimraf: 3.0.2
-    runtypes: 6.4.1
+    runtypes: 6.5.0
     semantic-release: 18.0.0
     ts-jest: 27.0.7
     ts-morph: 12.0.0
