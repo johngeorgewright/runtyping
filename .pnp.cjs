@@ -62,7 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["runtypes", "npm:6.5.0"],
             ["semantic-release", "npm:18.0.0"],
             ["ts-jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.0.7"],
-            ["ts-morph", "npm:12.0.0"],
+            ["ts-morph", "npm:12.1.0"],
             ["ts-node", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.4.0"],
             ["tslib", "npm:2.3.1"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"],
@@ -2096,10 +2096,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@ts-morph/common", [
-        ["npm:0.11.0", {
-          "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.11.0-9680ed39ba-beaa444c6a.zip/node_modules/@ts-morph/common/",
+        ["npm:0.11.1", {
+          "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.11.1-14f7f05ba8-2853215cfd.zip/node_modules/@ts-morph/common/",
           "packageDependencies": [
-            ["@ts-morph/common", "npm:0.11.0"],
+            ["@ts-morph/common", "npm:0.11.1"],
             ["fast-glob", "npm:3.2.7"],
             ["minimatch", "npm:3.0.4"],
             ["mkdirp", "npm:1.0.4"],
@@ -8922,7 +8922,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["runtypes", "npm:6.5.0"],
             ["semantic-release", "npm:18.0.0"],
             ["ts-jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.0.7"],
-            ["ts-morph", "npm:12.0.0"],
+            ["ts-morph", "npm:12.1.0"],
             ["ts-node", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.4.0"],
             ["tslib", "npm:2.3.1"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"],
@@ -9907,11 +9907,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ts-morph", [
-        ["npm:12.0.0", {
-          "packageLocation": "./.yarn/cache/ts-morph-npm-12.0.0-4fb81f162c-c033708c76.zip/node_modules/ts-morph/",
+        ["npm:12.1.0", {
+          "packageLocation": "./.yarn/cache/ts-morph-npm-12.1.0-6061d16d50-b0998f2678.zip/node_modules/ts-morph/",
           "packageDependencies": [
-            ["ts-morph", "npm:12.0.0"],
-            ["@ts-morph/common", "npm:0.11.0"],
+            ["ts-morph", "npm:12.1.0"],
+            ["@ts-morph/common", "npm:0.11.1"],
             ["code-block-writer", "npm:10.1.1"]
           ],
           "linkType": "HARD",
