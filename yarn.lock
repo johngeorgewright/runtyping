@@ -1456,15 +1456,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:~0.11.0":
-  version: 0.11.0
-  resolution: "@ts-morph/common@npm:0.11.0"
+"@ts-morph/common@npm:~0.11.1":
+  version: 0.11.1
+  resolution: "@ts-morph/common@npm:0.11.1"
   dependencies:
     fast-glob: ^3.2.7
     minimatch: ^3.0.4
     mkdirp: ^1.0.4
     path-browserify: ^1.0.1
-  checksum: beaa444c6a30cb3d886644464590bf39e84c3d5bec21cb0ff909643f590f2166ac81c81466b506a6015dd5f573dd91611e3b724f91b5ec2e08a20a92feaf2680
+  checksum: 2853215cfdfb9b65f96ceef91b15a73ab6591fd27d072801884ea5acc1a8f0becd5ac214d5f3d840f5d650b7654585a9b9df86fc4287872e7be1c6f566381bfd
   languageName: node
   linkType: hard
 
@@ -7479,7 +7479,7 @@ fsevents@^2.3.2:
     runtypes: 6.5.0
     semantic-release: 18.0.0
     ts-jest: 27.0.7
-    ts-morph: 12.0.0
+    ts-morph: 12.1.0
     ts-node: 10.4.0
     tslib: 2.3.1
     typescript: 4.4.4
@@ -8376,13 +8376,13 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"ts-morph@npm:12.0.0":
-  version: 12.0.0
-  resolution: "ts-morph@npm:12.0.0"
+"ts-morph@npm:12.1.0":
+  version: 12.1.0
+  resolution: "ts-morph@npm:12.1.0"
   dependencies:
-    "@ts-morph/common": ~0.11.0
+    "@ts-morph/common": ~0.11.1
     code-block-writer: ^10.1.1
-  checksum: c033708c76448625380daa3b8c2eeea1306300fa4367804029635f0d911a3723e4315a6e0824e6dfb256df0b99aac0ea0478cb3f14ed6fae2339d43ec882a427
+  checksum: b0998f2678386b6e451f84effa0626d5c2ee61883d0f8bb2cd474372616c2a497e95ae8322e67becd06bef2a2bc247dbff339d4a6ffd693cf0fbbaa887c1f8cd
   languageName: node
   linkType: hard
 
