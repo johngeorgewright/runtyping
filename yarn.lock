@@ -939,13 +939,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/iterator@npm:1.0.4":
-  version: 1.0.4
-  resolution: "@johngw/iterator@npm:1.0.4"
+"@johngw/iterator@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@johngw/iterator@npm:1.2.0"
   dependencies:
     ts-toolbelt: ^9.6.0
     tslib: ^2.3.1
-  checksum: 49b9b604a8c72c073b55b671bdb72943360e3d071af9385de19827ba25a991e4aa6f52fa1ea0a3d2333a42766ffd5bfeb854b4b1692def2213a68140596688c6
+  checksum: c986952964d83c294fb6d116eb0dcd88dfe4d78fb3e37d0d428dc9c66633fe9ab9c05a7b04c63359292e137e118eac9aa0e4816666fd7850c7038dfb8ee7cdbc
   languageName: node
   linkType: hard
 
@@ -7519,7 +7519,7 @@ fsevents@^2.3.2:
     "@commitlint/config-conventional": 14.1.0
     "@johngw/array": 3.3.0
     "@johngw/error": 2.2.0
-    "@johngw/iterator": 1.0.4
+    "@johngw/iterator": 1.2.0
     "@semantic-release/commit-analyzer": 9.0.1
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.2
