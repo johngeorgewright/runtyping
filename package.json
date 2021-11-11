@@ -1,6 +1,6 @@
 {
   "name": "runtyping",
-  "version": "4.1.8",
+  "version": "4.1.9",
   "description": "Compose and react upon redux actions",
   "main": "dist/index.js",
   "bin": {
