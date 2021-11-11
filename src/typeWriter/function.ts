@@ -15,9 +15,9 @@ export default function* functionTypeGenerator(
     type.getSymbolOrThrow().getName()
 
   const contract = isAsync(signature) ? 'AsyncContract' : 'Contract'
-  const alias = `_${name}`
+  const importAlias = `_${name}`
 
-  yield [ImportFromSource, { name, alias }]
+  yield [ImportFromSource, { name, alias: importAlias }]
   yield [Import, contract]
   yield [Write, `${contract}(`]
 
@@ -38,9 +38,9 @@ export default function* functionTypeGenerator(
   yield [Write, ')']
 
   if (isFunctionDeclaration(type)) {
-    yield [Write, `.enforce(_${name})`]
+    yield [Write, `.enforce(${importAlias})`]
     yield [Static, `typeof ${name}`]
-  } else yield [Static, alias]
+  } else yield [Static, importAlias]
 }
 
 function isFunctionDeclaration(type: Type) {
