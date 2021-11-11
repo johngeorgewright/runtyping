@@ -5,7 +5,7 @@ import { Import, ImportFromSource, Write } from './symbols'
 export default function* enumTypeGenerator(type: Type): TypeWriter {
   const name = type.getSymbolOrThrow().getName()
   yield [Import, 'Guard']
-  yield [ImportFromSource, [name, `_${name}`]]
+  yield [ImportFromSource, { name, alias: `_${name}` }]
   yield [
     Write,
     `Guard((x: any): x is _${name} => Object.values(_${name}).includes(x))`,
