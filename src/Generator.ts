@@ -78,7 +78,7 @@ export default class Generator {
 
   async generate(sourceTypes: InstructionSourceType | InstructionSourceType[]) {
     for (const sourceType of castArray(sourceTypes)) {
-      const sourceImports = new Set<[string, string]>()
+      const sourceImports = new Set<{ name: string; alias: string }>()
 
       switch (extname(sourceType.file)) {
         case '.json':
@@ -108,12 +108,15 @@ export default class Generator {
     return this.#targetFile
   }
 
-  #addSourceImports(sourceFilePath: string, imports: Set<[string, string]>) {
+  #addSourceImports(
+    sourceFilePath: string,
+    imports: Set<{ name: string; alias: string }>
+  ) {
     const sourceDir = dirname(sourceFilePath)
     const targetDir = dirname(this.#targetFile.getFilePath())
     const sourceBaseName = basename(sourceFilePath, extname(sourceFilePath))
     this.#targetFile.addImportDeclaration({
-      namedImports: [...imports].map(([name, alias]) => ({
+      namedImports: [...imports].map(({ name, alias }) => ({
         name,
         alias,
       })),
@@ -125,7 +128,7 @@ export default class Generator {
 
   async #generateRuntypeFromJSON(
     sourceType: InstructionSourceType,
-    sourceImports: Set<[string, string]>
+    sourceImports: Set<{ name: string; alias: string }>
   ) {
     const schema = await compileFromFile(sourceType.file)
     const sourceFile = this.#project.createSourceFile(
@@ -144,7 +147,7 @@ export default class Generator {
 
   #generateRuntype(
     sourceType: InstructionSourceType,
-    sourceImports: Set<[string, string]>
+    sourceImports: Set<{ name: string; alias: string }>
   ) {
     const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
     for (const type of castArray(sourceType.type))
@@ -155,7 +158,7 @@ export default class Generator {
   #writeRuntype(
     sourceFile: SourceFile,
     sourceType: string,
-    sourceImports: Set<[string, string]>
+    sourceImports: Set<{ name: string; alias: string }>
   ) {
     const sourceTypeName = this.#formatRuntypeName(sourceType)
     const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
