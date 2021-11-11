@@ -42,13 +42,15 @@ export type GeneratorOptions = GeneratorOptionsBase & {
   typeFormat?: string
 }
 
+type SourceCodeFile = SourceFile
+
 export default class Generator {
   #exports = new Set<string>()
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
   #project: Project
   #runtypesImports = new Set<string>()
-  #targetFile: SourceFile
+  #targetFile: SourceCodeFile
 
   constructor(options: GeneratorOptions) {
     this.#project =
@@ -156,7 +158,7 @@ export default class Generator {
   }
 
   #writeRuntype(
-    sourceFile: SourceFile,
+    sourceFile: SourceCodeFile,
     sourceType: string,
     sourceImports: Set<{ name: string; alias: string }>
   ) {
@@ -229,7 +231,7 @@ export default class Generator {
   }
 }
 
-function getTypeDeclaration(sourceFile: SourceFile, typeName: string) {
+function getTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
   const declaration =
     sourceFile.getInterface(typeName) ||
     sourceFile.getTypeAlias(typeName) ||
@@ -245,7 +247,7 @@ function getTypeDeclaration(sourceFile: SourceFile, typeName: string) {
   return declaration
 }
 
-function hasTypeDeclaration(sourceFile: SourceFile, typeName: string) {
+function hasTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
   try {
     return !!getTypeDeclaration(sourceFile, typeName)
   } catch (error) {
