@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/config-conventional", "npm:14.1.0"],
             ["@johngw/array", "npm:3.3.0"],
             ["@johngw/error", "npm:2.2.0"],
-            ["@johngw/iterator", "npm:1.0.3"],
+            ["@johngw/iterator", "npm:1.0.4"],
             ["@semantic-release/commit-analyzer", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:9.0.1"],
             ["@semantic-release/git", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.0.1"],
             ["@semantic-release/github", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:8.0.2"],
@@ -1434,10 +1434,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@johngw/iterator", [
-        ["npm:1.0.3", {
-          "packageLocation": "./.yarn/cache/@johngw-iterator-npm-1.0.3-ebcda4a1a8-b3a1ec46cf.zip/node_modules/@johngw/iterator/",
+        ["npm:1.0.4", {
+          "packageLocation": "./.yarn/cache/@johngw-iterator-npm-1.0.4-1d650d2d0b-49b9b604a8.zip/node_modules/@johngw/iterator/",
           "packageDependencies": [
-            ["@johngw/iterator", "npm:1.0.3"],
+            ["@johngw/iterator", "npm:1.0.4"],
             ["ts-toolbelt", "npm:9.6.0"],
             ["tslib", "npm:2.3.1"]
           ],
@@ -8968,7 +8968,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/config-conventional", "npm:14.1.0"],
             ["@johngw/array", "npm:3.3.0"],
             ["@johngw/error", "npm:2.2.0"],
-            ["@johngw/iterator", "npm:1.0.3"],
+            ["@johngw/iterator", "npm:1.0.4"],
             ["@semantic-release/commit-analyzer", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:9.0.1"],
             ["@semantic-release/git", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.0.1"],
             ["@semantic-release/github", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:8.0.2"],
