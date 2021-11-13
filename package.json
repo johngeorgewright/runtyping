@@ -41,7 +41,7 @@
     "@types/node": "16.11.7",
     "@types/yargs": "17.0.5",
     "commitizen": "4.2.4",
-    "concurrently": "6.3.0",
+    "concurrently": "6.4.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "7.0.4",
     "jest": "27.3.1",
