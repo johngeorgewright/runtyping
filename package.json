@@ -80,5 +80,6 @@
     "ts-morph": "12.2.0",
     "tslib": "2.3.1",
     "yargs": "17.2.1"
-  }
+  },
+  "packageManager": "yarn@3.1.0"
 }
