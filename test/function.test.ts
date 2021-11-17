@@ -40,10 +40,8 @@ test('function', async () => {
 test('function with non-strict nulls', async () => {
   expect(
     (
-      await generateFixture(
-        'function',
-        ['C'],
-        new Project({
+      await generateFixture('function', ['C'], {
+        project: new Project({
           manipulationSettings: {
             quoteKind: QuoteKind.Single,
             usePrefixAndSuffixTextForRename: false,
@@ -51,8 +49,8 @@ test('function with non-strict nulls', async () => {
           },
 
           skipAddingFilesFromTsConfig: true,
-        })
-      )
+        }),
+      })
     ).getText()
   ).toMatchInlineSnapshot(`
     "import { C as _C } from './function';

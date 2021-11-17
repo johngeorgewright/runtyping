@@ -139,8 +139,8 @@ export default class Generator {
     )
     this.#generateRuntype(
       {
+        ...sourceType,
         file: sourceFile.getFilePath(),
-        type: sourceType.type,
       },
       sourceImports
     )
@@ -154,13 +154,19 @@ export default class Generator {
     const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
     for (const type of castArray(sourceType.type))
       if (!this.#exports.has(type))
-        this.#writeRuntype(sourceFile, type, sourceImports)
+        this.#writeRuntype(
+          sourceFile,
+          type,
+          sourceImports,
+          sourceType.exportStaticType
+        )
   }
 
   #writeRuntype(
     sourceFile: SourceCodeFile,
     sourceType: string,
-    sourceImports: Set<{ name: string; alias: string }>
+    sourceImports: Set<{ name: string; alias: string }>,
+    exportStaticType = true
   ) {
     const sourceTypeName = this.#formatRuntypeName(sourceType)
     const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
@@ -216,16 +222,18 @@ export default class Generator {
       ],
     })
 
-    if (!staticImplementation) {
-      this.#runtypesImports.add('Static')
-      staticImplementation = `Static<typeof ${sourceTypeName}>`
-    }
+    if (exportStaticType) {
+      if (!staticImplementation) {
+        this.#runtypesImports.add('Static')
+        staticImplementation = `Static<typeof ${sourceTypeName}>`
+      }
 
-    this.#targetFile.addTypeAlias({
-      isExported: true,
-      name: this.#formatTypeName(sourceType),
-      type: staticImplementation,
-    })
+      this.#targetFile.addTypeAlias({
+        isExported: true,
+        name: this.#formatTypeName(sourceType),
+        type: staticImplementation,
+      })
+    }
 
     this.#exports.add(sourceType)
   }

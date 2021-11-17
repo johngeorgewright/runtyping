@@ -1,16 +1,17 @@
-import { Record, String, Array, Static } from 'runtypes'
+import { Record, String, Array, Static, Boolean } from 'runtypes'
 
 export const InstructionSourceType = Record({
   file: String,
+  exportStaticType: Boolean.optional(),
   type: String.Or(Array(String)),
 })
 
 export type InstructionSourceType = Static<typeof InstructionSourceType>
 
 export const Instruction = Record({
-  targetFile: String,
-  sourceTypes: InstructionSourceType.Or(Array(InstructionSourceType)),
   runtypeFormat: String.optional(),
+  sourceTypes: InstructionSourceType.Or(Array(InstructionSourceType)),
+  targetFile: String,
   typeFormat: String.optional(),
 })
 
