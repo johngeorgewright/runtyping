@@ -22,6 +22,7 @@ npm install -D runtyping
    runtypeFormat: {type}Rt # Optional: use a custom name format for the created runtype
    typeFormat: {type}Type  # Optional: use a custom name format for the created type
    sourceTypes:
+     exportStaticType: true # Optional: export static types as well (true by default)
      file: src/types.ts # The file where your type lives
      type: Foo # The type you want to convert to a runtype
    ```

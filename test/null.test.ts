@@ -24,18 +24,16 @@ test('strict nulls', async () => {
 test('non-strict nulls', async () => {
   expect(
     (
-      await generateFixture(
-        'null',
-        ['A', 'B', 'C'],
-        new Project({
+      await generateFixture('null', ['A', 'B', 'C'], {
+        project: new Project({
           manipulationSettings: {
             quoteKind: QuoteKind.Single,
             usePrefixAndSuffixTextForRename: false,
             useTrailingCommas: true,
           },
           skipAddingFilesFromTsConfig: true,
-        })
-      )
+        }),
+      })
     ).getText()
   ).toMatchInlineSnapshot(`
     "import { Null, Static, String, Record } from 'runtypes';
