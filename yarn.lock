@@ -1609,6 +1609,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/source-map-support@npm:0.5.4":
+  version: 0.5.4
+  resolution: "@types/source-map-support@npm:0.5.4"
+  dependencies:
+    source-map: ^0.6.0
+  checksum: 160ff77e8a101b18d9915cb5320fd73d484679aef8518ce007b9b5988e333631778730196c4bb15517ff881bee805663fd8640c0ce2ebfab65f061103c452369
+  languageName: node
+  linkType: hard
+
 "@types/stack-utils@npm:^2.0.0":
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
@@ -7361,6 +7370,7 @@ __metadata:
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.4
     "@types/node": 16.11.7
+    "@types/source-map-support": 0.5.4
     "@types/yargs": 17.0.5
     commitizen: 4.2.4
     concurrently: 6.4.0
@@ -7374,6 +7384,7 @@ __metadata:
     rimraf: 3.0.2
     runtypes: 6.5.0
     semantic-release: 18.0.0
+    source-map-support: 0.5.21
     ts-jest: 27.0.7
     ts-morph: 12.2.0
     ts-node: 10.4.0
@@ -7632,6 +7643,16 @@ __metadata:
     ip: ^1.1.5
     smart-buffer: ^4.1.0
   checksum: 2ca9d616e424f645838ebaabb04f85d94ea999e0f8393dc07f86c435af22ed88cb83958feeabd1bb7bc537c635ed47454255635502c6808a6df61af1f41af750
+  languageName: node
+  linkType: hard
+
+"source-map-support@npm:0.5.21":
+  version: 0.5.21
+  resolution: "source-map-support@npm:0.5.21"
+  dependencies:
+    buffer-from: ^1.0.0
+    source-map: ^0.6.0
+  checksum: 43e98d700d79af1d36f859bdb7318e601dfc918c7ba2e98456118ebc4c4872b327773e5a1df09b0524e9e5063bb18f0934538eace60cca2710d1fa687645d137
   languageName: node
   linkType: hard
 
