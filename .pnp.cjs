@@ -48,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.2"],
             ["@types/js-yaml", "npm:4.0.4"],
             ["@types/node", "npm:16.11.7"],
+            ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.5"],
             ["commitizen", "npm:4.2.4"],
             ["concurrently", "npm:6.4.0"],
@@ -61,6 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],
             ["runtypes", "npm:6.5.0"],
             ["semantic-release", "npm:18.0.0"],
+            ["source-map-support", "npm:0.5.21"],
             ["ts-jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.0.7"],
             ["ts-morph", "npm:12.2.0"],
             ["ts-node", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.4.0"],
@@ -2279,6 +2281,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-retry-npm-0.12.1-05f3303aac-5f46b25560.zip/node_modules/@types/retry/",
           "packageDependencies": [
             ["@types/retry", "npm:0.12.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/source-map-support", [
+        ["npm:0.5.4", {
+          "packageLocation": "./.yarn/cache/@types-source-map-support-npm-0.5.4-1c4eb2be20-160ff77e8a.zip/node_modules/@types/source-map-support/",
+          "packageDependencies": [
+            ["@types/source-map-support", "npm:0.5.4"],
+            ["source-map", "npm:0.6.1"]
           ],
           "linkType": "HARD",
         }]
@@ -8796,6 +8808,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.2"],
             ["@types/js-yaml", "npm:4.0.4"],
             ["@types/node", "npm:16.11.7"],
+            ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.5"],
             ["commitizen", "npm:4.2.4"],
             ["concurrently", "npm:6.4.0"],
@@ -8809,6 +8822,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rimraf", "npm:3.0.2"],
             ["runtypes", "npm:6.5.0"],
             ["semantic-release", "npm:18.0.0"],
+            ["source-map-support", "npm:0.5.21"],
             ["ts-jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.0.7"],
             ["ts-morph", "npm:12.2.0"],
             ["ts-node", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.4.0"],
@@ -9111,6 +9125,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/source-map-support-npm-0.5.20-edfc5ce275-43946aff45.zip/node_modules/source-map-support/",
           "packageDependencies": [
             ["source-map-support", "npm:0.5.20"],
+            ["buffer-from", "npm:1.1.2"],
+            ["source-map", "npm:0.6.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:0.5.21", {
+          "packageLocation": "./.yarn/cache/source-map-support-npm-0.5.21-09ca99e250-43e98d700d.zip/node_modules/source-map-support/",
+          "packageDependencies": [
+            ["source-map-support", "npm:0.5.21"],
             ["buffer-from", "npm:1.1.2"],
             ["source-map", "npm:0.6.1"]
           ],
