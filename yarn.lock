@@ -1639,12 +1639,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:17.0.5":
-  version: 17.0.5
-  resolution: "@types/yargs@npm:17.0.5"
+"@types/yargs@npm:17.0.7":
+  version: 17.0.7
+  resolution: "@types/yargs@npm:17.0.7"
   dependencies:
     "@types/yargs-parser": "*"
-  checksum: 2be02640c84471c66aec58cfd415432fab0973283909765aa3becbdb76b5874d4770fe7f376e77b98833d5cc9d9bc258a905adce68a0baec13d430c866fce3b5
+  checksum: 520e803720b2a626338c0e2b61825dd1b956910fec4d855018c17e62cf9fb41eb67bcf122ba5c6fb569b1bfac73520d5d73e8be502b87f9a551619df441b1875
   languageName: node
   linkType: hard
 
@@ -7378,7 +7378,7 @@ __metadata:
     "@types/js-yaml": 4.0.5
     "@types/node": 16.11.10
     "@types/source-map-support": 0.5.4
-    "@types/yargs": 17.0.5
+    "@types/yargs": 17.0.7
     commitizen: 4.2.4
     concurrently: 6.4.0
     cz-conventional-changelog: 3.3.0
