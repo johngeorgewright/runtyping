@@ -46,7 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/npm", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:8.0.3"],
             ["@semantic-release/release-notes-generator", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:10.0.2"],
             ["@types/jest", "npm:27.0.2"],
-            ["@types/js-yaml", "npm:4.0.4"],
+            ["@types/js-yaml", "npm:4.0.5"],
             ["@types/node", "npm:16.11.7"],
             ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.5"],
@@ -2196,10 +2196,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/js-yaml", [
-        ["npm:4.0.4", {
-          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.4-60374f736f-de38075a6b.zip/node_modules/@types/js-yaml/",
+        ["npm:4.0.5", {
+          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.5-bb64d71397-7dcac8c50f.zip/node_modules/@types/js-yaml/",
           "packageDependencies": [
-            ["@types/js-yaml", "npm:4.0.4"]
+            ["@types/js-yaml", "npm:4.0.5"]
           ],
           "linkType": "HARD",
         }]
@@ -8806,7 +8806,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/npm", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:8.0.3"],
             ["@semantic-release/release-notes-generator", "virtual:26bef7164f48d044764cd43116294384229ad2f2c35b46556537f1ef43382b779f272bad9f935bedb8d5f0cd3bb5d71fbb788a0376f8f210aee6a1927e0d4392#npm:10.0.2"],
             ["@types/jest", "npm:27.0.2"],
-            ["@types/js-yaml", "npm:4.0.4"],
+            ["@types/js-yaml", "npm:4.0.5"],
             ["@types/node", "npm:16.11.7"],
             ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.5"],
