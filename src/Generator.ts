@@ -203,7 +203,6 @@ export default class Generator {
       })
       .handle(Declare, (value): DeclaredType => {
         const typeName = this.#getLocalName(sourceFile, value)
-        console.info(typeName)
         return !recursive && !this.#exports.has(typeName)
           ? this.#writeRuntype(sourceFile, typeName, sourceImports)
           : // TODO: this probably isn't right
