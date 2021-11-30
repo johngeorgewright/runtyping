@@ -1,7 +1,7 @@
 import { cast as castArray } from '@johngw/array'
 import { IteratorHandler } from '@johngw/iterator'
 import { compileFromFile } from 'json-schema-to-typescript'
-import { basename, dirname, extname, relative } from 'path'
+import { dirname, extname, isAbsolute, resolve as resolvePath } from 'path'
 import {
   EnumDeclaration,
   FunctionDeclaration,
@@ -28,6 +28,7 @@ import {
 } from './typeWriter/symbols'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
 import { DeclaredType } from './typeWriter/TypeWriter'
+import { find, getRelativeImportPath } from './util'
 
 type GeneratorOptionsBase =
   | {
@@ -116,17 +117,15 @@ export default class Generator {
     sourceFilePath: string,
     imports: Set<{ name: string; alias: string }>
   ) {
-    const sourceDir = dirname(sourceFilePath)
-    const targetDir = dirname(this.#targetFile.getFilePath())
-    const sourceBaseName = basename(sourceFilePath, extname(sourceFilePath))
     this.#targetFile.addImportDeclaration({
       namedImports: [...imports].map(({ name, alias }) => ({
         name,
         alias,
       })),
-      moduleSpecifier: `${
-        relative(targetDir, sourceDir) || '.'
-      }/${sourceBaseName}`,
+      moduleSpecifier: getRelativeImportPath(
+        this.#targetFile.getFilePath(),
+        sourceFilePath
+      ),
     })
   }
 
@@ -171,10 +170,10 @@ export default class Generator {
     exportStaticType = true
   ): DeclaredType {
     const runTypeName = this.#formatRuntypeName(
-      this.#getAliasName(sourceFile, sourceType)
+      this.#getLocalName(sourceFile, sourceType)
     )
     const typeName = this.#formatTypeName(
-      this.#getAliasName(sourceFile, sourceType)
+      this.#getLocalName(sourceFile, sourceType)
     )
     const typeDeclaration = this.#getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
@@ -203,10 +202,12 @@ export default class Generator {
         staticImplementation = value
       })
       .handle(Declare, (value): DeclaredType => {
-        return !recursive && !this.#exports.has(value)
-          ? this.#writeRuntype(sourceFile, value, sourceImports)
+        const typeName = this.#getLocalName(sourceFile, value)
+        console.info(typeName)
+        return !recursive && !this.#exports.has(typeName)
+          ? this.#writeRuntype(sourceFile, typeName, sourceImports)
           : // TODO: this probably isn't right
-            { runTypeName: value, typeName: value }
+            { runTypeName: typeName, typeName: typeName }
       })
       .handle(DeclareAndUse, (value) => {
         let next: true | undefined
@@ -260,7 +261,11 @@ export default class Generator {
     sourceFile: SourceCodeFile,
     typeName: string
   ): ConsideredTypeDeclaration {
-    const importTypeDeclaration = this.#getImportedTypeDeclaration(typeName)
+    const importTypeDeclaration = this.#getImportedTypeDeclaration(
+      sourceFile,
+      typeName
+    )
+
     if (importTypeDeclaration) return importTypeDeclaration
 
     const declaration =
@@ -278,31 +283,59 @@ export default class Generator {
     return declaration
   }
 
-  #getImportedTypeDeclaration(typeName: string) {
-    const match = importTypeNameRegExp(typeName)
-    if (!match) return
+  #getImportedTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
+    const importInfo = find(
+      sourceFile.getImportDeclarations(),
+      (importDeclaration) => {
+        let [remoteIdentifier, localIdentifier] =
+          importDeclaration
+            .getImportClause()
+            ?.getDescendantsOfKind(SyntaxKind.Identifier)
+            .map((indentifier) => indentifier.getText()) || []
+        localIdentifier = localIdentifier || remoteIdentifier
+        return (
+          localIdentifier === typeName && {
+            path: importDeclaration.getModuleSpecifierValue(),
+            remoteIdentifier,
+          }
+        )
+      }
+    )
+
+    if (!importInfo) return
+
+    const importPath =
+      isAbsolute(importInfo.path) || !importInfo.path.startsWith('.')
+        ? importInfo.path
+        : resolvePath(dirname(sourceFile.getFilePath()), importInfo.path)
+
     return this.#getTypeDeclaration(
       this.#project.addSourceFileAtPath(
-        /\.(?:ts|mts|cts)$/.test(match.importPath)
-          ? match.importPath
-          : `${match.importPath}.ts`
+        /\.(m|j)?ts$/.test(importPath) ? importPath : `${importPath}.ts`
       ),
-      match.importTypeName
+      importInfo.remoteIdentifier
     )
   }
 
-  #getAliasName(sourceFile: SourceCodeFile, typeName: string) {
+  /**
+   * Sometimes a typeName can be in the format of:
+   * `import("/some/path").A`
+   * When this occurs, decipher the source file's local
+   * alias of the imported type.
+   */
+  #getLocalName(sourceFile: SourceCodeFile, typeName: string) {
     const match = importTypeNameRegExp(typeName)
     if (!match) return typeName
     for (const importDeclaration of sourceFile.getImportDeclarations()) {
-      for (const namedImport of importDeclaration.getNamedImports()) {
-        const text = namedImport.getText()
-        if (text.startsWith(`${match.importTypeName} as `))
-          return text.replace(`${match.importTypeName} as `, '')
-        else if (text === match.importTypeName) return text
-      }
+      let [remoteIdentifier, localIdentifier] =
+        importDeclaration
+          .getImportClause()
+          ?.getDescendantsOfKind(SyntaxKind.Identifier)
+          .map((indentifier) => indentifier.getText()) || []
+      localIdentifier = localIdentifier || remoteIdentifier
+      if (remoteIdentifier === match.importTypeName) return localIdentifier
     }
-    return typeName
+    return match.importTypeName
   }
 
   #hasTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
@@ -318,7 +351,7 @@ function importTypeNameRegExp(typeName: string) {
   const match = /^import\("([\/\\\w\.-]+)"\)\.(\w+)$/.exec(typeName)
   return (
     match && {
-      importPath: match[1],
+      importPath: /\.(m|j)?ts$/.test(match[1]) ? match[1] : `${match[1]}`,
       importTypeName: match[2],
     }
   )
