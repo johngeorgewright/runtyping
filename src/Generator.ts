@@ -1,7 +1,7 @@
 import { cast as castArray } from '@johngw/array'
 import { IteratorHandler } from '@johngw/iterator'
 import { compileFromFile } from 'json-schema-to-typescript'
-import { basename, dirname, extname, relative } from 'path'
+import { dirname, extname, isAbsolute, resolve as resolvePath } from 'path'
 import {
   EnumDeclaration,
   FunctionDeclaration,
@@ -20,12 +20,15 @@ import { InstructionSourceType } from './runtypes'
 import factory from './typeWriter/factory'
 import {
   Declare,
+  DeclareAndUse,
   Import,
   ImportFromSource,
   Static,
   Write,
 } from './typeWriter/symbols'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
+import { DeclaredType } from './typeWriter/TypeWriter'
+import { find, getRelativeImportPath } from './util'
 
 type GeneratorOptionsBase =
   | {
@@ -114,17 +117,15 @@ export default class Generator {
     sourceFilePath: string,
     imports: Set<{ name: string; alias: string }>
   ) {
-    const sourceDir = dirname(sourceFilePath)
-    const targetDir = dirname(this.#targetFile.getFilePath())
-    const sourceBaseName = basename(sourceFilePath, extname(sourceFilePath))
     this.#targetFile.addImportDeclaration({
       namedImports: [...imports].map(({ name, alias }) => ({
         name,
         alias,
       })),
-      moduleSpecifier: `${
-        relative(targetDir, sourceDir) || '.'
-      }/${sourceBaseName}`,
+      moduleSpecifier: getRelativeImportPath(
+        this.#targetFile.getFilePath(),
+        sourceFilePath
+      ),
     })
   }
 
@@ -167,9 +168,14 @@ export default class Generator {
     sourceType: string,
     sourceImports: Set<{ name: string; alias: string }>,
     exportStaticType = true
-  ) {
-    const sourceTypeName = this.#formatRuntypeName(sourceType)
-    const typeDeclaration = getTypeDeclaration(sourceFile, sourceType)
+  ): DeclaredType {
+    const runTypeName = this.#formatRuntypeName(
+      this.#getLocalName(sourceFile, sourceType)
+    )
+    const typeName = this.#formatTypeName(
+      this.#getLocalName(sourceFile, sourceType)
+    )
+    const typeDeclaration = this.#getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
 
     let staticImplementation: string | undefined
@@ -195,9 +201,16 @@ export default class Generator {
       .handle(Static, (value) => {
         staticImplementation = value
       })
-      .handle(Declare, (value) => {
+      .handle(Declare, (value): DeclaredType => {
+        const typeName = this.#getLocalName(sourceFile, value)
+        return !recursive && !this.#exports.has(typeName)
+          ? this.#writeRuntype(sourceFile, typeName, sourceImports)
+          : // TODO: this probably isn't right
+            { runTypeName: typeName, typeName: typeName }
+      })
+      .handle(DeclareAndUse, (value) => {
         let next: true | undefined
-        if (recursive || hasTypeDeclaration(sourceFile, value)) {
+        if (recursive || this.#hasTypeDeclaration(sourceFile, value)) {
           next = true
           writer = writer.write(this.#formatRuntypeName(value))
         }
@@ -216,7 +229,7 @@ export default class Generator {
       declarationKind: VariableDeclarationKind.Const,
       declarations: [
         {
-          name: sourceTypeName,
+          name: runTypeName,
           initializer: writer.toString(),
         },
       ],
@@ -225,52 +238,125 @@ export default class Generator {
     if (exportStaticType) {
       if (!staticImplementation) {
         this.#runtypesImports.add('Static')
-        staticImplementation = `Static<typeof ${sourceTypeName}>`
+        staticImplementation = `Static<typeof ${runTypeName}>`
       }
 
       this.#targetFile.addTypeAlias({
         isExported: true,
-        name: this.#formatTypeName(sourceType),
+        name: typeName,
         type: staticImplementation,
       })
     }
 
     this.#exports.add(sourceType)
+
+    return {
+      runTypeName,
+      typeName,
+    }
   }
-}
 
-function getTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
-  const declaration =
-    sourceFile.getInterface(typeName) ||
-    sourceFile.getTypeAlias(typeName) ||
-    sourceFile.getEnum(typeName) ||
-    sourceFile.getFunction(typeName) ||
-    sourceFile.getVariableDeclaration(typeName)
-
-  if (!declaration)
-    throw new Error(
-      `Cannot find any interface, type or enum called "${typeName}" in ${sourceFile.getFilePath()}.`
+  #getTypeDeclaration(
+    sourceFile: SourceCodeFile,
+    typeName: string
+  ): ConsideredTypeDeclaration {
+    const importTypeDeclaration = this.#getImportedTypeDeclaration(
+      sourceFile,
+      typeName
     )
 
-  return declaration
-}
+    if (importTypeDeclaration) return importTypeDeclaration
 
-function hasTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
-  try {
-    return !!getTypeDeclaration(sourceFile, typeName)
-  } catch (error) {
-    return false
+    const declaration =
+      sourceFile.getInterface(typeName) ||
+      sourceFile.getTypeAlias(typeName) ||
+      sourceFile.getEnum(typeName) ||
+      sourceFile.getFunction(typeName) ||
+      sourceFile.getVariableDeclaration(typeName)
+
+    if (!declaration)
+      throw new Error(
+        `Cannot find any interface, type or enum called "${typeName}" in ${sourceFile.getFilePath()}.`
+      )
+
+    return declaration
+  }
+
+  #getImportedTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
+    const importInfo = find(
+      sourceFile.getImportDeclarations(),
+      (importDeclaration) => {
+        let [remoteIdentifier, localIdentifier] =
+          importDeclaration
+            .getImportClause()
+            ?.getDescendantsOfKind(SyntaxKind.Identifier)
+            .map((indentifier) => indentifier.getText()) || []
+        localIdentifier = localIdentifier || remoteIdentifier
+        return (
+          localIdentifier === typeName && {
+            path: importDeclaration.getModuleSpecifierValue(),
+            remoteIdentifier,
+          }
+        )
+      }
+    )
+
+    if (!importInfo) return
+
+    const importPath =
+      isAbsolute(importInfo.path) || !importInfo.path.startsWith('.')
+        ? importInfo.path
+        : resolvePath(dirname(sourceFile.getFilePath()), importInfo.path)
+
+    return this.#getTypeDeclaration(
+      this.#project.addSourceFileAtPath(
+        /\.(m|j)?ts$/.test(importPath) ? importPath : `${importPath}.ts`
+      ),
+      importInfo.remoteIdentifier
+    )
+  }
+
+  /**
+   * Sometimes a typeName can be in the format of:
+   * `import("/some/path").A`
+   * When this occurs, decipher the source file's local
+   * alias of the imported type.
+   */
+  #getLocalName(sourceFile: SourceCodeFile, typeName: string) {
+    const match = importTypeNameRegExp(typeName)
+    if (!match) return typeName
+    for (const importDeclaration of sourceFile.getImportDeclarations()) {
+      let [remoteIdentifier, localIdentifier] =
+        importDeclaration
+          .getImportClause()
+          ?.getDescendantsOfKind(SyntaxKind.Identifier)
+          .map((indentifier) => indentifier.getText()) || []
+      localIdentifier = localIdentifier || remoteIdentifier
+      if (remoteIdentifier === match.importTypeName) return localIdentifier
+    }
+    return match.importTypeName
+  }
+
+  #hasTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
+    try {
+      return !!this.#getTypeDeclaration(sourceFile, typeName)
+    } catch (error) {
+      return false
+    }
   }
 }
 
-function isRecursive(
-  typeDeclaration:
-    | InterfaceDeclaration
-    | TypeAliasDeclaration
-    | EnumDeclaration
-    | FunctionDeclaration
-    | VariableDeclaration
-) {
+function importTypeNameRegExp(typeName: string) {
+  const match = /^import\("([\/\\\w\.-]+)"\)\.(\w+)$/.exec(typeName)
+  return (
+    match && {
+      importPath: /\.(m|j)?ts$/.test(match[1]) ? match[1] : `${match[1]}`,
+      importTypeName: match[2],
+    }
+  )
+}
+
+function isRecursive(typeDeclaration: ConsideredTypeDeclaration) {
   const name = typeDeclaration.getName()
 
   for (const node of typeDeclaration.getDescendantsOfKind(
@@ -281,3 +367,10 @@ function isRecursive(
 
   return false
 }
+
+type ConsideredTypeDeclaration =
+  | InterfaceDeclaration
+  | TypeAliasDeclaration
+  | EnumDeclaration
+  | FunctionDeclaration
+  | VariableDeclaration
