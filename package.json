@@ -1,7 +1,7 @@
 {
   "name": "runtyping",
   "version": "4.3.0",
-  "description": "Compose and react upon redux actions",
+  "description": "Generate runtypes from static types & JSON schema.",
   "main": "dist/index.js",
   "bin": {
     "rungen": "dist/cli.js",
