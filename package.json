@@ -1,6 +1,6 @@
 {
   "name": "runtyping",
-  "version": "4.1.9",
+  "version": "4.2.1",
   "description": "Compose and react upon redux actions",
   "main": "dist/index.js",
   "bin": {
@@ -31,31 +31,31 @@
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
-    "@semantic-release/commit-analyzer": "9.0.1",
+    "@semantic-release/commit-analyzer": "9.0.2",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.2",
     "@semantic-release/npm": "8.0.3",
-    "@semantic-release/release-notes-generator": "10.0.2",
-    "@types/jest": "27.0.2",
-    "@types/js-yaml": "4.0.4",
-    "@types/node": "16.11.7",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "@types/jest": "27.0.3",
+    "@types/js-yaml": "4.0.5",
+    "@types/node": "16.11.11",
     "@types/source-map-support": "0.5.4",
-    "@types/yargs": "17.0.5",
+    "@types/yargs": "17.0.7",
     "commitizen": "4.2.4",
     "concurrently": "6.4.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "7.0.4",
-    "jest": "27.3.1",
-    "lint-staged": "12.0.2",
-    "prettier": "2.4.1",
+    "jest": "27.4.0",
+    "lint-staged": "12.1.2",
+    "prettier": "2.5.0",
     "rimraf": "3.0.2",
     "runtypes": "6.5.0",
-    "semantic-release": "18.0.0",
+    "semantic-release": "18.0.1",
     "source-map-support": "0.5.21",
     "ts-jest": "27.0.7",
     "ts-node": "10.4.0",
-    "typescript": "4.4.4",
-    "typescript-json-schema": "0.51.0"
+    "typescript": "4.5.2",
+    "typescript-json-schema": "0.52.0"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
@@ -79,9 +79,9 @@
     "@johngw/iterator": "1.2.0",
     "js-yaml": "4.1.0",
     "json-schema-to-typescript": "10.1.5",
-    "ts-morph": "12.2.0",
+    "ts-morph": "13.0.2",
     "tslib": "2.3.1",
     "yargs": "17.2.1"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.1"
 }
