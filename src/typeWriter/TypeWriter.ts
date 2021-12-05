@@ -7,14 +7,14 @@ import {
   Write,
 } from './symbols'
 
-type TypeWriter = Generator<
+type TypeWriter<R = any> = Generator<
   | [typeof Import, string]
   | [typeof ImportFromSource, { name: string; alias: string }]
   | [typeof Write, string]
   | [typeof Declare, string]
   | [typeof DeclareAndUse, string]
   | [typeof Static, string],
-  any,
+  R,
   undefined | boolean | DeclaredType
 >
 

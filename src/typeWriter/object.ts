@@ -56,7 +56,7 @@ function* generateNumberIndexType(type: Type): TypeWriter {
   yield [Write, ', Number)']
 }
 
-function* generateInheritance(type: Type): TypeWriter {
+function* generateInheritance(type: Type): TypeWriter<boolean> {
   if (!type.isClassOrInterface()) return false
   const baseTypes = type.getBaseTypes()
   if (!baseTypes.length) return false
