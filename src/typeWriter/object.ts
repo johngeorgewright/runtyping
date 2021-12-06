@@ -1,7 +1,7 @@
 import { SymbolFlags, Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
-import TypeWriter, { DeclaredType } from './TypeWriter'
-import { Declare, Import, Write } from './symbols'
+import TypeWriter from './TypeWriter'
+import { Import, Write } from './symbols'
 
 export default function* objectTypeGenerator(type: Type): TypeWriter {
   const isBuiltInType = type
@@ -17,8 +17,6 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
   else if (type.getNumberIndexType())
     return yield* generateNumberIndexType(type)
 
-  const hasInheritence = yield* generateInheritance(type)
-
   yield [Import, 'Record']
   yield [Write, 'Record({']
 
@@ -31,8 +29,6 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
   }
 
   yield [Write, '})']
-
-  if (hasInheritence) yield [Write, ')']
 }
 
 function* generateBuildInType(type: Type): TypeWriter {
@@ -54,18 +50,4 @@ function* generateNumberIndexType(type: Type): TypeWriter {
   yield [Write, 'Dictionary(']
   yield* generateOrReuseType(type.getNumberIndexType()!)
   yield [Write, ', Number)']
-}
-
-function* generateInheritance(type: Type): TypeWriter<boolean> {
-  if (!type.isClassOrInterface()) return false
-  const baseTypes = type.getBaseTypes()
-  if (!baseTypes.length) return false
-  let inheritedTypes: DeclaredType[] = []
-  for (const baseType of baseTypes)
-    inheritedTypes.push((yield [Declare, baseType.getText()]) as DeclaredType)
-  const [first, ...rest] = inheritedTypes
-  yield [Write, first.runTypeName]
-  for (const inherited of rest) yield [Write, `.And(${inherited.runTypeName})`]
-  yield [Write, '.And(']
-  return true
 }
