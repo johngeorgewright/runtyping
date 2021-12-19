@@ -51,7 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.7"],
             ["commitizen", "npm:4.2.4"],
-            ["concurrently", "npm:6.5.0"],
+            ["concurrently", "npm:6.5.1"],
             ["cz-conventional-changelog", "npm:3.3.0"],
             ["husky", "npm:7.0.4"],
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.4.5"],
@@ -3566,10 +3566,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["concurrently", [
-        ["npm:6.5.0", {
-          "packageLocation": "./.yarn/cache/concurrently-npm-6.5.0-33e040a148-5a7fc1d0ed.zip/node_modules/concurrently/",
+        ["npm:6.5.1", {
+          "packageLocation": "./.yarn/cache/concurrently-npm-6.5.1-1c75a74f6e-3f4d89b464.zip/node_modules/concurrently/",
           "packageDependencies": [
-            ["concurrently", "npm:6.5.0"],
+            ["concurrently", "npm:6.5.1"],
             ["chalk", "npm:4.1.2"],
             ["date-fns", "npm:2.25.0"],
             ["lodash", "npm:4.17.21"],
@@ -8911,7 +8911,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.7"],
             ["commitizen", "npm:4.2.4"],
-            ["concurrently", "npm:6.5.0"],
+            ["concurrently", "npm:6.5.1"],
             ["cz-conventional-changelog", "npm:3.3.0"],
             ["husky", "npm:7.0.4"],
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.4.5"],
