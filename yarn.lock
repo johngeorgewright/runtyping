@@ -1614,10 +1614,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.16":
-  version: 16.11.16
-  resolution: "@types/node@npm:16.11.16"
-  checksum: cb334e321efafdf896f9698ce02d846c3a9c989bb53bfb3699d6e6f0441e1c3979f01311d31634d692e63f047505c8d3d9e524ca36e5a92227025a37bd82fe23
+"@types/node@npm:16.11.17":
+  version: 16.11.17
+  resolution: "@types/node@npm:16.11.17"
+  checksum: 86ed84f79450f6aba1a6ef09f8407c10076966c3cc7cc4eb3d35b8ae4f47817e525641396ef0a667fa0a88fcdf484f6182812c074601403083bdf3b5e1ac0313
   languageName: node
   linkType: hard
 
@@ -7473,7 +7473,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 27.0.3
     "@types/js-yaml": 4.0.5
-    "@types/node": 16.11.16
+    "@types/node": 16.11.17
     "@types/source-map-support": 0.5.4
     "@types/yargs": 17.0.8
     commitizen: 4.2.4
