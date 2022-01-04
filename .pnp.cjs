@@ -47,7 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.0.3"],
             ["@types/jest", "npm:27.4.0"],
             ["@types/js-yaml", "npm:4.0.5"],
-            ["@types/node", "npm:16.11.18"],
+            ["@types/node", "npm:16.11.19"],
             ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.8"],
             ["commitizen", "npm:4.2.4"],
@@ -2339,10 +2339,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
-        ["npm:16.11.18", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-16.11.18-d50939a1f4-f2e615c5f1.zip/node_modules/@types/node/",
+        ["npm:16.11.19", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.11.19-b289452f75-a9ba0cd1e6.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:16.11.18"]
+            ["@types/node", "npm:16.11.19"]
           ],
           "linkType": "HARD",
         }],
@@ -8992,7 +8992,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:10.0.3"],
             ["@types/jest", "npm:27.4.0"],
             ["@types/js-yaml", "npm:4.0.5"],
-            ["@types/node", "npm:16.11.18"],
+            ["@types/node", "npm:16.11.19"],
             ["@types/source-map-support", "npm:0.5.4"],
             ["@types/yargs", "npm:17.0.8"],
             ["commitizen", "npm:4.2.4"],
@@ -10152,7 +10152,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.9"],
             ["@tsconfig/node14", "npm:1.0.1"],
             ["@tsconfig/node16", "npm:1.0.2"],
-            ["@types/node", "npm:16.11.18"],
+            ["@types/node", "npm:16.11.19"],
             ["@types/swc__core", null],
             ["@types/swc__wasm", null],
             ["@types/typescript", null],
