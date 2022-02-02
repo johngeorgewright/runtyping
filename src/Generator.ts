@@ -210,11 +210,12 @@ export default class Generator {
       })
       .handle(DeclareAndUse, (value) => {
         let next: true | undefined
-        if (recursive || this.#hasTypeDeclaration(sourceFile, value)) {
+        const recursiveValue = recursive && value === typeName
+        if (recursiveValue || this.#hasTypeDeclaration(sourceFile, value)) {
           next = true
           writer = writer.write(this.#formatRuntypeName(value))
         }
-        if (next && !recursive && !this.#exports.has(value))
+        if (next && !recursiveValue && !this.#exports.has(value))
           this.#writeRuntype(sourceFile, value, sourceImports)
         return next
       })
