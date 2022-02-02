@@ -2,7 +2,7 @@ import { Type } from 'ts-morph'
 import { Import, ImportFromSource, Write } from './symbols'
 import TypeWriter from './TypeWriter'
 
-export default function* enumReferenceTypeGenerator(
+export default function* enumMemberTypeGenerator(
   enumMemberType: Type,
   enumMemberTypeName: string
 ): TypeWriter {

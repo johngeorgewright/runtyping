@@ -2,7 +2,7 @@ import { Type } from 'ts-morph'
 import factory from './factory'
 import TypeWriter from './TypeWriter'
 import { DeclareAndUse } from './symbols'
-import enumReferenceTypeGenerator from './enumReference'
+import enumMemberTypeGenerator from './enumMember'
 
 export default function* generateOrReuseType(type: Type): TypeWriter {
   const typeName =
@@ -10,7 +10,7 @@ export default function* generateOrReuseType(type: Type): TypeWriter {
 
   if (!!typeName) {
     if (type.isEnumLiteral())
-      return yield* enumReferenceTypeGenerator(type, typeName)
+      return yield* enumMemberTypeGenerator(type, typeName)
     else if (yield [DeclareAndUse, typeName]) return
   }
 
