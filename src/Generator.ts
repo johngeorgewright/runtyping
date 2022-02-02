@@ -83,7 +83,7 @@ export default class Generator {
 
   async generate(sourceTypes: InstructionSourceType | InstructionSourceType[]) {
     for (const sourceType of castArray(sourceTypes)) {
-      const sourceImports = new Set<{ name: string; alias: string }>()
+      const sourceImports = new Map<string, string>()
 
       switch (extname(sourceType.file)) {
         case '.json':
@@ -113,12 +113,9 @@ export default class Generator {
     return this.#targetFile
   }
 
-  #addSourceImports(
-    sourceFilePath: string,
-    imports: Set<{ name: string; alias: string }>
-  ) {
+  #addSourceImports(sourceFilePath: string, imports: Map<string, string>) {
     this.#targetFile.addImportDeclaration({
-      namedImports: [...imports].map(({ name, alias }) => ({
+      namedImports: [...imports].map(([name, alias]) => ({
         name,
         alias,
       })),
@@ -131,7 +128,7 @@ export default class Generator {
 
   async #generateRuntypeFromJSON(
     sourceType: InstructionSourceType,
-    sourceImports: Set<{ name: string; alias: string }>
+    sourceImports: Map<string, string>
   ) {
     const schema = await compileFromFile(sourceType.file)
     const sourceFile = this.#project.createSourceFile(
@@ -150,7 +147,7 @@ export default class Generator {
 
   #generateRuntype(
     sourceType: InstructionSourceType,
-    sourceImports: Set<{ name: string; alias: string }>
+    sourceImports: Map<string, string>
   ) {
     const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
     for (const type of castArray(sourceType.type))
@@ -166,7 +163,7 @@ export default class Generator {
   #writeRuntype(
     sourceFile: SourceCodeFile,
     sourceType: string,
-    sourceImports: Set<{ name: string; alias: string }>,
+    sourceImports: Map<string, string>,
     exportStaticType = true
   ): DeclaredType {
     const runTypeName = this.#formatRuntypeName(
@@ -195,8 +192,8 @@ export default class Generator {
       .handle(Import, (value) => {
         this.#runtypesImports.add(value)
       })
-      .handle(ImportFromSource, (value) => {
-        sourceImports.add(value)
+      .handle(ImportFromSource, ({ name, alias }) => {
+        sourceImports.set(name, alias)
       })
       .handle(Static, (value) => {
         staticImplementation = value
