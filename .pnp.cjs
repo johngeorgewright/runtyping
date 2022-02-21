@@ -60,7 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:12.3.4"],
             ["prettier", "npm:2.5.1"],
             ["rimraf", "npm:3.0.2"],
-            ["runtypes", "npm:6.5.0"],
+            ["runtypes", "npm:6.5.1"],
             ["semantic-release", "npm:19.0.2"],
             ["source-map-support", "npm:0.5.21"],
             ["ts-jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.1.3"],
@@ -9185,10 +9185,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["runtypes", [
-        ["npm:6.5.0", {
-          "packageLocation": "./.yarn/cache/runtypes-npm-6.5.0-c1a3561250-72f9cbd392.zip/node_modules/runtypes/",
+        ["npm:6.5.1", {
+          "packageLocation": "./.yarn/cache/runtypes-npm-6.5.1-7e409f6efb-1ac1c4ad74.zip/node_modules/runtypes/",
           "packageDependencies": [
-            ["runtypes", "npm:6.5.0"]
+            ["runtypes", "npm:6.5.1"]
           ],
           "linkType": "HARD",
         }]
@@ -9223,7 +9223,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:12.3.4"],
             ["prettier", "npm:2.5.1"],
             ["rimraf", "npm:3.0.2"],
-            ["runtypes", "npm:6.5.0"],
+            ["runtypes", "npm:6.5.1"],
             ["semantic-release", "npm:19.0.2"],
             ["source-map-support", "npm:0.5.21"],
             ["ts-jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.1.3"],
