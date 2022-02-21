@@ -7746,10 +7746,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"runtypes@npm:6.5.0":
-  version: 6.5.0
-  resolution: "runtypes@npm:6.5.0"
-  checksum: 72f9cbd392b2c3ca3920b922990bdf59b51f0c5a96456c40da50e43f4d89106f4871cd981f1114f4095521fd6eeb6049d375d1c6818c5cbf8119c219d2c1a075
+"runtypes@npm:6.5.1":
+  version: 6.5.1
+  resolution: "runtypes@npm:6.5.1"
+  checksum: 1ac1c4ad74c739356255323e4748c96f4e7b44cee44e917c66089668c93228222b2b8ef8571b8fcee9280c514ecf2b4eba94d39182fc0458d8eaa0be794ef758
   languageName: node
   linkType: hard
 
@@ -7782,7 +7782,7 @@ __metadata:
     lint-staged: 12.3.4
     prettier: 2.5.1
     rimraf: 3.0.2
-    runtypes: 6.5.0
+    runtypes: 6.5.1
     semantic-release: 19.0.2
     source-map-support: 0.5.21
     ts-jest: 27.1.3
