@@ -18,7 +18,7 @@ jobs:
         id: nvm
 
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
 
