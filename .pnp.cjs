@@ -55,7 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.5.1"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:10.1.5"],\
-            ["lint-staged", "npm:12.3.4"],\
+            ["lint-staged", "npm:12.3.5"],\
             ["prettier", "npm:2.5.1"],\
             ["rimraf", "npm:3.0.2"],\
             ["runtypes", "npm:6.5.1"],\
@@ -4238,10 +4238,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:fe50622cdfc47952e94949c059edb952f92ef433614955c117208714816a48c9431ffa07c71523aacb50bd04ebfcc8a665b5c71f218deea67c69ec21494584dc#npm:4.3.3", {\
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-4f97140675/0/cache/debug-npm-4.3.3-710fd4cc7f-14472d56fe.zip/node_modules/debug/",\
+        ["virtual:930196af82efb7d76d17fca1ac22b8700a254ff7c58dfa910fd1ccb851ef29f9b7db963c602b7a7381d2a4561093593c39b1e8634b0faaaebbc15e959f04a3cc#npm:4.3.3", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-2a2b78ceef/0/cache/debug-npm-4.3.3-710fd4cc7f-14472d56fe.zip/node_modules/debug/",\
           "packageDependencies": [\
-            ["debug", "virtual:fe50622cdfc47952e94949c059edb952f92ef433614955c117208714816a48c9431ffa07c71523aacb50bd04ebfcc8a665b5c71f218deea67c69ec21494584dc#npm:4.3.3"],\
+            ["debug", "virtual:930196af82efb7d76d17fca1ac22b8700a254ff7c58dfa910fd1ccb851ef29f9b7db963c602b7a7381d2a4561093593c39b1e8634b0faaaebbc15e959f04a3cc#npm:4.3.3"],\
             ["@types/supports-color", null],\
             ["ms", "npm:2.1.2"],\
             ["supports-color", "npm:9.2.1"]\
@@ -7097,17 +7097,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["lint-staged", [\
-        ["npm:12.3.4", {\
-          "packageLocation": "./.yarn/cache/lint-staged-npm-12.3.4-fe50622cdf-4e0b4b9da4.zip/node_modules/lint-staged/",\
+        ["npm:12.3.5", {\
+          "packageLocation": "./.yarn/cache/lint-staged-npm-12.3.5-930196af82-6653c7078b.zip/node_modules/lint-staged/",\
           "packageDependencies": [\
-            ["lint-staged", "npm:12.3.4"],\
+            ["lint-staged", "npm:12.3.5"],\
             ["cli-truncate", "npm:3.1.0"],\
             ["colorette", "npm:2.0.16"],\
             ["commander", "npm:8.3.0"],\
-            ["debug", "virtual:fe50622cdfc47952e94949c059edb952f92ef433614955c117208714816a48c9431ffa07c71523aacb50bd04ebfcc8a665b5c71f218deea67c69ec21494584dc#npm:4.3.3"],\
+            ["debug", "virtual:930196af82efb7d76d17fca1ac22b8700a254ff7c58dfa910fd1ccb851ef29f9b7db963c602b7a7381d2a4561093593c39b1e8634b0faaaebbc15e959f04a3cc#npm:4.3.3"],\
             ["execa", "npm:5.1.1"],\
             ["lilconfig", "npm:2.0.4"],\
-            ["listr2", "virtual:fe50622cdfc47952e94949c059edb952f92ef433614955c117208714816a48c9431ffa07c71523aacb50bd04ebfcc8a665b5c71f218deea67c69ec21494584dc#npm:4.0.1"],\
+            ["listr2", "virtual:930196af82efb7d76d17fca1ac22b8700a254ff7c58dfa910fd1ccb851ef29f9b7db963c602b7a7381d2a4561093593c39b1e8634b0faaaebbc15e959f04a3cc#npm:4.0.1"],\
             ["micromatch", "npm:4.0.4"],\
             ["normalize-path", "npm:3.0.0"],\
             ["object-inspect", "npm:1.12.0"],\
@@ -7126,10 +7126,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:fe50622cdfc47952e94949c059edb952f92ef433614955c117208714816a48c9431ffa07c71523aacb50bd04ebfcc8a665b5c71f218deea67c69ec21494584dc#npm:4.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/listr2-virtual-c480e030e6/0/cache/listr2-npm-4.0.1-3533453037-38f7c8b779.zip/node_modules/listr2/",\
+        ["virtual:930196af82efb7d76d17fca1ac22b8700a254ff7c58dfa910fd1ccb851ef29f9b7db963c602b7a7381d2a4561093593c39b1e8634b0faaaebbc15e959f04a3cc#npm:4.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/listr2-virtual-1c6311f715/0/cache/listr2-npm-4.0.1-3533453037-38f7c8b779.zip/node_modules/listr2/",\
           "packageDependencies": [\
-            ["listr2", "virtual:fe50622cdfc47952e94949c059edb952f92ef433614955c117208714816a48c9431ffa07c71523aacb50bd04ebfcc8a665b5c71f218deea67c69ec21494584dc#npm:4.0.1"],\
+            ["listr2", "virtual:930196af82efb7d76d17fca1ac22b8700a254ff7c58dfa910fd1ccb851ef29f9b7db963c602b7a7381d2a4561093593c39b1e8634b0faaaebbc15e959f04a3cc#npm:4.0.1"],\
             ["@types/enquirer", null],\
             ["cli-truncate", "npm:2.1.0"],\
             ["colorette", "npm:2.0.16"],\
@@ -9226,7 +9226,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:27.5.1"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:10.1.5"],\
-            ["lint-staged", "npm:12.3.4"],\
+            ["lint-staged", "npm:12.3.5"],\
             ["prettier", "npm:2.5.1"],\
             ["rimraf", "npm:3.0.2"],\
             ["runtypes", "npm:6.5.1"],\
