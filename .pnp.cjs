@@ -56,7 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:10.1.5"],\
             ["lint-staged", "npm:12.3.7"],\
-            ["prettier", "npm:2.6.1"],\
+            ["prettier", "npm:2.6.2"],\
             ["rimraf", "npm:3.0.2"],\
             ["runtypes", "npm:6.5.1"],\
             ["semantic-release", "npm:19.0.2"],\
@@ -8732,10 +8732,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:2.6.1", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.6.1-94a3731152-78be1f8a3d.zip/node_modules/prettier/",\
+        ["npm:2.6.2", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.6.2-05918420da-48d08dde8e.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.6.1"]\
+            ["prettier", "npm:2.6.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9301,7 +9301,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:10.1.5"],\
             ["lint-staged", "npm:12.3.7"],\
-            ["prettier", "npm:2.6.1"],\
+            ["prettier", "npm:2.6.2"],\
             ["rimraf", "npm:3.0.2"],\
             ["runtypes", "npm:6.5.1"],\
             ["semantic-release", "npm:19.0.2"],\
