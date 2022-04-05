@@ -28,7 +28,7 @@ import {
 } from './typeWriter/symbols'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
 import { DeclaredType } from './typeWriter/TypeWriter'
-import { find, getRelativeImportPath } from './util'
+import { doInModule, find, findInModule, getRelativeImportPath } from './util'
 
 type GeneratorOptionsBase =
   | {
@@ -226,29 +226,31 @@ export default class Generator {
       writer = writer.write(')')
     }
 
-    this.#targetFile.addVariableStatement({
-      isExported: true,
-      declarationKind: VariableDeclarationKind.Const,
-      declarations: [
-        {
-          name: runTypeName,
-          initializer: writer.toString(),
-        },
-      ],
-    })
-
-    if (exportStaticType) {
-      if (!staticImplementation) {
-        this.#runtypesImports.add('Static')
-        staticImplementation = `Static<typeof ${runTypeName}>`
-      }
-
-      this.#targetFile.addTypeAlias({
+    doInModule(this.#targetFile, runTypeName, (node, name) => {
+      node.addVariableStatement({
         isExported: true,
-        name: typeName,
-        type: staticImplementation,
+        declarationKind: VariableDeclarationKind.Const,
+        declarations: [
+          {
+            name,
+            initializer: writer.toString(),
+          },
+        ],
       })
-    }
+
+      if (exportStaticType) {
+        if (!staticImplementation) {
+          this.#runtypesImports.add('Static')
+          staticImplementation = `Static<typeof ${name}>`
+        }
+
+        node.addTypeAlias({
+          isExported: true,
+          name: typeName.split('.').reduceRight((x) => x),
+          type: staticImplementation,
+        })
+      }
+    })
 
     this.#exports.add(sourceType)
 
@@ -269,12 +271,16 @@ export default class Generator {
 
     if (importTypeDeclaration) return importTypeDeclaration
 
-    const declaration =
-      sourceFile.getInterface(typeName) ||
-      sourceFile.getTypeAlias(typeName) ||
-      sourceFile.getEnum(typeName) ||
-      sourceFile.getFunction(typeName) ||
-      sourceFile.getVariableDeclaration(typeName)
+    const declaration = findInModule(
+      sourceFile,
+      typeName,
+      (node, name) =>
+        node.getInterface(name) ||
+        node.getTypeAlias(name) ||
+        node.getEnum(name) ||
+        node.getFunction(name) ||
+        node.getVariableDeclaration(name)
+    )
 
     if (!declaration)
       throw new Error(
