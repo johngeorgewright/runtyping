@@ -4,9 +4,9 @@ test('interface', async () => {
   expect((await generateFixture('interface', ['B', 'C'])).getText())
     .toMatchInlineSnapshot(`
     "import { foo as _foo, boo as _boo } from './interface';
-    import { Record, String, Number, Static, Literal, Contract, Void } from 'runtypes';
+    import { Record, String, Number, Boolean, Static, Literal, Contract, Void } from 'runtypes';
 
-    export const A = Record({ foo: String, bar: Number, });
+    export const A = Record({ foo: String, bar: Number,\`has spaces\`: Boolean, \`+1\`: Boolean, \`-1\`: Boolean, __underscores__: Boolean, $dollar: Boolean, \`\\\\\${escaped template vars}\`: Boolean,});
 
     export type A = Static<typeof A>;
 
