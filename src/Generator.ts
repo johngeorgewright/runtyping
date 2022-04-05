@@ -81,6 +81,10 @@ export default class Generator {
     this.#formatTypeName = typeNameFormatter(options.typeFormat)
   }
 
+  get project() {
+    return this.#project
+  }
+
   async generate(sourceTypes: InstructionSourceType | InstructionSourceType[]) {
     for (const sourceType of castArray(sourceTypes)) {
       const sourceImports = new Map<string, string>()
