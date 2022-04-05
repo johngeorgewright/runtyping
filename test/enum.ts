@@ -9,7 +9,7 @@ export enum B {
   B = 'b',
 }
 
-enum C {
+export enum C {
   A,
   B,
   C,

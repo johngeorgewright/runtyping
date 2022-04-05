@@ -1,6 +1,7 @@
 import * as pathHelper from 'path'
 import { Project } from 'ts-morph'
 import Generator, { GeneratorOptions } from '../src/Generator'
+import * as ts from 'typescript'
 
 export default async function generateFixture(
   name: string,
@@ -29,7 +30,14 @@ export default async function generateFixture(
     },
   ])
 
-  generator.project.createSourceFile(`__temp__.ts`, sourceFile.getText())
+  const js = ts.transpile(sourceFile.getText())
+
+  try {
+    eval(js)
+  } catch (error) {
+    console.info(js)
+    throw error
+  }
 
   return sourceFile
 }
