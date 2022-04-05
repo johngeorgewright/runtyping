@@ -11,17 +11,17 @@ test('mapRuntypeName', async () => {
   ).getText()
 
   expect(actual).toMatchInlineSnapshot(`
-"import { Record, String, Static, Array } from 'runtypes';
+    "import { Record, String, Static, Array } from 'runtypes';
 
-export const MappedAFoo = Record({ foo: String, });
+    export const MappedAFoo = Record({ foo: String, });
 
-export type MappedABar = Static<typeof MappedAFoo>;
+    export type MappedABar = Static<typeof MappedAFoo>;
 
-export const MappedBFoo = Record({ bar: MappedAFoo, baz: MappedAFoo, nest: Record({ baz2: Array(MappedAFoo), }), });
+    export const MappedBFoo = Record({ bar: MappedAFoo, baz: MappedAFoo, nest: Record({ baz2: Array(MappedAFoo), }), });
 
-export type MappedBBar = Static<typeof MappedBFoo>;
-"
-`)
+    export type MappedBBar = Static<typeof MappedBFoo>;
+    "
+  `)
 })
 
 test('incorrect formatting', async () => {
