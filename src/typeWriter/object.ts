@@ -1,4 +1,4 @@
-import { SymbolFlags, Type } from 'ts-morph'
+import { SymbolFlags, ts, Type } from 'ts-morph'
 import generateOrReuseType from './generateOrReuseType'
 import TypeWriter from './TypeWriter'
 import { Import, Write } from './symbols'
@@ -7,9 +7,19 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
   const isBuiltInType = type
     .getSymbolOrThrow()
     .getDeclarations()
-    .some((d) =>
-      d.getSourceFile().getFilePath().includes(require.resolve('typescript'))
-    )
+    .some((d) => {
+      if (d.getSourceFile().compilerNode.hasNoDefaultLib) {
+        const name = type.getSymbolOrThrow().getName()
+        const parent = d.getParentOrThrow()
+        const siblings = ([
+          ts.SyntaxKind.ClassDeclaration,
+          ts.SyntaxKind.FunctionDeclaration,
+          ts.SyntaxKind.VariableDeclaration,
+        ] as const).flatMap(x => parent.getChildrenOfKind(x))
+        return siblings.some(x => x.getName() === name)
+      }
+      return false
+    })
 
   if (isBuiltInType) return yield* generateBuildInType(type)
   else if (type.getStringIndexType())
