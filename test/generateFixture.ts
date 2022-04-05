@@ -21,11 +21,15 @@ export default async function generateFixture(
     ...generatorOpts,
   })
 
-  return generator.generate([
+  const sourceFile = await generator.generate([
     {
       exportStaticType,
       file: pathHelper.join(__dirname, `${name}.ts`),
       type: types,
     },
   ])
+
+  generator.project.createSourceFile(`__temp__.ts`, sourceFile.getText())
+
+  return sourceFile
 }
