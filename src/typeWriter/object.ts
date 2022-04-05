@@ -25,7 +25,7 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
       Write,
       `${
         propNameRequiresQuotes(property.getName())
-          ? `\`${escapeQuottedPropName(property.getName())}\``
+          ? `[\`${escapeQuottedPropName(property.getName())}\`]`
           : property.getName()
       }:`,
     ]
