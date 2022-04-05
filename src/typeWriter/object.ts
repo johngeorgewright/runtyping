@@ -21,7 +21,14 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
   yield [Write, 'Record({']
 
   for (const property of type.getProperties()) {
-    yield [Write, `${property.getName()}:`]
+    yield [
+      Write,
+      `${
+        propNameRequiresQuotes(property.getName())
+          ? `\`${escapeQuottedPropName(property.getName())}\``
+          : property.getName()
+      }:`,
+    ]
     const propertyType = property.getValueDeclarationOrThrow().getType()
     yield* generateOrReuseType(propertyType)
     if (property.hasFlags(SymbolFlags.Optional)) yield [Write, '.optional()']
@@ -50,4 +57,12 @@ function* generateNumberIndexType(type: Type): TypeWriter {
   yield [Write, 'Dictionary(']
   yield* generateOrReuseType(type.getNumberIndexType()!)
   yield [Write, ', Number)']
+}
+
+function propNameRequiresQuotes(propName: string) {
+  return !/^[\$_[a-zA-Z][\$\w]*$/.test(propName)
+}
+
+function escapeQuottedPropName(propName: string) {
+  return propName.replace(/\$/g, '\\$')
 }

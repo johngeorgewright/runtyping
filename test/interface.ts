@@ -1,6 +1,12 @@
 export interface A {
   foo: string
   bar: number
+  'has spaces': boolean
+  '+1': boolean
+  '-1': boolean
+  __underscores__: boolean
+  $dollar: boolean
+  '${escaped template vars}': boolean
 }
 
 export interface B {
