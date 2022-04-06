@@ -12,4 +12,7 @@ export namespace B {
 
 export namespace A {
   export type C = unknown
+  export type D = {
+    E: B.C.D
+  }
 }
