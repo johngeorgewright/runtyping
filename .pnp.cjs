@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["typescript-json-schema", "npm:0.53.0"],\
-            ["yargs", "npm:17.4.0"]\
+            ["yargs", "npm:17.4.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -9312,7 +9312,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["typescript-json-schema", "npm:0.53.0"],\
-            ["yargs", "npm:17.4.0"]\
+            ["yargs", "npm:17.4.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -11128,10 +11128,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:17.4.0", {\
-          "packageLocation": "./.yarn/cache/yargs-npm-17.4.0-7544641b25-63985bdddd.zip/node_modules/yargs/",\
+        ["npm:17.4.1", {\
+          "packageLocation": "./.yarn/cache/yargs-npm-17.4.1-f5d309f85f-e901232287.zip/node_modules/yargs/",\
           "packageDependencies": [\
-            ["yargs", "npm:17.4.0"],\
+            ["yargs", "npm:17.4.1"],\
             ["cliui", "npm:7.0.4"],\
             ["escalade", "npm:3.1.1"],\
             ["get-caller-file", "npm:2.0.5"],\
