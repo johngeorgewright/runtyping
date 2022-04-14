@@ -1,4 +1,4 @@
-name: NPM Publish
+name: Publish
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project
@@ -25,6 +26,8 @@ jobs:
         run: yarn test
 
   publish-npm:
+    name: GitHub & NPM
+    if: github.actor != 'renovate[bot]'
     needs: [test]
     runs-on: ubuntu-latest
     environment: NPM
