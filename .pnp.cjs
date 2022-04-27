@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@commitlint/cli", "npm:16.2.3"],\
             ["@commitlint/config-conventional", "npm:16.2.1"],\
-            ["@jest/types", "npm:28.0.1"],\
+            ["@jest/types", "npm:28.0.2"],\
             ["@johngw/array", "npm:3.3.0"],\
             ["@johngw/error", "npm:2.2.0"],\
             ["@johngw/iterator", "npm:1.2.0"],\
@@ -1586,10 +1586,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@jest/schemas", [\
-        ["npm:28.0.0", {\
-          "packageLocation": "./.yarn/cache/@jest-schemas-npm-28.0.0-9adeb60e02-4133d84a7f.zip/node_modules/@jest/schemas/",\
+        ["npm:28.0.2", {\
+          "packageLocation": "./.yarn/cache/@jest-schemas-npm-28.0.2-482c1c45c3-6a177e97b1.zip/node_modules/@jest/schemas/",\
           "packageDependencies": [\
-            ["@jest/schemas", "npm:28.0.0"],\
+            ["@jest/schemas", "npm:28.0.2"],\
             ["@sinclair/typebox", "npm:0.23.4"]\
           ],\
           "linkType": "HARD"\
@@ -1682,11 +1682,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:28.0.1", {\
-          "packageLocation": "./.yarn/cache/@jest-types-npm-28.0.1-058dde1cba-e0796f6982.zip/node_modules/@jest/types/",\
+        ["npm:28.0.2", {\
+          "packageLocation": "./.yarn/cache/@jest-types-npm-28.0.2-1a39d48074-ffb166ed4a.zip/node_modules/@jest/types/",\
           "packageDependencies": [\
-            ["@jest/types", "npm:28.0.1"],\
-            ["@jest/schemas", "npm:28.0.0"],\
+            ["@jest/types", "npm:28.0.2"],\
+            ["@jest/schemas", "npm:28.0.2"],\
             ["@types/istanbul-lib-coverage", "npm:2.0.3"],\
             ["@types/istanbul-reports", "npm:3.0.1"],\
             ["@types/node", "npm:16.11.7"],\
@@ -9401,7 +9401,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["runtyping", "workspace:."],\
             ["@commitlint/cli", "npm:16.2.3"],\
             ["@commitlint/config-conventional", "npm:16.2.1"],\
-            ["@jest/types", "npm:28.0.1"],\
+            ["@jest/types", "npm:28.0.2"],\
             ["@johngw/array", "npm:3.3.0"],\
             ["@johngw/error", "npm:2.2.0"],\
             ["@johngw/iterator", "npm:1.2.0"],\

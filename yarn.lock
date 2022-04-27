@@ -1097,12 +1097,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/schemas@npm:^28.0.0":
-  version: 28.0.0
-  resolution: "@jest/schemas@npm:28.0.0"
+"@jest/schemas@npm:^28.0.2":
+  version: 28.0.2
+  resolution: "@jest/schemas@npm:28.0.2"
   dependencies:
     "@sinclair/typebox": ^0.23.3
-  checksum: 4133d84a7fbb428b9d847aeb218fbaf75c6c4096659b8514868dcc31b510ecba13748309f9453bbd600e542b21f323a8e53a6caec9e491ce5bbdfced0ad088ae
+  checksum: 6a177e97b112c99f377697fe803a34f4489b92cd07949876250c69edc9029c7cbda771fcbb03caebd20ffbcfa89b9c22b4dc9d1e9a7fbc9873185459b48ba780
   languageName: node
   linkType: hard
 
@@ -1164,17 +1164,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/types@npm:28.0.1":
-  version: 28.0.1
-  resolution: "@jest/types@npm:28.0.1"
+"@jest/types@npm:28.0.2":
+  version: 28.0.2
+  resolution: "@jest/types@npm:28.0.2"
   dependencies:
-    "@jest/schemas": ^28.0.0
+    "@jest/schemas": ^28.0.2
     "@types/istanbul-lib-coverage": ^2.0.0
     "@types/istanbul-reports": ^3.0.0
     "@types/node": "*"
     "@types/yargs": ^17.0.8
     chalk: ^4.0.0
-  checksum: e0796f6982560d6f58bc028affb451746d163d2b4467838134eab827501f839e60a4a787e903b804c9b15cd6efeb186cb3d3d79be49ae60c5b8990cc1d773db7
+  checksum: ffb166ed4a90aaeb8cdf04928f15cda8ac29076cb88963d7cfde4740daa5649d689f713b3f815ca7db49c01eda3a932b1d904d76877a5f3b5837a0a6fb727379
   languageName: node
   linkType: hard
 
@@ -7942,7 +7942,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 16.2.3
     "@commitlint/config-conventional": 16.2.1
-    "@jest/types": 28.0.1
+    "@jest/types": 28.0.2
     "@johngw/array": 3.3.0
     "@johngw/error": 2.2.0
     "@johngw/iterator": 1.2.0
