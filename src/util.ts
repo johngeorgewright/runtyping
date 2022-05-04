@@ -44,10 +44,15 @@ export function doInModule<
 export function findInModule<
   T extends (node: StatementedNode, name: string) => any
 >(root: StatementedNode, name: string, fn: T): ReturnType<T> | undefined {
-  const findInModuleInner = (node: StatementedNode, nameParts: string[]): ReturnType<T> | undefined => {
+  const findInModuleInner = (
+    node: StatementedNode,
+    nameParts: string[]
+  ): ReturnType<T> | undefined => {
     if (nameParts.length === 0) return undefined
     if (nameParts.length === 1) return fn(node, nameParts[0])
-    for (const child of node.getModules().filter(x => x.getName() === nameParts[0])) {
+    for (const child of node
+      .getModules()
+      .filter((x) => x.getName() === nameParts[0])) {
       const out = findInModuleInner(child, nameParts.slice(1))
       if (out !== undefined) return out
     }
@@ -55,3 +60,8 @@ export function findInModule<
   }
   return findInModuleInner(root, name.split('.'))
 }
+
+export type PickByValue<T, ValueType> = Pick<
+  T,
+  { [Key in keyof T]-?: T[Key] extends ValueType ? Key : never }[keyof T]
+>
