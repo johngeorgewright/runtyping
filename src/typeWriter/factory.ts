@@ -1,62 +1,62 @@
 import { Type } from 'ts-morph'
-import arrayTypeGenerator from './array'
-import enumTypeGenerator from './enum'
-import functionTypeGenerator from './function'
-import intersecionTypeGenerator from './intersection'
-import literalTypeGenerator from './literal'
-import objectTypeGenerator from './object'
-import simpleTypeGenerator from './simple'
-import tupleTypeGenerator from './tuple'
-import unionTypeGenerator from './union'
+import arrayTypeWriter from './array'
+import enumTypeWriter from './enum'
+import functionTypeWriter from './function'
+import intersecionTypeWriter from './intersection'
+import literalTypeWriter from './literal'
+import objectTypeWriter from './object'
+import simpleTypeWriter from './simple'
+import tupleTypeWriter from './tuple'
+import unionTypeWriter from './union'
 
 export default function factory(type: Type, name?: string) {
   switch (true) {
     case type.isNull():
-      return simpleTypeGenerator('Null')
+      return simpleTypeWriter('Null')
 
     case type.isString():
-      return simpleTypeGenerator('String')
+      return simpleTypeWriter('String')
 
     case type.isNumber():
-      return simpleTypeGenerator('Number')
+      return simpleTypeWriter('Number')
 
     case type.isBoolean():
-      return simpleTypeGenerator('Boolean')
+      return simpleTypeWriter('Boolean')
 
     case type.isArray():
-      return arrayTypeGenerator(type)
+      return arrayTypeWriter(type)
 
     case type.isTuple():
-      return tupleTypeGenerator(type)
+      return tupleTypeWriter(type)
 
     case type.isEnum():
-      return enumTypeGenerator(type)
+      return enumTypeWriter(type)
 
     case type.isIntersection():
-      return intersecionTypeGenerator(type)
+      return intersecionTypeWriter(type)
 
     case type.isUnion():
-      return unionTypeGenerator(type)
+      return unionTypeWriter(type)
 
     case type.isLiteral():
-      return literalTypeGenerator(type)
+      return literalTypeWriter(type)
 
     case type.isAny():
     case type.isUnknown():
-      return simpleTypeGenerator('Unknown')
+      return simpleTypeWriter('Unknown')
 
     case type.isUndefined():
-      return simpleTypeGenerator('Undefined')
+      return simpleTypeWriter('Undefined')
 
     case type.getText() === 'void':
-      return simpleTypeGenerator('Void')
+      return simpleTypeWriter('Void')
 
     case type.getCallSignatures().length > 0:
-      return functionTypeGenerator(type, name)
+      return functionTypeWriter(type, name)
 
     case type.isInterface():
     case type.isObject():
-      return objectTypeGenerator(type)
+      return objectTypeWriter(type)
 
     default:
       throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
