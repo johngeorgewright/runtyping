@@ -3,7 +3,7 @@ import generateOrReuseType from './generateOrReuseType'
 import TypeWriter from './TypeWriter'
 import { Import, Write } from './symbols'
 
-export default function* objectTypeGenerator(type: Type): TypeWriter {
+export default function* objectTypeWriter(type: Type): TypeWriter {
   const isBuiltInType = type
     .getSymbolOrThrow()
     .getDeclarations()
@@ -11,12 +11,14 @@ export default function* objectTypeGenerator(type: Type): TypeWriter {
       if (d.getSourceFile().compilerNode.hasNoDefaultLib) {
         const name = type.getSymbolOrThrow().getName()
         const parent = d.getParentOrThrow()
-        const siblings = ([
-          ts.SyntaxKind.ClassDeclaration,
-          ts.SyntaxKind.FunctionDeclaration,
-          ts.SyntaxKind.VariableDeclaration,
-        ] as const).flatMap(x => parent.getChildrenOfKind(x))
-        return siblings.some(x => x.getName() === name)
+        const siblings = (
+          [
+            ts.SyntaxKind.ClassDeclaration,
+            ts.SyntaxKind.FunctionDeclaration,
+            ts.SyntaxKind.VariableDeclaration,
+          ] as const
+        ).flatMap((x) => parent.getChildrenOfKind(x))
+        return siblings.some((x) => x.getName() === name)
       }
       return false
     })

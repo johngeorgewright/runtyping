@@ -2,7 +2,7 @@ import { Type } from 'ts-morph'
 import TypeWriter from './TypeWriter'
 import { Import, ImportFromSource, Write } from './symbols'
 
-export default function* enumTypeGenerator(type: Type): TypeWriter {
+export default function* enumTypeWriter(type: Type): TypeWriter {
   const name = type.getSymbolOrThrow().getName()
   yield [Import, 'Guard']
   yield [ImportFromSource, { name, alias: `_${name}` }]

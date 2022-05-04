@@ -4,7 +4,7 @@ import generateOrReuseType from './generateOrReuseType'
 import TypeWriter from './TypeWriter'
 import { Import, ImportFromSource, Static, Write } from './symbols'
 
-export default function* functionTypeGenerator(
+export default function* functionTypeWriter(
   type: Type,
   name?: string
 ): TypeWriter {
