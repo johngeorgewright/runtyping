@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commitizen", "npm:4.2.4"],\
             ["concurrently", "npm:7.1.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
-            ["husky", "npm:7.0.4"],\
+            ["husky", "npm:8.0.0"],\
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:28.1.0"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:10.1.5"],\
@@ -5641,10 +5641,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["husky", [\
-        ["npm:7.0.4", {\
-          "packageLocation": "./.yarn/cache/husky-npm-7.0.4-917ba035c6-c6ec4af63d.zip/node_modules/husky/",\
+        ["npm:8.0.0", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.0-1b3b519c6d-b6b842abdd.zip/node_modules/husky/",\
           "packageDependencies": [\
-            ["husky", "npm:7.0.4"]\
+            ["husky", "npm:8.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9265,7 +9265,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commitizen", "npm:4.2.4"],\
             ["concurrently", "npm:7.1.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
-            ["husky", "npm:7.0.4"],\
+            ["husky", "npm:8.0.0"],\
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:28.1.0"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:10.1.5"],\
