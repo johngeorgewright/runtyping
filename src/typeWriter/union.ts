@@ -11,6 +11,7 @@ export default function* unionTypeWriter(type: Type): TypeWriter {
   if (!first) return yield* simpleTypeWriter('Undefined')
 
   yield* generateOrReuseType(first)
+
   for (const item of rest) {
     yield [Write, '.Or(']
     yield* generateOrReuseType(item)
