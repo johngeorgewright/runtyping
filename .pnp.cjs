@@ -50,7 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/source-map-support", "npm:0.5.4"],\
             ["@types/yargs", "npm:17.0.10"],\
             ["commitizen", "npm:4.2.4"],\
-            ["concurrently", "npm:7.1.0"],\
+            ["concurrently", "npm:7.2.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:28.1.0"],\
@@ -4085,18 +4085,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["concurrently", [\
-        ["npm:7.1.0", {\
-          "packageLocation": "./.yarn/cache/concurrently-npm-7.1.0-d3983cf1fe-723996afc7.zip/node_modules/concurrently/",\
+        ["npm:7.2.0", {\
+          "packageLocation": "./.yarn/cache/concurrently-npm-7.2.0-c42e3ca726-363506e777.zip/node_modules/concurrently/",\
           "packageDependencies": [\
-            ["concurrently", "npm:7.1.0"],\
+            ["concurrently", "npm:7.2.0"],\
             ["chalk", "npm:4.1.2"],\
             ["date-fns", "npm:2.25.0"],\
             ["lodash", "npm:4.17.21"],\
             ["rxjs", "npm:6.6.7"],\
+            ["shell-quote", "npm:1.7.3"],\
             ["spawn-command", "npm:0.0.2"],\
             ["supports-color", "npm:8.1.1"],\
             ["tree-kill", "npm:1.2.2"],\
-            ["yargs", "npm:16.2.0"]\
+            ["yargs", "npm:17.4.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9263,7 +9264,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/source-map-support", "npm:0.5.4"],\
             ["@types/yargs", "npm:17.0.10"],\
             ["commitizen", "npm:4.2.4"],\
-            ["concurrently", "npm:7.1.0"],\
+            ["concurrently", "npm:7.2.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:cebcd57d8705830fbf520da1d99730456df5b76a22961bc4e52c54790b478d73f2c7fa0c40a655f19c33d571f44bc4c7de04b715769ff69bd526455801f8a8f1#npm:28.1.0"],\
@@ -9450,6 +9451,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/shebang-regex-npm-3.0.0-899a0cd65e-1a2bcae50d.zip/node_modules/shebang-regex/",\
           "packageDependencies": [\
             ["shebang-regex", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["shell-quote", [\
+        ["npm:1.7.3", {\
+          "packageLocation": "./.yarn/cache/shell-quote-npm-1.7.3-76a78a6d77-aca58e73a3.zip/node_modules/shell-quote/",\
+          "packageDependencies": [\
+            ["shell-quote", "npm:1.7.3"]\
           ],\
           "linkType": "HARD"\
         }]\

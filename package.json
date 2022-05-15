@@ -43,7 +43,7 @@
     "@types/source-map-support": "0.5.4",
     "@types/yargs": "17.0.10",
     "commitizen": "4.2.4",
-    "concurrently": "7.1.0",
+    "concurrently": "7.2.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "8.0.1",
     "jest": "28.1.0",
