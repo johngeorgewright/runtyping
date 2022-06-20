@@ -8,6 +8,8 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "yaml.schemas": {
-    "./runtyping.schema.json": ["runtyping.yml"]
+    "./runtyping.schema.json": [
+      "runtyping.yml"
+    ]
   }
 }
