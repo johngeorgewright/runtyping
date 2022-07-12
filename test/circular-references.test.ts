@@ -1,6 +1,6 @@
 import generateFixture from './generateFixture'
 
-test.only('circular references', async () => {
+test('circular references', async () => {
   expect((await generateFixture('circular-references', ['User'])).getText())
     .toMatchInlineSnapshot(`
     "import { Student as _Student, Teacher as _Teacher } from './circular-references';
