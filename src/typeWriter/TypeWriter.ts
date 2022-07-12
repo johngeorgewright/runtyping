@@ -1,6 +1,7 @@
 import {
   Declare,
   DeclareAndUse,
+  DeclareType,
   Import,
   ImportFromSource,
   Static,
@@ -16,6 +17,7 @@ type TypeWriter<R = any> = Generator<
   | [action: typeof Write, contents: string]
   | [action: typeof Declare, name: string]
   | [action: typeof DeclareAndUse, name: string]
+  | [action: typeof DeclareType, type: string]
   | [action: typeof Static, staticImplementation: string],
   R,
   undefined | boolean | DeclaredType
