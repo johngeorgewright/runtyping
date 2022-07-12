@@ -1,5 +1,6 @@
 import { Type } from 'ts-morph'
 import arrayTypeWriter from './array'
+import circularTypeWriter from './circular'
 import enumTypeWriter from './enum'
 import functionTypeWriter from './function'
 import intersecionTypeWriter from './intersection'
@@ -13,10 +14,16 @@ import unionTypeWriter from './union'
 export default function factory(
   type: Type,
   name?: string,
-  requiresLazy = false
+  {
+    recursive = false,
+    circular = false,
+  }: { recursive?: boolean; circular?: boolean } = {}
 ) {
   switch (true) {
-    case requiresLazy:
+    case circular:
+      return circularTypeWriter(type, name)
+
+    case recursive:
       return lazyTypeWriter(type, name)
 
     case type.isNull():

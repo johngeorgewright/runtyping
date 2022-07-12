@@ -186,11 +186,10 @@ export default class Generator {
     if (circular) this.#circularReferences.add(typeName)
 
     IteratorHandler.create(
-      factory(
-        typeDeclaration.getType(),
-        typeDeclaration.getName(),
-        recursive || circular
-      )
+      factory(typeDeclaration.getType(), typeDeclaration.getName(), {
+        recursive,
+        circular,
+      })
     )
       .handle(Write, (value) => {
         writer = writer.write(value)
