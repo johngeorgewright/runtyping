@@ -394,7 +394,7 @@ function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
     ...typeDeclaration.getNextSiblings(),
     ...typeDeclaration.getPreviousSiblings(),
   ]) {
-    if (!ConsideredTypeDeclarationSyntacKinds.includes(sibling.getKind()))
+    if (!ConsideredTypeDeclarationSyntaxKinds.includes(sibling.getKind()))
       continue
     const siblingName = sibling
       .getFirstDescendantByKind(SyntaxKind.Identifier)
@@ -412,7 +412,7 @@ function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
   return false
 }
 
-const ConsideredTypeDeclarationSyntacKinds = [
+const ConsideredTypeDeclarationSyntaxKinds = [
   SyntaxKind.InterfaceDeclaration,
   SyntaxKind.TypeAliasDeclaration,
   SyntaxKind.EnumDeclaration,
