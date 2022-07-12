@@ -1,3 +1,5 @@
+import { HeadMaster } from './circular-references-2'
+
 export type Student = {
   type: 'student'
   teacher: Teacher
@@ -6,7 +8,7 @@ export type Student = {
 export type Teacher = {
   type: 'teacher'
   students: Array<Student>
-  reportsTo: Teacher
+  reportsTo: HeadMaster
 }
 
 export type User = Student | Teacher

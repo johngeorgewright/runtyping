@@ -8,10 +8,12 @@ import {
   IndentationText,
   InterfaceDeclaration,
   NewLineKind,
+  Node,
   Project,
   QuoteKind,
   SourceFile,
   SyntaxKind,
+  ts,
   TypeAliasDeclaration,
   VariableDeclaration,
   VariableDeclarationKind,
@@ -390,26 +392,38 @@ function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
   const name = typeDeclaration.getName()
   if (!name) return false
 
-  for (const sibling of [
-    ...typeDeclaration.getNextSiblings(),
-    ...typeDeclaration.getPreviousSiblings(),
-  ]) {
-    if (!ConsideredTypeDeclarationSyntaxKinds.includes(sibling.getKind()))
-      continue
-    const siblingName = sibling
-      .getFirstDescendantByKind(SyntaxKind.Identifier)
-      ?.getText()
-    if (
-      siblingName &&
-      findReferenceWithinDeclaration(
-        name,
-        sibling as ConsideredTypeDeclaration
-      ) &&
-      findReferenceWithinDeclaration(siblingName, typeDeclaration)
-    )
-      return true
+  for (const originalReference of typeDeclaration.findReferences()) {
+    for (const reference of originalReference.getReferences()) {
+      const declarationNode = getNodeDeclaration(reference.getNode())
+      if (declarationNode) {
+        const declarationName = getNodeIdentifier(declarationNode)
+        if (
+          declarationName &&
+          declarationName !== name &&
+          findReferenceWithinDeclaration(
+            name,
+            declarationNode as ConsideredTypeDeclaration
+          ) &&
+          findReferenceWithinDeclaration(declarationName, typeDeclaration)
+        ) {
+          return true
+        }
+      }
+    }
   }
+
   return false
+}
+
+function getNodeDeclaration(node: Node<ts.Node>) {
+  return find(
+    ConsideredTypeDeclarationSyntaxKinds,
+    (syntaxKind) => node.getFirstAncestorByKind(syntaxKind) || false
+  )
+}
+
+function getNodeIdentifier(node: Node<ts.Node>) {
+  return node.getFirstDescendantByKind(SyntaxKind.Identifier)?.getText()
 }
 
 const ConsideredTypeDeclarationSyntaxKinds = [
