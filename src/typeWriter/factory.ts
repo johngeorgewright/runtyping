@@ -17,7 +17,7 @@ export default function factory(
 ) {
   switch (true) {
     case requiresLazy:
-      return lazyTypeWriter(type)
+      return lazyTypeWriter(type, name)
 
     case type.isNull():
       return simpleTypeWriter('Null')

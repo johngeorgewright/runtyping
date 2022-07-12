@@ -1,9 +1,9 @@
-type Student = {
+export type Student = {
   type: 'student'
   teacher: Teacher
 }
 
-type Teacher = {
+export type Teacher = {
   type: 'teacher'
   students: Array<Student>
 }
