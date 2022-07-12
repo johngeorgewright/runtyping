@@ -221,7 +221,12 @@ export default class Generator {
             !this.#exports.has(value) &&
             !this.#circularReferences.has(value)
           )
-            this.#writeRuntype(sourceFile, value, sourceImports)
+            this.#writeRuntype(
+              sourceFile,
+              value,
+              sourceImports,
+              exportStaticType
+            )
           return true
         }
         return undefined
