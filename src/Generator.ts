@@ -399,8 +399,8 @@ function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
     const siblingName = sibling
       .getFirstDescendantByKind(SyntaxKind.Identifier)
       ?.getText()
-    if (!siblingName) continue
     if (
+      siblingName &&
       findReferenceWithinDeclaration(
         name,
         sibling as ConsideredTypeDeclaration
