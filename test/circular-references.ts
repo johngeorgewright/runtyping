@@ -6,6 +6,7 @@ export type Student = {
 export type Teacher = {
   type: 'teacher'
   students: Array<Student>
+  reportsTo: Teacher
 }
 
 export type User = Student | Teacher

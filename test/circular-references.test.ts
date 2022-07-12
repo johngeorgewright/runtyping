@@ -6,7 +6,7 @@ test('circular references', async () => {
     "import { Student as _Student, Teacher as _Teacher } from './circular-references';
     import { Runtype, Lazy, Record, Literal, Array, Static } from 'runtypes';
 
-    export const Teacher: Runtype<_Teacher> = Lazy(() => Record({ type: Literal(\\"teacher\\"), students: Array(Student), }));
+    export const Teacher: Runtype<_Teacher> = Lazy(() => Record({ type: Literal(\\"teacher\\"), students: Array(Student), reportsTo: Teacher, }));
 
     export type Teacher = Static<typeof Teacher>;
 
