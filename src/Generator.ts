@@ -21,6 +21,7 @@ import factory from './typeWriter/factory'
 import {
   Declare,
   DeclareAndUse,
+  DeclareType,
   Import,
   ImportFromSource,
   Static,
@@ -48,6 +49,7 @@ export type GeneratorOptions = GeneratorOptionsBase & {
 type SourceCodeFile = SourceFile
 
 export default class Generator {
+  #circularReferences = new Set<string>()
   #exports = new Set<string>()
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
@@ -175,12 +177,20 @@ export default class Generator {
     const typeName = this.#formatTypeName(sourceTypeLocalName)
     const typeDeclaration = this.#getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
+    const circular = isCircular(typeDeclaration)
 
     let staticImplementation: string | undefined
     let writer = this.#project.createWriter()
+    let runTypeType: string | undefined
+
+    if (circular) this.#circularReferences.add(typeName)
 
     IteratorHandler.create(
-      factory(typeDeclaration.getType(), typeDeclaration.getName(), recursive)
+      factory(
+        typeDeclaration.getType(),
+        typeDeclaration.getName(),
+        recursive || circular
+      )
     )
       .handle(Write, (value) => {
         writer = writer.write(value)
@@ -205,11 +215,18 @@ export default class Generator {
         const recursiveValue = recursive && value === typeName
         if (recursiveValue || this.#hasTypeDeclaration(sourceFile, value)) {
           writer = writer.write(this.#formatRuntypeName(value))
-          if (!recursiveValue && !this.#exports.has(value))
+          if (
+            !recursiveValue &&
+            !this.#exports.has(value) &&
+            !this.#circularReferences.has(value)
+          )
             this.#writeRuntype(sourceFile, value, sourceImports)
           return true
         }
         return undefined
+      })
+      .handle(DeclareType, (typeName) => {
+        runTypeType = typeName
       })
       .run()
 
@@ -221,6 +238,7 @@ export default class Generator {
           {
             name,
             initializer: writer.toString(),
+            type: runTypeType,
           },
         ],
       })
@@ -353,7 +371,13 @@ function importTypeNameRegExp(typeName: string) {
 
 function isRecursive(typeDeclaration: ConsideredTypeDeclaration) {
   const name = typeDeclaration.getName()
+  return !!name && findReferenceWithinDeclaration(name, typeDeclaration)
+}
 
+function findReferenceWithinDeclaration(
+  name: string,
+  typeDeclaration: ConsideredTypeDeclaration
+) {
   for (const node of typeDeclaration.getDescendantsOfKind(
     SyntaxKind.TypeReference
   )) {
@@ -362,6 +386,40 @@ function isRecursive(typeDeclaration: ConsideredTypeDeclaration) {
 
   return false
 }
+
+function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
+  const name = typeDeclaration.getName()
+  if (!name) return false
+
+  for (const sibling of [
+    ...typeDeclaration.getNextSiblings(),
+    ...typeDeclaration.getPreviousSiblings(),
+  ]) {
+    if (!ConsideredTypeDeclarationSyntacKinds.includes(sibling.getKind()))
+      continue
+    const siblingName = sibling
+      .getFirstDescendantByKind(SyntaxKind.Identifier)
+      ?.getText()
+    if (!siblingName) continue
+    if (
+      findReferenceWithinDeclaration(
+        name,
+        sibling as ConsideredTypeDeclaration
+      ) &&
+      findReferenceWithinDeclaration(siblingName, typeDeclaration)
+    )
+      return true
+  }
+  return false
+}
+
+const ConsideredTypeDeclarationSyntacKinds = [
+  SyntaxKind.InterfaceDeclaration,
+  SyntaxKind.TypeAliasDeclaration,
+  SyntaxKind.EnumDeclaration,
+  SyntaxKind.FunctionDeclaration,
+  SyntaxKind.VariableDeclaration,
+]
 
 type ConsideredTypeDeclaration =
   | InterfaceDeclaration
