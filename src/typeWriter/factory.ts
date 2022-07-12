@@ -3,14 +3,22 @@ import arrayTypeWriter from './array'
 import enumTypeWriter from './enum'
 import functionTypeWriter from './function'
 import intersecionTypeWriter from './intersection'
+import lazyTypeWriter from './lazy'
 import literalTypeWriter from './literal'
 import objectTypeWriter from './object'
 import simpleTypeWriter from './simple'
 import tupleTypeWriter from './tuple'
 import unionTypeWriter from './union'
 
-export default function factory(type: Type, name?: string) {
+export default function factory(
+  type: Type,
+  name?: string,
+  requiresLazy = false
+) {
   switch (true) {
+    case requiresLazy:
+      return lazyTypeWriter(type)
+
     case type.isNull():
       return simpleTypeWriter('Null')
 

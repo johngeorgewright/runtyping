@@ -170,25 +170,17 @@ export default class Generator {
     sourceImports: Map<string, string>,
     exportStaticType = true
   ): DeclaredType {
-    const runTypeName = this.#formatRuntypeName(
-      this.#getLocalName(sourceFile, sourceType)
-    )
-    const typeName = this.#formatTypeName(
-      this.#getLocalName(sourceFile, sourceType)
-    )
+    const sourceTypeLocalName = this.#getLocalName(sourceFile, sourceType)
+    const runTypeName = this.#formatRuntypeName(sourceTypeLocalName)
+    const typeName = this.#formatTypeName(sourceTypeLocalName)
     const typeDeclaration = this.#getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
 
     let staticImplementation: string | undefined
     let writer = this.#project.createWriter()
 
-    if (recursive) {
-      this.#runtypesImports.add('Lazy')
-      writer = writer.write('Lazy(() => ')
-    }
-
     IteratorHandler.create(
-      factory(typeDeclaration.getType(), typeDeclaration.getName())
+      factory(typeDeclaration.getType(), typeDeclaration.getName(), recursive)
     )
       .handle(Write, (value) => {
         writer = writer.write(value)
@@ -220,10 +212,6 @@ export default class Generator {
         return undefined
       })
       .run()
-
-    if (recursive) {
-      writer = writer.write(')')
-    }
 
     doInModule(this.#targetFile, runTypeName, (node, name) => {
       node.addVariableStatement({

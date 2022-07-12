@@ -3,7 +3,8 @@ import generateFixture from './generateFixture'
 test('recursive', async () => {
   expect((await generateFixture('recursive', ['A', 'B'])).getText())
     .toMatchInlineSnapshot(`
-    "import { Lazy, Record, String, Static, Array } from 'runtypes';
+    "import { A as _A, B as _B } from './recursive';
+    import { Lazy, Runtype, Record, String, Static, Array } from 'runtypes';
 
     export const A = Lazy(() => Record({ recurse: String.Or(A), }));
 
