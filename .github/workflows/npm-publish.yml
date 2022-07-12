@@ -44,7 +44,8 @@ jobs:
 
       - name: Setup
         run: |
-          yarn config set --home 'npmRegistries["https://registry.yarnpkg.com"].npmAuthToken' '${{ secrets.NPM_TOKEN }}'
+          yarn config set --home 'npmRegistries["https://registry.npmjs.org"].npmAuthToken' '${{ secrets.NPM_TOKEN }}'
+          yarn config set --home npmPublishRegistry https://registry.npmjs.org
           yarn --immutable
 
       - name: Build
