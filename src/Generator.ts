@@ -185,12 +185,19 @@ export default class Generator {
     let writer = this.#project.createWriter()
     let runTypeType: string | undefined
 
-    if (circular) this.#circularReferences.add(typeName)
+    if (circular) {
+      this.#circularReferences.add(typeName)
+      console.warn(
+        `Spotted a circular reference between \`${circular.join(
+          '` and `'
+        )}\`. This may cause infinite loops at runtime.`
+      )
+    }
 
     IteratorHandler.create(
       factory(typeDeclaration.getType(), typeDeclaration.getName(), {
         recursive,
-        circular,
+        circular: !!circular,
       })
     )
       .handle(Write, (value) => {
@@ -416,7 +423,7 @@ function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
           ) &&
           findReferenceWithinDeclaration(declarationName, typeDeclaration)
         ) {
-          return true
+          return [declarationName, name]
         }
       }
     }
