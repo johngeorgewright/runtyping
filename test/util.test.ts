@@ -17,4 +17,7 @@ test('getRelativeImportPath', () => {
     getRelativeImportPath(__dirname, path.resolve('../src/runtypes.mts'))
   ).toBe('../src/runtypes.mts')
   expect(getRelativeImportPath(__dirname, 'runtypes')).toBe('runtypes')
+  expect(getRelativeImportPath('./test.ts', './test/recursive.ts')).toBe(
+    './test/recursive.ts'
+  )
 })
