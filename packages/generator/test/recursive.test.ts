@@ -2,7 +2,7 @@ import generateFixture from './generateFixture'
 
 test('recursive', async () => {
   expect((await generateFixture('recursive', ['A', 'B'])).getText())
-    .toMatchInlineSnapshot(`
+    .toMatchSnapshot(`
     "import { A as _A, B as _B } from './recursive';
     import { Lazy, Runtype, Record, String, Static, Array } from 'runtypes';
 

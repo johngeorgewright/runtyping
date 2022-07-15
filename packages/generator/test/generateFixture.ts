@@ -17,6 +17,7 @@ export default async function generateFixture(
   } = {}
 ) {
   const generator = new Generator({
+    factory: global.factory,
     targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
     project,
     ...generatorOpts,

@@ -19,26 +19,28 @@ import {
   VariableDeclarationKind,
 } from 'ts-morph'
 import { InstructionSourceType } from './runtypes'
-import factory from './typeWriter/factory'
 import {
   Declare,
   DeclareAndUse,
   DeclareType,
+  DeclaredType,
   Import,
   ImportFromSource,
   Static,
   Write,
-} from './typeWriter/symbols'
+  Factory,
+} from './TypeWriter'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
-import { DeclaredType } from './typeWriter/TypeWriter'
 import { doInModule, find, findInModule, getRelativeImportPath } from './util'
 
 type GeneratorOptionsBase =
   | {
+      factory: Factory
       targetFile: string
       tsConfigFile?: string
     }
   | {
+      factory: Factory
       targetFile: string
       project?: Project
     }
@@ -53,6 +55,7 @@ type SourceCodeFile = SourceFile
 export default class Generator {
   #circularReferences = new Set<string>()
   #exports = new Set<string>()
+  #factory: Factory
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
   #project: Project
@@ -60,6 +63,8 @@ export default class Generator {
   #targetFile: SourceCodeFile
 
   constructor(options: GeneratorOptions) {
+    this.#factory = options.factory
+
     this.#project =
       'project' in options && options.project
         ? options.project
@@ -195,7 +200,7 @@ export default class Generator {
     }
 
     IteratorHandler.create(
-      factory(typeDeclaration.getType(), typeDeclaration.getName(), {
+      this.#factory(typeDeclaration.getType(), typeDeclaration.getName(), {
         recursive,
         circular: !!circular,
       })

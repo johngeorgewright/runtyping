@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`record 1`] = `
+"import { Dictionary, String, Static } from 'runtypes';
+
+export const A = Dictionary(String, String);
+
+export type A = Static<typeof A>;
+"
+`;

@@ -3,6 +3,7 @@ import Generator from '../src/Generator'
 
 test('json schema', async () => {
   const generator = new Generator({
+    factory: global.factory,
     targetFile: pathHelper.join(__dirname, `minItems.schema.runtypes.ts`),
   })
 
@@ -13,12 +14,5 @@ test('json schema', async () => {
     },
   ])
 
-  expect(file!.getText()).toMatchInlineSnapshot(`
-    "import { Record, Tuple, Dictionary, String, Unknown, Undefined, Static } from 'runtypes';
-
-    export const ExampleSchema = Record({ testArray: Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String), Dictionary(Unknown, String),).Or(Undefined).optional(), });
-
-    export type ExampleSchema = Static<typeof ExampleSchema>;
-    "
-  `)
+  expect(file!.getText()).toMatchSnapshot()
 })

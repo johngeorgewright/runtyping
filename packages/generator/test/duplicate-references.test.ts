@@ -5,16 +5,5 @@ test('duplicate references', async () => {
     (
       await generateFixture('duplicate-references', ['HorseType', 'FooType'])
     ).getText()
-  ).toMatchInlineSnapshot(`
-    "import { Record, Null, String, Static } from 'runtypes';
-
-    export const FooType = Null.Or(String);
-
-    export type FooType = Static<typeof FooType>;
-
-    export const HorseType = Record({ a: FooType, b: FooType, });
-
-    export type HorseType = Static<typeof HorseType>;
-    "
-  `)
+  ).toMatchSnapshot()
 })

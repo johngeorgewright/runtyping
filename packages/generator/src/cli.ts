@@ -7,8 +7,9 @@ import yaml from 'js-yaml'
 import yargs from 'yargs/yargs'
 import Generator from './Generator'
 import { Instructions } from './runtypes'
+import { Factory } from './TypeWriter'
 
-export default async function cli(defaultConfigPath: string) {
+export default async function cli(defaultConfigPath: string, factory: Factory) {
   const argv = await yargs(process.argv.slice(2))
     .option('config', {
       alias: 'c',
@@ -35,6 +36,7 @@ export default async function cli(defaultConfigPath: string) {
     typeFormat,
   } of castArray(buildInstructions)) {
     const generator = new Generator({
+      factory,
       targetFile,
       tsConfigFile: argv.project,
       runtypeFormat,

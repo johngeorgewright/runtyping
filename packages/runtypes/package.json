@@ -11,7 +11,7 @@
     "clean": "rimraf dist",
     "start": "tsc --watch --preserveWatchOutput",
     "release": "semantic-release -e semantic-release-monorepo",
-    "test": "jest --passWithNoTests"
+    "test": "jest ../generator/test"
   },
   "license": "MIT",
   "bugs": {
@@ -28,6 +28,7 @@
     "@types/node": "18.0.4",
     "jest": "28.1.3",
     "rimraf": "3.0.2",
+    "runtypes": "6.5.1",
     "semantic-release": "19.0.3",
     "semantic-release-monorepo": "7.0.5",
     "ts-jest": "28.0.6",
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "@runtyping/generator": "workspace:*",
+    "ts-morph": "15.1.0",
     "tslib": "2.4.0"
   }
 }
