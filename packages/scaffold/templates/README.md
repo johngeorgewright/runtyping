@@ -1,0 +1,3 @@
+# @runtyping/<%= name %>
+
+<%= description %>

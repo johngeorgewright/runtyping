@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "CommonJS",
+    "lib": ["es2018"],
+    "importHelpers": true,
+    "sourceMap": true,
+    "outDir": "./generators",
+    "downlevelIteration": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "rootDir": "src"
+  },
+  "includes": ["src"]
+}
