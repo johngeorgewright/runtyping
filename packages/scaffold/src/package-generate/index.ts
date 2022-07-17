@@ -138,7 +138,7 @@ export = class PackageGenerator extends Generator {
       this.packageJson.set('bin', {
         runtyping: 'dist/cli.js',
       })
-      dependencies.push('@runtypes/generator', 'ts-morph')
+      dependencies.push('@runtyping/generator', 'ts-morph')
     }
 
     await this.addDevDependencies(devDependencies)
@@ -147,17 +147,20 @@ export = class PackageGenerator extends Generator {
     if (this.#answers.typewriter) {
       this.fs.copyTpl(
         this.templatePath('typewriter/tsconfig.json'),
-        this.destinationPath('tsconfig.json')
+        this.destinationPath('tsconfig.json'),
+        context
       )
 
       this.fs.copyTpl(
         this.templatePath('typewriter/tsconfig.test.json'),
-        this.destinationPath('tsconfig.test.json')
+        this.destinationPath('tsconfig.test.json'),
+        context
       )
 
       this.fs.copyTpl(
-        this.templatePath('jest.config.ts.template'),
-        this.destinationPath('jest.config.ts')
+        this.templatePath('typewriter/jest.config.ts.template'),
+        this.destinationPath('jest.config.ts'),
+        context
       )
 
       this.fs.copyTpl(
@@ -167,28 +170,33 @@ export = class PackageGenerator extends Generator {
       )
 
       this.fs.copyTpl(
-        this.templatePath('typewriter/jest/globals/ts/template'),
-        this.destinationPath('jest/globals.ts')
+        this.templatePath('typewriter/jest/globals.ts.template'),
+        this.destinationPath('jest/globals.ts'),
+        context
       )
 
       this.fs.copyTpl(
         this.templatePath('typewriter/jest/snapshotResolver.ts.template'),
-        this.destinationPath('jest/snapshotResolver.ts')
+        this.destinationPath('jest/snapshotResolver.ts'),
+        context
       )
 
       this.fs.copyTpl(
         this.templatePath('typewriter/src/index.ts.template'),
-        this.destinationPath(`src/index.ts`)
+        this.destinationPath(`src/index.ts`),
+        context
       )
 
       this.fs.copyTpl(
         this.templatePath('typewriter/src/cli.ts.template'),
-        this.destinationPath(`src/cli.ts`)
+        this.destinationPath(`src/cli.ts`),
+        context
       )
 
       this.fs.copyTpl(
         this.templatePath('typewriter/src/TypeWriterFactory.ts.template'),
-        this.destinationPath(`src/${context.factoryName}.ts`)
+        this.destinationPath(`src/${context.factoryName}.ts`),
+        context
       )
     } else {
       this.fs.copy(
