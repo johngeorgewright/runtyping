@@ -24,7 +24,12 @@ const config = {
         message: 'chore(release): ${nextRelease.version} [skip ci]',
       },
     ],
-    '@semantic-release/github',
+    [
+      '@semantic-release/github',
+      {
+        assets: 'runtyping.schema.json',
+      },
+    ],
   ],
 }
 
