@@ -28,10 +28,11 @@ jobs:
       - name: Test
         run: yarn test
 
-      - name: Upload dist
+      - name: Upload dists
         uses: actions/upload-artifact@v3
         with:
-          name: dist
+          if-no-files-found: error
+          name: dists
           path: packages/**/dist
 
   publish-npm:
@@ -57,10 +58,18 @@ jobs:
           yarn config set --home npmPublishRegistry https://registry.npmjs.org
           yarn --immutable
 
-      - name: Download dist
+      - name: Download dists
         uses: actions/download-artifact@v3
         with:
-          name: dist
+          name: dists
+          path: ~/dists
+
+      - name: Move dists to project
+        run: |
+          for package in ~/dists/*
+          do 
+            mv "$package/dist" "packages/${package/~\/dists\//}"
+          done
 
       - name: Release
         run: yarn release
