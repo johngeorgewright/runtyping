@@ -1,3 +1,4 @@
-import cli from '@runtyping/generator/dist/cli'
+import { cli } from '@runtyping/generator'
+import RuntypesTypeWriterFactory from './RuntypesTypeWriterFactory'
 
-cli('runtyping.yml').catch(console.error)
+cli('runtyping.yml', new RuntypesTypeWriterFactory()).catch(console.error)

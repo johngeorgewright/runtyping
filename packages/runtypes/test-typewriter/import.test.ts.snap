@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`import 1`] = `
+"import { Record, String, Static } from 'runtypes';
+
+export const A = Record({ foo: String, });
+
+export type A = Static<typeof A>;
+"
+`;

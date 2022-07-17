@@ -1,5 +1,5 @@
 import { basename, dirname, extname, relative } from 'path'
-import { StatementedNode } from 'ts-morph'
+import { StatementedNode, Type } from 'ts-morph'
 
 export function last<T>(array: T[]): T {
   return array[array.length - 1]
@@ -66,3 +66,21 @@ export type PickByValue<T, ValueType> = Pick<
   T,
   { [Key in keyof T]-?: T[Key] extends ValueType ? Key : never }[keyof T]
 >
+
+export function propNameRequiresQuotes(propName: string) {
+  return !/^[\$_[a-zA-Z][\$\w]*$/.test(propName)
+}
+
+export function escapeQuottedPropName(propName: string) {
+  return propName.replace(/\$/g, '\\$')
+}
+
+export function getTypeName(type: Type) {
+  return type.getAliasSymbol()?.getName() || type.getSymbolOrThrow().getName()
+}
+
+export function sortUndefinedFirst(a: Type, b: Type) {
+  return (
+    Number(a.isUndefined()) - Number(b.isUndefined()) || +(a > b) || -(a < b)
+  )
+}

@@ -7,9 +7,12 @@ import yaml from 'js-yaml'
 import yargs from 'yargs/yargs'
 import Generator from './Generator'
 import { Instructions } from './runtypes'
-import { Factory } from './TypeWriter'
+import { TypeWriterFactory } from './TypeWriter'
 
-export default async function cli(defaultConfigPath: string, factory: Factory) {
+export default async function cli(
+  defaultConfigPath: string,
+  factory: TypeWriterFactory
+) {
   const argv = await yargs(process.argv.slice(2))
     .option('config', {
       alias: 'c',

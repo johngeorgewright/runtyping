@@ -28,19 +28,19 @@ import {
   ImportFromSource,
   Static,
   Write,
-  Factory,
+  TypeWriterFactory,
 } from './TypeWriter'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
 import { doInModule, find, findInModule, getRelativeImportPath } from './util'
 
 type GeneratorOptionsBase =
   | {
-      factory: Factory
+      factory: TypeWriterFactory
       targetFile: string
       tsConfigFile?: string
     }
   | {
-      factory: Factory
+      factory: TypeWriterFactory
       targetFile: string
       project?: Project
     }
@@ -55,7 +55,7 @@ type SourceCodeFile = SourceFile
 export default class Generator {
   #circularReferences = new Set<string>()
   #exports = new Set<string>()
-  #factory: Factory
+  #factory: TypeWriterFactory
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
   #project: Project
@@ -200,9 +200,9 @@ export default class Generator {
     }
 
     IteratorHandler.create(
-      this.#factory(typeDeclaration.getType(), typeDeclaration.getName(), {
-        recursive,
+      this.#factory.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
+        recursive,
       })
     )
       .handle(Write, (value) => {

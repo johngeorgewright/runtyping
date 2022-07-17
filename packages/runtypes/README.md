@@ -54,7 +54,7 @@ npm install -D @runtyping/runtypes
 Basic example:
 
 ```ts
-import { Generator } from 'runtyping'
+import { Generator } from '@runtyping/runtypes'
 
 const generator = new Generator({
   targetFile: 'src/runtypes.ts',
@@ -72,6 +72,7 @@ generator
 #### Passing a custom tsconfig file
 
 ```ts
+import { Generator } from '@runtyping/runtypes'
 const generator = new Generator({
   targetFile: 'src/runtypes.ts',
   tsConfigFile: '/path/to/tsconfig.json',
@@ -84,6 +85,7 @@ const generator = new Generator({
 
 ```ts
 import { Project } from 'ts-morph'
+import { Generator } from '@runtyping/runtypes'
 
 const generator = new Generator({
   targetFile: 'src/runtypes.ts',

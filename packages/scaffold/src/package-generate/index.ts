@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator'
-import { paramCase } from 'change-case'
+import { camelCase, paramCase } from 'change-case'
 import { validateGenerationFromRoot } from '../validation'
 import * as path from 'path'
 import prettier from 'prettier'
@@ -8,7 +8,12 @@ import { writeFile } from 'fs/promises'
 export = class PackageGenerator extends Generator {
   #namespace = '@runtyping'
   #vsCodeWS = 'runtyping.code-workspace'
-  #answers: { description?: string; name?: string; public?: boolean } = {}
+  #answers: {
+    description?: string
+    name?: string
+    public?: boolean
+    typewriter?: boolean
+  } = {}
 
   constructor(args: string | string[], opts: Record<string, unknown>) {
     super(args, opts)
@@ -33,9 +38,9 @@ export = class PackageGenerator extends Generator {
         validate: (x) => !!x || 'You must supply a name',
       },
       {
-        message: "What's this package about?",
-        name: 'description',
-        type: 'input',
+        message: 'Is this package a type writer?',
+        name: 'typewriter',
+        type: 'confirm',
       },
       {
         message: 'Will this package be published publically?',
@@ -43,6 +48,22 @@ export = class PackageGenerator extends Generator {
         type: 'confirm',
       },
     ])
+
+    if (this.#answers.typewriter) {
+      this.#answers.description = `Generate ${
+        this.#answers.name
+      } from static types & JSON schema.`
+    } else
+      this.#answers = {
+        ...this.#answers,
+        ...(await this.prompt([
+          {
+            message: "What's this package about?",
+            name: 'description',
+            type: 'input',
+          },
+        ])),
+      }
   }
 
   configuring() {
@@ -54,11 +75,13 @@ export = class PackageGenerator extends Generator {
     const context = {
       description: this.#answers.description || '',
       name: paramCase(this.#answers.name!),
+      fullName: `${this.#namespace}/${paramCase(this.#answers.name!)}`,
+      factoryName: `${camelCase(this.#answers.name!)}TypeWriterFactory`,
       public: this.#answers.public,
       year: new Date().getFullYear(),
     }
 
-    this.packageJson.set('name', `${this.#namespace}/${this.#answers.name}`)
+    this.packageJson.set('name', context.fullName)
     this.packageJson.set('version', '0.0.0')
     this.packageJson.set('description', this.#answers.description)
     this.packageJson.set('main', 'dist/index.js')
@@ -68,12 +91,12 @@ export = class PackageGenerator extends Generator {
     }
 
     this.packageJson.set('scripts', {
-      build:
-        "yarn clean && tsc && rimraf 'dist/**/?(__tests__|__mocks__|__setup__|*.test.*)'",
+      build: 'yarn clean && tsc',
       clean: 'rimraf dist',
       start: 'tsc --watch --preserveWatchOutput',
-      release: 'semantic-release -e semantic-release-monorepo',
-      test: 'jest --passWithNoTests',
+      test: this.#answers.typewriter
+        ? 'jest ../generator/test-typewriter'
+        : 'jest --passWithNoTests',
     })
 
     this.packageJson.set('license', 'MIT')
@@ -109,33 +132,70 @@ export = class PackageGenerator extends Generator {
       )
     }
 
+    const dependencies = ['tslib']
+
+    if (this.#answers.typewriter) dependencies.push('@runtypes/generator')
+
     await this.addDevDependencies(devDependencies)
-    await this.addDependencies(['tslib'])
+    await this.addDependencies(dependencies)
 
-    this.fs.copy(
-      this.templatePath('tsconfig.json'),
-      this.destinationPath('tsconfig.json')
-    )
+    if (this.#answers.typewriter) {
+      this.fs.copy(
+        this.templatePath('typewriter/tsconfig.json'),
+        this.destinationPath('tsconfig.json')
+      )
 
-    this.fs.copy(
-      this.templatePath('tsconfig.test.json'),
-      this.destinationPath('tsconfig.test.json')
-    )
+      this.fs.copy(
+        this.templatePath('typewriter/tsconfig.test.json'),
+        this.destinationPath('tsconfig.test.json')
+      )
 
-    this.fs.copy(
-      this.templatePath('jest.config.ts.template'),
-      this.destinationPath('jest.config.ts')
-    )
+      this.fs.copy(
+        this.templatePath('jest.config.ts.template'),
+        this.destinationPath('jest.config.ts')
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/README.md'),
+        this.destinationPath('README.md'),
+        context
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/src/cli.ts.template'),
+        this.destinationPath(`src/cli.ts`)
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/src/TypeWriterFactory.ts.template'),
+        this.destinationPath(`src/${context.factoryName}.ts`)
+      )
+    } else {
+      this.fs.copy(
+        this.templatePath('tsconfig.json'),
+        this.destinationPath('tsconfig.json')
+      )
+
+      this.fs.copy(
+        this.templatePath('tsconfig.test.json'),
+        this.destinationPath('tsconfig.test.json')
+      )
+
+      this.fs.copy(
+        this.templatePath('jest.config.ts.template'),
+        this.destinationPath('jest.config.ts')
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('README.md'),
+        this.destinationPath('README.md'),
+        context
+      )
+    }
 
     this.fs.copyTpl(
       this.templatePath('LICENSE'),
       this.destinationPath('LICENSE'),
-      context
-    )
-
-    this.fs.copyTpl(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md'),
       context
     )
 

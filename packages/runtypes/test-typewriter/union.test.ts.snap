@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`union 1`] = `
+"import { String, Number, Static } from 'runtypes';
+
+export const C = String.Or(Number);
+
+export type C = Static<typeof C>;
+"
+`;

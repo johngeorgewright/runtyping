@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "jest",
+    "src",
+    "../generator/test-typewriter",
+    "../generator/src"
+  ],
+  "exclude": ["dist"]
+}

@@ -1,9 +1,4 @@
-import { Factory } from '@runtyping/generator/src/TypeWriter'
-import factory from '../src/typeWriter/factory'
-
-declare global {
-  var factory: Factory
-}
+import RuntypesTypeWriterFactory from '../src/RuntypesTypeWriterFactory'
 
 // @ts-ignore
-global.factory = factory
+global.factory = new RuntypesTypeWriterFactory()
