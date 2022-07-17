@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`numbers 1`] = `
+"import { Number, Static } from 'runtypes';
+
+export const A = Number;
+
+export type A = Static<typeof A>;
+"
+`;

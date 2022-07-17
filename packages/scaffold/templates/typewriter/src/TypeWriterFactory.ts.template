@@ -1,0 +1,3 @@
+import { TypeWriterFactory } from '@runtyping/generator'
+
+export default class <%=factoryName%> extends TypeWriterFactory {}
