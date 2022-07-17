@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "schema": "typescript-json-schema --out ../../runtyping.schema.json src/runtypes.ts Instructions && prettier --write ../../runtyping.schema.json",
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "jest"
+    "test": "jest test"
   },
   "license": "MIT",
   "bugs": {
