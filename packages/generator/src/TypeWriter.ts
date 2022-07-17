@@ -5,7 +5,6 @@ export const Import = Symbol.for('@runtypes/generator/TypeWriter/Import')
 export const ImportFromSource = Symbol.for(
   '@runtypes/generator/TypeWriter/ImportFromSource'
 )
-export const Declare = Symbol.for('@runtypes/generator/TypeWriter/Declare')
 export const DeclareAndUse = Symbol.for(
   '@runtypes/generator/TypeWriter/DeclareAndUse'
 )
@@ -21,18 +20,12 @@ export type TypeWriter<R = any> = Generator<
       sourceType: { name: string; alias: string }
     ]
   | [action: typeof Write, contents: string]
-  | [action: typeof Declare, name: string]
   | [action: typeof DeclareAndUse, name: string]
   | [action: typeof DeclareType, type: string]
   | [action: typeof Static, staticImplementation: string],
   R,
-  undefined | boolean | DeclaredType
+  undefined | boolean
 >
-
-export interface DeclaredType {
-  runTypeName: string
-  typeName: string
-}
 
 export abstract class TypeWriterFactory {
   typeWriter(

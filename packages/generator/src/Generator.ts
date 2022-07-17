@@ -20,10 +20,8 @@ import {
 } from 'ts-morph'
 import { InstructionSourceType } from './runtypes'
 import {
-  Declare,
   DeclareAndUse,
   DeclareType,
-  DeclaredType,
   Import,
   ImportFromSource,
   Static,
@@ -178,7 +176,7 @@ export default class Generator {
     sourceType: string,
     sourceImports: Map<string, string>,
     exportStaticType = true
-  ): DeclaredType {
+  ) {
     const sourceTypeLocalName = this.#getLocalName(sourceFile, sourceType)
     const runTypeName = this.#formatRuntypeName(sourceTypeLocalName)
     const typeName = this.#formatTypeName(sourceTypeLocalName)
@@ -216,18 +214,6 @@ export default class Generator {
       })
       .handle(Static, (value) => {
         staticImplementation = value
-      })
-      .handle(Declare, (value): DeclaredType => {
-        const typeName = this.#getLocalName(sourceFile, value)
-        return !recursive && !this.#exports.has(typeName)
-          ? this.#writeRuntype(
-              sourceFile,
-              typeName,
-              sourceImports,
-              exportStaticType
-            )
-          : // TODO: this probably isn't right
-            { runTypeName: typeName, typeName: typeName }
       })
       .handle(DeclareAndUse, (value) => {
         const recursiveValue = recursive && value === typeName
