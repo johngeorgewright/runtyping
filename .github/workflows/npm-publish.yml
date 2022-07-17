@@ -22,8 +22,17 @@ jobs:
       - name: Setup
         run: yarn --immutable
 
+      - name: Build
+        run: yarn build
+
       - name: Test
         run: yarn test
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: packages/**/dist
 
   publish-npm:
     name: GitHub & NPM
@@ -48,8 +57,10 @@ jobs:
           yarn config set --home npmPublishRegistry https://registry.npmjs.org
           yarn --immutable
 
-      - name: Build
-        run: yarn build
+      - name: Download Dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
 
       - name: Release
         run: yarn semantic-release
