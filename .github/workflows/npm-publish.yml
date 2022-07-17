@@ -66,7 +66,6 @@ jobs:
 
       - name: Move dists to project
         run: |
-          home=
           for package in ~/dists/*
           do 
             mv "$package/dist" "packages/${package/$HOME\/dists\//}"
