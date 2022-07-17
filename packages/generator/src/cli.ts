@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { cast as castArray } from '@johngw/array'
 import { constants } from 'fs'
 import { access, readFile } from 'fs/promises'
