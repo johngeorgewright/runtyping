@@ -134,23 +134,28 @@ export = class PackageGenerator extends Generator {
 
     const dependencies = ['tslib']
 
-    if (this.#answers.typewriter) dependencies.push('@runtypes/generator')
+    if (this.#answers.typewriter) {
+      this.packageJson.set('bin', {
+        runtyping: 'dist/cli.js',
+      })
+      dependencies.push('@runtypes/generator', 'ts-morph')
+    }
 
     await this.addDevDependencies(devDependencies)
     await this.addDependencies(dependencies)
 
     if (this.#answers.typewriter) {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('typewriter/tsconfig.json'),
         this.destinationPath('tsconfig.json')
       )
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('typewriter/tsconfig.test.json'),
         this.destinationPath('tsconfig.test.json')
       )
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('jest.config.ts.template'),
         this.destinationPath('jest.config.ts')
       )
@@ -159,6 +164,21 @@ export = class PackageGenerator extends Generator {
         this.templatePath('typewriter/README.md'),
         this.destinationPath('README.md'),
         context
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/jest/globals/ts/template'),
+        this.destinationPath('jest/globals.ts')
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/jest/snapshotResolver.ts.template'),
+        this.destinationPath('jest/snapshotResolver.ts')
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/src/index.ts.template'),
+        this.destinationPath(`src/index.ts`)
       )
 
       this.fs.copyTpl(
@@ -191,23 +211,23 @@ export = class PackageGenerator extends Generator {
         this.destinationPath('README.md'),
         context
       )
+
+      this.fs.copyTpl(
+        this.templatePath('package-src/index.ts.template'),
+        this.destinationPath('src/index.ts'),
+        context
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('package-test/index.test.ts.template'),
+        this.destinationPath('test/index.test.ts'),
+        context
+      )
     }
 
     this.fs.copyTpl(
       this.templatePath('LICENSE'),
       this.destinationPath('LICENSE'),
-      context
-    )
-
-    this.fs.copyTpl(
-      this.templatePath('package-src/index.ts.template'),
-      this.destinationPath('src/index.ts'),
-      context
-    )
-
-    this.fs.copyTpl(
-      this.templatePath('package-test/index.test.ts.template'),
-      this.destinationPath('test/index.test.ts'),
       context
     )
 
