@@ -57,7 +57,7 @@ jobs:
           yarn config set --home npmPublishRegistry https://registry.npmjs.org
           yarn --immutable
 
-      - name: Download Dist
+      - name: Download dist
         uses: actions/download-artifact@v3
         with:
           name: dist

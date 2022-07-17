@@ -15,7 +15,7 @@ const config = {
         verifyConditionsCmd: 'yarn npm whoami --publish',
         prepareCmd:
           "yarn version ${nextRelease.version} && echo '::set-output name=version::${nextRelease.version}'",
-        publishCmd: 'yarn npm publish',
+        publishCmd: 'yarn npm publish --access public',
       },
     ],
     [
