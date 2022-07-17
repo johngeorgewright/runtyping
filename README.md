@@ -2,8 +2,8 @@
 
 Generate runtype validation from static types & JSON schema using:
 
-- [@runtyping/runtypes](https://github.com/johngeorgewright/runtyping/tree/master/src/packages/runtypes) to generate [runtypes](https://github.com/pelotom/runtypes)
-<!-- - [@runtyping/zod](https://github.com/johngeorgewright/runtyping/tree/master/src/packages/zod) to generate [zod](https://github.com/colinhacks/zod) -->
+- [@runtyping/runtypes](https://github.com/johngeorgewright/runtyping/tree/master/packages/runtypes) to generate [runtypes](https://github.com/pelotom/runtypes)
+<!-- - [@runtyping/zod](https://github.com/johngeorgewright/runtyping/tree/master/packages/zod) to generate [zod](https://github.com/colinhacks/zod) -->
 
 ## Contributing
 
