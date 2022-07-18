@@ -9,6 +9,7 @@ import { TypeWriterFactory } from './TypeWriter'
 
 export default async function cli(
   defaultConfigPath: string,
+  module: string,
   factory: TypeWriterFactory
 ) {
   const argv = await yargs(process.argv.slice(2))
@@ -38,9 +39,10 @@ export default async function cli(
   } of castArray(buildInstructions)) {
     const generator = new Generator({
       factory,
+      module,
+      runtypeFormat,
       targetFile,
       tsConfigFile: argv.project,
-      runtypeFormat,
       typeFormat,
     })
     const file = await generator.generate(sourceTypes)

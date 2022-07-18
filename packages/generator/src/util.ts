@@ -14,6 +14,11 @@ export function find<T, O>(array: T[], fn: (item: T) => O | false): O | void {
   }
 }
 
+export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
+  for (const item of set) if (predicate(item)) return true
+  return false
+}
+
 export function getRelativeImportPath(localPath: string, remotePath: string) {
   if (!/^(\/|\.)/.test(remotePath)) return remotePath
   const localDir = dirname(localPath)
@@ -83,4 +88,10 @@ export function sortUndefinedFirst(a: Type, b: Type) {
   return (
     Number(a.isUndefined()) - Number(b.isUndefined()) || +(a > b) || -(a < b)
   )
+}
+
+export function getGenerics(type: Type) {
+  const typeArguments = type.getTypeArguments()
+  const aliasTypeArguments = type.getAliasTypeArguments()
+  return [...typeArguments, ...aliasTypeArguments]
 }

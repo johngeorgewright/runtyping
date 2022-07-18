@@ -4,6 +4,7 @@ export * from './runtypes'
 export * from './TypeWriter'
 export {
   escapeQuottedPropName,
+  getGenerics,
   getTypeName,
   last,
   PickByValue,

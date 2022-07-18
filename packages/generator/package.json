@@ -41,6 +41,7 @@
     "@johngw/array": "3.3.0",
     "@johngw/error": "2.2.0",
     "@johngw/iterator": "1.2.0",
+    "@ts-morph/common": "0.16.0",
     "js-yaml": "4.1.0",
     "json-schema-to-typescript": "11.0.1",
     "ts-morph": "15.1.0",

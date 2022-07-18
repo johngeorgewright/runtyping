@@ -1,4 +1,10 @@
-import { ts, Type } from 'ts-morph'
+import {
+  OptionalKind,
+  ts,
+  Type,
+  TypeParameterDeclarationStructure,
+} from 'ts-morph'
+import { getGenerics } from './util'
 
 export const Write = Symbol.for('@runtypes/generator/TypeWriter/Write')
 export const Import = Symbol.for('@runtypes/generator/TypeWriter/Import')
@@ -12,9 +18,15 @@ export const DeclareType = Symbol.for(
   '@runtypes/generator/TypeWriter/DeclareType'
 )
 export const Static = Symbol.for('@runtypes/generator/TypeWriter/Static')
+export const StaticParameters = Symbol.for(
+  '@runtypes/generator/TypeWriter/StaticParameters'
+)
 
 export type TypeWriter<R = any> = Generator<
-  | [action: typeof Import, runtypeName: string]
+  | [
+      action: typeof Import,
+      importDeclaration: string | { name: string; alias: string }
+    ]
   | [
       action: typeof ImportFromSource,
       sourceType: { name: string; alias: string }
@@ -22,83 +34,91 @@ export type TypeWriter<R = any> = Generator<
   | [action: typeof Write, contents: string]
   | [action: typeof DeclareAndUse, name: string]
   | [action: typeof DeclareType, type: string]
-  | [action: typeof Static, staticImplementation: string],
+  | [action: typeof Static, staticImplementation: string]
+  | [
+      action: typeof StaticParameters,
+      parameters: (string | OptionalKind<TypeParameterDeclarationStructure>)[]
+    ],
   R,
   undefined | boolean
 >
 
 export abstract class TypeWriterFactory {
-  typeWriter(
+  *typeWriter(
     type: Type,
     {
       recursive = false,
       circular = false,
     }: { recursive?: boolean; circular?: boolean } = {}
   ): TypeWriter {
+    yield* this.defaultStaticImplementation(type)
+
     switch (true) {
       case circular:
       case recursive:
-        return this.lazy(type)
+        return yield* this.lazy(type)
 
       case type.isEnumLiteral():
-        return this.enumLiteral(type)
+        return yield* this.enumLiteral(type)
 
       case type.isNull():
-        return this.null(type)
+        return yield* this.null(type)
 
       case type.isString():
-        return this.string(type)
+        return yield* this.string(type)
 
       case type.isNumber():
-        return this.number(type)
+        return yield* this.number(type)
 
       case type.isBoolean():
-        return this.boolean(type)
+        return yield* this.boolean(type)
 
       case type.isArray():
-        return this.array(type)
+        return yield* this.array(type)
 
       case type.isTuple():
-        return this.tuple(type)
+        return yield* this.tuple(type)
 
       case type.isEnum():
-        return this.enum(type)
+        return yield* this.enum(type)
 
       case type.isIntersection():
-        return this.intersection(type)
+        return yield* this.intersection(type)
 
       case type.isUnion():
-        return this.union(type)
+        return yield* this.union(type)
 
       case type.isLiteral():
-        return this.literal(type)
+        return yield* this.literal(type)
 
       case type.isAny():
-        return this.any(type)
+        return yield* this.any(type)
 
       case type.isUnknown():
-        return this.unknown(type)
+        return yield* this.unknown(type)
 
       case type.isUndefined():
-        return this.undefined(type)
+        return yield* this.undefined(type)
 
       case type.getText() === 'void':
-        return this.void(type)
+        return yield* this.void(type)
 
       case type.getCallSignatures().length > 0:
-        return this.function(type)
+        return yield* this.function(type)
 
       case type.isInterface():
       case type.isObject():
         switch (true) {
           case isBuiltInType(type):
-            return this.builtInObject(type)
+            return yield* this.builtInObject(type)
           case !!type.getStringIndexType():
-            return this.stringIndexedObject(type)
+            return yield* this.stringIndexedObject(type)
           case !!type.getNumberIndexType():
-            return this.numberIndexedObject(type)
+            return yield* this.numberIndexedObject(type)
+          case !!getGenerics(type).length:
+            return yield* this.genericObject(type)
           default:
-            return this.object(type)
+            return yield* this.object(type)
         }
 
       default:
@@ -120,6 +140,7 @@ export abstract class TypeWriterFactory {
     yield* this.typeWriter(type)
   }
 
+  abstract defaultStaticImplementation(type: Type): TypeWriter
   protected abstract lazy(type: Type): TypeWriter
   protected abstract null(type: Type): TypeWriter
   protected abstract string(type: Type): TypeWriter
@@ -141,6 +162,7 @@ export abstract class TypeWriterFactory {
   protected abstract stringIndexedObject(type: Type): TypeWriter
   protected abstract numberIndexedObject(type: Type): TypeWriter
   protected abstract object(type: Type): TypeWriter
+  protected abstract genericObject(type: Type): TypeWriter
 }
 
 function isBuiltInType(type: Type) {

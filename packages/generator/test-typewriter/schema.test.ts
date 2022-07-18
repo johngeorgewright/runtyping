@@ -4,6 +4,7 @@ import Generator from '../src/Generator'
 test('json schema', async () => {
   const generator = new Generator({
     factory: global.factory,
+    module: global.mod,
     targetFile: pathHelper.join(__dirname, `schema.runtypes.ts`),
   })
 
