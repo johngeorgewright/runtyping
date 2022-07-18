@@ -16,7 +16,6 @@ import {
   TypeWriterFactory,
   Write,
 } from '@runtyping/generator'
-import functionTypeWriter from './functionTypeWriter'
 import type * as runtypes from 'runtypes'
 import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
 
@@ -140,8 +139,8 @@ export default class RuntypesTypeWriterFactory extends TypeWriterFactory {
     return this.#simpleTypeWriter('Void')
   }
 
-  override function(type: Type): TypeWriter {
-    return functionTypeWriter(type, this)
+  override function() {
+    return this.#simpleTypeWriter('Function')
   }
 
   override *builtInObject(type: Type): TypeWriter {

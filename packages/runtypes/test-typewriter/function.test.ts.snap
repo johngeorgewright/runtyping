@@ -1,41 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`function 1`] = `
-"import { A as _A, B as _B, C as _C, D as _D, E as _E, F as _F } from './function';
-import { Static, Contract, String, Number, Void, Undefined, Unknown, AsyncContract } from 'runtypes';
+"import { Static, Function } from 'runtypes';
 
-export const A = Contract(String, Number, Void);
+export const A = Function;
 
-export type A = _A;
+export type A = Static<typeof A>;
 
-export const B = Contract(Number, Void);
+export const B = Function;
 
-export type B = _B;
+export type B = Static<typeof B>;
 
-export const C = Contract(String, Number.Or(Undefined), Unknown);
+export const C = Function;
 
-export type C = _C;
+export type C = Static<typeof C>;
 
-export const D = Contract(Number, String).enforce(_D);
+export const D = Function;
 
-export type D = typeof D;
+export type D = Static<typeof D>;
 
-export const E = AsyncContract(Number, String).enforce(_E);
+export const E = Function;
 
-export type E = typeof E;
+export type E = Static<typeof E>;
 
-export const F = Contract(Number, String);
+export const F = Function;
 
-export type F = _F;
+export type F = Static<typeof F>;
 "
 `;
 
 exports[`function with non-strict nulls 1`] = `
-"import { C as _C } from './function';
-import { Static, Contract, String, Number, Unknown } from 'runtypes';
+"import { Static, Function } from 'runtypes';
 
-export const C = Contract(String, Number.optional(), Unknown);
+export const C = Function;
 
-export type C = _C;
+export type C = Static<typeof C>;
 "
 `;

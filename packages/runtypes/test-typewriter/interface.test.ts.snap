@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`interface 1`] = `
-"import { foo as _foo, boo as _boo } from './interface';
-import { Static, Record, String, Number, Boolean, Literal, Contract, Void } from 'runtypes';
+"import { Static, Record, String, Number, Boolean, Literal, Function } from 'runtypes';
 
 export const A = Record({ foo: String, bar: Number, [\`has spaces\`]: Boolean, [\`+1\`]: Boolean, [\`-1\`]: Boolean, __underscores__: Boolean, $dollar: Boolean, [\`\\\\\${escaped template vars}\`]: Boolean, });
 
@@ -12,8 +11,8 @@ export const B = Record({ a: A, b: Literal(\\"B\\"), });
 
 export type B = Static<typeof B>;
 
-export const C = Record({ foo: Contract(String), bar: Number, boo: Contract(String, Void), });
+export const C = Record({ foo: Function, bar: Number, boo: Function, });
 
-export type C = _boo;
+export type C = Static<typeof C>;
 "
 `;
