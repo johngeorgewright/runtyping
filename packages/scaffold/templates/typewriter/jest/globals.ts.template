@@ -2,3 +2,4 @@ import <%=factoryName%> from '../src/<%=factoryName%>'
 
 // @ts-ignore
 global.factory = new <%=factoryName%>()
+global.mod = '<%=name%>'

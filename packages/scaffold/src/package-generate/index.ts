@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator'
-import { camelCase, paramCase } from 'change-case'
+import { paramCase, pascalCase } from 'change-case'
 import { validateGenerationFromRoot } from '../validation'
 import * as path from 'path'
 import prettier from 'prettier'
@@ -76,7 +76,7 @@ export = class PackageGenerator extends Generator {
       description: this.#answers.description || '',
       name: paramCase(this.#answers.name!),
       fullName: `${this.#namespace}/${paramCase(this.#answers.name!)}`,
-      factoryName: `${camelCase(this.#answers.name!)}TypeWriterFactory`,
+      factoryName: `${pascalCase(this.#answers.name!)}TypeWriterFactory`,
       public: this.#answers.public,
       year: new Date().getFullYear(),
     }

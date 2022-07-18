@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`enum 1`] = `
+"import { A as _A, B as _B, C as _C } from './enum';
+import { infer as Infer, nativeEnum, literal } from 'zod';
+
+export const A = nativeEnum(_A);
+
+export type A = Infer<typeof A>;
+
+export const B = nativeEnum(_B);
+
+export type B = Infer<typeof B>;
+
+export const D = literal(_C.A).or(literal(_C.B));
+
+export type D = Infer<typeof D>;
+"
+`;

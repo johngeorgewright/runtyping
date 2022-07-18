@@ -17,6 +17,9 @@
     "url": "https://github.com/johngeorgewright/runtyping/issues"
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
+  "peerDependencies": {
+    "runtypes": "^6.5.1"
+  },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "9.0.2",
     "@semantic-release/git": "10.0.1",

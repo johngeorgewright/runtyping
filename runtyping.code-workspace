@@ -10,7 +10,8 @@
     { "name": "✨ @runtyping/mono-repo", "path": "." },
     { "name": "🏗 @runtyping/scaffold", "path": "packages/scaffold" },
     { "name": "📦 @runtyping/generator", "path": "packages/generator" },
-    { "name": "📦 @runtyping/runtypes", "path": "packages/runtypes" }
+    { "name": "📦 @runtyping/runtypes", "path": "packages/runtypes" },
+    { "name": "📦 @runtyping/zod", "path": "packages/zod" }
   ],
   "settings": {
     "jest.jestCommandLine": "yarn test",

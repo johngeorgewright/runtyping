@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`non-strict nulls 1`] = `
+"import { infer as Infer, null as Null, string, object } from 'zod';
+
+export const A = Null();
+
+export type A = Infer<typeof A>;
+
+export const B = string();
+
+export type B = Infer<typeof B>;
+
+export const C = object({ a: Null(), b: string(), c: string().optional(), });
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`strict nulls 1`] = `
+"import { infer as Infer, null as Null, string, object, undefined as Undefined } from 'zod';
+
+export const A = Null();
+
+export type A = Infer<typeof A>;
+
+export const B = Null().or(string());
+
+export type B = Infer<typeof B>;
+
+export const C = object({ a: Null(), b: Null().or(string()), c: Null().or(string()).or(Undefined()).optional(), });
+
+export type C = Infer<typeof C>;
+"
+`;

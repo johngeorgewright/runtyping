@@ -7,10 +7,10 @@ const config: InitialOptionsTsJest = {
     },
   },
   preset: 'ts-jest',
-  rootDir: '../',
-  setupFiles: ['./runtypes/jest/globals.ts'],
-  snapshotResolver: './runtypes/jest/snapshotResolver.ts',
   testEnvironment: 'node',
+  setupFiles: ['./zod/jest/globals.ts'],
+  snapshotResolver: './zod/jest/snapshotResolver.ts',
+  rootDir: '../',
 }
 
 export default config

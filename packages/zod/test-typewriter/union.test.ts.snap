@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`union 1`] = `
+"import { infer as Infer, string, number } from 'zod';
+
+export const C = string().or(number());
+
+export type C = Infer<typeof C>;
+"
+`;
