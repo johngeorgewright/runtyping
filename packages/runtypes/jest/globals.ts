@@ -1,5 +1,5 @@
-import RuntypesTypeWriterFactory from '../src/RuntypesTypeWriterFactory'
+import RuntypesTypeWriters from '../src/RuntypesTypeWriters'
 
 // @ts-ignore
-global.factory = new RuntypesTypeWriterFactory()
+global.factory = new RuntypesTypeWriters()
 global.mod = 'runtypes'

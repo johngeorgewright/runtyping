@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 import { cli } from '@runtyping/generator'
-import ZodTypeWriterFactory from './ZodTypeWriterFactory'
+import ZodTypeWriters from './ZodTypeWriters'
 
-cli('runtyping.yml', 'zod', new ZodTypeWriterFactory()).catch(console.error)
+cli('runtyping.yml', 'zod', new ZodTypeWriters()).catch(console.error)

@@ -13,13 +13,13 @@ import {
   sortUndefinedFirst,
   Static,
   TypeWriter,
-  TypeWriterFactory,
+  TypeWriters,
   Write,
 } from '@runtyping/generator'
 import type * as runtypes from 'runtypes'
 import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
 
-export default class RuntypesTypeWriterFactory extends TypeWriterFactory {
+export default class RuntypesTypeWriters extends TypeWriters {
   override *defaultStaticImplementation(): TypeWriter {
     yield [Import, 'Static']
     yield [Static, 'Static<typeof ${name}>']

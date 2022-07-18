@@ -1,5 +1,5 @@
-import ZodTypeWriterFactory from '../src/ZodTypeWriterFactory'
+import ZodTypeWriters from '../src/ZodTypeWriters'
 
 // @ts-ignore
-global.factory = new ZodTypeWriterFactory()
+global.factory = new ZodTypeWriters()
 global.mod = 'zod'

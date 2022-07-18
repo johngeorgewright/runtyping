@@ -10,14 +10,14 @@ import {
   Static,
   StaticParameters,
   TypeWriter,
-  TypeWriterFactory,
+  TypeWriters,
   Write,
 } from '@runtyping/generator'
 import { titleCase } from 'title-case'
 import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
 import * as zod from 'zod'
 
-export default class ZodTypeWriterFactory extends TypeWriterFactory {
+export default class ZodTypeWriterFactory extends TypeWriters {
   override *defaultStaticImplementation(): TypeWriter {
     yield [Import, { alias: 'Infer', name: 'infer' }]
     yield [Static, 'Infer<typeof ${name}>']
