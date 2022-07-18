@@ -1,5 +1,5 @@
 import { basename, dirname, extname, relative } from 'path'
-import { StatementedNode, Type } from 'ts-morph'
+import { StatementedNode, ts, Type } from 'ts-morph'
 
 export function last<T>(array: T[]): T {
   return array[array.length - 1]
@@ -94,4 +94,25 @@ export function getGenerics(type: Type) {
   const typeArguments = type.getTypeArguments()
   const aliasTypeArguments = type.getAliasTypeArguments()
   return [...typeArguments, ...aliasTypeArguments]
+}
+
+export function isBuiltInType(type: Type) {
+  return type
+    .getSymbolOrThrow()
+    .getDeclarations()
+    .some((d) => {
+      if (d.getSourceFile().compilerNode.hasNoDefaultLib) {
+        const name = type.getSymbolOrThrow().getName()
+        const parent = d.getParentOrThrow()
+        const siblings = (
+          [
+            ts.SyntaxKind.ClassDeclaration,
+            ts.SyntaxKind.FunctionDeclaration,
+            ts.SyntaxKind.VariableDeclaration,
+          ] as const
+        ).flatMap((x) => parent.getChildrenOfKind(x))
+        return siblings.some((x) => x.getName() === name)
+      }
+      return false
+    })
 }
