@@ -11,6 +11,10 @@
     { "name": "🏗 @runtyping/scaffold", "path": "packages/scaffold" },
     { "name": "📦 @runtyping/generator", "path": "packages/generator" },
     { "name": "📦 @runtyping/runtypes", "path": "packages/runtypes" },
+    {
+      "name": "📦 @runtyping/test-type-writers",
+      "path": "packages/test-type-writers"
+    },
     { "name": "📦 @runtyping/zod", "path": "packages/zod" }
   ],
   "settings": {
