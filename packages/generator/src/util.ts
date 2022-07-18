@@ -1,5 +1,5 @@
 import { basename, dirname, extname, relative } from 'path'
-import { StatementedNode, Type } from 'ts-morph'
+import { StatementedNode, ts, Type } from 'ts-morph'
 
 export function last<T>(array: T[]): T {
   return array[array.length - 1]
@@ -12,6 +12,11 @@ export function find<T, O>(array: T[], fn: (item: T) => O | false): O | void {
       return result
     }
   }
+}
+
+export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
+  for (const item of set) if (predicate(item)) return true
+  return false
 }
 
 export function getRelativeImportPath(localPath: string, remotePath: string) {
@@ -83,4 +88,31 @@ export function sortUndefinedFirst(a: Type, b: Type) {
   return (
     Number(a.isUndefined()) - Number(b.isUndefined()) || +(a > b) || -(a < b)
   )
+}
+
+export function getGenerics(type: Type) {
+  const typeArguments = type.getTypeArguments()
+  const aliasTypeArguments = type.getAliasTypeArguments()
+  return [...typeArguments, ...aliasTypeArguments]
+}
+
+export function isBuiltInType(type: Type) {
+  return type
+    .getSymbolOrThrow()
+    .getDeclarations()
+    .some((d) => {
+      if (d.getSourceFile().compilerNode.hasNoDefaultLib) {
+        const name = type.getSymbolOrThrow().getName()
+        const parent = d.getParentOrThrow()
+        const siblings = (
+          [
+            ts.SyntaxKind.ClassDeclaration,
+            ts.SyntaxKind.FunctionDeclaration,
+            ts.SyntaxKind.VariableDeclaration,
+          ] as const
+        ).flatMap((x) => parent.getChildrenOfKind(x))
+        return siblings.some((x) => x.getName() === name)
+      }
+      return false
+    })
 }

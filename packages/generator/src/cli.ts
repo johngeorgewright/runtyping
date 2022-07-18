@@ -5,11 +5,12 @@ import yaml from 'js-yaml'
 import yargs from 'yargs/yargs'
 import Generator from './Generator'
 import { Instructions } from './runtypes'
-import { TypeWriterFactory } from './TypeWriter'
+import TypeWriters from './TypeWriters'
 
 export default async function cli(
   defaultConfigPath: string,
-  factory: TypeWriterFactory
+  module: string,
+  typeWriters: TypeWriters
 ) {
   const argv = await yargs(process.argv.slice(2))
     .option('config', {
@@ -37,10 +38,11 @@ export default async function cli(
     typeFormat,
   } of castArray(buildInstructions)) {
     const generator = new Generator({
-      factory,
+      typeWriters,
+      module,
+      runtypeFormat,
       targetFile,
       tsConfigFile: argv.project,
-      runtypeFormat,
       typeFormat,
     })
     const file = await generator.generate(sourceTypes)

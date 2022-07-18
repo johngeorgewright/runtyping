@@ -5,16 +5,19 @@ import { dirname, extname, isAbsolute, resolve as resolvePath } from 'path'
 import {
   EnumDeclaration,
   FunctionDeclaration,
+  ImportSpecifierStructure,
   IndentationText,
   InterfaceDeclaration,
   NewLineKind,
   Node,
+  OptionalKind,
   Project,
   QuoteKind,
   SourceFile,
   SyntaxKind,
   ts,
   TypeAliasDeclaration,
+  TypeParameterDeclarationStructure,
   VariableDeclaration,
   VariableDeclarationKind,
 } from 'ts-morph'
@@ -25,20 +28,29 @@ import {
   Import,
   ImportFromSource,
   Static,
+  StaticParameters,
   Write,
-  TypeWriterFactory,
 } from './TypeWriter'
+import TypeWriters from './TypeWriters'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
-import { doInModule, find, findInModule, getRelativeImportPath } from './util'
+import {
+  doInModule,
+  find,
+  findInModule,
+  getRelativeImportPath,
+  setHas,
+} from './util'
 
 type GeneratorOptionsBase =
   | {
-      factory: TypeWriterFactory
+      typeWriters: TypeWriters
+      module: string
       targetFile: string
       tsConfigFile?: string
     }
   | {
-      factory: TypeWriterFactory
+      typeWriters: TypeWriters
+      module: string
       targetFile: string
       project?: Project
     }
@@ -53,15 +65,17 @@ type SourceCodeFile = SourceFile
 export default class Generator {
   #circularReferences = new Set<string>()
   #exports = new Set<string>()
-  #factory: TypeWriterFactory
+  #typeWriters: TypeWriters
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
+  #module: string
   #project: Project
-  #runtypesImports = new Set<string>()
+  #imports = new Set<string | OptionalKind<ImportSpecifierStructure>>()
   #targetFile: SourceCodeFile
 
   constructor(options: GeneratorOptions) {
-    this.#factory = options.factory
+    this.#typeWriters = options.typeWriters
+    this.#module = options.module
 
     this.#project =
       'project' in options && options.project
@@ -116,8 +130,8 @@ export default class Generator {
     }
 
     this.#targetFile.addImportDeclaration({
-      namedImports: [...this.#runtypesImports],
-      moduleSpecifier: 'runtypes',
+      namedImports: [...this.#imports],
+      moduleSpecifier: this.#module,
     })
 
     this.#targetFile.formatText()
@@ -185,6 +199,9 @@ export default class Generator {
     const circular = isCircular(typeDeclaration)
 
     let staticImplementation: string | undefined
+    let staticTypeParameters:
+      | (string | OptionalKind<TypeParameterDeclarationStructure>)[]
+      | undefined
     let writer = this.#project.createWriter()
     let runTypeType: string | undefined
 
@@ -198,7 +215,7 @@ export default class Generator {
     }
 
     IteratorHandler.create(
-      this.#factory.typeWriter(typeDeclaration.getType(), {
+      this.#typeWriters.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
         recursive,
       })
@@ -206,14 +223,15 @@ export default class Generator {
       .handle(Write, (value) => {
         writer = writer.write(value)
       })
-      .handle(Import, (value) => {
-        this.#runtypesImports.add(value)
-      })
+      .handle(Import, this.#import)
       .handle(ImportFromSource, ({ name, alias }) => {
         sourceImports.set(name, alias)
       })
       .handle(Static, (value) => {
         staticImplementation = value
+      })
+      .handle(StaticParameters, (value) => {
+        staticTypeParameters = value
       })
       .handle(DeclareAndUse, (value) => {
         const recursiveValue = recursive && value === typeName
@@ -252,18 +270,13 @@ export default class Generator {
         ],
       })
 
-      if (exportStaticType) {
-        if (!staticImplementation) {
-          this.#runtypesImports.add('Static')
-          staticImplementation = `Static<typeof ${name}>`
-        }
-
+      if (exportStaticType && staticImplementation)
         node.addTypeAlias({
           isExported: true,
           name: typeName.split('.').reduceRight((x) => x),
-          type: staticImplementation,
+          type: staticImplementation.replace('${name}', name),
+          typeParameters: staticTypeParameters,
         })
-      }
     })
 
     this.#exports.add(sourceType)
@@ -272,6 +285,21 @@ export default class Generator {
       runTypeName,
       typeName,
     }
+  }
+
+  readonly #import = (
+    value: string | OptionalKind<ImportSpecifierStructure>
+  ) => {
+    if (
+      typeof value === 'object' &&
+      setHas(this.#imports, (imprt) =>
+        typeof imprt === 'object'
+          ? imprt.name === value.name
+          : imprt === value.name
+      )
+    )
+      return
+    this.#imports.add(value)
   }
 
   #getTypeDeclaration(
@@ -392,7 +420,6 @@ function findReferenceWithinDeclaration(
   )) {
     if (node.getText() === name) return true
   }
-
   return false
 }
 

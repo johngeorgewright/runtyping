@@ -1,0 +1,407 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`array 1`] = `
+"import { infer as Infer, array, string, number, object } from 'zod';
+
+export const A = object({ foo: string(), });
+
+export type A = Infer<typeof A>;
+
+export const B = array(string().or(number()).or(A));
+
+export type B = Infer<typeof B>;
+"
+`;
+
+exports[`boolean 1`] = `
+"import { infer as Infer, boolean } from 'zod';
+
+export const A = boolean();
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`builtin 1`] = `
+"import { infer as Infer, object, instanceof as InstanceOf } from 'zod';
+
+export const A = object({ a: InstanceOf(Uint8Array), });
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`circular references 1`] = `
+"import { Student as _Student, Teacher as _Teacher } from '../../src/test-typewriter/fixtures/circular-references';
+import { infer as Infer, lazy, ZodType, object, literal, array } from 'zod';
+
+export const Teacher: ZodType<_Teacher> = lazy(() => object({ type: literal(\\"teacher\\"), students: array(Student), reportsTo: Teacher, }));
+
+export type Teacher = Infer<typeof Teacher>;
+
+export const Student: ZodType<_Student> = lazy(() => object({ type: literal(\\"student\\"), teacher: Teacher, }));
+
+export type Student = Infer<typeof Student>;
+
+export const User = Student.or(Teacher);
+
+export type User = Infer<typeof User>;
+"
+`;
+
+exports[`dont generate static types 1`] = `
+"import { infer as Infer, object, literal, string, number } from 'zod';
+
+export const One = object({ type: literal(\\"one\\"), value: string(), });
+export const Two = object({ type: literal(\\"two\\"), value: number(), });
+export const Three = One.or(Two);
+"
+`;
+
+exports[`duplicate references 1`] = `
+"import { infer as Infer, object, null as Null, string } from 'zod';
+
+export const FooType = Null().or(string());
+
+export type FooType = Infer<typeof FooType>;
+
+export const HorseType = object({ a: FooType, b: FooType, });
+
+export type HorseType = Infer<typeof HorseType>;
+"
+`;
+
+exports[`enum 1`] = `
+"import { A as _A, B as _B, C as _C } from '../../src/test-typewriter/fixtures/enum';
+import { infer as Infer, nativeEnum, literal } from 'zod';
+
+export const A = nativeEnum(_A);
+
+export type A = Infer<typeof A>;
+
+export const B = nativeEnum(_B);
+
+export type B = Infer<typeof B>;
+
+export const D = literal(_C.A3).or(literal(_C.B3));
+
+export type D = Infer<typeof D>;
+"
+`;
+
+exports[`function 1`] = `
+"import { infer as Infer, function as func } from 'zod';
+
+export const A = func();
+
+export type A = Infer<typeof A>;
+
+export const B = func();
+
+export type B = Infer<typeof B>;
+
+export const C = func();
+
+export type C = Infer<typeof C>;
+
+export const D = func();
+
+export type D = Infer<typeof D>;
+
+export const E = func();
+
+export type E = Infer<typeof E>;
+
+export const F = func();
+
+export type F = Infer<typeof F>;
+"
+`;
+
+exports[`function with non-strict nulls 1`] = `
+"import { infer as Infer, function as func } from 'zod';
+
+export const C = func();
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`generics 1`] = `
+"import { infer as Infer, ZodType, object, string } from 'zod';
+
+export const A = <T extends any,>(T: ZodType<T>,) => object({ type: T, });
+
+export type A<T> = Infer<ReturnType<typeof A<T>>>;
+
+export const B = <T extends string,>(T: ZodType<T>,) => object({ type: T, });
+
+export type B<T extends string> = Infer<ReturnType<typeof B<T>>>;
+
+export const C = <T extends any,>(T: ZodType<T>,) => object({ type: T, });
+
+export type C<T> = Infer<ReturnType<typeof C<T>>>;
+
+export const D = <T extends number,>(T: ZodType<T>,) => object({ type: T, });
+
+export type D<T extends number> = Infer<ReturnType<typeof D<T>>>;
+
+export const E = object({ foo: string(), });
+
+export type E = Infer<typeof E>;
+
+export const F = <T extends Infer<typeof E>,>(T: ZodType<T>,) => object({ type: T, });
+
+export type F<T extends E> = Infer<ReturnType<typeof F<T>>>;
+"
+`;
+
+exports[`import 1`] = `
+"import { infer as Infer, object, string } from 'zod';
+
+export const A = object({ foo: string(), });
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`inheritance 1`] = `
+"import { infer as Infer, object, string, number, literal } from 'zod';
+
+export const C = object({ bar: string(), foo: string(), });
+
+export type C = Infer<typeof C>;
+
+export const D = object({ bar: number(), moo: string(), foo: number(), car: string(), });
+
+export type D = Infer<typeof D>;
+
+export const E = object({ imported: literal(true), });
+
+export type E = Infer<typeof E>;
+"
+`;
+
+exports[`interface 1`] = `
+"import { infer as Infer, object, string, number, boolean, literal, function as func } from 'zod';
+
+export const A = object({ foo: string(), bar: number(), [\`has spaces\`]: boolean(), [\`+1\`]: boolean(), [\`-1\`]: boolean(), __underscores__: boolean(), $dollar: boolean(), [\`\\\\\${escaped template vars}\`]: boolean(), });
+
+export type A = Infer<typeof A>;
+
+export const B = object({ a: A, b: literal(\\"B\\"), });
+
+export type B = Infer<typeof B>;
+
+export const C = object({ foo: func(), bar: number(), boo: func(), });
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`intersection 1`] = `
+"import { infer as Infer, object, string } from 'zod';
+
+export const A = object({ foo: string(), });
+
+export type A = Infer<typeof A>;
+
+export const B = object({ bar: string(), });
+
+export type B = Infer<typeof B>;
+
+export const C = A.and(B);
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`json schema 1`] = `
+"import { infer as Infer, object, tuple, record, string, unknown as Unknown, undefined as Undefined } from 'zod';
+
+export const ExampleSchema = object({ testArray: tuple().or(tuple(record(string(), Unknown()),)).or(tuple(record(string(), Unknown()), record(string(), Unknown()),)).or(Undefined()).optional(), });
+
+export type ExampleSchema = Infer<typeof ExampleSchema>;
+"
+`;
+
+exports[`json schema 2`] = `
+"import { infer as Infer, object, tuple, record, string, unknown as Unknown, undefined as Undefined } from 'zod';
+
+export const ExampleSchema = object({ testArray: tuple(record(string(), Unknown()), record(string(), Unknown()), record(string(), Unknown()),).or(Undefined()).optional(), });
+
+export type ExampleSchema = Infer<typeof ExampleSchema>;
+"
+`;
+
+exports[`json schema 3`] = `
+"import { infer as Infer, object, string, number, undefined as Undefined, literal } from 'zod';
+
+export const ExampleSchema = object({ firstName: string(), lastName: string(), age: number().or(Undefined()).optional(), hairColor: literal(\\"black\\").or(literal(\\"brown\\")).or(literal(\\"blue\\")).or(Undefined()).optional(), });
+
+export type ExampleSchema = Infer<typeof ExampleSchema>;
+"
+`;
+
+exports[`literal 1`] = `
+"import { infer as Infer, literal } from 'zod';
+
+export const A = literal(\\"foo\\");
+
+export type A = Infer<typeof A>;
+
+export const B = literal(2);
+
+export type B = Infer<typeof B>;
+
+export const C = literal(true);
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`mapRuntypeName 1`] = `
+"import { infer as Infer, object, string, array } from 'zod';
+
+export const MappedAFoo = object({ foo: string(), });
+
+export type MappedABar = Infer<typeof MappedAFoo>;
+
+export const MappedBFoo = object({ bar: MappedAFoo, baz: MappedAFoo, nest: object({ baz2: array(MappedAFoo), }), });
+
+export type MappedBBar = Infer<typeof MappedBFoo>;
+"
+`;
+
+exports[`namespace 1`] = `
+"import { infer as Infer, object, string, number, unknown as Unknown } from 'zod';
+
+export namespace A {
+  export const B = object({ C: string(), });
+
+  export type B = Infer<typeof B>;
+
+  export const C = Unknown();
+
+  export type C = Infer<typeof C>;
+
+  export const D = object({ E: number(), });
+
+  export type D = Infer<typeof D>;
+}
+
+export namespace B {
+  export namespace C {
+    export const D = number();
+
+    export type D = Infer<typeof D>;
+  }
+}
+"
+`;
+
+exports[`non-strict nulls 1`] = `
+"import { infer as Infer, null as Null, string, object } from 'zod';
+
+export const A = Null();
+
+export type A = Infer<typeof A>;
+
+export const B = string();
+
+export type B = Infer<typeof B>;
+
+export const C = object({ a: Null(), b: string(), c: string().optional(), });
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`numbers 1`] = `
+"import { infer as Infer, number } from 'zod';
+
+export const A = number();
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`optional property 1`] = `
+"import { infer as Infer, object, string, undefined as Undefined } from 'zod';
+
+export const A = object({ foo: string().or(Undefined()).optional(), });
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`record 1`] = `
+"import { infer as Infer, record, string } from 'zod';
+
+export const A = record(string(), string());
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`recursive 1`] = `
+"import { A as _A, B as _B } from '../../src/test-typewriter/fixtures/recursive';
+import { infer as Infer, lazy, ZodType, object, string, array } from 'zod';
+
+export const A: ZodType<_A> = lazy(() => object({ recurse: string().or(A), }));
+
+export type A = Infer<typeof A>;
+
+export const B: ZodType<_B> = lazy(() => object({ recurse: array(B), }));
+
+export type B = Infer<typeof B>;
+"
+`;
+
+exports[`strict nulls 1`] = `
+"import { infer as Infer, null as Null, string, object, undefined as Undefined } from 'zod';
+
+export const A = Null();
+
+export type A = Infer<typeof A>;
+
+export const B = Null().or(string());
+
+export type B = Infer<typeof B>;
+
+export const C = object({ a: Null(), b: Null().or(string()), c: Null().or(string()).or(Undefined()).optional(), });
+
+export type C = Infer<typeof C>;
+"
+`;
+
+exports[`strings 1`] = `
+"import { infer as Infer, string } from 'zod';
+
+export const A = string();
+
+export type A = Infer<typeof A>;
+"
+`;
+
+exports[`tuple 1`] = `
+"import { infer as Infer, tuple, number, string } from 'zod';
+
+export const A = tuple(number(), string(), number(),);
+
+export type A = Infer<typeof A>;
+
+export const B = tuple(A, A,);
+
+export type B = Infer<typeof B>;
+"
+`;
+
+exports[`union 1`] = `
+"import { infer as Infer, string, number } from 'zod';
+
+export const C = string().or(number());
+
+export type C = Infer<typeof C>;
+"
+`;

@@ -31,6 +31,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@runtyping/scaffold",\
         "reference": "workspace:packages/scaffold"\
+      },\
+      {\
+        "name": "@runtyping/zod",\
+        "reference": "workspace:packages/zod"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -39,7 +43,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@runtyping/generator", ["workspace:packages/generator"]],\
       ["@runtyping/mono-repo", ["workspace:."]],\
       ["@runtyping/runtypes", ["workspace:packages/runtypes"]],\
-      ["@runtyping/scaffold", ["workspace:packages/scaffold"]]\
+      ["@runtyping/scaffold", ["workspace:packages/scaffold"]],\
+      ["@runtyping/zod", ["workspace:packages/zod"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -2480,6 +2485,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.0.5"],\
             ["@semantic-release/npm", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:9.0.1"],\
             ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
+            ["@ts-morph/common", "npm:0.16.0"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/js-yaml", "npm:4.0.5"],\
             ["@types/node", "npm:16.11.45"],\
@@ -2499,7 +2505,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
             ["typescript-json-schema", "npm:0.54.0"],\
-            ["yargs", "npm:17.5.1"]\
+            ["yargs", "npm:17.5.1"],\
+            ["zod", "npm:3.17.9"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2592,6 +2599,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
             ["yeoman-generator", "virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.6.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@runtyping/zod", [\
+        ["workspace:packages/zod", {\
+          "packageLocation": "./packages/zod/",\
+          "packageDependencies": [\
+            ["@runtyping/zod", "workspace:packages/zod"],\
+            ["@runtyping/generator", "workspace:packages/generator"],\
+            ["@semantic-release/commit-analyzer", "virtual:c91fcd356d35829ced3f9cafcb7d70217b01982491547be46dbf92a34cc1c6f47f5022ecefa553004a9375335550e06b2a45e10dc96f6aba8aa030dc26a07d30#npm:9.0.2"],\
+            ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
+            ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.0.5"],\
+            ["@semantic-release/npm", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:9.0.1"],\
+            ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
+            ["@types/jest", "npm:28.1.6"],\
+            ["@types/node", "npm:18.0.6"],\
+            ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
+            ["rimraf", "npm:3.0.2"],\
+            ["semantic-release", "npm:19.0.3"],\
+            ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
+            ["title-case", "npm:3.0.3"],\
+            ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.7"],\
+            ["ts-morph", "npm:15.1.0"],\
+            ["ts-node", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#npm:10.9.1"],\
+            ["tslib", "npm:2.4.0"],\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
+            ["zod", "npm:3.17.9"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3290,6 +3325,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-17.0.17-8bac2a57aa-8ddba2829a.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:17.0.17"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:18.0.6", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.0.6-1bdee507ca-780f8885a6.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.0.6"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14032,6 +14074,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["title-case", [\
+        ["npm:3.0.3", {\
+          "packageLocation": "./.yarn/cache/title-case-npm-3.0.3-101a1194a3-e8b7ea006b.zip/node_modules/title-case/",\
+          "packageDependencies": [\
+            ["title-case", "npm:3.0.3"],\
+            ["tslib", "npm:2.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["titleize", [\
         ["npm:1.0.1", {\
           "packageLocation": "./.yarn/cache/titleize-npm-1.0.1-7d82cb1c96-686ec74730.zip/node_modules/titleize/",\
@@ -14315,6 +14367,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node14", "npm:1.0.1"],\
             ["@tsconfig/node16", "npm:1.0.2"],\
             ["@types/node", "npm:16.11.45"],\
+            ["@types/swc__core", null],\
+            ["@types/swc__wasm", null],\
+            ["@types/typescript", null],\
+            ["acorn", "npm:8.5.0"],\
+            ["acorn-walk", "npm:8.2.0"],\
+            ["arg", "npm:4.1.3"],\
+            ["create-require", "npm:1.1.1"],\
+            ["diff", "npm:4.0.2"],\
+            ["make-error", "npm:1.3.6"],\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
+            ["v8-compile-cache-lib", "npm:3.0.1"],\
+            ["yn", "npm:3.1.1"]\
+          ],\
+          "packagePeers": [\
+            "@swc/core",\
+            "@swc/wasm",\
+            "@types/node",\
+            "@types/swc__core",\
+            "@types/swc__wasm",\
+            "@types/typescript",\
+            "typescript"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#npm:10.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-615b94e209/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
+          "packageDependencies": [\
+            ["ts-node", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#npm:10.9.1"],\
+            ["@cspotcode/source-map-support", "npm:0.8.1"],\
+            ["@swc/core", null],\
+            ["@swc/wasm", null],\
+            ["@tsconfig/node10", "npm:1.0.8"],\
+            ["@tsconfig/node12", "npm:1.0.9"],\
+            ["@tsconfig/node14", "npm:1.0.1"],\
+            ["@tsconfig/node16", "npm:1.0.2"],\
+            ["@types/node", "npm:18.0.6"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
@@ -15469,6 +15557,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-ansi", "npm:3.0.1"],\
             ["taketalk", "npm:1.0.0"],\
             ["wrap-ansi", "npm:2.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["zod", [\
+        ["npm:3.17.9", {\
+          "packageLocation": "./.yarn/cache/zod-npm-3.17.9-31398c3e07-0622a5ae4c.zip/node_modules/zod/",\
+          "packageDependencies": [\
+            ["zod", "npm:3.17.9"]\
           ],\
           "linkType": "HARD"\
         }]\
