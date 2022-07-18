@@ -29,9 +29,9 @@ import {
   ImportFromSource,
   Static,
   StaticParameters,
-  TypeWriterFactory,
   Write,
 } from './TypeWriter'
+import TypeWriters from './TypeWriters'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
 import {
   doInModule,
@@ -43,13 +43,13 @@ import {
 
 type GeneratorOptionsBase =
   | {
-      factory: TypeWriterFactory
+      factory: TypeWriters
       module: string
       targetFile: string
       tsConfigFile?: string
     }
   | {
-      factory: TypeWriterFactory
+      factory: TypeWriters
       module: string
       targetFile: string
       project?: Project
@@ -65,7 +65,7 @@ type SourceCodeFile = SourceFile
 export default class Generator {
   #circularReferences = new Set<string>()
   #exports = new Set<string>()
-  #factory: TypeWriterFactory
+  #factory: TypeWriters
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
   #module: string

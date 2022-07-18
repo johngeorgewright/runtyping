@@ -5,12 +5,12 @@ import yaml from 'js-yaml'
 import yargs from 'yargs/yargs'
 import Generator from './Generator'
 import { Instructions } from './runtypes'
-import { TypeWriterFactory } from './TypeWriter'
+import TypeWriters from './TypeWriters'
 
 export default async function cli(
   defaultConfigPath: string,
   module: string,
-  factory: TypeWriterFactory
+  factory: TypeWriters
 ) {
   const argv = await yargs(process.argv.slice(2))
     .option('config', {
