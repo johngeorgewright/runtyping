@@ -1,4 +1,8 @@
-import { getTypeName } from '@runtyping/generator'
+import {
+  getGenerics,
+  getTypeName,
+  StaticParameters,
+} from '@runtyping/generator'
 import {
   DeclareType,
   escapeQuottedPropName,
@@ -7,6 +11,7 @@ import {
   PickByValue,
   propNameRequiresQuotes,
   sortUndefinedFirst,
+  Static,
   TypeWriter,
   TypeWriterFactory,
   Write,
@@ -16,6 +21,11 @@ import type * as runtypes from 'runtypes'
 import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
 
 export default class RuntypesTypeWriterFactory extends TypeWriterFactory {
+  override *defaultStaticImplementation(): TypeWriter {
+    yield [Import, 'Static']
+    yield [Static, 'Static<typeof ${name}>']
+  }
+
   override *lazy(type: Type): TypeWriter {
     const name = getTypeName(type)
     const alias = `_${name}`
@@ -143,6 +153,10 @@ export default class RuntypesTypeWriterFactory extends TypeWriterFactory {
     yield [Import, 'Record']
     yield [Write, 'Record({']
 
+    const typeArguments = getGenerics(type).map((typeArgument) =>
+      typeArgument.getText()
+    )
+
     for (const property of type.getProperties()) {
       yield [
         Write,
@@ -153,12 +167,69 @@ export default class RuntypesTypeWriterFactory extends TypeWriterFactory {
         }:`,
       ]
       const propertyType = property.getValueDeclarationOrThrow().getType()
-      yield* this.generateOrReuseType(propertyType)
+      if (!typeArguments.includes(propertyType.getText()))
+        yield* this.generateOrReuseType(propertyType)
+      else yield [Write, propertyType.getText()]
       if (property.hasFlags(SymbolFlags.Optional)) yield [Write, '.optional()']
       yield [Write, ',']
     }
 
     yield [Write, '})']
+  }
+
+  override *genericObject(type: Type): TypeWriter {
+    const generics = getGenerics(type)
+
+    yield [Import, 'Static']
+    yield [Import, 'Runtype']
+    yield [Write, '<']
+
+    for (const generic of generics) {
+      const constraint = generic.getConstraint()
+      const constraintDeclaredType = constraint?.getSymbol()?.getDeclaredType()
+
+      yield [Write, `${generic.getText()} extends `]
+
+      if (constraintDeclaredType) {
+        yield [Write, 'Static<typeof ']
+        yield* this.generateOrReuseType(constraintDeclaredType)
+        yield [Write, '>']
+      } else yield [Write, constraint ? constraint.getText() : 'any']
+
+      yield [Write, ', ']
+    }
+
+    yield [Write, '>(']
+
+    for (const generic of generics)
+      yield [Write, `${generic.getText()}: Runtype<${generic.getText()}>, `]
+
+    yield [Write, ') => ']
+
+    yield* this.object(type)
+
+    yield [
+      StaticParameters,
+      generics.map((generic) => {
+        const constraint = generic.getConstraint()
+        const constraintDeclaredType = constraint
+          ?.getSymbol()
+          ?.getDeclaredType()
+        return {
+          name: generic.getText(),
+          constraint: constraintDeclaredType
+            ? getTypeName(constraintDeclaredType)
+            : constraint?.getText(),
+        }
+      }),
+    ]
+
+    yield [
+      Static,
+      `Static<ReturnType<typeof ${getTypeName(type)}<${generics.map((generic) =>
+        generic.getText()
+      )}>>>`,
+    ]
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {

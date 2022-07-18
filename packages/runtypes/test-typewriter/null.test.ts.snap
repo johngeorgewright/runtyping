@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`non-strict nulls 1`] = `
-"import { Null, Static, String, Record } from 'runtypes';
+"import { Static, Null, String, Record } from 'runtypes';
 
 export const A = Null;
 
@@ -18,7 +18,7 @@ export type C = Static<typeof C>;
 `;
 
 exports[`strict nulls 1`] = `
-"import { Null, Static, String, Record, Undefined } from 'runtypes';
+"import { Static, Null, String, Record, Undefined } from 'runtypes';
 
 export const A = Null;
 

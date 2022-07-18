@@ -2,7 +2,7 @@
 
 exports[`enum 1`] = `
 "import { A as _A, B as _B, C as _C } from './enum';
-import { Guard, Static, Literal } from 'runtypes';
+import { Static, Guard, Literal } from 'runtypes';
 
 export const A = Guard((x: any): x is _A => Object.values(_A).includes(x));
 

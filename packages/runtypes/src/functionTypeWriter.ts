@@ -48,7 +48,7 @@ export default function* functionTypeWriter(
 
   if (isFunctionDeclaration(type)) {
     yield [Write, `.enforce(${importAlias})`]
-    yield [Static, `typeof ${name}`]
+    yield [Static, 'typeof ${name}']
   } else yield [Static, importAlias]
 }
 

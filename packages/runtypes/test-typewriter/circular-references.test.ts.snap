@@ -2,7 +2,7 @@
 
 exports[`circular references 1`] = `
 "import { Student as _Student, Teacher as _Teacher } from './circular-references';
-import { Lazy, Runtype, Record, Literal, Array, Static } from 'runtypes';
+import { Static, Lazy, Runtype, Record, Literal, Array } from 'runtypes';
 
 export const Teacher: Runtype<_Teacher> = Lazy(() => Record({ type: Literal(\\"teacher\\"), students: Array(Student), reportsTo: Teacher, }));
 

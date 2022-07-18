@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`strings 1`] = `
-"import { String, Static } from 'runtypes';
+"import { Static, String } from 'runtypes';
 
 export const A = String;
 

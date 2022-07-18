@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`record 1`] = `
-"import { Dictionary, String, Static } from 'runtypes';
+"import { Static, Dictionary, String } from 'runtypes';
 
 export const A = Dictionary(String, String);
 

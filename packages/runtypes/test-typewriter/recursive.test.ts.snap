@@ -14,7 +14,7 @@ exports[`recursive:
     "
    1`] = `
 "import { A as _A, B as _B } from './recursive';
-import { Lazy, Runtype, Record, String, Static, Array } from 'runtypes';
+import { Static, Lazy, Runtype, Record, String, Array } from 'runtypes';
 
 export const A: Runtype<_A> = Lazy(() => Record({ recurse: String.Or(A), }));
 

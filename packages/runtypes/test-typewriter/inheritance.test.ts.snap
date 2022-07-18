@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`inheritance 1`] = `
-"import { Record, String, Static, Number, Literal } from 'runtypes';
+"import { Static, Record, String, Number, Literal } from 'runtypes';
 
 export const C = Record({ bar: String, foo: String, });
 

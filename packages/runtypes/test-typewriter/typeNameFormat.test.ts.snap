@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`mapRuntypeName 1`] = `
-"import { Record, String, Static, Array } from 'runtypes';
+"import { Static, Record, String, Array } from 'runtypes';
 
 export const MappedAFoo = Record({ foo: String, });
 

@@ -2,7 +2,7 @@
 
 exports[`function 1`] = `
 "import { A as _A, B as _B, C as _C, D as _D, E as _E, F as _F } from './function';
-import { Contract, String, Number, Void, Undefined, Unknown, AsyncContract } from 'runtypes';
+import { Static, Contract, String, Number, Void, Undefined, Unknown, AsyncContract } from 'runtypes';
 
 export const A = Contract(String, Number, Void);
 
@@ -32,7 +32,7 @@ export type F = _F;
 
 exports[`function with non-strict nulls 1`] = `
 "import { C as _C } from './function';
-import { Contract, String, Number, Unknown } from 'runtypes';
+import { Static, Contract, String, Number, Unknown } from 'runtypes';
 
 export const C = Contract(String, Number.optional(), Unknown);
 

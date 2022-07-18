@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`builtin 1`] = `
-"import { Record, InstanceOf, Static } from 'runtypes';
+"import { Static, Record, InstanceOf } from 'runtypes';
 
 export const A = Record({ a: InstanceOf(Uint8Array), });
 

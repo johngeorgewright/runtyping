@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`namespace 1`] = `
-"import { Record, String, Static, Number, Unknown } from 'runtypes';
+"import { Static, Record, String, Number, Unknown } from 'runtypes';
 
 export namespace A {
   export const B = Record({ C: String, });

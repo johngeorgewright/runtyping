@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`literal 1`] = `
-"import { Literal, Static } from 'runtypes';
+"import { Static, Literal } from 'runtypes';
 
 export const A = Literal(\\"foo\\");
 
