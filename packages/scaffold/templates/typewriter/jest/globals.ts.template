@@ -1,5 +1,0 @@
-import <%=typeWritersName%> from '../src/<%=typeWritersName%>'
-
-// @ts-ignore
-global.factory = new <%=typeWritersName%>()
-global.mod = '<%=name%>'

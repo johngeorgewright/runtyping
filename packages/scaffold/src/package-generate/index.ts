@@ -94,9 +94,7 @@ export = class PackageGenerator extends Generator {
       build: 'yarn clean && tsc',
       clean: 'rimraf dist',
       start: 'tsc --watch --preserveWatchOutput',
-      test: this.#answers.typewriter
-        ? 'jest ../generator/test-typewriter'
-        : 'jest --passWithNoTests',
+      test: 'jest',
     })
 
     this.packageJson.set('license', 'MIT')
@@ -170,18 +168,6 @@ export = class PackageGenerator extends Generator {
       )
 
       this.fs.copyTpl(
-        this.templatePath('typewriter/jest/globals.ts.template'),
-        this.destinationPath('jest/globals.ts'),
-        context
-      )
-
-      this.fs.copyTpl(
-        this.templatePath('typewriter/jest/snapshotResolver.ts.template'),
-        this.destinationPath('jest/snapshotResolver.ts'),
-        context
-      )
-
-      this.fs.copyTpl(
         this.templatePath('typewriter/src/index.ts.template'),
         this.destinationPath(`src/index.ts`),
         context
@@ -196,6 +182,12 @@ export = class PackageGenerator extends Generator {
       this.fs.copyTpl(
         this.templatePath('typewriter/src/TypeWriters.ts.template'),
         this.destinationPath(`src/${context.typeWritersName}.ts`),
+        context
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/test/typewriter.test.ts.template'),
+        this.destinationPath(`test/typewriter.test.ts`),
         context
       )
     } else {

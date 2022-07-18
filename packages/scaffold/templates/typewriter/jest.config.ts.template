@@ -8,9 +8,6 @@ const config: InitialOptionsTsJest = {
   },
   preset: 'ts-jest',
   testEnvironment: 'node',
-  setupFiles: ['./<%=name%>/jest/globals.ts'],
-  snapshotResolver: './<%=name%>/jest/snapshotResolver.ts',
-  rootDir: '../',
 }
 
 export default config

@@ -1,0 +1,4 @@
+import testTypeWriter from '@runtyping/generator/dist/test-typewriter'
+import <%=typeWritersName%> from '../src/<%=typeWritersName%>'
+
+testTypeWriter({ module: '<%=name%>', typeWriters: new <%=typeWritersName%>() })
