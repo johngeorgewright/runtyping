@@ -32,7 +32,7 @@ export type A = Static<typeof A>;
 `;
 
 exports[`circular references 1`] = `
-"import { Student as _Student, Teacher as _Teacher } from '../../src/test-typewriter/fixtures/circular-references';
+"import { Student as _Student, Teacher as _Teacher } from '../fixtures/circular-references';
 import { Static, Lazy, Runtype, Record, Literal, Array } from 'runtypes';
 
 export const Teacher: Runtype<_Teacher> = Lazy(() => Record({ type: Literal(\\"teacher\\"), students: Array(Student), reportsTo: Teacher, }));
@@ -72,7 +72,7 @@ export type HorseType = Static<typeof HorseType>;
 `;
 
 exports[`enum 1`] = `
-"import { A as _A, B as _B, C as _C } from '../../src/test-typewriter/fixtures/enum';
+"import { A as _A, B as _B, C as _C } from '../fixtures/enum';
 import { Static, Guard, Literal } from 'runtypes';
 
 export const A = Guard((x: any): x is _A => Object.values(_A).includes(x));
@@ -345,7 +345,7 @@ export type A = Static<typeof A>;
 `;
 
 exports[`recursive 1`] = `
-"import { A as _A, B as _B } from '../../src/test-typewriter/fixtures/recursive';
+"import { A as _A, B as _B } from '../fixtures/recursive';
 import { Static, Lazy, Runtype, Record, String, Array } from 'runtypes';
 
 export const A: Runtype<_A> = Lazy(() => Record({ recurse: String.Or(A), }));

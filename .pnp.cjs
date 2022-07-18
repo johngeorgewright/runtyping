@@ -48,7 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@runtyping/mono-repo", ["workspace:."]],\
       ["@runtyping/runtypes", ["workspace:packages/runtypes"]],\
       ["@runtyping/scaffold", ["workspace:packages/scaffold"]],\
-      ["@runtyping/test-type-writers", ["workspace:packages/test-type-writers"]],\
+      ["@runtyping/test-type-writers", ["virtual:f4f0c720d3f211acfd0b8a080e99e70cf1175852424732db47b6a10a5cb0680e8c1cc088bd880bda66d694e625b3aa1a332cd154445c742e37a070b9f48ce9dc#workspace:packages/test-type-writers", "workspace:packages/test-type-writers"]],\
       ["@runtyping/zod", ["workspace:packages/zod"]]\
     ],\
     "fallbackPool": [\
@@ -2560,6 +2560,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@runtyping/runtypes", "workspace:packages/runtypes"],\
             ["@runtyping/generator", "workspace:packages/generator"],\
+            ["@runtyping/test-type-writers", "virtual:f4f0c720d3f211acfd0b8a080e99e70cf1175852424732db47b6a10a5cb0680e8c1cc088bd880bda66d694e625b3aa1a332cd154445c742e37a070b9f48ce9dc#workspace:packages/test-type-writers"],\
             ["@semantic-release/commit-analyzer", "virtual:c91fcd356d35829ced3f9cafcb7d70217b01982491547be46dbf92a34cc1c6f47f5022ecefa553004a9375335550e06b2a45e10dc96f6aba8aa030dc26a07d30#npm:9.0.2"],\
             ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
             ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.0.5"],\
@@ -2609,6 +2610,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@runtyping/test-type-writers", [\
+        ["virtual:f4f0c720d3f211acfd0b8a080e99e70cf1175852424732db47b6a10a5cb0680e8c1cc088bd880bda66d694e625b3aa1a332cd154445c742e37a070b9f48ce9dc#workspace:packages/test-type-writers", {\
+          "packageLocation": "./.yarn/__virtual__/@runtyping-test-type-writers-virtual-d0a2ad1e88/1/packages/test-type-writers/",\
+          "packageDependencies": [\
+            ["@runtyping/test-type-writers", "virtual:f4f0c720d3f211acfd0b8a080e99e70cf1175852424732db47b6a10a5cb0680e8c1cc088bd880bda66d694e625b3aa1a332cd154445c742e37a070b9f48ce9dc#workspace:packages/test-type-writers"],\
+            ["@runtyping/generator", "workspace:packages/generator"],\
+            ["@semantic-release/commit-analyzer", "virtual:c91fcd356d35829ced3f9cafcb7d70217b01982491547be46dbf92a34cc1c6f47f5022ecefa553004a9375335550e06b2a45e10dc96f6aba8aa030dc26a07d30#npm:9.0.2"],\
+            ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
+            ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.0.5"],\
+            ["@semantic-release/npm", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:9.0.1"],\
+            ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
+            ["@types/jest", "npm:28.1.6"],\
+            ["@types/node", "npm:18.0.6"],\
+            ["@types/runtyping__generator", null],\
+            ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
+            ["rimraf", "npm:3.0.2"],\
+            ["runtypes", "npm:6.5.1"],\
+            ["semantic-release", "npm:19.0.3"],\
+            ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
+            ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.7"],\
+            ["ts-morph", "npm:15.1.0"],\
+            ["ts-node", "virtual:d0a2ad1e889e937eb6a305625129509de4713d73d370203012e6c71dfd925c9d1617b5a0a78d434ec9314ef5b7597fd86b674d5fc602762f1923f4666a51a1cb#npm:10.9.1"],\
+            ["tslib", "npm:2.4.0"],\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
+            ["zod", "npm:3.17.9"]\
+          ],\
+          "packagePeers": [\
+            "@runtyping/generator",\
+            "@types/runtyping__generator"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["workspace:packages/test-type-writers", {\
           "packageLocation": "./packages/test-type-writers/",\
           "packageDependencies": [\
@@ -2623,13 +2655,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.0.6"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
             ["rimraf", "npm:3.0.2"],\
+            ["runtypes", "npm:6.5.1"],\
             ["semantic-release", "npm:19.0.3"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.7"],\
             ["ts-morph", "npm:15.1.0"],\
-            ["ts-node", "virtual:827535e8f9ec4796a0a3117aeb606fb443ec13fd3c54c49706dae5fc46940d83564548b1068453ffbd8db74c4041bc1413ff6a41f496c01b8a22b74e36a0719c#npm:10.9.1"],\
+            ["ts-node", "virtual:d0a2ad1e889e937eb6a305625129509de4713d73d370203012e6c71dfd925c9d1617b5a0a78d434ec9314ef5b7597fd86b674d5fc602762f1923f4666a51a1cb#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
-            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
+            ["zod", "npm:3.17.9"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2640,6 +2674,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@runtyping/zod", "workspace:packages/zod"],\
             ["@runtyping/generator", "workspace:packages/generator"],\
+            ["@runtyping/test-type-writers", "virtual:f4f0c720d3f211acfd0b8a080e99e70cf1175852424732db47b6a10a5cb0680e8c1cc088bd880bda66d694e625b3aa1a332cd154445c742e37a070b9f48ce9dc#workspace:packages/test-type-writers"],\
             ["@semantic-release/commit-analyzer", "virtual:c91fcd356d35829ced3f9cafcb7d70217b01982491547be46dbf92a34cc1c6f47f5022ecefa553004a9375335550e06b2a45e10dc96f6aba8aa030dc26a07d30#npm:9.0.2"],\
             ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
             ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.0.5"],\
@@ -2654,7 +2689,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["title-case", "npm:3.0.3"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.7"],\
             ["ts-morph", "npm:15.1.0"],\
-            ["ts-node", "virtual:827535e8f9ec4796a0a3117aeb606fb443ec13fd3c54c49706dae5fc46940d83564548b1068453ffbd8db74c4041bc1413ff6a41f496c01b8a22b74e36a0719c#npm:10.9.1"],\
+            ["ts-node", "virtual:d0a2ad1e889e937eb6a305625129509de4713d73d370203012e6c71dfd925c9d1617b5a0a78d434ec9314ef5b7597fd86b674d5fc602762f1923f4666a51a1cb#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"],\
             ["zod", "npm:3.17.9"]\
@@ -14477,10 +14512,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:827535e8f9ec4796a0a3117aeb606fb443ec13fd3c54c49706dae5fc46940d83564548b1068453ffbd8db74c4041bc1413ff6a41f496c01b8a22b74e36a0719c#npm:10.9.1", {\
-          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-611c1989fb/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
+        ["virtual:d0a2ad1e889e937eb6a305625129509de4713d73d370203012e6c71dfd925c9d1617b5a0a78d434ec9314ef5b7597fd86b674d5fc602762f1923f4666a51a1cb#npm:10.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-0e17ec51cb/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
           "packageDependencies": [\
-            ["ts-node", "virtual:827535e8f9ec4796a0a3117aeb606fb443ec13fd3c54c49706dae5fc46940d83564548b1068453ffbd8db74c4041bc1413ff6a41f496c01b8a22b74e36a0719c#npm:10.9.1"],\
+            ["ts-node", "virtual:d0a2ad1e889e937eb6a305625129509de4713d73d370203012e6c71dfd925c9d1617b5a0a78d434ec9314ef5b7597fd86b674d5fc602762f1923f4666a51a1cb#npm:10.9.1"],\
             ["@cspotcode/source-map-support", "npm:0.8.1"],\
             ["@swc/core", null],\
             ["@swc/wasm", null],\
