@@ -10,7 +10,7 @@ import TypeWriters from './TypeWriters'
 export default async function cli(
   defaultConfigPath: string,
   module: string,
-  factory: TypeWriters
+  typeWriters: TypeWriters
 ) {
   const argv = await yargs(process.argv.slice(2))
     .option('config', {
@@ -38,7 +38,7 @@ export default async function cli(
     typeFormat,
   } of castArray(buildInstructions)) {
     const generator = new Generator({
-      factory,
+      typeWriters,
       module,
       runtypeFormat,
       targetFile,

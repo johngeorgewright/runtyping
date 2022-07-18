@@ -43,13 +43,13 @@ import {
 
 type GeneratorOptionsBase =
   | {
-      factory: TypeWriters
+      typeWriters: TypeWriters
       module: string
       targetFile: string
       tsConfigFile?: string
     }
   | {
-      factory: TypeWriters
+      typeWriters: TypeWriters
       module: string
       targetFile: string
       project?: Project
@@ -65,7 +65,7 @@ type SourceCodeFile = SourceFile
 export default class Generator {
   #circularReferences = new Set<string>()
   #exports = new Set<string>()
-  #factory: TypeWriters
+  #typeWriters: TypeWriters
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
   #module: string
@@ -74,7 +74,7 @@ export default class Generator {
   #targetFile: SourceCodeFile
 
   constructor(options: GeneratorOptions) {
-    this.#factory = options.factory
+    this.#typeWriters = options.typeWriters
     this.#module = options.module
 
     this.#project =
@@ -215,7 +215,7 @@ export default class Generator {
     }
 
     IteratorHandler.create(
-      this.#factory.typeWriter(typeDeclaration.getType(), {
+      this.#typeWriters.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
         recursive,
       })

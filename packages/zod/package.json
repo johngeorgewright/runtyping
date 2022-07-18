@@ -7,7 +7,7 @@
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "jest ../generator/test-typewriter"
+    "test": "jest"
   },
   "license": "MIT",
   "bugs": {
