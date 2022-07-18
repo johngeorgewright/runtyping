@@ -1,7 +1,7 @@
-import { TypeWriterFactory } from '../src/TypeWriter'
+import TypeWriters from '../src/TypeWriters'
 
 declare global {
-  var factory: TypeWriterFactory
+  var factory: TypeWriters
   var mod: string
 }
 
