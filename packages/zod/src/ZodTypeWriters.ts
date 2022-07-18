@@ -17,7 +17,7 @@ import { titleCase } from 'title-case'
 import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
 import * as zod from 'zod'
 
-export default class ZodTypeWriterFactory extends TypeWriters {
+export default class ZodTypeWriters extends TypeWriters {
   override *defaultStaticImplementation(): TypeWriter {
     yield [Import, { alias: 'Infer', name: 'infer' }]
     yield [Static, 'Infer<typeof ${name}>']
