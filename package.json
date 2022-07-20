@@ -41,7 +41,7 @@
     "@types/node": "16.11.45",
     "@types/source-map-support": "0.5.4",
     "commitizen": "4.2.5",
-    "concurrently": "7.2.2",
+    "concurrently": "7.3.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "8.0.1",
     "isbinaryfile": "5.0.0",

@@ -70,7 +70,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.45"],\
             ["@types/source-map-support", "npm:0.5.4"],\
             ["commitizen", "npm:4.2.5"],\
-            ["concurrently", "npm:7.2.2"],\
+            ["concurrently", "npm:7.3.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
             ["husky", "npm:8.0.1"],\
             ["isbinaryfile", "npm:5.0.0"],\
@@ -2533,7 +2533,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.45"],\
             ["@types/source-map-support", "npm:0.5.4"],\
             ["commitizen", "npm:4.2.5"],\
-            ["concurrently", "npm:7.2.2"],\
+            ["concurrently", "npm:7.3.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
             ["husky", "npm:8.0.1"],\
             ["isbinaryfile", "npm:5.0.0"],\
@@ -5306,10 +5306,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["concurrently", [\
-        ["npm:7.2.2", {\
-          "packageLocation": "./.yarn/cache/concurrently-npm-7.2.2-acda7e7c25-ae9604032d.zip/node_modules/concurrently/",\
+        ["npm:7.3.0", {\
+          "packageLocation": "./.yarn/cache/concurrently-npm-7.3.0-0123c57666-5de845e494.zip/node_modules/concurrently/",\
           "packageDependencies": [\
-            ["concurrently", "npm:7.2.2"],\
+            ["concurrently", "npm:7.3.0"],\
             ["chalk", "npm:4.1.2"],\
             ["date-fns", "npm:2.25.0"],\
             ["lodash", "npm:4.17.21"],\
