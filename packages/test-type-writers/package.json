@@ -1,16 +1,13 @@
 {
-  "name": "@runtyping/runtypes",
-  "version": "1.1.0",
-  "description": "Generate runtypes from static types & JSON schema.",
+  "name": "@runtyping/test-type-writers",
+  "version": "0.0.0",
+  "description": "A testing library for runtyping typewriters",
   "main": "dist/index.js",
-  "bin": {
-    "runtyping": "dist/cli.js"
-  },
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "license": "MIT",
   "bugs": {
@@ -18,20 +15,19 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "peerDependencies": {
-    "runtypes": "^6.5.1"
+    "@runtyping/generator": "workspace:*"
   },
   "devDependencies": {
-    "@runtyping/test-type-writers": "workspace:*",
+    "@runtyping/generator": "workspace:*",
     "@semantic-release/commit-analyzer": "9.0.2",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.5",
     "@semantic-release/npm": "9.0.1",
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "28.1.6",
-    "@types/node": "16.11.45",
+    "@types/node": "18.0.6",
     "jest": "28.1.3",
     "rimraf": "3.0.2",
-    "runtypes": "6.5.1",
     "semantic-release": "19.0.3",
     "semantic-release-monorepo": "7.0.5",
     "ts-jest": "28.0.7",
@@ -39,7 +35,6 @@
     "typescript": "4.7.4"
   },
   "dependencies": {
-    "@runtyping/generator": "workspace:*",
     "ts-morph": "15.1.0",
     "tslib": "2.4.0"
   }

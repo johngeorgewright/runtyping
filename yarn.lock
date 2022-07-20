@@ -1953,6 +1953,7 @@ __metadata:
   resolution: "@runtyping/runtypes@workspace:packages/runtypes"
   dependencies:
     "@runtyping/generator": "workspace:*"
+    "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.5
@@ -2002,11 +2003,38 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@runtyping/test-type-writers@workspace:*, @runtyping/test-type-writers@workspace:packages/test-type-writers":
+  version: 0.0.0-use.local
+  resolution: "@runtyping/test-type-writers@workspace:packages/test-type-writers"
+  dependencies:
+    "@runtyping/generator": "workspace:*"
+    "@semantic-release/commit-analyzer": 9.0.2
+    "@semantic-release/git": 10.0.1
+    "@semantic-release/github": 8.0.5
+    "@semantic-release/npm": 9.0.1
+    "@semantic-release/release-notes-generator": 10.0.3
+    "@types/jest": 28.1.6
+    "@types/node": 18.0.6
+    jest: 28.1.3
+    rimraf: 3.0.2
+    semantic-release: 19.0.3
+    semantic-release-monorepo: 7.0.5
+    ts-jest: 28.0.7
+    ts-morph: 15.1.0
+    ts-node: 10.9.1
+    tslib: 2.4.0
+    typescript: 4.7.4
+  peerDependencies:
+    "@runtyping/generator": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@runtyping/zod@workspace:packages/zod":
   version: 0.0.0-use.local
   resolution: "@runtyping/zod@workspace:packages/zod"
   dependencies:
     "@runtyping/generator": "workspace:*"
+    "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.5
@@ -11145,7 +11173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"runtypes@npm:6.5.1":
+"runtypes@npm:6.5.1, runtypes@npm:runtypes@*":
   version: 6.5.1
   resolution: "runtypes@npm:6.5.1"
   checksum: 1ac1c4ad74c739356255323e4748c96f4e7b44cee44e917c66089668c93228222b2b8ef8571b8fcee9280c514ecf2b4eba94d39182fc0458d8eaa0be794ef758
@@ -13601,7 +13629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.17.9":
+"zod@npm:3.17.9, zod@npm:zod@*":
   version: 3.17.9
   resolution: "zod@npm:3.17.9"
   checksum: 0622a5ae4c668e571869723fec5229c1c8148e6c683db7480cc7a3fdbee77db01ddcf47e286d278678e9e2c0dda14c8018656a4c43455541b0d0182cfc606ee9
