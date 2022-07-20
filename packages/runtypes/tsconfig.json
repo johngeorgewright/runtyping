@@ -17,6 +17,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "../generator/src/generateOrReuseType.ts"],
+  "include": ["src"],
   "exclude": ["dist", "test", "jest.config.ts"]
 }

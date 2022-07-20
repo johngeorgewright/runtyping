@@ -1,2 +1,2 @@
-export { Generator } from '@runtyping/generator'
+export { default as Generator } from './Generator'
 export * from '@runtyping/generator/dist/runtypes'

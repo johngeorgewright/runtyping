@@ -43,21 +43,18 @@ import {
 
 type GeneratorOptionsBase =
   | {
-      typeWriters: TypeWriters
-      module: string
-      targetFile: string
       tsConfigFile?: string
     }
   | {
-      typeWriters: TypeWriters
-      module: string
-      targetFile: string
       project?: Project
     }
 
 export type GeneratorOptions = GeneratorOptionsBase & {
+  module: string
   runtypeFormat?: string
+  targetFile: string
   typeFormat?: string
+  typeWriters: TypeWriters
 }
 
 type SourceCodeFile = SourceFile
