@@ -18,12 +18,12 @@ npm install -D @runtyping/zod
    ```yaml
    # runtyping.yml
 
-   targetFile: src/other-runtypes.ts # The file to create
+   targetFile: ./src/other-runtypes.ts # The file to create
    runtypeFormat: {type}Rt # Optional: use a custom name format for the created runtype
    typeFormat: {type}Type  # Optional: use a custom name format for the created type
    sourceTypes:
      exportStaticType: true # Optional: export static types as well (true by default)
-     file: src/types.ts # The file where your type lives
+     file: ./src/types.ts # The file where your type lives
      type: Foo # The type you want to convert to a runtype
    ```
 
@@ -32,18 +32,18 @@ npm install -D @runtyping/zod
    ```yaml
    # runtyping.yml
 
-   - targetFile: src/other-runtypes.ts
+   - targetFile: ./src/other-runtypes.ts
      sourceTypes:
-       file: src/types.ts
+       file: ./src/types.ts
        type: Foo
 
-   - targetFile: src/runtypes.ts
+   - targetFile: ./src/runtypes.ts
      sourceTypes:
        # Source types can also be a list
-       - file: src/types.ts
+       - file: ./src/types.ts
          type: Foo
 
-       - file: json/my-json-schema.json # You can even use JSON schema files!!
+       - file: ./json/my-json-schema.json # You can even use JSON schema files!!
          type: [ExampleType, AnotherExampleType] # You may use an array of types
    ```
 
@@ -57,13 +57,13 @@ Basic example:
 import { Generator } from '@runtyping/zod'
 
 const generator = new Generator({
-  targetFile: 'src/runtypes.ts',
+  targetFile: './src/runtypes.ts',
   // optional: runtypeFormat / typeFormat (see above)
 })
 
 generator
   .generate([
-    { file: 'src/types.ts', type: 'Foo' },
+    { file: './src/types.ts', type: 'Foo' },
     { file: 'json/my-json-schema.json', type: 'ExampleType' },
   ])
   .then((file) => file.save())
@@ -74,7 +74,7 @@ generator
 ```ts
 import { Generator } from '@runtyping/zod'
 const generator = new Generator({
-  targetFile: 'src/runtypes.ts',
+  targetFile: './src/runtypes.ts',
   tsConfigFile: '/path/to/tsconfig.json',
 })
 ```
@@ -88,7 +88,7 @@ import { Project } from 'ts-morph'
 import { Generator } from '@runtyping/zod'
 
 const generator = new Generator({
-  targetFile: 'src/runtypes.ts',
+  targetFile: './src/runtypes.ts',
   project: new Project({
     // ...
   }),
