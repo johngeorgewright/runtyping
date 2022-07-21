@@ -5,14 +5,12 @@ on:
     branches: [master]
 
 jobs:
-  test:
-    name: Test
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PUSH_TOKEN }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -25,9 +23,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Test
-        run: yarn test
-
       - name: Upload dists
         uses: actions/upload-artifact@v3
         with:
@@ -35,10 +30,31 @@ jobs:
           name: dists
           path: packages/**/dist
 
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup
+        run: yarn --immutable
+
+      - name: Test
+        run: yarn test
+
   publish-npm:
     name: GitHub & NPM
     if: github.actor != 'renovate[bot]'
-    needs: [test]
+    needs: [build, test]
     runs-on: ubuntu-latest
     environment: NPM
     steps:
