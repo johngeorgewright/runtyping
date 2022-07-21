@@ -8,37 +8,16 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout project
-        uses: actions/checkout@v3
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: .nvmrc
-
-      - name: Setup
-        run: yarn --immutable
-
-      - name: Build
-        run: yarn build
-
-      - name: Upload dists
-        uses: actions/upload-artifact@v3
-        with:
-          if-no-files-found: error
-          name: dists
-          path: packages/**/dist
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [14, 16, 18]
     steps:
       - name: Checkout project
         uses: actions/checkout@v3
+
+      - name: NVM
+        id: nvm
+        run: echo "::set-output name=version::$(cat .nvmrc)"
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -48,13 +27,24 @@ jobs:
       - name: Setup
         run: yarn --immutable
 
+      - name: Build
+        run: yarn build
+
       - name: Test
         run: yarn test
+
+      - name: Upload dists
+        uses: actions/upload-artifact@v3
+        if: matrix.node-version == steps.nvm.outputs.version
+        with:
+          if-no-files-found: error
+          name: dists
+          path: packages/**/dist
 
   publish-npm:
     name: GitHub & NPM
     if: github.actor != 'renovate[bot]'
-    needs: [build, test]
+    needs: [build]
     runs-on: ubuntu-latest
     environment: NPM
     steps:
