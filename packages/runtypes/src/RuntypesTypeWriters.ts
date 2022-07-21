@@ -38,19 +38,19 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override null() {
-    return this.#simpleTypeWriter('Null')
+    return this.#simple('Null')
   }
 
   override string() {
-    return this.#simpleTypeWriter('String')
+    return this.#simple('String')
   }
 
   override number() {
-    return this.#simpleTypeWriter('Number')
+    return this.#simple('Number')
   }
 
   override boolean() {
-    return this.#simpleTypeWriter('Boolean')
+    return this.#simple('Boolean')
   }
 
   override *array(type: Type): TypeWriter {
@@ -89,16 +89,15 @@ export default class RuntypesTypeWriters extends TypeWriters {
         .getType()
     )
 
-    yield [Import, 'Literal']
     yield [ImportFromSource, { name: enumTypeName, alias: `_${enumTypeName}` }]
-    yield [Write, `Literal(_${enumTypeName}.${getTypeName(type)})`]
+    yield* this.#literal(`_${enumTypeName}.${getTypeName(type)}`)
   }
 
   override *intersection(type: Type): TypeWriter {
     const [first, ...rest] = type
       .getIntersectionTypes()
       .sort(sortUndefinedFirst)
-    if (!first) return yield* this.#simpleTypeWriter('Undefined')
+    if (!first) return yield* this.#simple('Undefined')
     yield* this.generateOrReuseType(first)
     for (const item of rest) {
       yield [Write, '.And(']
@@ -109,7 +108,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
 
   override *union(type: Type): TypeWriter {
     const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
-    if (!first) return yield* this.#simpleTypeWriter('Undefined')
+    if (!first) return yield* this.#simple('Undefined')
     yield* this.generateOrReuseType(first)
     for (const item of rest) {
       yield [Write, '.Or(']
@@ -118,29 +117,33 @@ export default class RuntypesTypeWriters extends TypeWriters {
     }
   }
 
-  override *literal(type: Type): TypeWriter {
+  override literal(type: Type) {
+    return this.#literal(type.getText())
+  }
+
+  *#literal(value: string): TypeWriter {
     yield [Import, 'Literal']
-    yield [Write, `Literal(${type.getText()})`]
+    yield [Write, `Literal(${value})`]
   }
 
   override any() {
-    return this.#simpleTypeWriter('Unknown')
+    return this.#simple('Unknown')
   }
 
   override unknown() {
-    return this.#simpleTypeWriter('Unknown')
+    return this.#simple('Unknown')
   }
 
   override undefined() {
-    return this.#simpleTypeWriter('Undefined')
+    return this.#simple('Undefined')
   }
 
   override void() {
-    return this.#simpleTypeWriter('Void')
+    return this.#simple('Void')
   }
 
   override function() {
-    return this.#simpleTypeWriter('Function')
+    return this.#simple('Function')
   }
 
   override *builtInObject(type: Type): TypeWriter {
@@ -233,21 +236,23 @@ export default class RuntypesTypeWriters extends TypeWriters {
 
   override *stringIndexedObject(type: Type): TypeWriter {
     yield [Import, 'Dictionary']
-    yield [Import, 'String']
     yield [Write, 'Dictionary(']
     yield* this.generateOrReuseType(type.getStringIndexType()!)
-    yield [Write, ', String)']
+    yield [Write, ', ']
+    yield* this.string()
+    yield [Write, ')']
   }
 
   override *numberIndexedObject(type: Type): TypeWriter {
     yield [Import, 'Dictionary']
-    yield [Import, 'Number']
     yield [Write, 'Dictionary(']
     yield* this.generateOrReuseType(type.getNumberIndexType()!)
-    yield [Write, ', Number)']
+    yield [Write, ', ']
+    yield* this.number()
+    yield [Write, ')']
   }
 
-  *#simpleTypeWriter(type: SimpleRuntype): TypeWriter {
+  *#simple(type: SimpleRuntype): TypeWriter {
     yield [Import, type]
     yield [Write, type]
   }

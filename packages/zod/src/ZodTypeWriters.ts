@@ -59,9 +59,8 @@ export default class ZodTypeWriters extends TypeWriters {
         .getType()
     )
 
-    yield [Import, 'literal']
     yield [ImportFromSource, { name: enumTypeName, alias: `_${enumTypeName}` }]
-    yield [Write, `literal(_${enumTypeName}.${getTypeName(type)})`]
+    yield* this.#literal(`_${enumTypeName}.${getTypeName(type)}`)
   }
 
   override *function(): TypeWriter {
@@ -96,9 +95,13 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [Write, ')']
   }
 
-  override *literal(type: Type): TypeWriter {
+  override literal(type: Type): TypeWriter {
+    return this.#literal(type.getText())
+  }
+
+  *#literal(value: string): TypeWriter {
     yield [Import, 'literal']
-    yield [Write, `literal(${type.getText()})`]
+    yield [Write, `literal(${value})`]
   }
 
   override null() {

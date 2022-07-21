@@ -217,7 +217,7 @@ export type C = Static<typeof C>;
 `;
 
 exports[`json schema 1`] = `
-"import { Static, Record, Tuple, Dictionary, String, Unknown, Undefined } from 'runtypes';
+"import { Static, Record, Tuple, Dictionary, Unknown, String, Undefined } from 'runtypes';
 
 export const ExampleSchema = Record({ testArray: Tuple().Or(Tuple(Dictionary(Unknown, String),)).Or(Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String),)).Or(Undefined).optional(), });
 
@@ -226,7 +226,7 @@ export type ExampleSchema = Static<typeof ExampleSchema>;
 `;
 
 exports[`json schema 2`] = `
-"import { Static, Record, Tuple, Dictionary, String, Unknown, Undefined } from 'runtypes';
+"import { Static, Record, Tuple, Dictionary, Unknown, String, Undefined } from 'runtypes';
 
 export const ExampleSchema = Record({ testArray: Tuple(Dictionary(Unknown, String), Dictionary(Unknown, String), Dictionary(Unknown, String),).Or(Undefined).optional(), });
 
