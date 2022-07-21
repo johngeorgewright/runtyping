@@ -18,7 +18,7 @@ npm install -D @runtyping/runtypes
    ```yaml
    # runtyping.yml
 
-   targetFile: src/other-runtypes.ts # The file to create
+   targetFile: ./src/other-runtypes.ts # The file to create
    runtypeFormat: {type}Rt # Optional: use a custom name format for the created runtype
    typeFormat: {type}Type  # Optional: use a custom name format for the created type
    sourceTypes:
@@ -32,12 +32,12 @@ npm install -D @runtyping/runtypes
    ```yaml
    # runtyping.yml
 
-   - targetFile: src/other-runtypes.ts
+   - targetFile: ./src/other-runtypes.ts
      sourceTypes:
        file: src/types.ts
        type: Foo
 
-   - targetFile: src/runtypes.ts
+   - targetFile: ./src/runtypes.ts
      sourceTypes:
        # Source types can also be a list
        - file: src/types.ts
@@ -57,13 +57,13 @@ Basic example:
 import { Generator } from '@runtyping/runtypes'
 
 const generator = new Generator({
-  targetFile: 'src/runtypes.ts',
+  targetFile: './src/runtypes.ts',
   // optional: runtypeFormat / typeFormat (see above)
 })
 
 generator
   .generate([
-    { file: 'src/types.ts', type: 'Foo' },
+    { file: './src/types.ts', type: 'Foo' },
     { file: 'json/my-json-schema.json', type: 'ExampleType' },
   ])
   .then((file) => file.save())
@@ -74,7 +74,7 @@ generator
 ```ts
 import { Generator } from '@runtyping/runtypes'
 const generator = new Generator({
-  targetFile: 'src/runtypes.ts',
+  targetFile: './src/runtypes.ts',
   tsConfigFile: '/path/to/tsconfig.json',
 })
 ```
@@ -88,7 +88,7 @@ import { Project } from 'ts-morph'
 import { Generator } from '@runtyping/runtypes'
 
 const generator = new Generator({
-  targetFile: 'src/runtypes.ts',
+  targetFile: './src/runtypes.ts',
   project: new Project({
     // ...
   }),
