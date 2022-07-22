@@ -2511,7 +2511,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["typescript-json-schema", "npm:0.54.0"],\
             ["yargs", "npm:17.5.1"],\
-            ["zod", "npm:3.17.9"]\
+            ["zod", "npm:3.17.10"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2692,7 +2692,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-node", "virtual:d0a2ad1e889e937eb6a305625129509de4713d73d370203012e6c71dfd925c9d1617b5a0a78d434ec9314ef5b7597fd86b674d5fc602762f1923f4666a51a1cb#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
-            ["zod", "npm:3.17.9"]\
+            ["zod", "npm:3.17.10"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -15683,6 +15683,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["zod", [\
+        ["npm:3.17.10", {\
+          "packageLocation": "./.yarn/cache/zod-npm-3.17.10-7952dcfecb-5de630b8ec.zip/node_modules/zod/",\
+          "packageDependencies": [\
+            ["zod", "npm:3.17.10"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.17.9", {\
           "packageLocation": "./.yarn/cache/zod-npm-3.17.9-31398c3e07-0622a5ae4c.zip/node_modules/zod/",\
           "packageDependencies": [\
