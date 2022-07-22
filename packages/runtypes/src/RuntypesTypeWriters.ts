@@ -1,23 +1,22 @@
 import {
+  DeclareType,
+  Enum,
+  escapeQuottedPropName,
   getGenerics,
   getTypeName,
-  StaticParameters,
-} from '@runtyping/generator'
-import {
-  DeclareType,
-  escapeQuottedPropName,
   Import,
   ImportFromSource,
   PickByValue,
   propNameRequiresQuotes,
   sortUndefinedFirst,
   Static,
+  StaticParameters,
   TypeWriter,
   TypeWriters,
   Write,
 } from '@runtyping/generator'
 import type * as runtypes from 'runtypes'
-import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
+import { SymbolFlags, Type } from 'ts-morph'
 
 export default class RuntypesTypeWriters extends TypeWriters {
   override *defaultStaticImplementation(): TypeWriter {
@@ -81,14 +80,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *enumLiteral(type: Type): TypeWriter {
-    const enumTypeName = getTypeName(
-      type
-        .getSymbolOrThrow()
-        .getValueDeclarationOrThrow()
-        .getFirstAncestorByKindOrThrow(SyntaxKind.EnumDeclaration)
-        .getType()
-    )
-
+    const enumTypeName = Enum.getEnumIdentifierNameFromEnumLiteral(type)
     yield [ImportFromSource, { name: enumTypeName, alias: `_${enumTypeName}` }]
     yield* this.#literal(`_${enumTypeName}.${getTypeName(type)}`)
   }

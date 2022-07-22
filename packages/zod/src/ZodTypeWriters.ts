@@ -1,5 +1,6 @@
 import {
   DeclareType,
+  Enum,
   escapeQuottedPropName,
   getGenerics,
   getTypeName,
@@ -14,7 +15,7 @@ import {
   Write,
 } from '@runtyping/generator'
 import { titleCase } from 'title-case'
-import { SymbolFlags, SyntaxKind, Type } from 'ts-morph'
+import { SymbolFlags, Type } from 'ts-morph'
 import * as zod from 'zod'
 
 export default class ZodTypeWriters extends TypeWriters {
@@ -51,14 +52,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *enumLiteral(type: Type): TypeWriter {
-    const enumTypeName = getTypeName(
-      type
-        .getSymbolOrThrow()
-        .getValueDeclarationOrThrow()
-        .getFirstAncestorByKindOrThrow(SyntaxKind.EnumDeclaration)
-        .getType()
-    )
-
+    const enumTypeName = Enum.getEnumIdentifierNameFromEnumLiteral(type)
     yield [ImportFromSource, { name: enumTypeName, alias: `_${enumTypeName}` }]
     yield* this.#literal(`_${enumTypeName}.${getTypeName(type)}`)
   }

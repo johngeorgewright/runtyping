@@ -12,3 +12,4 @@ export {
   propNameRequiresQuotes,
   sortUndefinedFirst,
 } from './util'
+export * as Enum from './enum'
