@@ -72,8 +72,8 @@ export type HorseType = Infer<typeof HorseType>;
 `;
 
 exports[`enum 1`] = `
-"import { A as _A, B as _B, C as _C } from '../fixtures/enum';
-import { infer as Infer, nativeEnum, literal } from 'zod';
+"import { A as _A, B as _B, C as _C, E as _E } from '../fixtures/enum';
+import { infer as Infer, nativeEnum, literal, string } from 'zod';
 
 export const A = nativeEnum(_A);
 
@@ -86,6 +86,14 @@ export type B = Infer<typeof B>;
 export const D = literal(_C.A3).or(literal(_C.B3));
 
 export type D = Infer<typeof D>;
+
+export const F = string().or(literal(_E.S));
+
+export type F = Infer<typeof F>;
+
+export const G = literal(_C.A3).or(literal(_C.B3)).or(literal(_C.C3)).or(literal(_E.S));
+
+export type G = Infer<typeof G>;
 "
 `;
 

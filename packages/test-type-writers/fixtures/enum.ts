@@ -16,3 +16,11 @@ export enum C {
 }
 
 export type D = C.A3 | C.B3
+
+export enum E {
+  S,
+}
+
+export type F = string | E
+
+export type G = C | E

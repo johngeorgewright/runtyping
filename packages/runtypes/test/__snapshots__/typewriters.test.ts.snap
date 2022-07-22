@@ -72,8 +72,8 @@ export type HorseType = Static<typeof HorseType>;
 `;
 
 exports[`enum 1`] = `
-"import { A as _A, B as _B, C as _C } from '../fixtures/enum';
-import { Static, Guard, Literal } from 'runtypes';
+"import { A as _A, B as _B, C as _C, E as _E } from '../fixtures/enum';
+import { Static, Guard, Literal, String } from 'runtypes';
 
 export const A = Guard((x: any): x is _A => Object.values(_A).includes(x));
 
@@ -86,6 +86,14 @@ export type B = Static<typeof B>;
 export const D = Literal(_C.A3).Or(Literal(_C.B3));
 
 export type D = Static<typeof D>;
+
+export const F = String.Or(Literal(_E.S));
+
+export type F = Static<typeof F>;
+
+export const G = Literal(_C.A3).Or(Literal(_C.B3)).Or(Literal(_C.C3)).Or(Literal(_E.S));
+
+export type G = Static<typeof G>;
 "
 `;
 
