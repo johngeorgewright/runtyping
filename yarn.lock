@@ -1891,7 +1891,7 @@ __metadata:
     "@types/jest": 28.1.6
     "@types/js-yaml": 4.0.5
     "@types/node": 16.11.45
-    "@types/prettier": 2.6.3
+    "@types/prettier": 2.6.4
     "@types/yargs": 17.0.10
     jest: 28.1.3
     js-yaml: 4.1.0
@@ -1987,7 +1987,7 @@ __metadata:
     "@semantic-release/github": 8.0.5
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.6
-    "@types/prettier": 2.6.3
+    "@types/prettier": 2.6.4
     "@types/rimraf": 3.0.2
     "@types/yeoman-generator": 5.2.10
     change-case: 4.1.2
@@ -2622,10 +2622,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:2.6.3, @types/prettier@npm:^2.6.1":
-  version: 2.6.3
-  resolution: "@types/prettier@npm:2.6.3"
-  checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
+"@types/prettier@npm:2.6.4":
+  version: 2.6.4
+  resolution: "@types/prettier@npm:2.6.4"
+  checksum: a8ec6601cbacf8040782cc883bf1a9393fdcb991ebe88440b0f875bb1556652927ac9fe61a721b6c666ac6252158ba327ce2868559bafa2c86e7dfef4089782a
   languageName: node
   linkType: hard
 
@@ -2633,6 +2633,13 @@ __metadata:
   version: 2.4.2
   resolution: "@types/prettier@npm:2.4.2"
   checksum: 76e230b2d11028af11fe12e09b2d5b10b03738e9abf819ae6ebb0f78cac13d39f860755ce05ac3855b608222518d956628f5d00322dc206cc6d1f2d8d1519f1e
+  languageName: node
+  linkType: hard
+
+"@types/prettier@npm:^2.6.1":
+  version: 2.6.3
+  resolution: "@types/prettier@npm:2.6.3"
+  checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
   languageName: node
   linkType: hard
 
