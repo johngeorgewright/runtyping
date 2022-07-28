@@ -23,7 +23,7 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "28.1.6",
     "@types/js-yaml": "4.0.5",
-    "@types/node": "16.11.45",
+    "@types/node": "16.11.46",
     "@types/prettier": "2.6.4",
     "@types/yargs": "17.0.10",
     "jest": "28.1.3",
