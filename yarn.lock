@@ -1998,7 +1998,7 @@ __metadata:
     ts-jest: 28.0.7
     tslib: 2.4.0
     typescript: 4.7.4
-    yeoman-generator: 5.6.1
+    yeoman-generator: 5.7.0
   languageName: unknown
   linkType: soft
 
@@ -4531,7 +4531,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.3":
+"cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
   dependencies:
@@ -5241,24 +5241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "execa@npm:4.1.0"
-  dependencies:
-    cross-spawn: ^7.0.0
-    get-stream: ^5.0.0
-    human-signals: ^1.1.1
-    is-stream: ^2.0.0
-    merge-stream: ^2.0.0
-    npm-run-path: ^4.0.0
-    onetime: ^5.1.0
-    signal-exit: ^3.0.2
-    strip-final-newline: ^2.0.0
-  checksum: e30d298934d9c52f90f3847704fd8224e849a081ab2b517bbc02f5f7732c24e56a21f14cb96a08256deffeb2d12b2b7cb7e2b014a12fb36f8d3357e06417ed55
-  languageName: node
-  linkType: hard
-
-"execa@npm:^5.0.0":
+"execa@npm:^5.0.0, execa@npm:^5.1.1":
   version: 5.1.1
   resolution: "execa@npm:5.1.1"
   dependencies:
@@ -5878,15 +5861,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-stream@npm:^5.0.0":
-  version: 5.2.0
-  resolution: "get-stream@npm:5.2.0"
-  dependencies:
-    pump: ^3.0.0
-  checksum: 8bc1a23174a06b2b4ce600df38d6c98d2ef6d84e020c1ddad632ad75bac4e092eeb40e4c09e0761c35fc2dbc5e7fff5dab5e763a383582c4a167dd69a905bd12
-  languageName: node
-  linkType: hard
-
 "get-stream@npm:^6.0.0, get-stream@npm:^6.0.1":
   version: 6.0.1
   resolution: "get-stream@npm:6.0.1"
@@ -6437,13 +6411,6 @@ __metadata:
     agent-base: 6
     debug: 4
   checksum: 165bfb090bd26d47693597661298006841ab733d0c7383a8cb2f17373387a94c903a3ac687090aa739de05e379ab6f868bae84ab4eac288ad85c328cd1ec9e53
-  languageName: node
-  linkType: hard
-
-"human-signals@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "human-signals@npm:1.1.1"
-  checksum: d587647c9e8ec24e02821b6be7de5a0fc37f591f6c4e319b3054b43fd4c35a70a94c46fc74d8c1a43c47fde157d23acd7421f375e1c1365b09a16835b8300205
   languageName: node
   linkType: hard
 
@@ -9445,7 +9412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-run-path@npm:^4.0.0, npm-run-path@npm:^4.0.1":
+"npm-run-path@npm:^4.0.1":
   version: 4.0.1
   resolution: "npm-run-path@npm:4.0.1"
   dependencies:
@@ -13540,14 +13507,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yeoman-generator@npm:5.6.1":
-  version: 5.6.1
-  resolution: "yeoman-generator@npm:5.6.1"
+"yeoman-generator@npm:5.7.0":
+  version: 5.7.0
+  resolution: "yeoman-generator@npm:5.7.0"
   dependencies:
     chalk: ^4.1.0
     dargs: ^7.0.0
     debug: ^4.1.1
-    execa: ^4.1.0
+    execa: ^5.1.1
     github-username: ^6.0.0
     lodash: ^4.17.11
     minimist: ^1.2.5
@@ -13562,7 +13529,7 @@ __metadata:
   peerDependenciesMeta:
     yeoman-environment:
       optional: true
-  checksum: ef036210b6fb16f32d2615cd7c5d60a3ed17d1be5402ad997eee91ac709880802ad4026c1486bfff1ef891d284c1bbb15ab45caf8e287e175204d204f8d03474
+  checksum: 16b779372d89e2bff2b10d73c942f7b30a08ba92f329d1a1f0e485810d2ee1f8aa59ff454bd5398042ec8e6fdc7db89f8dd98040b42f6a92a2eaca579bca1a3f
   languageName: node
   linkType: hard
 
