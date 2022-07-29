@@ -2510,8 +2510,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["typescript-json-schema", "npm:0.54.0"],\
-            ["yargs", "npm:17.5.1"],\
-            ["zod", "npm:3.17.10"]\
+            ["yargs", "npm:17.5.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
