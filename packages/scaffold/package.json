@@ -36,6 +36,6 @@
   "dependencies": {
     "change-case": "4.1.2",
     "tslib": "2.4.0",
-    "yeoman-generator": "5.6.1"
+    "yeoman-generator": "5.7.0"
   }
 }

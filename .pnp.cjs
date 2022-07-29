@@ -2603,7 +2603,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.7"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
-            ["yeoman-generator", "virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.6.1"]\
+            ["yeoman-generator", "virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.7.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -6425,22 +6425,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:4.1.0", {\
-          "packageLocation": "./.yarn/cache/execa-npm-4.1.0-cc675b4189-e30d298934.zip/node_modules/execa/",\
-          "packageDependencies": [\
-            ["execa", "npm:4.1.0"],\
-            ["cross-spawn", "npm:7.0.3"],\
-            ["get-stream", "npm:5.2.0"],\
-            ["human-signals", "npm:1.1.1"],\
-            ["is-stream", "npm:2.0.1"],\
-            ["merge-stream", "npm:2.0.0"],\
-            ["npm-run-path", "npm:4.0.1"],\
-            ["onetime", "npm:5.1.2"],\
-            ["signal-exit", "npm:3.0.5"],\
-            ["strip-final-newline", "npm:2.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:5.1.1", {\
           "packageLocation": "./.yarn/cache/execa-npm-5.1.1-191347acf5-fba9022c8c.zip/node_modules/execa/",\
           "packageDependencies": [\
@@ -7097,14 +7081,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.2.0", {\
-          "packageLocation": "./.yarn/cache/get-stream-npm-5.2.0-2cfd3b452b-8bc1a23174.zip/node_modules/get-stream/",\
-          "packageDependencies": [\
-            ["get-stream", "npm:5.2.0"],\
-            ["pump", "npm:3.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:6.0.1", {\
           "packageLocation": "./.yarn/cache/get-stream-npm-6.0.1-83e51a4642-e04ecece32.zip/node_modules/get-stream/",\
           "packageDependencies": [\
@@ -7712,13 +7688,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["human-signals", [\
-        ["npm:1.1.1", {\
-          "packageLocation": "./.yarn/cache/human-signals-npm-1.1.1-616b2586c2-d587647c9e.zip/node_modules/human-signals/",\
-          "packageDependencies": [\
-            ["human-signals", "npm:1.1.1"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:2.1.0", {\
           "packageLocation": "./.yarn/cache/human-signals-npm-2.1.0-f75815481d-b87fd89fce.zip/node_modules/human-signals/",\
           "packageDependencies": [\
@@ -15584,22 +15553,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["yeoman-generator", [\
-        ["npm:5.6.1", {\
-          "packageLocation": "./.yarn/cache/yeoman-generator-npm-5.6.1-a49b7654c4-ef036210b6.zip/node_modules/yeoman-generator/",\
+        ["npm:5.7.0", {\
+          "packageLocation": "./.yarn/cache/yeoman-generator-npm-5.7.0-ab59b3fd69-16b779372d.zip/node_modules/yeoman-generator/",\
           "packageDependencies": [\
-            ["yeoman-generator", "npm:5.6.1"]\
+            ["yeoman-generator", "npm:5.7.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.6.1", {\
-          "packageLocation": "./.yarn/__virtual__/yeoman-generator-virtual-98726adfa3/0/cache/yeoman-generator-npm-5.6.1-a49b7654c4-ef036210b6.zip/node_modules/yeoman-generator/",\
+        ["virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.7.0", {\
+          "packageLocation": "./.yarn/__virtual__/yeoman-generator-virtual-bc17e25400/0/cache/yeoman-generator-npm-5.7.0-ab59b3fd69-16b779372d.zip/node_modules/yeoman-generator/",\
           "packageDependencies": [\
-            ["yeoman-generator", "virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.6.1"],\
+            ["yeoman-generator", "virtual:9166d523748bf2b6ac85181573d0b897d25d8abab742f60a5d7bee43f5c284a83b05180e5d4362ca2ae3ac9bc75658414c205784bb19f5631b278792cbeef866#npm:5.7.0"],\
             ["@types/yeoman-environment", null],\
             ["chalk", "npm:4.1.2"],\
             ["dargs", "npm:7.0.0"],\
             ["debug", "virtual:c91fcd356d35829ced3f9cafcb7d70217b01982491547be46dbf92a34cc1c6f47f5022ecefa553004a9375335550e06b2a45e10dc96f6aba8aa030dc26a07d30#npm:4.3.2"],\
-            ["execa", "npm:4.1.0"],\
+            ["execa", "npm:5.1.1"],\
             ["github-username", "npm:6.0.0"],\
             ["lodash", "npm:4.17.21"],\
             ["minimist", "npm:1.2.5"],\
