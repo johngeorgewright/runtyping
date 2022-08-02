@@ -7,7 +7,6 @@ export default class RuntypeGenerator extends Generator {
   constructor(options: RuntypeGeneratorOptions) {
     super({
       ...options,
-      module: 'runtypes',
       typeWriters: new RuntypesTypeWriters(),
     })
   }

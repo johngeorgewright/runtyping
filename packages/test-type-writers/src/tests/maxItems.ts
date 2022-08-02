@@ -4,12 +4,10 @@ import { fixturesDir } from '../generateFixture'
 import { TypeWriterTestProps } from '../types'
 
 export default function maxItemsTypeWriterTest({
-  module,
   typeWriters,
 }: TypeWriterTestProps) {
   test('json schema', async () => {
     const generator = new Generator({
-      module,
       targetFile: pathHelper.join(fixturesDir, `maxItems.schema.runtypes.ts`),
       typeWriters,
     })

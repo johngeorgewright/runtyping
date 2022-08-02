@@ -19,8 +19,10 @@ import { SymbolFlags, Type } from 'ts-morph'
 import * as zod from 'zod'
 
 export default class ZodTypeWriters extends TypeWriters {
+  #module = 'zod';
+
   override *defaultStaticImplementation(): TypeWriter {
-    yield [Import, { alias: 'Infer', name: 'infer' }]
+    yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
     yield [Static, 'Infer<typeof ${name}>']
   }
 
@@ -29,7 +31,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *array(type: Type): TypeWriter {
-    yield [Import, 'array']
+    yield [Import, { source: this.#module, name: 'array' }]
     yield [Write, 'array(']
     yield* this.generateOrReuseType(type.getArrayElementTypeOrThrow())
     yield [Write, ')']
@@ -40,13 +42,16 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *builtInObject(type: Type): TypeWriter {
-    yield [Import, { name: 'instanceof', alias: 'InstanceOf' }]
+    yield [
+      Import,
+      { source: this.#module, name: 'instanceof', alias: 'InstanceOf' },
+    ]
     yield [Write, `InstanceOf(${type.getText()})`]
   }
 
   override *enum(type: Type): TypeWriter {
     const name = getTypeName(type)
-    yield [Import, 'nativeEnum']
+    yield [Import, { source: this.#module, name: 'nativeEnum' }]
     yield [ImportFromSource, { name, alias: `_${name}` }]
     yield [Write, `nativeEnum(_${name})`]
   }
@@ -58,7 +63,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *function(): TypeWriter {
-    yield [Import, { alias: 'func', name: 'function' }]
+    yield [Import, { source: this.#module, alias: 'func', name: 'function' }]
     yield [Write, 'func()']
   }
 
@@ -80,8 +85,8 @@ export default class ZodTypeWriters extends TypeWriters {
   override *lazy(type: Type): TypeWriter {
     const name = getTypeName(type)
     const alias = `_${name}`
-    yield [Import, 'lazy']
-    yield [Import, 'ZodType']
+    yield [Import, { source: this.#module, name: 'lazy' }]
+    yield [Import, { source: this.#module, name: 'ZodType' }]
     yield [ImportFromSource, { alias, name }]
     yield [DeclareType, `ZodType<${alias}>`]
     yield [Write, 'lazy(() => ']
@@ -94,7 +99,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   *#literal(value: string): TypeWriter {
-    yield [Import, 'literal']
+    yield [Import, { source: this.#module, name: 'literal' }]
     yield [Write, `literal(${value})`]
   }
 
@@ -107,15 +112,15 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *numberIndexedObject(type: Type): TypeWriter {
-    yield [Import, 'record']
-    yield [Import, 'number']
+    yield [Import, { source: this.#module, name: 'record' }]
+    yield [Import, { source: this.#module, name: 'number' }]
     yield [Write, 'record(number(), ']
     yield* this.generateOrReuseType(type.getNumberIndexType()!)
     yield [Write, ')']
   }
 
   override *object(type: Type): TypeWriter {
-    yield [Import, 'object']
+    yield [Import, { source: this.#module, name: 'object' }]
     yield [Write, 'object({']
 
     const typeArguments = getGenerics(type).map((typeArgument) =>
@@ -145,8 +150,8 @@ export default class ZodTypeWriters extends TypeWriters {
   override *genericObject(type: Type): TypeWriter {
     const generics = getGenerics(type)
 
-    yield [Import, { alias: 'Infer', name: 'infer' }]
-    yield [Import, 'ZodType']
+    yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
+    yield [Import, { source: this.#module, name: 'ZodType' }]
     yield [Write, '<']
 
     for (const generic of generics) {
@@ -202,15 +207,15 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {
-    yield [Import, 'record']
-    yield [Import, 'string']
+    yield [Import, { source: this.#module, name: 'record' }]
+    yield [Import, { source: this.#module, name: 'string' }]
     yield [Write, 'record(string(), ']
     yield* this.generateOrReuseType(type.getStringIndexType()!)
     yield [Write, ')']
   }
 
   override *tuple(type: Type): TypeWriter {
-    yield [Import, 'tuple']
+    yield [Import, { source: this.#module, name: 'tuple' }]
     yield [Write, 'tuple(']
     for (const element of type.getTupleElements()) {
       yield* this.generateOrReuseType(element)
@@ -248,10 +253,10 @@ export default class ZodTypeWriters extends TypeWriters {
   *#simple(type: keyof typeof zod): TypeWriter {
     if (primitiveNames.includes(type)) {
       const alias = titleCase(type)
-      yield [Import, { name: type, alias }]
+      yield [Import, { source: this.#module, name: type, alias }]
       yield [Write, `${alias}()`]
     } else {
-      yield [Import, type]
+      yield [Import, { source: this.#module, name: type }]
       yield [Write, `${type}()`]
     }
   }

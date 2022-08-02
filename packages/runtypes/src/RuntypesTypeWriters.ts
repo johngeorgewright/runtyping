@@ -19,16 +19,18 @@ import type * as runtypes from 'runtypes'
 import { SymbolFlags, Type } from 'ts-morph'
 
 export default class RuntypesTypeWriters extends TypeWriters {
+  #module = 'runtypes';
+
   override *defaultStaticImplementation(): TypeWriter {
-    yield [Import, 'Static']
+    yield [Import, { source: this.#module, name: 'Static' }]
     yield [Static, 'Static<typeof ${name}>']
   }
 
   override *lazy(type: Type): TypeWriter {
     const name = getTypeName(type)
     const alias = `_${name}`
-    yield [Import, 'Lazy']
-    yield [Import, 'Runtype']
+    yield [Import, { source: this.#module, name: 'Lazy' }]
+    yield [Import, { source: this.#module, name: 'Runtype' }]
     yield [ImportFromSource, { alias, name }]
     yield [DeclareType, `Runtype<${alias}>`]
     yield [Write, 'Lazy(() => ']
@@ -53,14 +55,14 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *array(type: Type): TypeWriter {
-    yield [Import, 'Array']
+    yield [Import, { source: this.#module, name: 'Array' }]
     yield [Write, 'Array(']
     yield* this.generateOrReuseType(type.getArrayElementTypeOrThrow())
     yield [Write, ')']
   }
 
   override *tuple(type: Type): TypeWriter {
-    yield [Import, 'Tuple']
+    yield [Import, { source: this.#module, name: 'Tuple' }]
     yield [Write, 'Tuple(']
     for (const element of type.getTupleElements()) {
       yield* this.generateOrReuseType(element)
@@ -71,7 +73,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
 
   override *enum(type: Type): TypeWriter {
     const name = getTypeName(type)
-    yield [Import, 'Guard']
+    yield [Import, { source: this.#module, name: 'Guard' }]
     yield [ImportFromSource, { name, alias: `_${name}` }]
     yield [
       Write,
@@ -114,7 +116,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   *#literal(value: string): TypeWriter {
-    yield [Import, 'Literal']
+    yield [Import, { source: this.#module, name: 'Literal' }]
     yield [Write, `Literal(${value})`]
   }
 
@@ -139,12 +141,12 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *builtInObject(type: Type): TypeWriter {
-    yield [Import, 'InstanceOf']
+    yield [Import, { source: this.#module, name: 'InstanceOf' }]
     yield [Write, `InstanceOf(${type.getText()})`]
   }
 
   override *object(type: Type): TypeWriter {
-    yield [Import, 'Record']
+    yield [Import, { source: this.#module, name: 'Record' }]
     yield [Write, 'Record({']
 
     const typeArguments = getGenerics(type).map((typeArgument) =>
@@ -174,8 +176,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
   override *genericObject(type: Type): TypeWriter {
     const generics = getGenerics(type)
 
-    yield [Import, 'Static']
-    yield [Import, 'Runtype']
+    yield [Import, { source: this.#module, name: 'Static' }]
+    yield [Import, { source: this.#module, name: 'Runtype' }]
     yield [Write, '<']
 
     for (const generic of generics) {
@@ -227,7 +229,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {
-    yield [Import, 'Dictionary']
+    yield [Import, { source: this.#module, name: 'Dictionary' }]
     yield [Write, 'Dictionary(']
     yield* this.generateOrReuseType(type.getStringIndexType()!)
     yield [Write, ', ']
@@ -236,7 +238,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *numberIndexedObject(type: Type): TypeWriter {
-    yield [Import, 'Dictionary']
+    yield [Import, { source: this.#module, name: 'Dictionary' }]
     yield [Write, 'Dictionary(']
     yield* this.generateOrReuseType(type.getNumberIndexType()!)
     yield [Write, ', ']
@@ -245,7 +247,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   *#simple(type: SimpleRuntype): TypeWriter {
-    yield [Import, type]
+    yield [Import, { source: this.#module, name: type }]
     yield [Write, type]
   }
 }

@@ -7,7 +7,6 @@ export default class ZodGenerator extends Generator {
   constructor(options: ZodGeneratorOptions) {
     super({
       ...options,
-      module: 'zod',
       typeWriters: new ZodTypeWriters(),
     })
   }
