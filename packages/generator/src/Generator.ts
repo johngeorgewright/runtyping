@@ -33,13 +33,8 @@ import {
 } from './TypeWriter'
 import TypeWriters from './TypeWriters'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
-import {
-  doInModule,
-  find,
-  findInModule,
-  getRelativeImportPath,
-  setHas,
-} from './util'
+import { doInModule, find, findInModule, getRelativeImportPath } from './util'
+import { groupBy } from 'lodash'
 
 type GeneratorOptionsBase =
   | {
@@ -50,7 +45,6 @@ type GeneratorOptionsBase =
     }
 
 export type GeneratorOptions = GeneratorOptionsBase & {
-  module: string
   runtypeFormat?: string
   targetFile: string
   typeFormat?: string
@@ -59,20 +53,22 @@ export type GeneratorOptions = GeneratorOptionsBase & {
 
 type SourceCodeFile = SourceFile
 
+export type ImportSpec = Omit<ImportSpecifierStructure, 'kind'> & {
+  source: string
+}
+
 export default class Generator {
   #circularReferences = new Set<string>()
   #exports = new Set<string>()
   #typeWriters: TypeWriters
   #formatRuntypeName: TypeNameFormatter
   #formatTypeName: TypeNameFormatter
-  #module: string
   #project: Project
-  #imports = new Set<string | OptionalKind<ImportSpecifierStructure>>()
+  #imports: ImportSpec[] = []
   #targetFile: SourceCodeFile
 
   constructor(options: GeneratorOptions) {
     this.#typeWriters = options.typeWriters
-    this.#module = options.module
 
     this.#project =
       'project' in options && options.project
@@ -105,88 +101,60 @@ export default class Generator {
 
   async generate(sourceTypes: InstructionSourceType | InstructionSourceType[]) {
     for (const sourceType of castArray(sourceTypes)) {
-      const sourceImports = new Map<string, string>()
-
       switch (extname(sourceType.file)) {
         case '.json':
-          await this.#generateRuntypeFromJSON(sourceType, sourceImports)
+          await this.#generateRuntypeFromJSON(sourceType)
           break
 
         case '.d.ts':
         case '.ts':
-          this.#generateRuntype(sourceType, sourceImports)
+          this.#generateRuntype(sourceType)
           break
 
         default:
           throw new Error(`${sourceType.file} is not a typescript or json file`)
       }
-
-      if (sourceImports.size) {
-        this.#addSourceImports(sourceType.file, sourceImports)
-      }
     }
 
-    this.#targetFile.addImportDeclaration({
-      namedImports: [...this.#imports],
-      moduleSpecifier: this.#module,
-    })
+    if (this.#imports.length) this.#addImports(this.#imports)
 
     this.#targetFile.formatText()
     return this.#targetFile
   }
 
-  #addSourceImports(sourceFilePath: string, imports: Map<string, string>) {
-    this.#targetFile.addImportDeclaration({
-      namedImports: [...imports].map(([name, alias]) => ({
-        name,
-        alias,
-      })),
-      moduleSpecifier: getRelativeImportPath(
-        this.#targetFile.getFilePath(),
-        sourceFilePath
-      ),
-    })
+  #addImports(imports: ImportSpec[]) {
+    const sourceImportMap = groupBy(imports, 'source')
+    for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
+      this.#targetFile.addImportDeclaration({
+        namedImports: imports,
+        moduleSpecifier: sourceFilePath,
+      })
   }
 
-  async #generateRuntypeFromJSON(
-    sourceType: InstructionSourceType,
-    sourceImports: Map<string, string>
-  ) {
+  async #generateRuntypeFromJSON(sourceType: InstructionSourceType) {
     const schema = await compileFromFile(sourceType.file)
     const sourceFile = this.#project.createSourceFile(
       `__temp__${sourceType.file}.ts`,
       schema
     )
-    this.#generateRuntype(
-      {
-        ...sourceType,
-        file: sourceFile.getFilePath(),
-      },
-      sourceImports
-    )
+    this.#generateRuntype({
+      ...sourceType,
+      file: sourceFile.getFilePath(),
+    })
     this.#project.removeSourceFile(sourceFile)
   }
 
-  #generateRuntype(
-    sourceType: InstructionSourceType,
-    sourceImports: Map<string, string>
-  ) {
+  #generateRuntype(sourceType: InstructionSourceType) {
     const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
     for (const type of castArray(sourceType.type))
       if (!this.#exports.has(type))
-        this.#writeRuntype(
-          sourceFile,
-          type,
-          sourceImports,
-          sourceType.exportStaticType
-        )
+        this.#writeRuntype(sourceFile, type, sourceType)
   }
 
   #writeRuntype(
     sourceFile: SourceCodeFile,
     sourceType: string,
-    sourceImports: Map<string, string>,
-    exportStaticType = true
+    instructionSourceType: InstructionSourceType
   ) {
     const sourceTypeLocalName = this.#getLocalName(sourceFile, sourceType)
     const runTypeName = this.#formatRuntypeName(sourceTypeLocalName)
@@ -221,8 +189,8 @@ export default class Generator {
         writer = writer.write(value)
       })
       .handle(Import, this.#import)
-      .handle(ImportFromSource, ({ name, alias }) => {
-        sourceImports.set(name, alias)
+      .handle(ImportFromSource, (importSpec) => {
+        this.#importFromSource(instructionSourceType.file, importSpec)
       })
       .handle(Static, (value) => {
         staticImplementation = value
@@ -239,12 +207,7 @@ export default class Generator {
             !this.#exports.has(value) &&
             !this.#circularReferences.has(value)
           )
-            this.#writeRuntype(
-              sourceFile,
-              value,
-              sourceImports,
-              exportStaticType
-            )
+            this.#writeRuntype(sourceFile, value, instructionSourceType)
           return true
         }
         return undefined
@@ -267,6 +230,11 @@ export default class Generator {
         ],
       })
 
+      const exportStaticType =
+        instructionSourceType.exportStaticType === undefined
+          ? true
+          : instructionSourceType.exportStaticType
+
       if (exportStaticType && staticImplementation)
         node.addTypeAlias({
           isExported: true,
@@ -284,19 +252,27 @@ export default class Generator {
     }
   }
 
-  readonly #import = (
-    value: string | OptionalKind<ImportSpecifierStructure>
-  ) => {
-    if (
-      typeof value === 'object' &&
-      setHas(this.#imports, (imprt) =>
-        typeof imprt === 'object'
-          ? imprt.name === value.name
-          : imprt === value.name
-      )
+  readonly #import = (importSpec: ImportSpec) => {
+    const hasImport = this.#imports.find(({ alias, name, source }) =>
+      source === importSpec.source && 'alias' in importSpec
+        ? alias === importSpec.alias
+        : name === importSpec.name
     )
-      return
-    this.#imports.add(value)
+
+    if (!hasImport) this.#imports.push(importSpec)
+  }
+
+  #importFromSource(
+    sourceFilePath: string,
+    importSpec: Omit<ImportSpec, 'source'>
+  ) {
+    this.#import({
+      ...importSpec,
+      source: getRelativeImportPath(
+        this.#targetFile.getFilePath(),
+        sourceFilePath
+      ),
+    })
   }
 
   #getTypeDeclaration(
