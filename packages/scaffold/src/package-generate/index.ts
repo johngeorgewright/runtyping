@@ -76,6 +76,7 @@ export = class PackageGenerator extends Generator {
       description: this.#answers.description || '',
       name: paramCase(this.#answers.name!),
       fullName: `${this.#namespace}/${paramCase(this.#answers.name!)}`,
+      generatorName: `${pascalCase(this.#answers.name!)}Generator`,
       typeWritersName: `${pascalCase(this.#answers.name!)}TypeWriters`,
       public: this.#answers.public,
       year: new Date().getFullYear(),
@@ -183,6 +184,12 @@ export = class PackageGenerator extends Generator {
       this.fs.copyTpl(
         this.templatePath('typewriter/src/TypeWriters.ts.template'),
         this.destinationPath(`src/${context.typeWritersName}.ts`),
+        context
+      )
+
+      this.fs.copyTpl(
+        this.templatePath('typewriter/src/Generator.ts.template'),
+        this.destinationPath(`src/Generator.ts`),
         context
       )
 
