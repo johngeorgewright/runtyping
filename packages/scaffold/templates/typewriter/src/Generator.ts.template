@@ -1,0 +1,13 @@
+import { Generator, GeneratorOptions } from '@runtyping/generator'
+import <%=typeWritersName%> from './<%=typeWritersName%>'
+
+type <%=generatorName%>Options = Omit<GeneratorOptions, 'typeWriters'>
+
+export default class <%=generatorName%> extends Generator {
+  constructor(options: <%=generatorName%>Options) {
+    super({
+      ...options,
+      typeWriters: new <%=typeWritersName%>(),
+    })
+  }
+}

@@ -3,4 +3,4 @@
 import { cli } from '@runtyping/generator'
 import <%=typeWritersName%> from './<%=typeWritersName%>'
 
-cli('runtyping.yml', '<%=name%>', new <%=typeWritersName%>()).catch(console.error)
+cli('runtyping.yml', new <%=typeWritersName%>()).catch(console.error)
