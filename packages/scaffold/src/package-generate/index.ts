@@ -109,6 +109,7 @@ export = class PackageGenerator extends Generator {
     )
 
     const devDependencies = [
+      '@runtyping/test-type-writers',
       '@types/jest',
       '@types/node',
       'jest',
