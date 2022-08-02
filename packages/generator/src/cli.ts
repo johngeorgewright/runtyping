@@ -9,7 +9,6 @@ import TypeWriters from './TypeWriters'
 
 export default async function cli(
   defaultConfigPath: string,
-  module: string,
   typeWriters: TypeWriters
 ) {
   const argv = await yargs(process.argv.slice(2))
@@ -27,7 +26,7 @@ export default async function cli(
     }).argv
 
   const configFile = await getConfigFile(argv.config)
-  const buildInstructions = Instructions.check(
+  const buildInstructions = Instructions.parse(
     yaml.load(await readFile(configFile, 'utf8'))
   )
 
@@ -39,7 +38,6 @@ export default async function cli(
   } of castArray(buildInstructions)) {
     const generator = new Generator({
       typeWriters,
-      module,
       runtypeFormat,
       targetFile,
       tsConfigFile: argv.project,

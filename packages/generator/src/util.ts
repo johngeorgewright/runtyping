@@ -116,3 +116,7 @@ export function isBuiltInType(type: Type) {
       return false
     })
 }
+
+export function emptyObject<T extends Record<keyof any, unknown>>(obj: T) {
+  return !Object.keys(obj).length
+}

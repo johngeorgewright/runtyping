@@ -1,22 +1,22 @@
-import { Record, String, Array, Static, Boolean } from 'runtypes'
+import * as z from 'zod'
 
-export const InstructionSourceType = Record({
-  file: String,
-  exportStaticType: Boolean.optional(),
-  type: String.Or(Array(String)),
+export const InstructionSourceType = z.object({
+  file: z.string(),
+  exportStaticType: z.boolean().optional().default(true),
+  type: z.string().or(z.array(z.string())),
 })
 
-export type InstructionSourceType = Static<typeof InstructionSourceType>
+export type InstructionSourceType = z.infer<typeof InstructionSourceType>
 
-export const Instruction = Record({
-  runtypeFormat: String.optional(),
-  sourceTypes: InstructionSourceType.Or(Array(InstructionSourceType)),
-  targetFile: String,
-  typeFormat: String.optional(),
+export const Instruction = z.object({
+  runtypeFormat: z.string().optional(),
+  sourceTypes: InstructionSourceType.or(z.array(InstructionSourceType)),
+  targetFile: z.string(),
+  typeFormat: z.string().optional(),
 })
 
-export type Instruction = Static<typeof Instruction>
+export type Instruction = z.infer<typeof Instruction>
 
-export const Instructions = Instruction.Or(Array(Instruction))
+export const Instructions = Instruction.or(z.array(Instruction))
 
-export type Instructions = Static<typeof Instructions>
+export type Instructions = z.infer<typeof Instructions>
