@@ -32,8 +32,8 @@ export type A = Infer<typeof A>;
 `;
 
 exports[`circular references 1`] = `
-"import { Student as _Student, Teacher as _Teacher } from '../fixtures/circular-references';
-import { infer as Infer, lazy, ZodType, object, literal, array } from 'zod';
+"import { infer as Infer, lazy, ZodType, object, literal, array } from 'zod';
+import { Student as _Student, Teacher as _Teacher } from '../fixtures/circular-references';
 
 export const Teacher: ZodType<_Teacher> = lazy(() => object({ type: literal(\\"teacher\\"), students: array(Student), reportsTo: Teacher, }));
 
@@ -72,8 +72,8 @@ export type HorseType = Infer<typeof HorseType>;
 `;
 
 exports[`enum 1`] = `
-"import { A as _A, B as _B, C as _C, E as _E } from '../fixtures/enum';
-import { infer as Infer, nativeEnum, literal, string } from 'zod';
+"import { infer as Infer, nativeEnum, literal, string } from 'zod';
+import { A as _A, B as _B, C as _C, E as _E } from '../fixtures/enum';
 
 export const A = nativeEnum(_A);
 
@@ -353,8 +353,8 @@ export type A = Infer<typeof A>;
 `;
 
 exports[`recursive 1`] = `
-"import { A as _A, B as _B } from '../fixtures/recursive';
-import { infer as Infer, lazy, ZodType, object, string, array } from 'zod';
+"import { infer as Infer, lazy, ZodType, object, string, array } from 'zod';
+import { A as _A, B as _B } from '../fixtures/recursive';
 
 export const A: ZodType<_A> = lazy(() => object({ recurse: string().or(A), }));
 

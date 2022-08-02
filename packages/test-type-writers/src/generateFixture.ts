@@ -11,20 +11,17 @@ export default async function generateFixture(
   {
     exportStaticType,
     generatorOpts,
-    module,
     project,
     typeWriters,
   }: {
     exportStaticType?: boolean
     generatorOpts?: Partial<GeneratorOptions>
-    module: string
     project?: Project
     typeWriters: TypeWriters
   }
 ) {
   const generator = new Generator({
     typeWriters,
-    module,
     targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
     project,
     ...generatorOpts,
