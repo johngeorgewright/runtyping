@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/io-ts",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "Generate io-ts from static types & JSON schema.",
   "main": "dist/index.js",
   "scripts": {
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@johngw/array": "3.3.0",
-    "@runtyping/generator": "4.0.0",
+    "@runtyping/generator": "4.0.1",
     "title-case": "3.0.3",
     "ts-morph": "15.1.0",
     "tslib": "2.4.0"
