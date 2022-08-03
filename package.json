@@ -43,6 +43,7 @@
     "commitizen": "4.2.5",
     "concurrently": "7.3.0",
     "cz-conventional-changelog": "3.3.0",
+    "fp-ts": "2.12.2",
     "husky": "8.0.1",
     "isbinaryfile": "5.0.0",
     "jest": "28.1.3",

@@ -2,7 +2,7 @@ import * as z from 'zod'
 
 export const InstructionSourceType = z.object({
   file: z.string(),
-  exportStaticType: z.boolean().optional().default(true),
+  exportStaticType: z.boolean().optional(),
   type: z.string().or(z.array(z.string())),
 })
 
