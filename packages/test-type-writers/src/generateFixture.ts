@@ -40,9 +40,9 @@ export default async function generateFixture(
   try {
     eval(js)
   } catch (error: any) {
-    const message =
-      error.message +
-      `
+    const message = `
+${error.message}
+${error.stack}
 
 === TS ===
 // ${sourceFile.getFilePath()}
