@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/test-type-writers",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A testing library for runtyping typewriters",
   "main": "dist/index.js",
   "scripts": {
