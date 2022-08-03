@@ -1,6 +1,6 @@
 # runtyping
 
-Generate runtype validation from static types & JSON schema using:
+Generate runtime validation from static types & JSON schema using:
 
 - [@runtyping/io-ts](https://github.com/johngeorgewright/runtyping/tree/master/packages/io-ts) to generate [io-ts](https://github.com/gcanti/io-ts)
 - [@runtyping/runtypes](https://github.com/johngeorgewright/runtyping/tree/master/packages/runtypes) to generate [runtypes](https://github.com/pelotom/runtypes)
