@@ -1890,7 +1890,7 @@ __metadata:
     "@ts-morph/common": 0.16.0
     "@types/jest": 28.1.6
     "@types/js-yaml": 4.0.5
-    "@types/lodash": ^4
+    "@types/lodash": 4.14.182
     "@types/node": 16.11.47
     "@types/prettier": 2.6.4
     "@types/yargs": 17.0.10
@@ -2557,7 +2557,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4, @types/lodash@npm:^4.14.182":
+"@types/lodash@npm:4.14.182, @types/lodash@npm:^4.14.182":
   version: 4.14.182
   resolution: "@types/lodash@npm:4.14.182"
   checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
