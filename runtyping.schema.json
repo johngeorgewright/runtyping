@@ -2,17 +2,17 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
-      "$ref": "#/definitions/{sourceTypes:{file:string;type:string|string[];exportStaticType?:boolean;}|{file:string;type:string|string[];exportStaticType?:boolean;}[];targetFile:string;runtypeFormat?:string;typeFormat?:string;}"
+      "$ref": "#/definitions/{runtypeFormat?:string;sourceTypes?:{file?:string;type?:string|string[];exportStaticType?:boolean;}|{file?:string;type?:string|string[];exportStaticType?:boolean;}[];targetFile?:string;typeFormat?:string;}"
     },
     {
       "items": {
-        "$ref": "#/definitions/{sourceTypes:{file:string;type:string|string[];exportStaticType?:boolean;}|{file:string;type:string|string[];exportStaticType?:boolean;}[];targetFile:string;runtypeFormat?:string;typeFormat?:string;}"
+        "$ref": "#/definitions/{runtypeFormat?:string;sourceTypes?:{file?:string;type?:string|string[];exportStaticType?:boolean;}|{file?:string;type?:string|string[];exportStaticType?:boolean;}[];targetFile?:string;typeFormat?:string;}"
       },
       "type": "array"
     }
   ],
   "definitions": {
-    "{file:string;type:string|string[];exportStaticType?:boolean;}": {
+    "{file?:string;type?:string|string[];exportStaticType?:boolean;}": {
       "properties": {
         "exportStaticType": {
           "type": "boolean"
@@ -36,7 +36,7 @@
       },
       "type": "object"
     },
-    "{sourceTypes:{file:string;type:string|string[];exportStaticType?:boolean;}|{file:string;type:string|string[];exportStaticType?:boolean;}[];targetFile:string;runtypeFormat?:string;typeFormat?:string;}": {
+    "{runtypeFormat?:string;sourceTypes?:{file?:string;type?:string|string[];exportStaticType?:boolean;}|{file?:string;type?:string|string[];exportStaticType?:boolean;}[];targetFile?:string;typeFormat?:string;}": {
       "properties": {
         "runtypeFormat": {
           "type": "string"
@@ -44,11 +44,11 @@
         "sourceTypes": {
           "anyOf": [
             {
-              "$ref": "#/definitions/{file:string;type:string|string[];exportStaticType?:boolean;}"
+              "$ref": "#/definitions/{file?:string;type?:string|string[];exportStaticType?:boolean;}"
             },
             {
               "items": {
-                "$ref": "#/definitions/{file:string;type:string|string[];exportStaticType?:boolean;}"
+                "$ref": "#/definitions/{file?:string;type?:string|string[];exportStaticType?:boolean;}"
               },
               "type": "array"
             }
