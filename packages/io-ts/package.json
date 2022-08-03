@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/io-ts",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generate io-ts from static types & JSON schema.",
   "main": "dist/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "io-ts": "^2.0.0"
   },
   "devDependencies": {
-    "@runtyping/test-type-writers": "1.0.1",
+    "@runtyping/test-type-writers": "1.1.0",
     "@semantic-release/commit-analyzer": "9.0.2",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.5",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@johngw/array": "3.3.0",
-    "@runtyping/generator": "3.0.1",
+    "@runtyping/generator": "4.0.0",
     "title-case": "3.0.3",
     "ts-morph": "15.1.0",
     "tslib": "2.4.0"
