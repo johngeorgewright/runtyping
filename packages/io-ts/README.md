@@ -7,7 +7,7 @@ Generate io-ts from static types & JSON schema.
 ### Install
 
 ```
-npm install io-ts
+npm install io-ts fp-ts
 npm install -D @runtyping/io-ts
 ```
 
