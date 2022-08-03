@@ -1875,7 +1875,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@runtyping/generator@3.0.1, @runtyping/generator@workspace:*, @runtyping/generator@workspace:packages/generator":
+"@runtyping/generator@4.0.0, @runtyping/generator@workspace:*, @runtyping/generator@workspace:packages/generator":
   version: 0.0.0-use.local
   resolution: "@runtyping/generator@workspace:packages/generator"
   dependencies:
@@ -1918,8 +1918,8 @@ __metadata:
   resolution: "@runtyping/io-ts@workspace:packages/io-ts"
   dependencies:
     "@johngw/array": 3.3.0
-    "@runtyping/generator": 3.0.1
-    "@runtyping/test-type-writers": 1.0.1
+    "@runtyping/generator": 4.0.0
+    "@runtyping/test-type-writers": 1.1.0
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.5
@@ -2038,7 +2038,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@runtyping/test-type-writers@1.0.1, @runtyping/test-type-writers@workspace:*, @runtyping/test-type-writers@workspace:packages/test-type-writers":
+"@runtyping/test-type-writers@1.1.0, @runtyping/test-type-writers@workspace:*, @runtyping/test-type-writers@workspace:packages/test-type-writers":
   version: 0.0.0-use.local
   resolution: "@runtyping/test-type-writers@workspace:packages/test-type-writers"
   dependencies:
