@@ -28,18 +28,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apidevtools/json-schema-ref-parser@https://github.com/bcherny/json-schema-ref-parser.git#984282d34a2993e5243aa35100fe32a63699164d":
-  version: 0.0.0-dev
-  resolution: "@apidevtools/json-schema-ref-parser@https://github.com/bcherny/json-schema-ref-parser.git#commit=984282d34a2993e5243aa35100fe32a63699164d"
-  dependencies:
-    "@jsdevtools/ono": ^7.1.3
-    "@types/json-schema": ^7.0.6
-    call-me-maybe: ^1.0.1
-    js-yaml: ^4.1.0
-  checksum: 9a7fa9625c443bfa8fe63acb2674814a344631c9229289446210991eee7c22c3bb254b4cdd7cf477d22af28a2f1ae2d90c345a221f83deff96e6e9865651e299
-  languageName: node
-  linkType: hard
-
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0":
   version: 7.16.0
   resolution: "@babel/code-frame@npm:7.16.0"
@@ -731,6 +719,18 @@ __metadata:
     "@babel/helper-validator-identifier": ^7.16.7
     to-fast-properties: ^2.0.0
   checksum: 40cfc3f43a3ab7374df8ee6844793f804c65e7bea0fd1b090886b425106ba26e16e8fa698ae4b2caf2746083fe3e62f03f12997a5982e0d131700f17cbdcfca1
+  languageName: node
+  linkType: hard
+
+"@bcherny/json-schema-ref-parser@npm:9.0.9":
+  version: 9.0.9
+  resolution: "@bcherny/json-schema-ref-parser@npm:9.0.9"
+  dependencies:
+    "@jsdevtools/ono": ^7.1.3
+    "@types/json-schema": ^7.0.6
+    call-me-maybe: ^1.0.1
+    js-yaml: ^4.1.0
+  checksum: 22049df5297d7340d3207af64cb237a5e715a9620a5c42a15d844a14214db4ac4249ddbbd1c985253af9b20d7581ed7351f9f1eeec8a7fea4c3ed4791d2fd606
   languageName: node
   linkType: hard
 
@@ -1896,7 +1896,7 @@ __metadata:
     "@types/yargs": 17.0.11
     jest: 28.1.3
     js-yaml: 4.1.0
-    json-schema-to-typescript: 11.0.1
+    json-schema-to-typescript: 11.0.2
     lodash: 4.17.21
     prettier: 2.7.1
     rimraf: 3.0.2
@@ -7830,11 +7830,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-schema-to-typescript@npm:11.0.1":
-  version: 11.0.1
-  resolution: "json-schema-to-typescript@npm:11.0.1"
+"json-schema-to-typescript@npm:11.0.2":
+  version: 11.0.2
+  resolution: "json-schema-to-typescript@npm:11.0.2"
   dependencies:
-    "@apidevtools/json-schema-ref-parser": "https://github.com/bcherny/json-schema-ref-parser.git#984282d34a2993e5243aa35100fe32a63699164d"
+    "@bcherny/json-schema-ref-parser": 9.0.9
     "@types/json-schema": ^7.0.11
     "@types/lodash": ^4.14.182
     "@types/prettier": ^2.6.1
@@ -7850,7 +7850,7 @@ __metadata:
     prettier: ^2.6.2
   bin:
     json2ts: dist/src/cli.js
-  checksum: 55b112b5a7ea233bf8b4a807f23366bd8bfb08023232fd51c93cf68e5d7854705e5738d9c85546a4322ca44a14c95403edfe785795aa5b24751bbc6c6970d524
+  checksum: 850dd6044ed2088e68589dee3f7c25f6440515aa6711a7510ad4a02b090557fbe22b81d5e7236ba83be625534740e14db7b1923f03f70872ad1171dd3c2112d2
   languageName: node
   linkType: hard
 
