@@ -253,10 +253,12 @@ export default class Generator {
   }
 
   readonly #import = (importSpec: ImportSpec) => {
-    const hasImport = this.#imports.find(({ alias, name, source }) =>
-      source === importSpec.source && 'alias' in importSpec
-        ? alias === importSpec.alias
-        : name === importSpec.name
+    const hasImport = this.#imports.find(
+      ({ alias, name, source }) =>
+        source === importSpec.source &&
+        ('alias' in importSpec
+          ? alias === importSpec.alias
+          : name === importSpec.name)
     )
 
     if (!hasImport) this.#imports.push(importSpec)
