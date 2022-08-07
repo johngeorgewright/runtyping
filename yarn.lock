@@ -1919,7 +1919,7 @@ __metadata:
   dependencies:
     "@johngw/array": 3.3.0
     "@runtyping/generator": "workspace:*"
-    "@runtyping/test-type-writers": 1.1.0
+    "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.5
@@ -2038,7 +2038,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@runtyping/test-type-writers@1.1.0, @runtyping/test-type-writers@workspace:*, @runtyping/test-type-writers@workspace:packages/test-type-writers":
+"@runtyping/test-type-writers@workspace:*, @runtyping/test-type-writers@workspace:packages/test-type-writers":
   version: 0.0.0-use.local
   resolution: "@runtyping/test-type-writers@workspace:packages/test-type-writers"
   dependencies:
