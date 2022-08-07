@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@johngw/array": "3.3.0",
-    "@runtyping/generator": "4.0.1",
+    "@runtyping/generator": "workspace:*",
     "title-case": "3.0.3",
     "ts-morph": "15.1.0",
     "tslib": "2.4.0"
