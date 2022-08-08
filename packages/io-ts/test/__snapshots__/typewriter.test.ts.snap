@@ -57,7 +57,7 @@ export type User = TypeOf<typeof User>;
 `;
 
 exports[`dont generate static types 1`] = `
-"import { TypeOf, union, type, literal, string, number } from 'io-ts';
+"import { union, type, literal, string, number } from 'io-ts';
 
 export const One = type({ type: literal(\\"one\\"), value: string, });
 export const Two = type({ type: literal(\\"two\\"), value: number, });

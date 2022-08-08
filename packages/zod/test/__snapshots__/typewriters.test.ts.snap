@@ -50,7 +50,7 @@ export type User = Infer<typeof User>;
 `;
 
 exports[`dont generate static types 1`] = `
-"import { infer as Infer, object, literal, string, number } from 'zod';
+"import { object, literal, string, number } from 'zod';
 
 export const One = object({ type: literal(\\"one\\"), value: string(), });
 export const Two = object({ type: literal(\\"two\\"), value: number(), });

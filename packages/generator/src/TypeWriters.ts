@@ -8,10 +8,11 @@ export default abstract class TypeWriters {
     {
       recursive = false,
       circular = false,
-    }: { recursive?: boolean; circular?: boolean } = {}
+    }: {
+      recursive?: boolean
+      circular?: boolean
+    } = {}
   ): TypeWriter {
-    yield* this.defaultStaticImplementation(type)
-
     switch (true) {
       case circular:
       case recursive:

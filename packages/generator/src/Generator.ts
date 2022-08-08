@@ -29,6 +29,7 @@ import {
   ImportFromSource,
   Static,
   StaticParameters,
+  TypeWriter,
   Write,
 } from './TypeWriter'
 import TypeWriters from './TypeWriters'
@@ -172,6 +173,10 @@ export default class Generator {
     const typeDeclaration = this.#getTypeDeclaration(sourceFile, sourceType)
     const recursive = isRecursive(typeDeclaration)
     const circular = isCircular(typeDeclaration)
+    const exportStaticType =
+      instructionSourceType.exportStaticType === undefined
+        ? true
+        : instructionSourceType.exportStaticType
 
     let staticImplementation: string | undefined
     let staticTypeParameters:
@@ -189,43 +194,52 @@ export default class Generator {
       )
     }
 
-    IteratorHandler.create(
+    const runTypeWriter = (typeWriter: TypeWriter) => {
+      IteratorHandler.create(typeWriter)
+        .handle(Write, (value) => {
+          writer = writer.write(value)
+        })
+        .handle(Import, this.#import)
+        .handle(ImportFromSource, (importSpec) => {
+          this.#importFromSource(instructionSourceType.file, importSpec)
+        })
+        .handle(Static, (value) => {
+          staticImplementation = value
+        })
+        .handle(StaticParameters, (value) => {
+          staticTypeParameters = value
+        })
+        .handle(DeclareAndUse, (value) => {
+          const recursiveValue = recursive && value === typeName
+          if (recursiveValue || this.#hasTypeDeclaration(sourceFile, value)) {
+            writer = writer.write(this.#formatRuntypeName(value))
+            if (
+              !recursiveValue &&
+              !this.#exports.has(value) &&
+              !this.#circularReferences.has(value)
+            )
+              this.#writeRuntype(sourceFile, value, instructionSourceType)
+            return true
+          }
+          return undefined
+        })
+        .handle(DeclareType, (typeName) => {
+          runTypeType = typeName
+        })
+        .run()
+    }
+
+    if (exportStaticType)
+      runTypeWriter(
+        this.#typeWriters.defaultStaticImplementation(typeDeclaration.getType())
+      )
+
+    runTypeWriter(
       this.#typeWriters.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
         recursive,
       })
     )
-      .handle(Write, (value) => {
-        writer = writer.write(value)
-      })
-      .handle(Import, this.#import)
-      .handle(ImportFromSource, (importSpec) => {
-        this.#importFromSource(instructionSourceType.file, importSpec)
-      })
-      .handle(Static, (value) => {
-        staticImplementation = value
-      })
-      .handle(StaticParameters, (value) => {
-        staticTypeParameters = value
-      })
-      .handle(DeclareAndUse, (value) => {
-        const recursiveValue = recursive && value === typeName
-        if (recursiveValue || this.#hasTypeDeclaration(sourceFile, value)) {
-          writer = writer.write(this.#formatRuntypeName(value))
-          if (
-            !recursiveValue &&
-            !this.#exports.has(value) &&
-            !this.#circularReferences.has(value)
-          )
-            this.#writeRuntype(sourceFile, value, instructionSourceType)
-          return true
-        }
-        return undefined
-      })
-      .handle(DeclareType, (typeName) => {
-        runTypeType = typeName
-      })
-      .run()
 
     doInModule(this.#targetFile, runTypeName, (node, name) => {
       node.addVariableStatement({
@@ -239,11 +253,6 @@ export default class Generator {
           },
         ],
       })
-
-      const exportStaticType =
-        instructionSourceType.exportStaticType === undefined
-          ? true
-          : instructionSourceType.exportStaticType
 
       if (exportStaticType && staticImplementation)
         node.addTypeAlias({
