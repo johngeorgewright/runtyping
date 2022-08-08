@@ -33,7 +33,13 @@ import {
 } from './TypeWriter'
 import TypeWriters from './TypeWriters'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
-import { doInModule, find, findInModule, getRelativeImportPath } from './util'
+import {
+  doInModule,
+  find,
+  findInModule,
+  getRelativeImportPath,
+  isRelative,
+} from './util'
 import { groupBy } from 'lodash'
 
 type GeneratorOptionsBase =
@@ -146,7 +152,9 @@ export default class Generator {
 
   #generateRuntype(sourceType: InstructionSourceType) {
     const sourceFile = this.#project.addSourceFileAtPath(
-      require.resolve(sourceType.file)
+      isAbsolute(sourceType.file) || isRelative(sourceType.file)
+        ? sourceType.file
+        : require.resolve(sourceType.file)
     )
     for (const type of castArray(sourceType.type))
       if (!this.#exports.has(type))
