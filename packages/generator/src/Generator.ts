@@ -145,7 +145,9 @@ export default class Generator {
   }
 
   #generateRuntype(sourceType: InstructionSourceType) {
-    const sourceFile = this.#project.addSourceFileAtPath(sourceType.file)
+    const sourceFile = this.#project.addSourceFileAtPath(
+      require.resolve(sourceType.file)
+    )
     for (const type of castArray(sourceType.type))
       if (!this.#exports.has(type))
         this.#writeRuntype(sourceFile, type, sourceType)
