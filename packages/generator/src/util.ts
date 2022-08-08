@@ -31,6 +31,10 @@ export function getRelativeImportPath(localPath: string, remotePath: string) {
   }/${remoteBasename}${remoteExtname}`
 }
 
+export function isRelative(path: string) {
+  return /^\.{1,2}\//.test(path)
+}
+
 export function doInModule<
   T extends (node: StatementedNode, name: string) => any
 >(root: StatementedNode, name: string, fn: T): ReturnType<T> {
