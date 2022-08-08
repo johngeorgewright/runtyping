@@ -227,7 +227,7 @@ export type C = Infer<typeof C>;
 exports[`json schema 1`] = `
 "import { infer as Infer, object, tuple, record, string, unknown as Unknown, undefined as Undefined } from 'zod';
 
-export const ExampleSchema = object({ testArray: tuple().or(tuple(record(string(), Unknown()),)).or(tuple(record(string(), Unknown()), record(string(), Unknown()),)).or(Undefined()).optional(), });
+export const ExampleSchema = object({ testArray: tuple([]).or(tuple([record(string(), Unknown()),])).or(tuple([record(string(), Unknown()), record(string(), Unknown()),])).or(Undefined()).optional(), });
 
 export type ExampleSchema = Infer<typeof ExampleSchema>;
 "
@@ -236,7 +236,7 @@ export type ExampleSchema = Infer<typeof ExampleSchema>;
 exports[`json schema 2`] = `
 "import { infer as Infer, object, tuple, record, string, unknown as Unknown, undefined as Undefined } from 'zod';
 
-export const ExampleSchema = object({ testArray: tuple(record(string(), Unknown()), record(string(), Unknown()), record(string(), Unknown()),).or(Undefined()).optional(), });
+export const ExampleSchema = object({ testArray: tuple([record(string(), Unknown()), record(string(), Unknown()), record(string(), Unknown()),]).or(Undefined()).optional(), });
 
 export type ExampleSchema = Infer<typeof ExampleSchema>;
 "
@@ -395,11 +395,11 @@ export type A = Infer<typeof A>;
 exports[`tuple 1`] = `
 "import { infer as Infer, tuple, number, string } from 'zod';
 
-export const A = tuple(number(), string(), number(),);
+export const A = tuple([number(), string(), number(),]);
 
 export type A = Infer<typeof A>;
 
-export const B = tuple(A, A,);
+export const B = tuple([A, A,]);
 
 export type B = Infer<typeof B>;
 "

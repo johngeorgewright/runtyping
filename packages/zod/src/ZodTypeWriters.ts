@@ -216,12 +216,12 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override *tuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'tuple' }]
-    yield [Write, 'tuple(']
+    yield [Write, 'tuple([']
     for (const element of type.getTupleElements()) {
       yield* this.generateOrReuseType(element)
       yield [Write, ',']
     }
-    yield [Write, ')']
+    yield [Write, '])']
   }
 
   override undefined() {
