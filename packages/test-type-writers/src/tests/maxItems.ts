@@ -1,6 +1,6 @@
 import * as pathHelper from 'path'
 import { Generator } from '@runtyping/generator'
-import { fixturesDir } from '../generateFixture'
+import { fixturesSourceDir } from '../fixture'
 import { TypeWriterTestProps } from '../types'
 
 export default function maxItemsTypeWriterTest({
@@ -8,12 +8,15 @@ export default function maxItemsTypeWriterTest({
 }: TypeWriterTestProps) {
   test('json schema', async () => {
     const generator = new Generator({
-      targetFile: pathHelper.join(fixturesDir, `maxItems.schema.runtypes.ts`),
+      targetFile: pathHelper.join(
+        fixturesSourceDir,
+        `maxItems.schema.runtypes.ts`
+      ),
       typeWriters,
     })
 
     const file = await generator.generate({
-      file: pathHelper.join(fixturesDir, 'maxItems.schema.json'),
+      file: pathHelper.join(fixturesSourceDir, 'maxItems.schema.json'),
       type: 'ExampleSchema',
     })
 

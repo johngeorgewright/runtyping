@@ -1,5 +1,5 @@
 import { Project, QuoteKind } from 'ts-morph'
-import generateFixture from '../generateFixture'
+import generateFixture from '../fixture'
 import { TypeWriterTestProps } from '../types'
 
 export default function nullTypeWriterTest(props: TypeWriterTestProps) {

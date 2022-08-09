@@ -1,4 +1,4 @@
-import generateFixture from '../generateFixture'
+import generateFixture from '../fixture'
 import { TypeWriterTestProps } from '../types'
 
 export default function withoutStaticTypeWriterTest(

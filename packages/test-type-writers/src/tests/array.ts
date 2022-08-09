@@ -1,10 +1,6 @@
-import generateFixture from '../generateFixture'
+import fixture from '../fixture'
 import { TypeWriterTestProps } from '../types'
 
 export default function arrayTypeWriterTest(props: TypeWriterTestProps) {
-  test('array', async () => {
-    expect(
-      (await generateFixture('array', ['B'], props)).getText()
-    ).toMatchSnapshot()
-  })
+  test('array', () => fixture('array', ['B'], props))
 }

@@ -2050,6 +2050,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.6
     "@types/node": 18.0.6
+    fp-ts: 2.12.2
     io-ts: 2.2.17
     jest: 28.1.3
     rimraf: 3.0.2
@@ -2059,6 +2060,7 @@ __metadata:
     ts-morph: 15.1.0
     ts-node: 10.9.1
     tslib: 2.4.0
+    type-fest: 2.18.0
     typescript: 4.7.4
   peerDependencies:
     "@runtyping/generator": "workspace:*"
@@ -12720,6 +12722,13 @@ __metadata:
   version: 4.0.8
   resolution: "type-detect@npm:4.0.8"
   checksum: 62b5628bff67c0eb0b66afa371bd73e230399a8d2ad30d852716efcc4656a7516904570cd8631a49a3ce57c10225adf5d0cbdcb47f6b0255fe6557c453925a15
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:2.18.0":
+  version: 2.18.0
+  resolution: "type-fest@npm:2.18.0"
+  checksum: 0737128d9d77b93793c6ee443e304462a792f5b723a6be035d6cb488c5610a8baa00522805421341c04324c80efba9849885bbfbc5a9623d0672fe8712969f62
   languageName: node
   linkType: hard
 

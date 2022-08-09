@@ -18,5 +18,5 @@
     "resolveJsonModule": true
   },
   "include": ["src"],
-  "exclude": ["dist", "test", "jest.config.ts"]
+  "exclude": ["dist", "temp", "test", "jest.config.ts"]
 }
