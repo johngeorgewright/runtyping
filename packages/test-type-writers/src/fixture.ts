@@ -31,7 +31,9 @@ interface TestFixtureProps extends TypeWriterTestProps {
 
 export async function testFixture(testName: string, props: TestFixtureProps) {
   await mkdirp(fixturesDestDir)
-  const dataNames = await getDataNames(testName)
+  const dataNames = (await getDataNames(testName)).filter(
+    (dataName) => !props.ignore?.includes(`${testName}.${dataName}`)
+  )
   const sourceFile = await generate(testName, dataNames, props)
   await validate(testName, dataNames, sourceFile, props)
 }

@@ -5,7 +5,7 @@ export class ExpectedFailure extends Error {
     public readonly data: unknown
   ) {
     super(
-      `Expected failure for ${testName}.${type}
+      `Expected a failure for ${testName}.${type} but it succeeded
 Input: ${JSON.stringify(data, null, 2)}`
     )
   }
@@ -19,7 +19,7 @@ export class ExpectedSuccess extends Error {
     error: Error
   ) {
     super(
-      `Expected success for ${testName}.${type}
+      `Expected success for ${testName}.${type} but it failed
 ${error.message}
 Input: ${JSON.stringify(data, null, 2)}`
     )

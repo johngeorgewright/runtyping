@@ -3,6 +3,7 @@ import * as z from 'zod'
 
 export interface TypeWriterTestProps<Validator = any> {
   createValidator(dataArg: TestDataArg): Validator
+  ignore?: string[]
   typeWriters: TypeWriters
   validate(validator: Validator, data: unknown): void
 }
