@@ -1,6 +1,6 @@
-type FooType = string | null
+export type FooType = string | null
 
-type HorseType = {
+export type HorseType = {
   a: FooType
   b: FooType
 }

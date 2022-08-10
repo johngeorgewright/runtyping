@@ -1,7 +1,7 @@
-type A = null
-type B = string | null
+export type A = null
+export type B = string | null
 
-interface C {
+export interface C {
   a: null
   b: string | null
   c?: string | null

@@ -1,9 +1,19 @@
+import mkdirp from 'mkdirp'
 import * as pathHelper from 'path'
 import { Project, SourceFile } from 'ts-morph'
 import { Generator, GeneratorOptions, TypeWriters } from '@runtyping/generator'
-import * as ts from 'typescript'
-import { temporaryWriteTask } from './temp'
-import { TypeWriterTestProps } from './types'
+import ts from 'typescript'
+import {
+  TestData,
+  TestDataCall,
+  TestDataFailure,
+  TestDataFn,
+  TestDataNamespace,
+  TestDataSuccess,
+  TypeWriterTestProps,
+} from './types'
+import { ExpectedFailure, ExpectedSuccess } from './error'
+import { writeFile } from 'fs/promises'
 
 export const fixturesDir = pathHelper.resolve(__dirname, '..', 'fixtures')
 
@@ -11,25 +21,40 @@ export const fixturesSourceDir = pathHelper.join(fixturesDir, 'source')
 
 export const fixturesDataDir = pathHelper.join(fixturesDir, 'data')
 
+export const fixturesDestDir = `${process.cwd()}/fixtures`
+
 interface TestFixtureProps extends TypeWriterTestProps {
   exportStaticType?: boolean
   generatorOpts?: Partial<GeneratorOptions>
   project?: Project
 }
 
-export default async function testFixture(
-  name: string,
-  types: string[],
-  props: TestFixtureProps
-) {
-  const sourceFile = await generate(name, types, props)
-  await validate(name, types, sourceFile, props.validate)
-  return sourceFile
+export async function testFixture(testName: string, props: TestFixtureProps) {
+  await mkdirp(fixturesDestDir)
+  const dataNames = await getDataNames(testName)
+  const sourceFile = await generate(testName, dataNames, props)
+  await validate(testName, dataNames, sourceFile, props)
+}
+
+async function getDataNames(testName: string): Promise<string[]> {
+  const $getDataNames = (data: any): string[] => {
+    const names = Object.keys(data)
+    return names.flatMap((name) =>
+      typeof data[name] === 'object' && data[name].$namespace
+        ? $getDataNames(data[name])
+            .filter((x) => x !== '$namespace')
+            .map((x) => `${name}.${x}`)
+        : name
+    )
+  }
+  return $getDataNames(
+    await import(pathHelper.join(fixturesDataDir, `${testName}.ts`))
+  )
 }
 
 async function generate(
-  name: string,
-  types: string[],
+  testName: string,
+  dataNames: string[],
   {
     exportStaticType,
     generatorOpts,
@@ -44,7 +69,7 @@ async function generate(
 ) {
   const generator = new Generator({
     typeWriters,
-    targetFile: pathHelper.join(__dirname, `${name}.runtypes.ts`),
+    targetFile: pathHelper.join(fixturesDestDir, `${testName}.ts`),
     project,
     ...generatorOpts,
   })
@@ -52,8 +77,8 @@ async function generate(
   const sourceFile = await generator.generate([
     {
       exportStaticType,
-      file: pathHelper.join(fixturesSourceDir, `${name}.ts`),
-      type: types,
+      file: pathHelper.join(fixturesSourceDir, `${testName}.ts`),
+      type: dataNames,
     },
   ])
 
@@ -80,62 +105,66 @@ ${js}
 }
 
 async function validate(
-  name: string,
-  types: string[],
+  testName: string,
+  dataNames: string[],
   sourceFile: SourceFile,
-  validate: TestFixtureProps['validate']
+  props: TestFixtureProps
 ) {
-  const data = await import(pathHelper.join(fixturesDataDir, `${name}.ts`))
+  const data = await import(pathHelper.join(fixturesDataDir, `${testName}.ts`))
 
-  await temporaryWriteTask(
-    sourceFile.getText(),
-    async (path) => {
-      const validators = await import(path)
-      for (const type of types) {
-        for (const testData of data[type].success)
-          try {
-            validate(validators[type], testData)
-          } catch (error: any) {
-            throw new ExpectedSuccess(name, type, testData, error)
-          }
+  await writeFile(sourceFile.getFilePath(), sourceFile.getText())
 
-        for (const testData of data[type].failure)
-          try {
-            validate(validators[type], testData)
-            throw new ExpectedFailure(name, type, testData)
-          } catch (error) {
-            if (error instanceof ExpectedFailure) throw error
-          }
+  let validators: any
+  try {
+    validators = await import(sourceFile.getFilePath())
+  } catch (error) {
+    throw error
+  }
+
+  for (const type of dataNames) {
+    for (const testData of getSuccess(data[type]))
+      try {
+        validateData(validators[type], testData, props)
+      } catch (error: any) {
+        throw new ExpectedSuccess(testName, type, testData, error)
       }
-    },
-    { extension: 'ts' }
-  )
-}
 
-class ExpectedFailure extends Error {
-  constructor(
-    public readonly testName: string,
-    public readonly type: string,
-    public readonly data: unknown
-  ) {
-    super(
-      `Expected failure for ${testName}.${type}
-Input: ${JSON.stringify(data, null, 2)}`
-    )
+    for (const testData of getFailure(data[type]))
+      try {
+        validateData(validators[type], testData, props)
+        throw new ExpectedFailure(testName, type, testData)
+      } catch (error) {
+        if (error instanceof ExpectedFailure) throw error
+      }
   }
 }
 
-class ExpectedSuccess extends Error {
-  constructor(
-    public readonly testName: string,
-    public readonly type: string,
-    public readonly data: unknown,
-    error: Error
-  ) {
-    super(
-      `Expected success for ${testName}.${type}
-${error.message}
-Input: ${JSON.stringify(data, null, 2)}`
+function* getSuccess<T>(
+  data: TestData<T> | TestDataNamespace<Record<string, T>>
+): Iterable<TestDataSuccess<T>> {
+  const testData = TestData<T>().safeParse(data)
+  if (testData.success) return yield* testData.data.success
+  for (const key in data)
+    yield* getSuccess((data as TestDataNamespace<Record<string, T>>)[key])
+}
+
+function* getFailure<T>(
+  data: TestData<T> | TestDataNamespace<Record<string, T>>
+): Iterable<TestDataFailure> {
+  const testData = TestData<T>().safeParse(data)
+  if (testData.success) return yield* testData.data.failure
+  for (const key in data)
+    yield* getFailure((data as TestDataNamespace<Record<string, T>>)[key])
+}
+
+function validateData(validator: any, data: unknown, props: TestFixtureProps) {
+  const testDataFn = TestDataFn().safeParse(data)
+  if (testDataFn.success) {
+    const validatorArgs = testDataFn.data[TestDataCall].map((arg) =>
+      props.createValidator(arg)
     )
+    props.validate(validator(...validatorArgs), testDataFn.data.data)
+  } else {
+    props.validate(validator, data)
   }
 }
