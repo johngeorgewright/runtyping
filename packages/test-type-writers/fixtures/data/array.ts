@@ -1,4 +1,7 @@
-export const B = {
+import { TestData } from '../../src/types'
+import * as T from '../source/array'
+
+export const B: TestData<T.B> = {
   success: [
     [],
     [1, 2, 3],

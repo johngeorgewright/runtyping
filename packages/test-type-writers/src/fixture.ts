@@ -96,13 +96,13 @@ async function validate(
           try {
             validate(validators[type], testData)
           } catch (error: any) {
-            throw new ExpectedSuccess(name, type, error)
+            throw new ExpectedSuccess(name, type, testData, error)
           }
 
         for (const testData of data[type].failure)
           try {
             validate(validators[type], testData)
-            throw new ExpectedFailure(name, type)
+            throw new ExpectedFailure(name, type, testData)
           } catch (error) {
             if (error instanceof ExpectedFailure) throw error
           }
@@ -113,8 +113,15 @@ async function validate(
 }
 
 class ExpectedFailure extends Error {
-  constructor(public readonly testName: string, public readonly type: string) {
-    super(`Expected failure for ${testName}.${type}`)
+  constructor(
+    public readonly testName: string,
+    public readonly type: string,
+    public readonly data: unknown
+  ) {
+    super(
+      `Expected failure for ${testName}.${type}
+Input: ${JSON.stringify(data, null, 2)}`
+    )
   }
 }
 
@@ -122,8 +129,13 @@ class ExpectedSuccess extends Error {
   constructor(
     public readonly testName: string,
     public readonly type: string,
+    public readonly data: unknown,
     error: Error
   ) {
-    super(`Expected success for ${testName}.${type}\n\n${error.message}`)
+    super(
+      `Expected success for ${testName}.${type}
+${error.message}
+Input: ${JSON.stringify(data, null, 2)}`
+    )
   }
 }

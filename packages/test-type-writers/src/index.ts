@@ -1,5 +1,5 @@
 import arrayTest from './tests/array'
-// import booleanTest from './tests/boolean'
+import booleanTest from './tests/boolean'
 // import builtinTest from './tests/builtin'
 // import circularTest from './tests/circular-references'
 // import duplicateTest from './tests/duplicate-references'
@@ -32,7 +32,7 @@ export default function testTypeWriters<Validator>(
   props: TypeWriterTestProps<Validator>
 ) {
   arrayTest(props)
-  // booleanTest(props)
+  booleanTest(props)
   // builtinTest(props)
   // circularTest(props)
   // duplicateTest(props)
