@@ -50,7 +50,7 @@
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
-    "runtypes": "6.5.1",
+    "runtypes": "6.6.0",
     "semantic-release": "19.0.3",
     "semantic-release-monorepo": "7.0.5",
     "source-map-support": "0.5.21",

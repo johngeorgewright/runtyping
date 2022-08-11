@@ -84,7 +84,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["prettier", "npm:2.7.1"],\
             ["rimraf", "npm:3.0.2"],\
-            ["runtypes", "npm:6.5.1"],\
+            ["runtypes", "npm:6.6.0"],\
             ["semantic-release", "npm:19.0.3"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["source-map-support", "npm:0.5.21"],\
@@ -2580,7 +2580,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["prettier", "npm:2.7.1"],\
             ["rimraf", "npm:3.0.2"],\
-            ["runtypes", "npm:6.5.1"],\
+            ["runtypes", "npm:6.6.0"],\
             ["semantic-release", "npm:19.0.3"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["source-map-support", "npm:0.5.21"],\
@@ -2609,7 +2609,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.47"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
             ["rimraf", "npm:3.0.2"],\
-            ["runtypes", "npm:6.5.1"],\
+            ["runtypes", "npm:6.6.0"],\
             ["semantic-release", "npm:19.0.3"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.7"],\
@@ -13014,6 +13014,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/runtypes-npm-6.5.1-7e409f6efb-1ac1c4ad74.zip/node_modules/runtypes/",\
           "packageDependencies": [\
             ["runtypes", "npm:6.5.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:6.6.0", {\
+          "packageLocation": "./.yarn/cache/runtypes-npm-6.6.0-1804139713-86cb470528.zip/node_modules/runtypes/",\
+          "packageDependencies": [\
+            ["runtypes", "npm:6.6.0"]\
           ],\
           "linkType": "HARD"\
         }]\
