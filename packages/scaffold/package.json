@@ -21,7 +21,7 @@
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.5",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@types/jest": "28.1.6",
+    "@types/jest": "28.1.7",
     "@types/prettier": "2.7.0",
     "@types/rimraf": "3.0.2",
     "@types/yeoman-generator": "5.2.10",
