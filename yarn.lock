@@ -1902,7 +1902,7 @@ __metadata:
     rimraf: 3.0.2
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     ts-morph: 15.1.0
     ts-node: 10.9.1
     tslib: 2.4.0
@@ -1934,7 +1934,7 @@ __metadata:
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
     title-case: 3.0.3
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     ts-morph: 15.1.0
     ts-node: 10.9.1
     tslib: 2.4.0
@@ -1975,7 +1975,7 @@ __metadata:
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
     source-map-support: 0.5.21
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     ts-node: 10.9.1
     tslib: 2.4.0
     typescript: 4.7.4
@@ -2001,7 +2001,7 @@ __metadata:
     runtypes: 6.6.0
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     ts-morph: 15.1.0
     ts-node: 10.9.1
     tslib: 2.4.0
@@ -2031,7 +2031,7 @@ __metadata:
     rimraf: 3.0.2
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     tslib: 2.4.0
     typescript: 4.7.4
     yeoman-generator: 5.7.0
@@ -2055,7 +2055,7 @@ __metadata:
     rimraf: 3.0.2
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     ts-morph: 15.1.0
     ts-node: 10.9.1
     tslib: 2.4.0
@@ -2083,7 +2083,7 @@ __metadata:
     semantic-release: 19.0.3
     semantic-release-monorepo: 7.0.5
     title-case: 3.0.3
-    ts-jest: 28.0.7
+    ts-jest: 28.0.8
     ts-morph: 15.1.0
     ts-node: 10.9.1
     tslib: 2.4.0
@@ -12518,9 +12518,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:28.0.7":
-  version: 28.0.7
-  resolution: "ts-jest@npm:28.0.7"
+"ts-jest@npm:28.0.8":
+  version: 28.0.8
+  resolution: "ts-jest@npm:28.0.8"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -12547,7 +12547,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: be6ad6382e3b2e7b0c45d06616a4a02aeb6815bad2026fe8eeb4e0941205faa50ac3f5930adb7ba2fda5fea6a5739bfa507e2eac8764d2c729ddc8010681707a
+  checksum: c72e9292709e77ce47ac7813cb24feaa9d01dc983598d29a821f224b5cc190dc7d67e17379cef089095404c00b9d582ee91c727916f9ec289cb1b723df408ae3
   languageName: node
   linkType: hard
 
