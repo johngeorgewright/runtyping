@@ -1,3 +1,4 @@
+import assertNever from 'assert-never'
 import mkdirp from 'mkdirp'
 import * as pathHelper from 'path'
 import { Project, SourceFile } from 'ts-morph'
@@ -5,6 +6,9 @@ import { Generator, GeneratorOptions, TypeWriters } from '@runtyping/generator'
 import ts from 'typescript'
 import {
   TestData,
+  TestDataArg,
+  TestDataArgNumber,
+  TestDataArgString,
   TestDataCall,
   TestDataFailure,
   TestDataFn,
@@ -14,6 +18,8 @@ import {
 } from './types'
 import { ExpectedFailure, ExpectedSuccess } from './error'
 import { writeFile } from 'fs/promises'
+import { zodGuard } from './zod'
+import { mapValues } from './util'
 
 export const fixturesDir = pathHelper.resolve(__dirname, '..', 'fixtures')
 
@@ -144,8 +150,7 @@ async function validate(
 function* getSuccess<T>(
   data: TestData<T> | TestDataNamespace<Record<string, T>>
 ): Iterable<TestDataSuccess<T>> {
-  const testData = TestData<T>().safeParse(data)
-  if (testData.success) return yield* testData.data.success
+  if (zodGuard(TestData<T>())(data)) return yield* data.success
   for (const key in data)
     yield* getSuccess((data as TestDataNamespace<Record<string, T>>)[key])
 }
@@ -153,20 +158,31 @@ function* getSuccess<T>(
 function* getFailure<T>(
   data: TestData<T> | TestDataNamespace<Record<string, T>>
 ): Iterable<TestDataFailure> {
-  const testData = TestData<T>().safeParse(data)
-  if (testData.success) return yield* testData.data.failure
+  if (zodGuard(TestData<T>())(data)) return yield* data.failure
   for (const key in data)
     yield* getFailure((data as TestDataNamespace<Record<string, T>>)[key])
 }
 
 function validateData(validator: any, data: unknown, props: TestFixtureProps) {
-  const testDataFn = TestDataFn().safeParse(data)
-  if (testDataFn.success) {
-    const validatorArgs = testDataFn.data[TestDataCall].map((arg) =>
-      props.createValidator(arg)
-    )
-    props.validate(validator(...validatorArgs), testDataFn.data.data)
-  } else {
-    props.validate(validator, data)
-  }
+  if (isTestDataFn(data)) {
+    props.validate(validator(...createValidatorArgs(props, data)), data.data)
+  } else props.validate(validator, data)
 }
+
+function createValidatorArgs<T>(props: TestFixtureProps, data: TestDataFn<T>) {
+  return data[TestDataCall].map((arg) => createValidatorArg(props, arg))
+}
+
+function createValidatorArg(props: TestFixtureProps, data: TestDataArg): any {
+  return data === TestDataArgNumber
+    ? props.createNumberValidator()
+    : data === TestDataArgString
+    ? props.createStringValidator()
+    : typeof data === 'object'
+    ? props.createObjectValidator(
+        mapValues(data, (arg) => createValidatorArg(props, arg))
+      )
+    : assertNever(data)
+}
+
+const isTestDataFn = zodGuard(TestDataFn())

@@ -1927,7 +1927,6 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.6
     "@types/node": 18.6.3
-    assert-never: 1.2.1
     fp-ts: 2.12.2
     io-ts: 2.2.17
     jest: 28.1.3
@@ -1997,7 +1996,6 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.6
     "@types/node": 16.11.48
-    assert-never: 1.2.1
     jest: 28.1.3
     rimraf: 3.0.2
     runtypes: 6.6.0
@@ -2053,6 +2051,7 @@ __metadata:
     "@types/jest": 28.1.6
     "@types/mkdirp": ^1
     "@types/node": 18.0.6
+    assert-never: 1.2.1
     fp-ts: 2.12.2
     io-ts: 2.2.17
     jest: 28.1.3
@@ -2085,7 +2084,6 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.6
     "@types/node": 18.0.6
-    assert-never: 1.2.1
     jest: 28.1.3
     rimraf: 3.0.2
     semantic-release: 19.0.3
