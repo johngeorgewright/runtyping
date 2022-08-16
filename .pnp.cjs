@@ -2633,7 +2633,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:28.1.7"],\
             ["@types/prettier", "npm:2.7.0"],\
             ["@types/rimraf", "npm:3.0.2"],\
-            ["@types/yeoman-generator", "npm:5.2.10"],\
+            ["@types/yeoman-generator", "npm:5.2.11"],\
             ["change-case", "npm:4.1.2"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
             ["prettier", "npm:2.7.1"],\
@@ -3267,6 +3267,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rxjs", "npm:7.5.6"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.2.3", {\
+          "packageLocation": "./.yarn/cache/@types-inquirer-npm-8.2.3-03af3a792b-2978e749fb.zip/node_modules/@types/inquirer/",\
+          "packageDependencies": [\
+            ["@types/inquirer", "npm:8.2.3"],\
+            ["@types/through", "npm:0.0.30"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/istanbul-lib-coverage", [\
@@ -3631,6 +3639,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/debug", "npm:4.1.7"],\
             ["@types/ejs", "npm:3.1.1"],\
             ["@types/inquirer", "npm:8.2.1"],\
+            ["@types/mem-fs-editor", "npm:7.0.2"],\
+            ["@types/yeoman-environment", "npm:2.10.7"],\
+            ["rxjs", "npm:6.6.7"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.2.11", {\
+          "packageLocation": "./.yarn/cache/@types-yeoman-generator-npm-5.2.11-c586b9f1b2-b7cfaf7348.zip/node_modules/@types/yeoman-generator/",\
+          "packageDependencies": [\
+            ["@types/yeoman-generator", "npm:5.2.11"],\
+            ["@types/debug", "npm:4.1.7"],\
+            ["@types/ejs", "npm:3.1.1"],\
+            ["@types/inquirer", "npm:8.2.3"],\
             ["@types/mem-fs-editor", "npm:7.0.2"],\
             ["@types/yeoman-environment", "npm:2.10.7"],\
             ["rxjs", "npm:6.6.7"]\
