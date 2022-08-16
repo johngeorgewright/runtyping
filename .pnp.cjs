@@ -2499,7 +2499,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ts-morph/common", "npm:0.16.0"],\
             ["@types/jest", "npm:28.1.7"],\
             ["@types/js-yaml", "npm:4.0.5"],\
-            ["@types/lodash", "npm:4.14.182"],\
+            ["@types/lodash", "npm:4.14.183"],\
             ["@types/node", "npm:16.11.49"],\
             ["@types/prettier", "npm:2.7.0"],\
             ["@types/yargs", "npm:17.0.11"],\
@@ -3357,6 +3357,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.182-1073aac722-7dd137aa9d.zip/node_modules/@types/lodash/",\
           "packageDependencies": [\
             ["@types/lodash", "npm:4.14.182"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.14.183", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.183-f304710022-9c754dc7a2.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.183"]\
           ],\
           "linkType": "HARD"\
         }]\
