@@ -1,4 +1,3 @@
-import assertNever from 'assert-never'
 import testTypeWriter from '@runtyping/test-type-writers'
 import * as t from 'io-ts'
 import IoTsTypeWriters from '../src/IoTsTypeWriters'
@@ -6,20 +5,9 @@ import { fold } from 'fp-ts/lib/Either'
 import { pipe } from 'fp-ts/lib/function'
 
 testTypeWriter<t.Type<any>>({
-  createValidator(dataArg) {
-    if (dataArg === 'String') return t.string
-    else if (dataArg === 'Number') return t.number
-    else if (typeof dataArg === 'object')
-      return t.type(
-        Object.fromEntries(
-          Object.entries(dataArg).map(([key, value]) => [
-            key,
-            this.createValidator(value),
-          ])
-        )
-      )
-    else return assertNever(dataArg)
-  },
+  createNumberValidator: () => t.number,
+  createStringValidator: () => t.string,
+  createObjectValidator: t.type,
 
   // Tuples are broken in io-ts. https://github.com/gcanti/io-ts/issues/503
   ignore: ['tuple.A', 'tuple.B'],

@@ -40,7 +40,6 @@
   },
   "dependencies": {
     "@runtyping/generator": "workspace:*",
-    "assert-never": "1.2.1",
     "ts-morph": "15.1.0",
     "tslib": "2.4.0"
   }
