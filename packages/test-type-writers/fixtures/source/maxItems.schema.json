@@ -1,0 +1,14 @@
+{
+  "title": "ExampleSchema",
+  "type": "object",
+  "properties": {
+    "testArray": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

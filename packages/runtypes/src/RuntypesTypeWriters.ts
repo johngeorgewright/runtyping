@@ -11,10 +11,12 @@ import {
   sortUndefinedFirst,
   Static,
   StaticParameters,
+  Tuple,
   TypeWriter,
   TypeWriters,
   Write,
 } from '@runtyping/generator'
+import { getTupleMinSize } from '@runtyping/generator/dist/tuple'
 import type * as runtypes from 'runtypes'
 import { SymbolFlags, Type } from 'ts-morph'
 
@@ -69,6 +71,25 @@ export default class RuntypesTypeWriters extends TypeWriters {
       yield [Write, ',']
     }
     yield [Write, ')']
+  }
+
+  override *variadicTuple(type: Type): TypeWriter {
+    yield [Import, { source: this.#module, name: 'Array' }]
+    yield [Write, 'Array(']
+    const types = Tuple.getTupleElementTypes(type)
+    if (types.length > 1) {
+      yield [Import, { source: this.#module, name: 'Union' }]
+      yield [Write, 'Union(']
+      for (const type of types) {
+        yield* this.generateOrReuseType(type)
+        yield [Write, ', ']
+      }
+      yield [Write, ')']
+    } else yield* this.generateOrReuseType(types[0])
+    yield [Write, ')']
+    const minTupleSize = getTupleMinSize(type)
+    if (minTupleSize !== undefined)
+      yield [Write, `.withConstraint(t => t.length >= ${minTupleSize})`]
   }
 
   override *enum(type: Type): TypeWriter {

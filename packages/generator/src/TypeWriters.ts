@@ -1,4 +1,5 @@
 import { Type } from 'ts-morph'
+import { Tuple } from '.'
 import { DeclareAndUse, TypeWriter } from './TypeWriter'
 import { getGenerics, isBuiltInType } from './util'
 
@@ -37,7 +38,9 @@ export default abstract class TypeWriters {
         return yield* this.array(type)
 
       case type.isTuple():
-        return yield* this.tuple(type)
+        return yield* Tuple.isVariadicTuple(type)
+          ? this.variadicTuple(type)
+          : this.tuple(type)
 
       case type.isEnum():
         return yield* this.enum(type)
@@ -108,6 +111,7 @@ export default abstract class TypeWriters {
   protected abstract boolean(type: Type): TypeWriter
   protected abstract array(type: Type): TypeWriter
   protected abstract tuple(type: Type): TypeWriter
+  protected abstract variadicTuple(type: Type): TypeWriter
   protected abstract enum(type: Type): TypeWriter
   protected abstract enumLiteral(type: Type): TypeWriter
   protected abstract intersection(type: Type): TypeWriter
