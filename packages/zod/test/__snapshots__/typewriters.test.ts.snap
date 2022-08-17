@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`without static types 1`] = `
+"import { object, literal, string, number } from 'zod';
+
+export const One = object({ type: literal(\\"one\\"), value: string(), });
+export const Two = object({ type: literal(\\"two\\"), value: number(), });
+export const Three = One.or(Two);
+"
+`;

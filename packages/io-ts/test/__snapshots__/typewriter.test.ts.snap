@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`without static types 1`] = `
+"import { type, literal, string, number, union } from 'io-ts';
+
+export const One = type({ type: literal(\\"one\\"), value: string, });
+export const Two = type({ type: literal(\\"two\\"), value: number, });
+export const Three = union([One, Two,]);
+"
+`;
