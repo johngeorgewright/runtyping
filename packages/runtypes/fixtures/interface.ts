@@ -1,30 +1,13 @@
-import {
-  Static,
-  Record,
-  String,
-  Number,
-  Boolean,
-  Literal,
-  Function,
-} from 'runtypes'
+import { Static, Record, String, Number, Boolean, Literal, Function } from 'runtypes';
 
-export const A = Record({
-  foo: String,
-  bar: Number,
-  [`has spaces`]: Boolean,
-  [`+1`]: Boolean,
-  [`-1`]: Boolean,
-  __underscores__: Boolean,
-  $dollar: Boolean,
-  [`\${escaped template vars}`]: Boolean,
-})
+export const A = Record({ foo: String, bar: Number, [`has spaces`]: Boolean, [`+1`]: Boolean, [`-1`]: Boolean, __underscores__: Boolean, $dollar: Boolean, [`\${escaped template vars}`]: Boolean, });
 
-export type A = Static<typeof A>
+export type A = Static<typeof A>;
 
-export const B = Record({ a: A, b: Literal('B') })
+export const B = Record({ a: A, b: Literal("B"), });
 
-export type B = Static<typeof B>
+export type B = Static<typeof B>;
 
-export const C = Record({ foo: Function, bar: Number, boo: Function })
+export const C = Record({ foo: Function, bar: Number, boo: Function, });
 
-export type C = Static<typeof C>
+export type C = Static<typeof C>;

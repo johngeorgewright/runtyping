@@ -1,5 +1,5 @@
-import { Static, Record, String, Undefined } from 'runtypes'
+import { Static, Record, String, Undefined } from 'runtypes';
 
-export const A = Record({ foo: String.Or(Undefined).optional() })
+export const A = Record({ foo: String.Or(Undefined).optional(), });
 
-export type A = Static<typeof A>
+export type A = Static<typeof A>;

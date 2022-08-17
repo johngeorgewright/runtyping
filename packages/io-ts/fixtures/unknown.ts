@@ -1,9 +1,9 @@
-import { TypeOf, unknown as Unknown } from 'io-ts'
+import { TypeOf, unknown as Unknown } from 'io-ts';
 
-export const A = Unknown
+export const A = Unknown;
 
-export type A = TypeOf<typeof A>
+export type A = TypeOf<typeof A>;
 
-export const B = Unknown
+export const B = Unknown;
 
-export type B = TypeOf<typeof B>
+export type B = TypeOf<typeof B>;

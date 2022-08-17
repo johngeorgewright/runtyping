@@ -1,5 +1,5 @@
-import { TypeOf, number } from 'io-ts'
+import { TypeOf, number } from 'io-ts';
 
-export const A = number
+export const A = number;
 
-export type A = TypeOf<typeof A>
+export type A = TypeOf<typeof A>;

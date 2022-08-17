@@ -1,9 +1,9 @@
-import { Static, Unknown } from 'runtypes'
+import { Static, Unknown } from 'runtypes';
 
-export const A = Unknown
+export const A = Unknown;
 
-export type A = Static<typeof A>
+export type A = Static<typeof A>;
 
-export const B = Unknown
+export const B = Unknown;
 
-export type B = Static<typeof B>
+export type B = Static<typeof B>;

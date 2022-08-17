@@ -1,5 +1,5 @@
-import { infer as Infer, number } from 'zod'
+import { infer as Infer, number } from 'zod';
 
-export const A = number()
+export const A = number();
 
-export type A = Infer<typeof A>
+export type A = Infer<typeof A>;

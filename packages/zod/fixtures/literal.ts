@@ -1,13 +1,13 @@
-import { infer as Infer, literal } from 'zod'
+import { infer as Infer, literal } from 'zod';
 
-export const A = literal('foo')
+export const A = literal("foo");
 
-export type A = Infer<typeof A>
+export type A = Infer<typeof A>;
 
-export const B = literal(2)
+export const B = literal(2);
 
-export type B = Infer<typeof B>
+export type B = Infer<typeof B>;
 
-export const C = literal(true)
+export const C = literal(true);
 
-export type C = Infer<typeof C>
+export type C = Infer<typeof C>;

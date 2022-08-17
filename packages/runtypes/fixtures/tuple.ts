@@ -1,9 +1,9 @@
-import { Static, Tuple, Number, String } from 'runtypes'
+import { Static, Tuple, Number, String } from 'runtypes';
 
-export const A = Tuple(Number, String, Number)
+export const A = Tuple(Number, String, Number,);
 
-export type A = Static<typeof A>
+export type A = Static<typeof A>;
 
-export const B = Tuple(A, A)
+export const B = Tuple(A, A,);
 
-export type B = Static<typeof B>
+export type B = Static<typeof B>;

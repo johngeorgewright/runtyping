@@ -1,5 +1,5 @@
-import { TypeOf, union, string, number } from 'io-ts'
+import { TypeOf, union, string, number } from 'io-ts';
 
-export const C = union([string, number])
+export const C = union([string, number,]);
 
-export type C = TypeOf<typeof C>
+export type C = TypeOf<typeof C>;

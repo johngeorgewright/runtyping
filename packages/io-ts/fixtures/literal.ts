@@ -1,13 +1,13 @@
-import { TypeOf, literal } from 'io-ts'
+import { TypeOf, literal } from 'io-ts';
 
-export const A = literal('foo')
+export const A = literal("foo");
 
-export type A = TypeOf<typeof A>
+export type A = TypeOf<typeof A>;
 
-export const B = literal(2)
+export const B = literal(2);
 
-export type B = TypeOf<typeof B>
+export type B = TypeOf<typeof B>;
 
-export const C = literal(true)
+export const C = literal(true);
 
-export type C = TypeOf<typeof C>
+export type C = TypeOf<typeof C>;

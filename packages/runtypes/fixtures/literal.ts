@@ -1,13 +1,13 @@
-import { Static, Literal } from 'runtypes'
+import { Static, Literal } from 'runtypes';
 
-export const A = Literal('foo')
+export const A = Literal("foo");
 
-export type A = Static<typeof A>
+export type A = Static<typeof A>;
 
-export const B = Literal(2)
+export const B = Literal(2);
 
-export type B = Static<typeof B>
+export type B = Static<typeof B>;
 
-export const C = Literal(true)
+export const C = Literal(true);
 
-export type C = Static<typeof C>
+export type C = Static<typeof C>;

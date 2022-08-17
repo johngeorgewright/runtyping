@@ -1,5 +1,5 @@
-import { Static, String } from 'runtypes'
+import { Static, String } from 'runtypes';
 
-export const A = String
+export const A = String;
 
-export type A = Static<typeof A>
+export type A = Static<typeof A>;

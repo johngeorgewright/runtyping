@@ -1,5 +1,5 @@
-import { TypeOf, string, record } from 'io-ts'
+import { TypeOf, string, record } from 'io-ts';
 
-export const A = record(string, string)
+export const A = record(string, string);
 
-export type A = TypeOf<typeof A>
+export type A = TypeOf<typeof A>;

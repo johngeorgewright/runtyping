@@ -1,5 +1,5 @@
-import { infer as Infer, string, number } from 'zod'
+import { infer as Infer, string, number } from 'zod';
 
-export const C = string().or(number())
+export const C = string().or(number());
 
-export type C = Infer<typeof C>
+export type C = Infer<typeof C>;

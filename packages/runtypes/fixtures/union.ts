@@ -1,5 +1,5 @@
-import { Static, String, Number } from 'runtypes'
+import { Static, String, Number } from 'runtypes';
 
-export const C = String.Or(Number)
+export const C = String.Or(Number);
 
-export type C = Static<typeof C>
+export type C = Static<typeof C>;
