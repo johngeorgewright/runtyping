@@ -10,4 +10,11 @@ testTypeWriters<Runtype>({
   validate(validator, data) {
     validator.check(data)
   },
+
+  ignore: [
+    // TODO: implement advanced version of variadic tuples
+    'variadicTuples.B',
+    'variadicTuples.C',
+    'variadicTuples.D',
+  ],
 })

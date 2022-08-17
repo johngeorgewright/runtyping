@@ -10,10 +10,12 @@ import {
   sortUndefinedFirst,
   Static,
   StaticParameters,
+  Tuple,
   TypeWriter,
   TypeWriters,
   Write,
 } from '@runtyping/generator'
+import { getTupleMinSize } from '@runtyping/generator/dist/tuple'
 import { titleCase } from 'title-case'
 import { SymbolFlags, Type } from 'ts-morph'
 import * as zod from 'zod'
@@ -244,6 +246,24 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override unknown() {
     return this.#simple('unknown')
+  }
+
+  override *variadicTuple(type: Type): TypeWriter {
+    yield [Import, { source: this.#module, name: 'array' }]
+    yield [Write, 'array(']
+    const types = Tuple.getTupleElementTypes(type)
+    if (types.length > 1) {
+      yield [Import, { source: this.#module, name: 'union' }]
+      yield [Write, 'union([']
+      for (const type of types) {
+        yield* this.generateOrReuseType(type)
+        yield [Write, ', ']
+      }
+      yield [Write, '])']
+    } else yield* this.generateOrReuseType(types[0])
+    yield [Write, ')']
+    const minTupleSize = getTupleMinSize(type)
+    if (minTupleSize !== undefined) yield [Write, `.min(${minTupleSize})`]
   }
 
   override void() {

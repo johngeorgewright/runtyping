@@ -13,6 +13,7 @@ import {
   sortUndefinedFirst,
   Static,
   StaticParameters,
+  Tuple,
   TypeWriter,
   TypeWriters,
   Write,
@@ -65,9 +66,34 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   protected override *tuple(type: Type): TypeWriter {
+    if (type.getTupleElements().length === 0) {
+      yield [Import, { source: this.#module, name: 'Type' }]
+      yield [Import, { source: this.#module, name: 'failure' }]
+      yield [Import, { source: this.#module, name: 'success' }]
+      yield [
+        Write,
+        `new Type<never[]>(
+          'never[]',
+          (u): u is never[] => Array.isArray(u) && u.length === 0,
+          (i, c) => Array.isArray(i) && i.length === 0 ? success(i as never[]) : failure(i, c, 'not an empty array'),
+          (a) => a
+        )`,
+      ]
+    } else {
+      yield [Import, { source: this.#module, name: 'tuple' }]
+      yield [Write, 'tuple([']
+      for (const element of type.getTupleElements()) {
+        yield* this.generateOrReuseType(element)
+        yield [Write, ',']
+      }
+      yield [Write, '])']
+    }
+  }
+
+  protected override *variadicTuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'tuple' }]
     yield [Write, 'tuple([']
-    for (const element of type.getTupleElements()) {
+    for (const element of Tuple.getTupleElementTypes(type)) {
       yield* this.generateOrReuseType(element)
       yield [Write, ',']
     }

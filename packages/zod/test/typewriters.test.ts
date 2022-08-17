@@ -10,4 +10,11 @@ testTypeWriters<z.ZodTypeAny>({
   validate(validator, data) {
     validator.parse(data)
   },
+
+  ignore: [
+    // TODO: implement advanced version of variadic tuples
+    'variadicTuples.B',
+    'variadicTuples.C',
+    'variadicTuples.D',
+  ],
 })
