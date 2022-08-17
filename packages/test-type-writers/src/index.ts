@@ -13,5 +13,3 @@ export default function testTypeWriters<Validator>(
   for (const testName of testNames)
     test(testName, () => testFixture(testName, props))
 }
-
-export { TestDataArg } from './types'

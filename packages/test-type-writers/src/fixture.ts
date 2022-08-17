@@ -85,7 +85,10 @@ async function generate(
   const sourceFile = await generator.generate([
     {
       exportStaticType,
-      file: pathHelper.join(fixturesSourceDir, `${testName}.ts`),
+      file: pathHelper.join(
+        fixturesSourceDir,
+        pathHelper.extname(testName) === '.json' ? testName : `${testName}.ts`
+      ),
       type: dataNames,
     },
   ])
