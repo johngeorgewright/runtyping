@@ -3,7 +3,7 @@ import { paramCase, pascalCase } from 'change-case'
 import { validateGenerationFromRoot } from '../validation'
 import * as path from 'path'
 import prettier from 'prettier'
-import { writeFile } from 'fs/promises'
+import { appendFile, writeFile } from 'fs/promises'
 
 export = class PackageGenerator extends Generator {
   #namespace = '@runtyping'
@@ -197,6 +197,11 @@ export = class PackageGenerator extends Generator {
         this.templatePath('typewriter/test/typewriter.test.ts.template'),
         this.destinationPath(`test/typewriter.test.ts`),
         context
+      )
+
+      await appendFile(
+        `${process.cwd()}/.prettierignore`,
+        `packages/${context.name}/fixtures`
       )
     } else {
       this.fs.copy(

@@ -1,4 +1,12 @@
 import testTypeWriter from '@runtyping/test-type-writers'
 import <%=typeWritersName%> from '../src/<%=typeWritersName%>'
 
-testTypeWriter({ typeWriters: new <%=typeWritersName%>() })
+testTypeWriter({ 
+  createNumberValidator: () => {},
+  createStringValidator: () => {},
+  createObjectValidator: () => {},
+  typeWriters: new <%=typeWritersName%>(),
+  validate(validator, data) {
+    throw new Error('TODO: Validation implementation')
+  }
+})
