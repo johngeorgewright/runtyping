@@ -1888,10 +1888,10 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@ts-morph/common": 0.16.0
-    "@types/jest": 28.1.6
+    "@types/jest": 28.1.7
     "@types/js-yaml": 4.0.5
-    "@types/lodash": 4.14.182
-    "@types/node": 16.11.48
+    "@types/lodash": 4.14.183
+    "@types/node": 16.11.49
     "@types/prettier": 2.7.0
     "@types/yargs": 17.0.11
     jest: 28.1.3
@@ -1925,7 +1925,7 @@ __metadata:
     "@semantic-release/github": 8.0.5
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 28.1.6
+    "@types/jest": 28.1.7
     "@types/node": 18.6.3
     fp-ts: 2.12.2
     io-ts: 2.2.17
@@ -1958,8 +1958,8 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.5
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 28.1.6
-    "@types/node": 16.11.48
+    "@types/jest": 28.1.7
+    "@types/node": 16.11.49
     "@types/source-map-support": 0.5.4
     commitizen: 4.2.5
     concurrently: 7.3.0
@@ -1994,8 +1994,8 @@ __metadata:
     "@semantic-release/github": 8.0.5
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 28.1.6
-    "@types/node": 16.11.48
+    "@types/jest": 28.1.7
+    "@types/node": 16.11.49
     jest: 28.1.3
     rimraf: 3.0.2
     runtypes: 6.6.0
@@ -2021,10 +2021,10 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.5
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 28.1.6
+    "@types/jest": 28.1.7
     "@types/prettier": 2.7.0
     "@types/rimraf": 3.0.2
-    "@types/yeoman-generator": 5.2.10
+    "@types/yeoman-generator": 5.2.11
     change-case: 4.1.2
     jest: 28.1.3
     prettier: 2.7.1
@@ -2049,7 +2049,7 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.6
-    "@types/mkdirp": ^1
+    "@types/mkdirp": 1.0.2
     "@types/node": 18.0.6
     assert-never: 1.2.1
     fp-ts: 2.12.2
@@ -2082,7 +2082,7 @@ __metadata:
     "@semantic-release/github": 8.0.5
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 28.1.6
+    "@types/jest": 28.1.7
     "@types/node": 18.0.6
     jest: 28.1.3
     rimraf: 3.0.2
@@ -2498,6 +2498,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/inquirer@npm:^8":
+  version: 8.2.3
+  resolution: "@types/inquirer@npm:8.2.3"
+  dependencies:
+    "@types/through": "*"
+  checksum: 2978e749fbda061b85a56331a267f6c7f40380c17bce1b0f8b0bd1d86c88820e3bd7df4985c633647652b571f7ffd6b97b929cabe8b7d61259d354229e4c6c5b
+  languageName: node
+  linkType: hard
+
 "@types/istanbul-lib-coverage@npm:*, @types/istanbul-lib-coverage@npm:^2.0.0, @types/istanbul-lib-coverage@npm:^2.0.1":
   version: 2.0.3
   resolution: "@types/istanbul-lib-coverage@npm:2.0.3"
@@ -2533,6 +2542,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:28.1.7":
+  version: 28.1.7
+  resolution: "@types/jest@npm:28.1.7"
+  dependencies:
+    expect: ^28.0.0
+    pretty-format: ^28.0.0
+  checksum: 17c9bf9667cd4f062eba5aa9eaea248927bf6479da1cc009e0b7d26d501f460f068dd23eddb67d2602264e915a30b63ae7c9cbb516723ffd18589f6f9d267d43
+  languageName: node
+  linkType: hard
+
 "@types/js-yaml@npm:4.0.5":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
@@ -2563,7 +2582,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.182, @types/lodash@npm:^4.14.182":
+"@types/lodash@npm:4.14.183":
+  version: 4.14.183
+  resolution: "@types/lodash@npm:4.14.183"
+  checksum: 9c754dc7a2e5f26f9c67e494cffbe5447135a4e30eb2fcbc9da05dd5fa5fbf8579059bcf15014307c1c5d1c6d1b7870860618990d96abee9389d8cb79b3ac93c
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.14.182":
   version: 4.14.182
   resolution: "@types/lodash@npm:4.14.182"
   checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
@@ -2608,7 +2634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mkdirp@npm:^1":
+"@types/mkdirp@npm:1.0.2":
   version: 1.0.2
   resolution: "@types/mkdirp@npm:1.0.2"
   dependencies:
@@ -2631,10 +2657,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.48":
-  version: 16.11.48
-  resolution: "@types/node@npm:16.11.48"
-  checksum: 10cd539cb2cf5a8f51f3c2bd761c093b752e534b1f2dc0d7193debd7986145b68db2a5fd48498af641e8641fb8d24b7c4851ea3e30fb8f56cc13ac719cad1e1f
+"@types/node@npm:16.11.49":
+  version: 16.11.49
+  resolution: "@types/node@npm:16.11.49"
+  checksum: 05545ee49da3b783ab77cddca45db6f4d47861c2bb148a17b774688e1082f20f27177591d140923724bcd8643b32291203f6f1eadba397e394232d4a1e28e07a
   languageName: node
   linkType: hard
 
@@ -2819,7 +2845,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yeoman-generator@npm:*, @types/yeoman-generator@npm:5.2.10":
+"@types/yeoman-generator@npm:*":
   version: 5.2.10
   resolution: "@types/yeoman-generator@npm:5.2.10"
   dependencies:
@@ -2830,6 +2856,20 @@ __metadata:
     "@types/yeoman-environment": "*"
     rxjs: ^6.4.0
   checksum: 85744da9b4565e347c737a8490572d019457e0ef7da5ca3dae9b2c71f31fc973a3381e673ecc195499ad9db3101318af9a9afc4324393461854158953bbaf0ad
+  languageName: node
+  linkType: hard
+
+"@types/yeoman-generator@npm:5.2.11":
+  version: 5.2.11
+  resolution: "@types/yeoman-generator@npm:5.2.11"
+  dependencies:
+    "@types/debug": "*"
+    "@types/ejs": "*"
+    "@types/inquirer": ^8
+    "@types/mem-fs-editor": "*"
+    "@types/yeoman-environment": "*"
+    rxjs: ^6.4.0
+  checksum: b7cfaf73480ad964d10e3254ad2935d1d6cc9235c9c34c41d58c225616a89077d66ff5f16c01cab3e632b3db994baaff2bcc847d3a95e08ed379ae6d93e51877
   languageName: node
   linkType: hard
 
@@ -5382,7 +5422,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^28.1.3":
+"expect@npm:^28.0.0, expect@npm:^28.1.3":
   version: 28.1.3
   resolution: "expect@npm:28.1.3"
   dependencies:
@@ -7410,18 +7450,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "jest-diff@npm:28.1.1"
-  dependencies:
-    chalk: ^4.0.0
-    diff-sequences: ^28.1.1
-    jest-get-type: ^28.0.2
-    pretty-format: ^28.1.1
-  checksum: d9e0355880bee8728f7615ac0f03c66dcd4e93113935cca056a5f5a2f20ac2c7812aca6ad68e79bd1b11f2428748bd9123e6b1c7e51c93b4da3dfa5a875339f7
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest-diff@npm:28.1.3"
@@ -7510,19 +7538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^28.0.0":
-  version: 28.1.1
-  resolution: "jest-matcher-utils@npm:28.1.1"
-  dependencies:
-    chalk: ^4.0.0
-    jest-diff: ^28.1.1
-    jest-get-type: ^28.0.2
-    pretty-format: ^28.1.1
-  checksum: cb73ccd347638cd761ef7e0b606fbd71c115bd8febe29413f7b105fff6855d4356b8094c6b72393c5457db253b9c163498f188f25f9b6308c39c510e4c2886ee
-  languageName: node
-  linkType: hard
-
-"jest-matcher-utils@npm:^28.1.3":
+"jest-matcher-utils@npm:^28.0.0, jest-matcher-utils@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest-matcher-utils@npm:28.1.3"
   dependencies:
@@ -10543,7 +10559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^28.0.0, pretty-format@npm:^28.1.1":
+"pretty-format@npm:^28.0.0":
   version: 28.1.1
   resolution: "pretty-format@npm:28.1.1"
   dependencies:

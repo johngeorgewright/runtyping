@@ -25,7 +25,7 @@
     "@semantic-release/npm": "9.0.1",
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "28.1.6",
-    "@types/mkdirp": "^1",
+    "@types/mkdirp": "1.0.2",
     "@types/node": "18.0.6",
     "fp-ts": "2.12.2",
     "io-ts": "2.2.17",
