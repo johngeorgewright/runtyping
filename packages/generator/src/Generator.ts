@@ -231,17 +231,17 @@ export default class Generator {
         .run()
     }
 
-    if (exportStaticType)
-      runTypeWriter(
-        this.#typeWriters.defaultStaticImplementation(typeDeclaration.getType())
-      )
-
     runTypeWriter(
       this.#typeWriters.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
         recursive,
       })
     )
+
+    if (exportStaticType && !staticImplementation)
+      runTypeWriter(
+        this.#typeWriters.defaultStaticImplementation(typeDeclaration.getType())
+      )
 
     doInModule(this.#targetFile, runTypeName, (node, name) => {
       node.addVariableStatement({
