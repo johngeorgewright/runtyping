@@ -16,7 +16,6 @@ import {
   TypeWriters,
   Write,
 } from '@runtyping/generator'
-import { getTupleMinSize } from '@runtyping/generator/dist/tuple'
 import type * as runtypes from 'runtypes'
 import { SymbolFlags, Type } from 'ts-morph'
 
@@ -75,21 +74,74 @@ export default class RuntypesTypeWriters extends TypeWriters {
 
   override *variadicTuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'Array' }]
+
+    let staticType: string
+    try {
+      const name = getTypeName(type)
+      const alias = `_${name}`
+      yield [ImportFromSource, { alias, name }]
+      staticType = alias
+    } catch (error) {
+      staticType = type.getText()
+    }
+
     yield [Write, 'Array(']
-    const types = Tuple.getTupleElementTypes(type)
-    if (types.length > 1) {
-      yield [Import, { source: this.#module, name: 'Union' }]
-      yield [Write, 'Union(']
-      for (const type of types) {
-        yield* this.generateOrReuseType(type)
-        yield [Write, ', ']
-      }
-      yield [Write, ')']
-    } else yield* this.generateOrReuseType(types[0])
+    yield* this.#simple('Unknown')
     yield [Write, ')']
-    const minTupleSize = getTupleMinSize(type)
-    if (minTupleSize !== undefined)
-      yield [Write, `.withConstraint(t => t.length >= ${minTupleSize})`]
+    yield [
+      Write,
+      `.withConstraint<${staticType}>(data =>
+        data.length >= ${Tuple.getTupleMinSize(type)}`,
+    ]
+    yield* this.#variadicTupleElements(Tuple.getTupleElements(type))
+    yield [
+      Write,
+      `
+      )`,
+    ]
+  }
+
+  *#variadicTupleElements(types: Tuple.TupleElement[]): TypeWriter {
+    let variadicIndex
+    for (let i = 0; i < types.length; i++) {
+      yield [
+        Write,
+        `
+          && `,
+      ]
+      const { element, variadic } = types[i]
+      if (variadic) {
+        variadicIndex = i
+        yield* this.#variadicTupleVariadicElement(
+          element,
+          i,
+          i === types.length - 1 ? undefined : i - (types.length - 1)
+        )
+      } else
+        yield* this.#variadicTupleElement(
+          element,
+          variadicIndex === undefined ? i : i - types.length
+        )
+    }
+  }
+
+  *#variadicTupleElement(type: Type, index: number): TypeWriter {
+    yield* this.generateOrReuseType(type)
+    yield [
+      Write,
+      `.guard(${index >= 0 ? `data[${index}]` : `data.slice(${index})[0]`})`,
+    ]
+  }
+
+  *#variadicTupleVariadicElement(
+    type: Type,
+    from: number,
+    to?: number
+  ): TypeWriter {
+    yield [Import, { source: this.#module, name: 'Array' }]
+    yield [Write, `Array(`]
+    yield* this.generateOrReuseType(type)
+    yield [Write, `).guard(data.slice(${from}, ${to}))`]
   }
 
   override *enum(type: Type): TypeWriter {

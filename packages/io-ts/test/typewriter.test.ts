@@ -8,17 +8,7 @@ testTypeWriter<t.Type<any>>({
   createNumberValidator: () => t.number,
   createStringValidator: () => t.string,
   createObjectValidator: t.type,
-
-  ignore: [
-    // TODO: implement advanced version of variadic tuples
-    'variadicTuples.B',
-    'variadicTuples.C',
-    'variadicTuples.D',
-    'variadicTuples.E',
-  ],
-
   typeWriters: new IoTsTypeWriters(),
-
   validate(validator, data) {
     pipe(
       validator.decode(data),

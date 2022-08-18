@@ -248,9 +248,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *variadicTuple(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'any', alias: 'Any' }]
     yield [Import, { source: this.#module, name: 'array' }]
-    yield [Import, { source: '@runtyping/zod', name: 'validators' }]
 
     try {
       const name = getTypeName(type)
@@ -261,13 +259,12 @@ export default class ZodTypeWriters extends TypeWriters {
       yield [Static, type.getText()]
     }
 
-    const minLength = Tuple.getTupleMinSize(type)
     yield [Write, 'array(']
     yield* this.#simple('any')
     yield [
       Write,
       `)
-        .min(${minLength})
+        .min(${Tuple.getTupleMinSize(type)})
         .superRefine((data, ctx) => {`,
     ]
     yield* this.#variadicTupleElements(Tuple.getTupleElements(type))
@@ -278,7 +275,7 @@ export default class ZodTypeWriters extends TypeWriters {
     ]
   }
 
-  *#variadicTupleElements(types: Tuple.TupleElement[]) {
+  *#variadicTupleElements(types: Tuple.TupleElement[]): TypeWriter {
     let variadicIndex
     for (let i = 0; i < types.length; i++) {
       const { element, variadic } = types[i]
@@ -298,6 +295,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   *#variadicTupleElement(type: Type, index: number): TypeWriter {
+    yield [Import, { source: '@runtyping/zod', name: 'validators' }]
     yield [
       Write,
       `validators.pipeIssues({
@@ -320,6 +318,7 @@ export default class ZodTypeWriters extends TypeWriters {
     from: number,
     to?: number
   ): TypeWriter {
+    yield [Import, { source: '@runtyping/zod', name: 'validators' }]
     yield [Import, { source: this.#module, name: 'array' }]
     yield [
       Write,
