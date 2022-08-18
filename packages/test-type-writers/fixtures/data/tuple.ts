@@ -26,3 +26,8 @@ export const B: TestData<T.B> = {
     ],
   ],
 }
+
+export const C: TestData<T.C> = {
+  success: [[]],
+  failure: [[1]],
+}

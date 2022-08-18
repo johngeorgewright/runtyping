@@ -2,7 +2,7 @@ import assertNever from 'assert-never'
 import mkdirp from 'mkdirp'
 import * as pathHelper from 'path'
 import { Project, SourceFile } from 'ts-morph'
-import { Generator, GeneratorOptions, TypeWriters } from '@runtyping/generator'
+import { Generator } from '@runtyping/generator'
 import ts from 'typescript'
 import {
   TestData,
@@ -31,7 +31,6 @@ export const fixturesDestDir = `${process.cwd()}/fixtures`
 
 interface TestFixtureProps extends TypeWriterTestProps {
   exportStaticType?: boolean
-  generatorOpts?: Partial<GeneratorOptions>
   project?: Project
 }
 
@@ -63,17 +62,7 @@ async function getDataNames(testName: string): Promise<string[]> {
 async function generate(
   testName: string,
   dataNames: string[],
-  {
-    exportStaticType,
-    generatorOpts,
-    project,
-    typeWriters,
-  }: {
-    exportStaticType?: boolean
-    generatorOpts?: Partial<GeneratorOptions>
-    project?: Project
-    typeWriters: TypeWriters
-  }
+  { exportStaticType, generatorOpts, project, typeWriters }: TestFixtureProps
 ) {
   const generator = new Generator({
     typeWriters,
@@ -93,23 +82,11 @@ async function generate(
     },
   ])
 
-  const js = ts.transpile(sourceFile.getText())
-
   try {
-    eval(js)
-  } catch (error: any) {
-    const message = `
-${error.message}
-${error.stack}
-
-=== TS ===
-// ${sourceFile.getFilePath()}
-${sourceFile.getText()}
-
-=== JS ===
-${js}
-`
-    throw new Error(message)
+    ts.transpile(sourceFile.getText())
+  } catch (error) {
+    console.error(error)
+    throw error
   }
 
   return sourceFile
