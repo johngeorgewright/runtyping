@@ -12,7 +12,6 @@ import {
   propNameRequiresQuotes,
   sortUndefinedFirst,
   Static,
-  StaticParameters,
   Tuple,
   TypeWriter,
   TypeWriters,
@@ -21,7 +20,7 @@ import {
 import { titleCase } from 'title-case'
 import { Symbol as CompilerSymbol, SymbolFlags, Type } from 'ts-morph'
 import { getEnumMembers } from '@runtyping/generator/dist/enum'
-import { EnumType } from '@ts-morph/common/lib/typescript'
+import ts, { EnumType } from '@ts-morph/common/lib/typescript'
 
 export default class IoTsTypeWriters extends TypeWriters {
   #module = 'io-ts';
@@ -375,59 +374,10 @@ export default class IoTsTypeWriters extends TypeWriters {
     }
   }
 
-  protected override *genericObject(type: Type): TypeWriter {
-    const generics = getGenerics(type)
-
+  protected override *genericObject(type: Type<ts.ObjectType>): TypeWriter {
     yield [Import, { source: this.#module, name: 'TypeOf' }]
     yield [Import, { source: this.#module, name: 'Type' }]
-    yield [Write, '<']
-
-    for (const generic of generics) {
-      const constraint = generic.getConstraint()
-      const constraintDeclaredType = constraint?.getSymbol()?.getDeclaredType()
-
-      yield [Write, `${generic.getText()} extends `]
-
-      if (constraintDeclaredType) {
-        yield [Write, 'TypeOf<typeof ']
-        yield* this.generateOrReuseType(constraintDeclaredType)
-        yield [Write, '>']
-      } else yield [Write, constraint ? constraint.getText() : 'any']
-
-      yield [Write, ', ']
-    }
-
-    yield [Write, '>(']
-
-    for (const generic of generics)
-      yield [Write, `${generic.getText()}: Type<${generic.getText()}>, `]
-
-    yield [Write, ') => ']
-
-    yield* this.object(type)
-
-    yield [
-      StaticParameters,
-      generics.map((generic) => {
-        const constraint = generic.getConstraint()
-        const constraintDeclaredType = constraint
-          ?.getSymbol()
-          ?.getDeclaredType()
-        return {
-          name: generic.getText(),
-          constraint: constraintDeclaredType
-            ? getTypeName(constraintDeclaredType)
-            : constraint?.getText(),
-        }
-      }),
-    ]
-
-    yield [
-      Static,
-      `TypeOf<ReturnType<typeof ${getTypeName(type)}<${generics.map((generic) =>
-        generic.getText()
-      )}>>>`,
-    ]
+    yield* this.objectFunction(type, 'Type', 'TypeOf')
   }
 
   *#simple(type: SimpleIOTSType): TypeWriter {
