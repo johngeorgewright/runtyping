@@ -1,4 +1,4 @@
-import { Static, Guard, Literal, String } from 'runtypes';
+import { Guard, Literal, Static, String } from 'runtypes';
 import { A as _A, B as _B, C as _C, E as _E } from '../../../.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/enum';
 
 export const A = Guard((x: any): x is _A => Object.values(_A).includes(x));

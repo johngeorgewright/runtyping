@@ -1,4 +1,4 @@
-import { Static, Literal } from 'runtypes';
+import { Literal, Static } from 'runtypes';
 
 export const A = Literal("foo");
 

@@ -16,5 +16,6 @@ testTypeWriters<Runtype>({
     'variadicTuples.B',
     'variadicTuples.C',
     'variadicTuples.D',
+    'variadicTuples.E',
   ],
 })

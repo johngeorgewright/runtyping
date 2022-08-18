@@ -1,4 +1,4 @@
-import { TypeOf, Type, type, string } from 'io-ts';
+import { string, type, Type, TypeOf } from 'io-ts';
 
 export const A = <T extends any,>(T: Type<T>,) => type({ type: T, });
 

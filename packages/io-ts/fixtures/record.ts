@@ -1,4 +1,4 @@
-import { TypeOf, string, record } from 'io-ts';
+import { record, string, TypeOf } from 'io-ts';
 
 export const A = record(string, string);
 

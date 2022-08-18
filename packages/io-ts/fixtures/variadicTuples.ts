@@ -1,4 +1,4 @@
-import { TypeOf, tuple, string } from 'io-ts';
+import { string, tuple, TypeOf } from 'io-ts';
 
 export const A = tuple([string,]);
 

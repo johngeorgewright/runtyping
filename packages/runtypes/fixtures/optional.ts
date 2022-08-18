@@ -1,4 +1,4 @@
-import { Static, Record, String, Undefined } from 'runtypes';
+import { Record, Static, String, Undefined } from 'runtypes';
 
 export const A = Record({ foo: String.Or(Undefined).optional(), });
 

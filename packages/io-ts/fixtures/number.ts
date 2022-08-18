@@ -1,4 +1,4 @@
-import { TypeOf, number } from 'io-ts';
+import { number, TypeOf } from 'io-ts';
 
 export const A = number;
 

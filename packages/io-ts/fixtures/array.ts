@@ -1,4 +1,4 @@
-import { TypeOf, array, union, string, number, type } from 'io-ts';
+import { array, number, string, type, TypeOf, union } from 'io-ts';
 
 export const A = type({ foo: string, });
 

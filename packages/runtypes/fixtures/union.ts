@@ -1,4 +1,4 @@
-import { Static, String, Number } from 'runtypes';
+import { Number, Static, String } from 'runtypes';
 
 export const C = String.Or(Number);
 

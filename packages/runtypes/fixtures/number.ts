@@ -1,4 +1,4 @@
-import { Static, Number } from 'runtypes';
+import { Number, Static } from 'runtypes';
 
 export const A = Number;
 

@@ -1,4 +1,4 @@
-import { Static, Boolean } from 'runtypes';
+import { Boolean, Static } from 'runtypes';
 
 export const A = Boolean;
 

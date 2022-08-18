@@ -1,4 +1,4 @@
-import { Static, Null, String, Record, Undefined } from 'runtypes';
+import { Null, Record, Static, String, Undefined } from 'runtypes';
 
 export const A = Null;
 

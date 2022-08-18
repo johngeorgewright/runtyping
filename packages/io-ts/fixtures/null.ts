@@ -1,4 +1,4 @@
-import { TypeOf, null as Null, union, string, intersection, type, partial, undefined as Undefined } from 'io-ts';
+import { intersection, null as Null, partial, string, type, TypeOf, undefined as Undefined, union } from 'io-ts';
 
 export const A = Null;
 
