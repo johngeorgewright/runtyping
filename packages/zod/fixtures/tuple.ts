@@ -7,3 +7,7 @@ export type A = Infer<typeof A>;
 export const B = tuple([A, A,]);
 
 export type B = Infer<typeof B>;
+
+export const C = tuple([]);
+
+export type C = Infer<typeof C>;

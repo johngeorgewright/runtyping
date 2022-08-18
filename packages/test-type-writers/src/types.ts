@@ -1,10 +1,11 @@
-import { TypeWriters } from '@runtyping/generator'
+import { GeneratorOptions, TypeWriters } from '@runtyping/generator'
 import * as z from 'zod'
 
 export interface TypeWriterTestProps<Validator = any> {
   createNumberValidator(): Validator
   createObjectValidator(shape: Record<string, Validator>): Validator
   createStringValidator(): Validator
+  generatorOpts?: Partial<GeneratorOptions>
   ignore?: string[]
   typeWriters: TypeWriters
   validate(validator: Validator, data: unknown): void

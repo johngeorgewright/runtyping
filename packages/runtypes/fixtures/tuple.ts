@@ -7,3 +7,7 @@ export type A = Static<typeof A>;
 export const B = Tuple(A, A,);
 
 export type B = Static<typeof B>;
+
+export const C = Tuple();
+
+export type C = Static<typeof C>;
