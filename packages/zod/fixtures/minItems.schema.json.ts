@@ -22,7 +22,7 @@ export const ExampleSchema = object({
         data: data.slice(2, undefined),
         path: 2,
         type: array(record(string(), Unknown()))
-      })
+      });
 
     }).or(Undefined()).optional(),
 });

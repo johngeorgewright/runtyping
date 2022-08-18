@@ -1,6 +1,6 @@
 import { any as Any, array, boolean, number, string } from 'zod';
-import { validators } from '@runtyping/zod';
 import { A as _A, B as _B, C as _C, D as _D, E as _E } from '../../../.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/variadicTuples';
+import { validators } from '@runtyping/zod';
 
 export const A = array(Any())
   .min(1)
@@ -16,7 +16,7 @@ export const A = array(Any())
       data: data.slice(1, undefined),
       path: 1,
       type: array(string())
-    })
+    });
 
   });
 
@@ -42,7 +42,7 @@ export const B = array(Any())
       data: data.slice(2, undefined),
       path: 2,
       type: array(number())
-    })
+    });
 
   });
 
@@ -56,7 +56,7 @@ export const C = array(Any())
       data: data.slice(0, -1),
       path: 0,
       type: array(string())
-    })
+    });
     validators.pipeIssues({
       ctx,
       data: data.slice(-1)[0],
@@ -82,7 +82,7 @@ export const D = array(Any())
       data: data.slice(1, -1),
       path: 1,
       type: array(string())
-    })
+    });
     validators.pipeIssues({
       ctx,
       data: data.slice(-1)[0],
@@ -120,7 +120,7 @@ export const E = array(Any())
       data: data.slice(3, -2),
       path: 3,
       type: array(string())
-    })
+    });
     validators.pipeIssues({
       ctx,
       data: data.slice(-2)[0],

@@ -9,14 +9,13 @@ import {
   propNameRequiresQuotes,
   sortUndefinedFirst,
   Static,
-  StaticParameters,
   Tuple,
   TypeWriter,
   TypeWriters,
   Write,
 } from '@runtyping/generator'
 import { titleCase } from 'title-case'
-import { SymbolFlags, Type } from 'ts-morph'
+import { SymbolFlags, ts, Type } from 'ts-morph'
 import * as zod from 'zod'
 
 export default class ZodTypeWriters extends TypeWriters {
@@ -32,9 +31,15 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *array(type: Type): TypeWriter {
+    yield* this.#array(
+      this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    )
+  }
+
+  *#array(element: TypeWriter): TypeWriter {
     yield [Import, { source: this.#module, name: 'array' }]
     yield [Write, 'array(']
-    yield* this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    yield* element
     yield [Write, ')']
   }
 
@@ -120,7 +125,7 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [Write, ')']
   }
 
-  override *object(type: Type): TypeWriter {
+  override *object(type: Type<ts.ObjectType>): TypeWriter {
     yield [Import, { source: this.#module, name: 'object' }]
     yield [Write, 'object({']
 
@@ -148,59 +153,10 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [Write, '})']
   }
 
-  override *genericObject(type: Type): TypeWriter {
-    const generics = getGenerics(type)
-
+  override *genericObject(type: Type<ts.ObjectType>): TypeWriter {
     yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
     yield [Import, { source: this.#module, name: 'ZodType' }]
-    yield [Write, '<']
-
-    for (const generic of generics) {
-      const constraint = generic.getConstraint()
-      const constraintDeclaredType = constraint?.getSymbol()?.getDeclaredType()
-
-      yield [Write, `${generic.getText()} extends `]
-
-      if (constraintDeclaredType) {
-        yield [Write, 'Infer<typeof ']
-        yield* this.generateOrReuseType(constraintDeclaredType)
-        yield [Write, '>']
-      } else yield [Write, constraint ? constraint.getText() : 'any']
-
-      yield [Write, ', ']
-    }
-
-    yield [Write, '>(']
-
-    for (const generic of generics)
-      yield [Write, `${generic.getText()}: ZodType<${generic.getText()}>, `]
-
-    yield [Write, ') => ']
-
-    yield* this.object(type)
-
-    yield [
-      StaticParameters,
-      generics.map((generic) => {
-        const constraint = generic.getConstraint()
-        const constraintDeclaredType = constraint
-          ?.getSymbol()
-          ?.getDeclaredType()
-        return {
-          name: generic.getText(),
-          constraint: constraintDeclaredType
-            ? getTypeName(constraintDeclaredType)
-            : constraint?.getText(),
-        }
-      }),
-    ]
-
-    yield [
-      Static,
-      `Infer<ReturnType<typeof ${getTypeName(type)}<${generics.map((generic) =>
-        generic.getText()
-      )}>>>`,
-    ]
+    yield* this.objectFunction(type, 'ZodType', 'Infer')
   }
 
   override string() {
@@ -249,21 +205,11 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override *variadicTuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'array' }]
-
-    try {
-      const name = getTypeName(type)
-      const alias = `_${name}`
-      yield [ImportFromSource, { alias, name }]
-      yield [Static, alias]
-    } catch (error) {
-      yield [Static, type.getText()]
-    }
-
-    yield [Write, 'array(']
-    yield* this.#simple('any')
+    yield [Static, yield* this.getStaticReference(type)]
+    yield* this.#array(this.#simple('any'))
     yield [
       Write,
-      `)
+      `
         .min(${Tuple.getTupleMinSize(type)})
         .superRefine((data, ctx) => {`,
     ]
@@ -291,6 +237,7 @@ export default class ZodTypeWriters extends TypeWriters {
           element,
           variadicIndex === undefined ? i : i - types.length
         )
+      yield [Write, '\n']
     }
   }
 
@@ -308,8 +255,7 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [
       Write,
       `
-    });
-    `,
+      });`,
     ]
   }
 
@@ -319,21 +265,19 @@ export default class ZodTypeWriters extends TypeWriters {
     to?: number
   ): TypeWriter {
     yield [Import, { source: '@runtyping/zod', name: 'validators' }]
-    yield [Import, { source: this.#module, name: 'array' }]
     yield [
       Write,
       `validators.pipeIssues({
         ctx,
         data: data.slice(${from}, ${to}),
         path: ${from},
-        type: array(`,
+        type: `,
     ]
-    yield* this.generateOrReuseType(type)
+    yield* this.#array(this.generateOrReuseType(type))
     yield [
       Write,
-      `)
-    })
-    `,
+      `
+      });`,
     ]
   }
 

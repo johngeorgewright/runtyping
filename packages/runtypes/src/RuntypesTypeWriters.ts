@@ -10,14 +10,13 @@ import {
   propNameRequiresQuotes,
   sortUndefinedFirst,
   Static,
-  StaticParameters,
   Tuple,
   TypeWriter,
   TypeWriters,
   Write,
 } from '@runtyping/generator'
 import type * as runtypes from 'runtypes'
-import { SymbolFlags, Type } from 'ts-morph'
+import { SymbolFlags, ts, Type } from 'ts-morph'
 
 export default class RuntypesTypeWriters extends TypeWriters {
   #module = 'runtypes';
@@ -56,9 +55,15 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *array(type: Type): TypeWriter {
+    yield* this.#array(
+      this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    )
+  }
+
+  *#array(element: TypeWriter): TypeWriter {
     yield [Import, { source: this.#module, name: 'Array' }]
     yield [Write, 'Array(']
-    yield* this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    yield* element
     yield [Write, ')']
   }
 
@@ -73,21 +78,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *variadicTuple(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Array' }]
-
-    let staticType: string
-    try {
-      const name = getTypeName(type)
-      const alias = `_${name}`
-      yield [ImportFromSource, { alias, name }]
-      staticType = alias
-    } catch (error) {
-      staticType = type.getText()
-    }
-
-    yield [Write, 'Array(']
-    yield* this.#simple('Unknown')
-    yield [Write, ')']
+    const staticType = yield* this.getStaticReference(type)
+    yield* this.#array(this.#simple('Unknown'))
     yield [
       Write,
       `.withConstraint<${staticType}>(data =>
@@ -138,10 +130,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
     from: number,
     to?: number
   ): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Array' }]
-    yield [Write, `Array(`]
-    yield* this.generateOrReuseType(type)
-    yield [Write, `).guard(data.slice(${from}, ${to}))`]
+    yield* this.#array(this.generateOrReuseType(type))
+    yield [Write, `.guard(data.slice(${from}, ${to}))`]
   }
 
   override *enum(type: Type): TypeWriter {
@@ -246,59 +236,10 @@ export default class RuntypesTypeWriters extends TypeWriters {
     yield [Write, '})']
   }
 
-  override *genericObject(type: Type): TypeWriter {
-    const generics = getGenerics(type)
-
+  override *genericObject(type: Type<ts.ObjectType>): TypeWriter {
     yield [Import, { source: this.#module, name: 'Static' }]
     yield [Import, { source: this.#module, name: 'Runtype' }]
-    yield [Write, '<']
-
-    for (const generic of generics) {
-      const constraint = generic.getConstraint()
-      const constraintDeclaredType = constraint?.getSymbol()?.getDeclaredType()
-
-      yield [Write, `${generic.getText()} extends `]
-
-      if (constraintDeclaredType) {
-        yield [Write, 'Static<typeof ']
-        yield* this.generateOrReuseType(constraintDeclaredType)
-        yield [Write, '>']
-      } else yield [Write, constraint ? constraint.getText() : 'any']
-
-      yield [Write, ', ']
-    }
-
-    yield [Write, '>(']
-
-    for (const generic of generics)
-      yield [Write, `${generic.getText()}: Runtype<${generic.getText()}>, `]
-
-    yield [Write, ') => ']
-
-    yield* this.object(type)
-
-    yield [
-      StaticParameters,
-      generics.map((generic) => {
-        const constraint = generic.getConstraint()
-        const constraintDeclaredType = constraint
-          ?.getSymbol()
-          ?.getDeclaredType()
-        return {
-          name: generic.getText(),
-          constraint: constraintDeclaredType
-            ? getTypeName(constraintDeclaredType)
-            : constraint?.getText(),
-        }
-      }),
-    ]
-
-    yield [
-      Static,
-      `Static<ReturnType<typeof ${getTypeName(type)}<${generics.map((generic) =>
-        generic.getText()
-      )}>>>`,
-    ]
+    yield* this.objectFunction(type, 'Runtype', 'Static')
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {
