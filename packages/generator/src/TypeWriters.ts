@@ -1,7 +1,13 @@
-import { Type } from 'ts-morph'
+import { ts, Type } from 'ts-morph'
 import { Tuple } from '.'
-import { DeclareAndUse, TypeWriter } from './TypeWriter'
-import { getGenerics, isBuiltInType } from './util'
+import {
+  DeclareAndUse,
+  Static,
+  StaticParameters,
+  TypeWriter,
+  Write,
+} from './TypeWriter'
+import { getGenerics, getTypeName, isBuiltInType } from './util'
 
 export default abstract class TypeWriters {
   *typeWriter(
@@ -79,9 +85,9 @@ export default abstract class TypeWriters {
           case !!type.getNumberIndexType():
             return yield* this.numberIndexedObject(type)
           case !!getGenerics(type).length:
-            return yield* this.genericObject(type)
+            return yield* this.genericObject(type as Type<ts.ObjectType>)
           default:
-            return yield* this.object(type)
+            return yield* this.object(type as Type<ts.ObjectType>)
         }
 
       default:
@@ -89,7 +95,7 @@ export default abstract class TypeWriters {
     }
   }
 
-  *generateOrReuseType(type: Type): TypeWriter {
+  protected *generateOrReuseType(type: Type): TypeWriter {
     const typeName =
       type.getAliasSymbol()?.getName() || type.getSymbol()?.getName()
 
@@ -101,6 +107,61 @@ export default abstract class TypeWriters {
       return
 
     yield* this.typeWriter(type)
+  }
+
+  protected *objectFunction(
+    objectType: Type<ts.ObjectType>,
+    baseType: string,
+    staticHelper: string
+  ): TypeWriter {
+    const generics = getGenerics(objectType)
+    yield [Write, '<']
+
+    for (const generic of generics) {
+      const constraint = generic.getConstraint()
+      const constraintDeclaredType = constraint?.getSymbol()?.getDeclaredType()
+
+      yield [Write, `${generic.getText()} extends `]
+
+      if (constraintDeclaredType) {
+        yield [Write, `${staticHelper}<typeof `]
+        yield* this.generateOrReuseType(constraintDeclaredType)
+        yield [Write, '>']
+      } else yield [Write, constraint ? constraint.getText() : 'any']
+
+      yield [Write, ', ']
+    }
+
+    yield [Write, '>(']
+
+    for (const generic of generics)
+      yield [Write, `${generic.getText()}: ${baseType}<${generic.getText()}>, `]
+
+    yield [Write, ') => ']
+    yield* this.object(objectType)
+
+    yield [
+      StaticParameters,
+      generics.map((generic) => {
+        const constraint = generic.getConstraint()
+        const constraintDeclaredType = constraint
+          ?.getSymbol()
+          ?.getDeclaredType()
+        return {
+          name: generic.getText(),
+          constraint: constraintDeclaredType
+            ? getTypeName(constraintDeclaredType)
+            : constraint?.getText(),
+        }
+      }),
+    ]
+
+    yield [
+      Static,
+      `${staticHelper}<ReturnType<typeof ${getTypeName(
+        objectType
+      )}<${generics.map((generic) => generic.getText())}>>>`,
+    ]
   }
 
   abstract defaultStaticImplementation(type: Type): TypeWriter
@@ -125,6 +186,6 @@ export default abstract class TypeWriters {
   protected abstract builtInObject(type: Type): TypeWriter
   protected abstract stringIndexedObject(type: Type): TypeWriter
   protected abstract numberIndexedObject(type: Type): TypeWriter
-  protected abstract object(type: Type): TypeWriter
-  protected abstract genericObject(type: Type): TypeWriter
+  protected abstract object(type: Type<ts.ObjectType>): TypeWriter
+  protected abstract genericObject(type: Type<ts.ObjectType>): TypeWriter
 }
