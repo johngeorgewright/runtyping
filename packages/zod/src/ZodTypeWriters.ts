@@ -248,7 +248,7 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *variadicTuple(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'any' }]
+    yield [Import, { source: this.#module, name: 'any', alias: 'Any' }]
     yield [Import, { source: this.#module, name: 'array' }]
     yield [Import, { source: '@runtyping/zod', name: 'validators' }]
 
@@ -256,15 +256,17 @@ export default class ZodTypeWriters extends TypeWriters {
       const name = getTypeName(type)
       const alias = `_${name}`
       yield [ImportFromSource, { alias, name }]
-      yield [Static, `typeof ${name}`]
+      yield [Static, alias]
     } catch (error) {
       yield [Static, type.getText()]
     }
 
     const minLength = Tuple.getTupleMinSize(type)
+    yield [Write, 'array(']
+    yield* this.#simple('any')
     yield [
       Write,
-      `array(any())
+      `)
         .min(${minLength})
         .superRefine((data, ctx) => {`,
     ]

@@ -1,8 +1,8 @@
-import { any, array, object, record, string, undefined as Undefined, unknown as Unknown } from 'zod';
+import { any as Any, array, object, record, string, undefined as Undefined, unknown as Unknown } from 'zod';
 import { validators } from '@runtyping/zod';
 
 export const ExampleSchema = object({
-  testArray: array(any())
+  testArray: array(Any())
     .min(2)
     .superRefine((data, ctx) => {
       validators.pipeIssues({
