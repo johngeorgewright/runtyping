@@ -67,7 +67,7 @@ export function getTupleMinSize(type: Type) {
     : undefined
 }
 
-class TupleElement {
+export class TupleElement {
   constructor(
     public readonly element: Type,
     public readonly variadic: boolean
