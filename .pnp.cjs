@@ -2665,8 +2665,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.0.6"],\
             ["@types/runtyping__generator", null],\
             ["assert-never", "npm:1.2.1"],\
-            ["fp-ts", "npm:2.12.2"],\
-            ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.17"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
             ["mkdirp", "npm:1.0.4"],\
             ["rimraf", "npm:3.0.2"],\
@@ -2701,8 +2699,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/mkdirp", "npm:1.0.2"],\
             ["@types/node", "npm:18.0.6"],\
             ["assert-never", "npm:1.2.1"],\
-            ["fp-ts", "npm:2.12.2"],\
-            ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.17"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
             ["mkdirp", "npm:1.0.4"],\
             ["rimraf", "npm:3.0.2"],\
