@@ -1,6 +1,6 @@
 import { any as Any, array, boolean, number, string } from 'zod';
-import { validators } from '@runtyping/zod';
 import { A as _A, B as _B, C as _C, D as _D, E as _E } from '../../../.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/variadicTuples';
+import { validators } from '@runtyping/zod';
 
 export const A = array(Any())
   .min(1)
