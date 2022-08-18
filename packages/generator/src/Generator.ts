@@ -133,7 +133,9 @@ export default class Generator {
     const sourceImportMap = groupBy(imports, 'source')
     for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
       this.#targetFile.addImportDeclaration({
-        namedImports: imports,
+        namedImports: imports.sort(({ name: nameA }, { name: nameB }) =>
+          nameA.localeCompare(nameB)
+        ),
         moduleSpecifier: sourceFilePath,
       })
   }
