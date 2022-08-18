@@ -21,6 +21,7 @@ import {
 import { titleCase } from 'title-case'
 import { Symbol as CompilerSymbol, SymbolFlags, Type } from 'ts-morph'
 import { getEnumMembers } from '@runtyping/generator/dist/enum'
+import { EnumType } from '@ts-morph/common/lib/typescript'
 
 export default class IoTsTypeWriters extends TypeWriters {
   #module = 'io-ts';
@@ -71,16 +72,14 @@ export default class IoTsTypeWriters extends TypeWriters {
       yield [Import, { source: '@runtyping/io-ts', name: 'validators' }]
       yield [Write, 'validators.emptyTuple']
     } else {
-      const alias = `_${getTypeName(type)}`
-      yield [ImportFromSource, { alias, name: getTypeName(type) }]
       yield [Import, { source: this.#module, name: 'tuple' }]
       yield [Import, { source: '@runtyping/io-ts', name: 'validators' }]
-      const anyTuple = `[${new Array(length).fill('unknown')}]`
+      const tupleStructure = `[${new Array(length).fill('unknown')}]`
       yield [
         Write,
         // Tuples are broken in io-ts, so we need to manually check the length
         // https://github.com/gcanti/io-ts/issues/503
-        `validators.arrayOfLength<${anyTuple}>(${length}).pipe(tuple([`,
+        `validators.arrayOfLength<${tupleStructure}>(${length}).pipe(tuple([`,
       ]
       for (const element of type.getTupleElements()) {
         yield* this.generateOrReuseType(element)
@@ -93,14 +92,15 @@ export default class IoTsTypeWriters extends TypeWriters {
   protected override *variadicTuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'tuple' }]
     yield [Write, 'tuple([']
-    for (const element of Tuple.getTupleElementTypes(type)) {
+    for (const { element, variadic } of Tuple.getTupleElements(type)) {
+      if (variadic) continue
       yield* this.generateOrReuseType(element)
       yield [Write, ',']
     }
     yield [Write, '])']
   }
 
-  protected override *enum(type: Type): TypeWriter {
+  protected override *enum(type: Type<EnumType>): TypeWriter {
     const name = getTypeName(type)
     const members = getEnumMembers(type)
     const alias = `_${name}`
