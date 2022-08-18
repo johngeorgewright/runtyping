@@ -1,5 +1,5 @@
-import { Array, Boolean, Number, Static, String, Unknown } from 'runtypes';
 import { A as _A, B as _B, C as _C, D as _D, E as _E } from '../../../.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/variadicTuples';
+import { Array, Boolean, Number, Static, String, Unknown } from 'runtypes';
 
 export const A = Array(Unknown).withConstraint<_A>(data =>
   data.length >= 1
