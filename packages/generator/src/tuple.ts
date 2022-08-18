@@ -79,6 +79,7 @@ function getTupleVariadicIndex(type: Type) {
   return syntaxList
     ? syntaxList
         ?.getChildren()
+        .filter((child) => child.getKind() !== SyntaxKind.CommaToken)
         .findIndex((child) => child.getKind() === SyntaxKind.RestType)
     : type.getText().startsWith('[') && type.getText().endsWith(']')
     ? type
