@@ -2,6 +2,7 @@ import { ts, Type } from 'ts-morph'
 import { Tuple } from '.'
 import {
   DeclareAndUse,
+  ImportFromSource,
   Static,
   StaticParameters,
   TypeWriter,
@@ -107,6 +108,17 @@ export default abstract class TypeWriters {
       return
 
     yield* this.typeWriter(type)
+  }
+
+  protected *getStaticReference(type: Type): TypeWriter<string> {
+    try {
+      const name = getTypeName(type)
+      const alias = `_${name}`
+      yield [ImportFromSource, { alias, name }]
+      return alias
+    } catch (error) {
+      return type.getText()
+    }
   }
 
   protected *objectFunction(
