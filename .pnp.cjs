@@ -2675,7 +2675,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-morph", "npm:15.1.0"],\
             ["ts-node", "virtual:f1a80c3a62aa3d56d715a4b5f3a60705cbb1fd6970cbba9518587f5e38458e21ea6a9be4b49eee281df8494299dad8f7c4c0eecf038c405a15963c5e6d48df99#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
-            ["type-fest", "npm:2.18.0"],\
+            ["type-fest", "npm:2.18.1"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["zod", "npm:3.18.0"]\
           ],\
@@ -2709,7 +2709,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-morph", "npm:15.1.0"],\
             ["ts-node", "virtual:f1a80c3a62aa3d56d715a4b5f3a60705cbb1fd6970cbba9518587f5e38458e21ea6a9be4b49eee281df8494299dad8f7c4c0eecf038c405a15963c5e6d48df99#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
-            ["type-fest", "npm:2.18.0"],\
+            ["type-fest", "npm:2.18.1"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
             ["zod", "npm:3.18.0"]\
           ],\
@@ -14971,10 +14971,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:2.18.0", {\
-          "packageLocation": "./.yarn/cache/type-fest-npm-2.18.0-cd9d170d6e-0737128d9d.zip/node_modules/type-fest/",\
+        ["npm:2.18.1", {\
+          "packageLocation": "./.yarn/cache/type-fest-npm-2.18.1-3fcaab5405-2aabebe88d.zip/node_modules/type-fest/",\
           "packageDependencies": [\
-            ["type-fest", "npm:2.18.0"]\
+            ["type-fest", "npm:2.18.1"]\
           ],\
           "linkType": "HARD"\
         }]\
