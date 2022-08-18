@@ -14,6 +14,7 @@ testTypeWriter<t.Type<any>>({
     'variadicTuples.B',
     'variadicTuples.C',
     'variadicTuples.D',
+    'variadicTuples.E',
   ],
 
   typeWriters: new IoTsTypeWriters(),

@@ -1,4 +1,4 @@
-import { Static, Array, String } from 'runtypes';
+import { Array, Static, String } from 'runtypes';
 
 export const A = Array(String).withConstraint(t => t.length >= 1);
 
