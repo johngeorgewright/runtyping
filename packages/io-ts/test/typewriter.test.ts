@@ -9,8 +9,12 @@ testTypeWriter<t.Type<any>>({
   createStringValidator: () => t.string,
   createObjectValidator: t.type,
 
-  // Tuples are broken in io-ts. https://github.com/gcanti/io-ts/issues/503
-  ignore: ['variadicTuples.C'],
+  ignore: [
+    // TODO: implement advanced version of variadic tuples
+    'variadicTuples.B',
+    'variadicTuples.C',
+    'variadicTuples.D',
+  ],
 
   typeWriters: new IoTsTypeWriters(),
 
