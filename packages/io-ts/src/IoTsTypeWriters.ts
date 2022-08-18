@@ -66,27 +66,27 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   protected override *tuple(type: Type): TypeWriter {
-    if (type.getTupleElements().length === 0) {
-      yield [Import, { source: this.#module, name: 'Type' }]
-      yield [Import, { source: this.#module, name: 'failure' }]
-      yield [Import, { source: this.#module, name: 'success' }]
+    const length = type.getTupleElements().length
+    if (length === 0) {
+      yield [Import, { source: '@runtyping/io-ts', name: 'validators' }]
+      yield [Write, 'validators.emptyTuple']
+    } else {
+      const alias = `_${getTypeName(type)}`
+      yield [ImportFromSource, { alias, name: getTypeName(type) }]
+      yield [Import, { source: this.#module, name: 'tuple' }]
+      yield [Import, { source: '@runtyping/io-ts', name: 'validators' }]
+      const anyTuple = `[${new Array(length).fill('unknown')}]`
       yield [
         Write,
-        `new Type<never[]>(
-          'never[]',
-          (u): u is never[] => Array.isArray(u) && u.length === 0,
-          (i, c) => Array.isArray(i) && i.length === 0 ? success(i as never[]) : failure(i, c, 'not an empty array'),
-          (a) => a
-        )`,
+        // Tuples are broken in io-ts, so we need to manually check the length
+        // https://github.com/gcanti/io-ts/issues/503
+        `validators.arrayOfLength<${anyTuple}>(${length}).pipe(tuple([`,
       ]
-    } else {
-      yield [Import, { source: this.#module, name: 'tuple' }]
-      yield [Write, 'tuple([']
       for (const element of type.getTupleElements()) {
         yield* this.generateOrReuseType(element)
-        yield [Write, ',']
+        yield [Write, ', ']
       }
-      yield [Write, '])']
+      yield [Write, ']))']
     }
   }
 

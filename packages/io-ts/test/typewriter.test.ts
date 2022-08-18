@@ -10,13 +10,7 @@ testTypeWriter<t.Type<any>>({
   createObjectValidator: t.type,
 
   // Tuples are broken in io-ts. https://github.com/gcanti/io-ts/issues/503
-  ignore: [
-    'tuple.A',
-    'tuple.B',
-    'maxItems.schema.json.ExampleSchema',
-    'minItems.schema.json.ExampleSchema',
-    'variadicTuples.C',
-  ],
+  ignore: ['variadicTuples.C'],
 
   typeWriters: new IoTsTypeWriters(),
 
