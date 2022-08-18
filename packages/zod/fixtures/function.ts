@@ -1,4 +1,4 @@
-import { infer as Infer, function as func } from 'zod';
+import { function as func, infer as Infer } from 'zod';
 
 export const A = func();
 

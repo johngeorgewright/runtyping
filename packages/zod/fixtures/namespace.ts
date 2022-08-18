@@ -1,4 +1,4 @@
-import { infer as Infer, object, string, unknown as Unknown, number } from 'zod';
+import { infer as Infer, number, object, string, unknown as Unknown } from 'zod';
 
 export namespace A {
   export const B = object({ C: string(), });

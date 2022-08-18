@@ -1,4 +1,4 @@
-import { infer as Infer, any as Any, unknown as Unknown } from 'zod';
+import { any as Any, infer as Infer, unknown as Unknown } from 'zod';
 
 export const A = Any();
 

@@ -1,4 +1,4 @@
-import { infer as Infer, object, instanceof as InstanceOf } from 'zod';
+import { infer as Infer, instanceof as InstanceOf, object } from 'zod';
 
 export const A = object({ a: InstanceOf(Uint8Array), });
 

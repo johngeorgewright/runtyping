@@ -1,4 +1,4 @@
-import { infer as Infer, lazy, ZodType, object, literal, array, undefined as Undefined } from 'zod';
+import { array, infer as Infer, lazy, literal, object, undefined as Undefined, ZodType } from 'zod';
 import { Student as _Student, Teacher as _Teacher } from '../../../.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/circular-references';
 
 export const Teacher: ZodType<_Teacher> = lazy(() => object({ type: literal("teacher"), students: array(Student).or(Undefined()).optional(), reportsTo: Teacher.or(Undefined()).optional(), }));

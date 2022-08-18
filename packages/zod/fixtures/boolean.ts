@@ -1,4 +1,4 @@
-import { infer as Infer, boolean } from 'zod';
+import { boolean, infer as Infer } from 'zod';
 
 export const A = boolean();
 
