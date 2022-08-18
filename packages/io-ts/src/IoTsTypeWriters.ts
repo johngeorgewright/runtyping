@@ -59,9 +59,15 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   protected override *array(type: Type): TypeWriter {
+    yield* this.#array(
+      this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    )
+  }
+
+  *#array(typeWriter: TypeWriter): TypeWriter {
     yield [Import, { source: this.#module, name: 'array' }]
     yield [Write, 'array(']
-    yield* this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    yield* typeWriter
     yield [Write, ')']
   }
 
@@ -89,26 +95,16 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   override *variadicTuple(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'array' }]
     yield [Import, { source: this.#module, name: 'failure' }]
     yield [Import, { source: this.#module, name: 'success' }]
     yield [Import, { source: this.#module, name: 'Type' }]
 
-    let staticType: string
-    try {
-      const name = getTypeName(type)
-      const alias = `_${name}`
-      yield [ImportFromSource, { alias, name }]
-      staticType = alias
-    } catch (error) {
-      staticType = type.getText()
-    }
+    const staticType = yield* this.getStaticReference(type)
 
-    yield [Write, 'array(']
-    yield* this.#simple('unknown')
+    yield* this.#array(this.#simple('unknown'))
     yield [
       Write,
-      `).pipe(new Type<${staticType}, ${staticType}, unknown[]>(
+      `.pipe(new Type<${staticType}, ${staticType}, unknown[]>(
       '${staticType}',
       (u): u is ${staticType} =>
         Array.isArray(u) && u.length >= ${Tuple.getTupleMinSize(type)}`,

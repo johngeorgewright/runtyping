@@ -55,9 +55,15 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *array(type: Type): TypeWriter {
+    yield* this.#array(
+      this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    )
+  }
+
+  *#array(element: TypeWriter): TypeWriter {
     yield [Import, { source: this.#module, name: 'Array' }]
     yield [Write, 'Array(']
-    yield* this.generateOrReuseType(type.getArrayElementTypeOrThrow())
+    yield* element
     yield [Write, ')']
   }
 
@@ -72,21 +78,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *variadicTuple(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Array' }]
-
-    let staticType: string
-    try {
-      const name = getTypeName(type)
-      const alias = `_${name}`
-      yield [ImportFromSource, { alias, name }]
-      staticType = alias
-    } catch (error) {
-      staticType = type.getText()
-    }
-
-    yield [Write, 'Array(']
-    yield* this.#simple('Unknown')
-    yield [Write, ')']
+    const staticType = yield* this.getStaticReference(type)
+    yield* this.#array(this.#simple('Unknown'))
     yield [
       Write,
       `.withConstraint<${staticType}>(data =>
