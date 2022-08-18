@@ -130,10 +130,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
     from: number,
     to?: number
   ): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Array' }]
-    yield [Write, `Array(`]
-    yield* this.generateOrReuseType(type)
-    yield [Write, `).guard(data.slice(${from}, ${to}))`]
+    yield* this.#array(this.generateOrReuseType(type))
+    yield [Write, `.guard(data.slice(${from}, ${to}))`]
   }
 
   override *enum(type: Type): TypeWriter {

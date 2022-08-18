@@ -176,10 +176,8 @@ export default class IoTsTypeWriters extends TypeWriters {
     from: number,
     to?: number
   ): TypeWriter {
-    yield [Import, { source: this.#module, name: 'array' }]
-    yield [Write, `array(`]
-    yield* this.generateOrReuseType(type)
-    yield [Write, `).is(${dataName}.slice(${from}, ${to}))`]
+    yield* this.#array(this.generateOrReuseType(type))
+    yield [Write, `.is(${dataName}.slice(${from}, ${to}))`]
   }
 
   protected override *enum(type: Type<EnumType>): TypeWriter {

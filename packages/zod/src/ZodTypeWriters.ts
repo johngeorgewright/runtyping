@@ -237,6 +237,7 @@ export default class ZodTypeWriters extends TypeWriters {
           element,
           variadicIndex === undefined ? i : i - types.length
         )
+      yield [Write, '\n']
     }
   }
 
@@ -254,8 +255,7 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [
       Write,
       `
-    });
-    `,
+      });`,
     ]
   }
 
@@ -265,21 +265,19 @@ export default class ZodTypeWriters extends TypeWriters {
     to?: number
   ): TypeWriter {
     yield [Import, { source: '@runtyping/zod', name: 'validators' }]
-    yield [Import, { source: this.#module, name: 'array' }]
     yield [
       Write,
       `validators.pipeIssues({
         ctx,
         data: data.slice(${from}, ${to}),
         path: ${from},
-        type: array(`,
+        type: `,
     ]
-    yield* this.generateOrReuseType(type)
+    yield* this.#array(this.generateOrReuseType(type))
     yield [
       Write,
-      `)
-    })
-    `,
+      `
+      });`,
     ]
   }
 
