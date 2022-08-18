@@ -1,4 +1,4 @@
-import { TypeOf, union, string, number } from 'io-ts';
+import { number, string, TypeOf, union } from 'io-ts';
 
 export const C = union([string, number,]);
 

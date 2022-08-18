@@ -1,4 +1,4 @@
-import { Static, Record, InstanceOf } from 'runtypes';
+import { InstanceOf, Record, Static } from 'runtypes';
 
 export const A = Record({ a: InstanceOf(Uint8Array), });
 

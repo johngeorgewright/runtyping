@@ -1,4 +1,4 @@
-import { Static, Function } from 'runtypes';
+import { Function, Static } from 'runtypes';
 
 export const A = Function;
 

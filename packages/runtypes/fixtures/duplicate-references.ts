@@ -1,4 +1,4 @@
-import { Static, Record, Null, String } from 'runtypes';
+import { Null, Record, Static, String } from 'runtypes';
 
 export const FooType = Null.Or(String);
 

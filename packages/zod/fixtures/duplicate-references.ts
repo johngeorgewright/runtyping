@@ -1,4 +1,4 @@
-import { infer as Infer, object, null as Null, string } from 'zod';
+import { infer as Infer, null as Null, object, string } from 'zod';
 
 export const FooType = Null().or(string());
 

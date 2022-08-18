@@ -1,4 +1,4 @@
-import { TypeOf, boolean } from 'io-ts';
+import { boolean, TypeOf } from 'io-ts';
 
 export const A = boolean;
 

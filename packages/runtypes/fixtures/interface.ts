@@ -1,4 +1,4 @@
-import { Static, Record, String, Number, Boolean, Literal, Function } from 'runtypes';
+import { Boolean, Function, Literal, Number, Record, Static, String } from 'runtypes';
 
 export const A = Record({ foo: String, bar: Number, [`has spaces`]: Boolean, [`+1`]: Boolean, [`-1`]: Boolean, __underscores__: Boolean, $dollar: Boolean, [`\${escaped template vars}`]: Boolean, });
 

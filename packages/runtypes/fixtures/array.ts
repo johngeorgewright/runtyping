@@ -1,4 +1,4 @@
-import { Static, Array, String, Number, Record } from 'runtypes';
+import { Array, Number, Record, Static, String } from 'runtypes';
 
 export const A = Record({ foo: String, });
 

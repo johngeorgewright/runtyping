@@ -1,4 +1,4 @@
-import { infer as Infer, array, string, number, object } from 'zod';
+import { array, infer as Infer, number, object, string } from 'zod';
 
 export const A = object({ foo: string(), });
 

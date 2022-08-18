@@ -1,4 +1,4 @@
-import { infer as Infer, string, number } from 'zod';
+import { infer as Infer, number, string } from 'zod';
 
 export const C = string().or(number());
 

@@ -1,4 +1,4 @@
-import { Static, Dictionary, String } from 'runtypes';
+import { Dictionary, Static, String } from 'runtypes';
 
 export const A = Dictionary(String, String);
 

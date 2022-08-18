@@ -1,4 +1,4 @@
-import { TypeOf, intersection, type, string } from 'io-ts';
+import { intersection, string, type, TypeOf } from 'io-ts';
 
 export const A = type({ foo: string, });
 

@@ -1,4 +1,4 @@
-import { TypeOf, tuple, number, string } from 'io-ts';
+import { number, string, tuple, TypeOf } from 'io-ts';
 import { validators } from '@runtyping/io-ts';
 
 export const A = validators.arrayOfLength<[unknown, unknown, unknown]>(3).pipe(tuple([number, string, number,]));

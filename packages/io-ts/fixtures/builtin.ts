@@ -1,4 +1,4 @@
-import { TypeOf, type, Type, failure, success } from 'io-ts';
+import { failure, success, type, Type, TypeOf } from 'io-ts';
 
 export const A = type({
   a: new Type<Uint8Array>(

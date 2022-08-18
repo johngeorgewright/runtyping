@@ -1,4 +1,4 @@
-import { TypeOf, type, union, null as Null, string } from 'io-ts';
+import { null as Null, string, type, TypeOf, union } from 'io-ts';
 
 export const FooType = union([Null, string,]);
 

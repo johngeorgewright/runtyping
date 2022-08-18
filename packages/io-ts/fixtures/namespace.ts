@@ -1,4 +1,4 @@
-import { TypeOf, type, string, unknown as Unknown, number } from 'io-ts';
+import { number, string, type, TypeOf, unknown as Unknown } from 'io-ts';
 
 export namespace A {
   export const B = type({ C: string, });

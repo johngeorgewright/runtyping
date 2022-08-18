@@ -133,7 +133,9 @@ export default class Generator {
     const sourceImportMap = groupBy(imports, 'source')
     for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
       this.#targetFile.addImportDeclaration({
-        namedImports: imports,
+        namedImports: imports.sort(({ name: nameA }, { name: nameB }) =>
+          nameA.localeCompare(nameB)
+        ),
         moduleSpecifier: sourceFilePath,
       })
   }
@@ -229,17 +231,17 @@ export default class Generator {
         .run()
     }
 
-    if (exportStaticType)
-      runTypeWriter(
-        this.#typeWriters.defaultStaticImplementation(typeDeclaration.getType())
-      )
-
     runTypeWriter(
       this.#typeWriters.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
         recursive,
       })
     )
+
+    if (exportStaticType && !staticImplementation)
+      runTypeWriter(
+        this.#typeWriters.defaultStaticImplementation(typeDeclaration.getType())
+      )
 
     doInModule(this.#targetFile, runTypeName, (node, name) => {
       node.addVariableStatement({

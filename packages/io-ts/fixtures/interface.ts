@@ -1,4 +1,4 @@
-import { TypeOf, type, string, number, boolean, literal, Function } from 'io-ts';
+import { boolean, Function, literal, number, string, type, TypeOf } from 'io-ts';
 
 export const A = type({ foo: string, bar: number, [`has spaces`]: boolean, [`+1`]: boolean, [`-1`]: boolean, __underscores__: boolean, $dollar: boolean, [`\${escaped template vars}`]: boolean, });
 

@@ -1,4 +1,4 @@
-import { TypeOf, Function } from 'io-ts';
+import { Function, TypeOf } from 'io-ts';
 
 export const A = Function;
 

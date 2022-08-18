@@ -30,3 +30,16 @@ export const D: TestData<T.D> = {
   ],
   failure: [[], [1, 'foo'], [1, 'foo', 2, 3]],
 }
+
+export const E: TestData<T.E> = {
+  success: [
+    ['foo', 1, true, 2, false],
+    ['foo', 1, true, 'a', 'b', 'c', 'd', 'e', 'f', 10, false],
+  ],
+  failure: [
+    [],
+    [1, 'foo'],
+    [1, 'foo', 2, 3],
+    ['foo', 1, true, 'a', 'b', 4, 'd', 'e', 'f', 10, false],
+  ],
+}

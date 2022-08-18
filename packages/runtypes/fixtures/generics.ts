@@ -1,4 +1,4 @@
-import { Static, Runtype, Record, String } from 'runtypes';
+import { Record, Runtype, Static, String } from 'runtypes';
 
 export const A = <T extends any,>(T: Runtype<T>,) => Record({ type: T, });
 

@@ -1,4 +1,4 @@
-import { Static, Tuple, Number, String } from 'runtypes';
+import { Number, Static, String, Tuple } from 'runtypes';
 
 export const A = Tuple(Number, String, Number,);
 

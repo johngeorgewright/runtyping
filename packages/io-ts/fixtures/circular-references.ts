@@ -1,4 +1,4 @@
-import { TypeOf, union, recursion, Type, type, literal, intersection, partial, array, undefined as Undefined } from 'io-ts';
+import { array, intersection, literal, partial, recursion, type, Type, TypeOf, undefined as Undefined, union } from 'io-ts';
 import { Student as _Student, Teacher as _Teacher } from '../../../.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/circular-references';
 
 export const Teacher: Type<_Teacher> = recursion('Teacher', () => intersection([type({ type: literal("teacher"), }), partial({ students: union([array(Student), Undefined,]), reportsTo: union([Teacher, Undefined,]), })]));

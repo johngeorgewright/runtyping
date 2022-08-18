@@ -1,4 +1,4 @@
-import { TypeOf, literal } from 'io-ts';
+import { literal, TypeOf } from 'io-ts';
 
 export const A = literal("foo");
 

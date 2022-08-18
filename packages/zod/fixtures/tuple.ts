@@ -1,4 +1,4 @@
-import { infer as Infer, tuple, number, string } from 'zod';
+import { infer as Infer, number, string, tuple } from 'zod';
 
 export const A = tuple([number(), string(), number(),]);
 

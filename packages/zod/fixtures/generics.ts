@@ -1,4 +1,4 @@
-import { infer as Infer, ZodType, object, string } from 'zod';
+import { infer as Infer, object, string, ZodType } from 'zod';
 
 export const A = <T extends any,>(T: ZodType<T>,) => object({ type: T, });
 

@@ -1,4 +1,4 @@
-import { TypeOf, partial, union, string, undefined as Undefined } from 'io-ts';
+import { partial, string, TypeOf, undefined as Undefined, union } from 'io-ts';
 
 export const A = partial({ foo: union([string, Undefined,]), });
 

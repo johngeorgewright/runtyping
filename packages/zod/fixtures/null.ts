@@ -1,4 +1,4 @@
-import { infer as Infer, null as Null, string, object, undefined as Undefined } from 'zod';
+import { infer as Infer, null as Null, object, string, undefined as Undefined } from 'zod';
 
 export const A = Null();
 

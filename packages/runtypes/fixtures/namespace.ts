@@ -1,4 +1,4 @@
-import { Static, Record, String, Unknown, Number } from 'runtypes';
+import { Number, Record, Static, String, Unknown } from 'runtypes';
 
 export namespace A {
   export const B = Record({ C: String, });
