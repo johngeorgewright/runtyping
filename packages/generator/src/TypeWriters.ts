@@ -1,4 +1,4 @@
-import { ts, Type } from 'ts-morph'
+import { Symbol as CompilerSymbol, SymbolFlags, ts, Type } from 'ts-morph'
 import { Tuple } from '.'
 import {
   DeclareAndUse,
@@ -8,7 +8,13 @@ import {
   TypeWriter,
   Write,
 } from './TypeWriter'
-import { getGenerics, getTypeName, isBuiltInType } from './util'
+import {
+  escapeQuottedPropName,
+  getGenerics,
+  getTypeName,
+  isBuiltInType,
+  propNameRequiresQuotes,
+} from './util'
 
 export default abstract class TypeWriters {
   *typeWriter(
@@ -118,6 +124,48 @@ export default abstract class TypeWriters {
       return alias
     } catch (error) {
       return type.getText()
+    }
+  }
+
+  protected *objectPropertyKey(property: CompilerSymbol): TypeWriter {
+    yield [
+      Write,
+      `${
+        propNameRequiresQuotes(property.getName())
+          ? `[\`${escapeQuottedPropName(property.getName())}\`]`
+          : property.getName()
+      }:`,
+    ]
+  }
+
+  protected *objectProperties(
+    type: Type,
+    {
+      properties = type.getProperties(),
+      whenOptional,
+    }: {
+      whenOptional?(propertyWriter: TypeWriter): TypeWriter
+      properties?: CompilerSymbol[]
+    }
+  ): TypeWriter {
+    const typeArguments = getGenerics(type).map((typeArgument) =>
+      typeArgument.getText()
+    )
+    const typeWriter = this
+
+    for (const property of properties) {
+      yield* this.objectPropertyKey(property)
+      const propertyType = property.getValueDeclarationOrThrow().getType()
+      yield* property.hasFlags(SymbolFlags.Optional) && whenOptional
+        ? whenOptional(propertyWriter(propertyType))
+        : propertyWriter(propertyType)
+      yield [Write, ',']
+    }
+
+    function* propertyWriter(propertyType: Type): TypeWriter {
+      if (!typeArguments.includes(propertyType.getText()))
+        yield* typeWriter.generateOrReuseType(propertyType)
+      else yield [Write, propertyType.getText()]
     }
   }
 
