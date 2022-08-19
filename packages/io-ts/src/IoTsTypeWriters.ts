@@ -3,13 +3,10 @@ import { separate } from '@johngw/array'
 import {
   DeclareType,
   Enum,
-  escapeQuottedPropName,
-  getGenerics,
   getTypeName,
   Import,
   ImportFromSource,
   PickByValue,
-  propNameRequiresQuotes,
   sortUndefinedFirst,
   Static,
   Tuple,
@@ -268,10 +265,6 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   protected override *object(type: Type): TypeWriter {
-    const typeArguments = getGenerics(type).map((typeArgument) =>
-      typeArgument.getText()
-    )
-
     const [requiredProps, optionalProps] = separate(
       type.getProperties(),
       (item): item is CompilerSymbol => item.hasFlags(SymbolFlags.Optional)
@@ -279,74 +272,47 @@ export default class IoTsTypeWriters extends TypeWriters {
 
     if (optionalProps.length && requiredProps.length)
       yield* this.#writeRequiredAndOptionalObjectProperties(
+        type,
         requiredProps,
-        optionalProps,
-        typeArguments
+        optionalProps
       )
     else if (requiredProps.length)
-      yield* this.#writeRequiredObjectProperties(requiredProps, typeArguments)
+      yield* this.#writeRequiredObjectProperties(type, requiredProps)
     else if (optionalProps.length)
-      yield* this.#writerOptionalObjectProperties(optionalProps, typeArguments)
+      yield* this.#writerOptionalObjectProperties(type, optionalProps)
   }
 
   *#writeRequiredObjectProperties(
-    properties: CompilerSymbol[],
-    typeArguments: string[]
+    type: Type,
+    properties: CompilerSymbol[]
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'type' }]
     yield [Write, 'type({']
-    yield* this.#writeObjectProperties(properties, typeArguments)
+    yield* this.objectProperties(type, { properties })
     yield [Write, '})']
   }
 
   *#writerOptionalObjectProperties(
-    properties: CompilerSymbol[],
-    typeArguments: string[]
+    type: Type,
+    properties: CompilerSymbol[]
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'partial' }]
     yield [Write, 'partial({']
-    yield* this.#writeObjectProperties(properties, typeArguments)
+    yield* this.objectProperties(type, { properties })
     yield [Write, '})']
   }
 
   *#writeRequiredAndOptionalObjectProperties(
+    type: Type,
     requiredProperties: CompilerSymbol[],
-    optionalProperties: CompilerSymbol[],
-    typeArguments: string[]
+    optionalProperties: CompilerSymbol[]
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'intersection' }]
     yield [Write, 'intersection([']
-    yield* this.#writeRequiredObjectProperties(
-      requiredProperties,
-      typeArguments
-    )
+    yield* this.#writeRequiredObjectProperties(type, requiredProperties)
     yield [Write, ', ']
-    yield* this.#writerOptionalObjectProperties(
-      optionalProperties,
-      typeArguments
-    )
+    yield* this.#writerOptionalObjectProperties(type, optionalProperties)
     yield [Write, '])']
-  }
-
-  *#writeObjectProperties(
-    properties: CompilerSymbol[],
-    typeArguments: string[]
-  ): TypeWriter {
-    for (const property of properties) {
-      yield [
-        Write,
-        `${
-          propNameRequiresQuotes(property.getName())
-            ? `[\`${escapeQuottedPropName(property.getName())}\`]`
-            : property.getName()
-        }:`,
-      ]
-      const propertyType = property.getValueDeclarationOrThrow().getType()
-      if (!typeArguments.includes(propertyType.getText()))
-        yield* this.generateOrReuseType(propertyType)
-      else yield [Write, propertyType.getText()]
-      yield [Write, ',']
-    }
   }
 
   protected override *genericObject(type: Type<ts.ObjectType>): TypeWriter {

@@ -1,12 +1,9 @@
 import {
   DeclareType,
   Enum,
-  escapeQuottedPropName,
-  getGenerics,
   getTypeName,
   Import,
   ImportFromSource,
-  propNameRequiresQuotes,
   sortUndefinedFirst,
   Static,
   Tuple,
@@ -15,7 +12,7 @@ import {
   Write,
 } from '@runtyping/generator'
 import { titleCase } from 'title-case'
-import { SymbolFlags, ts, Type } from 'ts-morph'
+import { ts, Type } from 'ts-morph'
 import * as zod from 'zod'
 
 export default class ZodTypeWriters extends TypeWriters {
@@ -128,28 +125,12 @@ export default class ZodTypeWriters extends TypeWriters {
   override *object(type: Type<ts.ObjectType>): TypeWriter {
     yield [Import, { source: this.#module, name: 'object' }]
     yield [Write, 'object({']
-
-    const typeArguments = getGenerics(type).map((typeArgument) =>
-      typeArgument.getText()
-    )
-
-    for (const property of type.getProperties()) {
-      yield [
-        Write,
-        `${
-          propNameRequiresQuotes(property.getName())
-            ? `[\`${escapeQuottedPropName(property.getName())}\`]`
-            : property.getName()
-        }:`,
-      ]
-      const propertyType = property.getValueDeclarationOrThrow().getType()
-      if (!typeArguments.includes(propertyType.getText()))
-        yield* this.generateOrReuseType(propertyType)
-      else yield [Write, propertyType.getText()]
-      if (property.hasFlags(SymbolFlags.Optional)) yield [Write, '.optional()']
-      yield [Write, ',']
-    }
-
+    yield* this.objectProperties(type, {
+      *whenOptional(propertyWriter) {
+        yield* propertyWriter
+        yield [Write, '.optional()']
+      },
+    })
     yield [Write, '})']
   }
 
