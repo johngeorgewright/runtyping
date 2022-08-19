@@ -1891,7 +1891,7 @@ __metadata:
     "@types/jest": 28.1.7
     "@types/js-yaml": 4.0.5
     "@types/lodash": 4.14.184
-    "@types/node": 16.11.49
+    "@types/node": 16.11.51
     "@types/prettier": 2.7.0
     "@types/yargs": 17.0.11
     jest: 28.1.3
@@ -1960,7 +1960,7 @@ __metadata:
     "@semantic-release/github": 8.0.5
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.7
-    "@types/node": 16.11.49
+    "@types/node": 16.11.51
     "@types/source-map-support": 0.5.4
     commitizen: 4.2.5
     concurrently: 7.3.0
@@ -1996,7 +1996,7 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.7
-    "@types/node": 16.11.49
+    "@types/node": 16.11.51
     jest: 28.1.3
     rimraf: 3.0.2
     runtypes: 6.6.0
@@ -2655,10 +2655,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.49":
-  version: 16.11.49
-  resolution: "@types/node@npm:16.11.49"
-  checksum: 05545ee49da3b783ab77cddca45db6f4d47861c2bb148a17b774688e1082f20f27177591d140923724bcd8643b32291203f6f1eadba397e394232d4a1e28e07a
+"@types/node@npm:16.11.51":
+  version: 16.11.51
+  resolution: "@types/node@npm:16.11.51"
+  checksum: b4193d3f9d4240d866db0ca50de4a8c3b68fd81754d0a572712b559497d0f34931e4246ce0b2692afc8f8def9fcc69fd176bd7176af896d07eefa6d78d886425
   languageName: node
   linkType: hard
 
