@@ -20,10 +20,9 @@ export const ExampleSchema = object({
       validators.pipeIssues({
         ctx,
         data: data.slice(2, undefined),
-        path: 2,
+        path: `2-${2 + data.slice(2, undefined).length}`,
         type: array(record(string(), Unknown()))
       });
-
     }).or(Undefined()).optional(),
 });
 

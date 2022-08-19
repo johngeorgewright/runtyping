@@ -102,21 +102,26 @@ export default class IoTsTypeWriters extends TypeWriters {
     const staticType = yield* this.getStaticReference(type)
 
     yield* this.#array(this.#simple('unknown'))
+
     yield [
       Write,
       `.pipe(new Type<${staticType}, ${staticType}, unknown[]>(
       '${staticType}',
       (u): u is ${staticType} =>
-        Array.isArray(u) && u.length >= ${Tuple.getTupleMinSize(type)}`,
+        Array.isArray(u) && `,
     ]
-    yield* this.#variadicTupleElementsGuard(Tuple.getTupleElements(type), 'u')
+
+    yield* this.#variadicTupleElements('u', type)
+
     yield [
       Write,
       `,
       (i, c) =>
-        i.length >= ${Tuple.getTupleMinSize(type)}`,
+        `,
     ]
-    yield* this.#variadicTupleElementsGuard(Tuple.getTupleElements(type), 'i')
+
+    yield* this.#variadicTupleElements('i', type)
+
     yield [
       Write,
       `
@@ -127,57 +132,33 @@ export default class IoTsTypeWriters extends TypeWriters {
     ]
   }
 
-  *#variadicTupleElementsGuard(
-    types: Tuple.TupleElement[],
-    dataName: string
-  ): TypeWriter {
-    let variadicIndex
-    for (let i = 0; i < types.length; i++) {
-      yield [
-        Write,
-        `
-          && `,
-      ]
-      const { element, variadic } = types[i]
-      if (variadic) {
-        variadicIndex = i
-        yield* this.#variadicTupleVariadicElementGuard(
-          element,
-          dataName,
-          i,
-          i === types.length - 1 ? undefined : i - (types.length - 1)
-        )
-      } else
-        yield* this.#variadicTupleElementGuard(
-          element,
-          dataName,
-          variadicIndex === undefined ? i : i - types.length
-        )
-    }
-  }
-
-  *#variadicTupleElementGuard(
-    type: Type,
-    dataName: string,
-    index: number
-  ): TypeWriter {
-    yield* this.generateOrReuseType(type)
-    yield [
-      Write,
-      `.is(${
-        index >= 0 ? `${dataName}[${index}]` : `${dataName}.slice(${index})[0]`
-      })`,
-    ]
-  }
-
-  *#variadicTupleVariadicElementGuard(
-    type: Type,
-    dataName: string,
-    from: number,
-    to?: number
-  ): TypeWriter {
-    yield* this.#array(this.generateOrReuseType(type))
-    yield [Write, `.is(${dataName}.slice(${from}, ${to}))`]
+  *#variadicTupleElements(dataName: string, type: Type): TypeWriter {
+    yield [Write, `${dataName}.length >= ${Tuple.getTupleMinSize(type)}`]
+    yield* this.variadicTupleElements({
+      tupleType: type,
+      *element(type, index) {
+        yield* this.generateOrReuseType(type)
+        yield [
+          Write,
+          `.is(${
+            index >= 0
+              ? `${dataName}[${index}]`
+              : `${dataName}[${dataName}.length${index}]`
+          })`,
+        ]
+      },
+      *variadicElement(this: IoTsTypeWriters, type, from, to) {
+        yield* this.#array(this.generateOrReuseType(type))
+        yield [Write, `.is(${dataName}.slice(${from}, ${to}))`]
+      },
+      *separator() {
+        yield [
+          Write,
+          `
+            && `,
+        ]
+      },
+    })
   }
 
   protected override *enum(type: Type<EnumType>): TypeWriter {

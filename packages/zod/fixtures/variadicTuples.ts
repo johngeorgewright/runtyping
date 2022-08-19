@@ -14,10 +14,9 @@ export const A = array(Any())
     validators.pipeIssues({
       ctx,
       data: data.slice(1, undefined),
-      path: 1,
+      path: `1-${1 + data.slice(1, undefined).length}`,
       type: array(string())
     });
-
   });
 
 export type A = _A;
@@ -40,10 +39,9 @@ export const B = array(Any())
     validators.pipeIssues({
       ctx,
       data: data.slice(2, undefined),
-      path: 2,
+      path: `2-${2 + data.slice(2, undefined).length}`,
       type: array(number())
     });
-
   });
 
 export type B = _B;
@@ -54,16 +52,15 @@ export const C = array(Any())
     validators.pipeIssues({
       ctx,
       data: data.slice(0, -1),
-      path: 0,
+      path: `0-${0 + data.slice(0, -1).length}`,
       type: array(string())
     });
     validators.pipeIssues({
       ctx,
-      data: data.slice(-1)[0],
-      path: -1,
+      data: data[data.length - 1],
+      path: data.length - 1,
       type: number()
     });
-
   });
 
 export type C = _C;
@@ -80,16 +77,15 @@ export const D = array(Any())
     validators.pipeIssues({
       ctx,
       data: data.slice(1, -1),
-      path: 1,
+      path: `1-${1 + data.slice(1, -1).length}`,
       type: array(string())
     });
     validators.pipeIssues({
       ctx,
-      data: data.slice(-1)[0],
-      path: -1,
+      data: data[data.length - 1],
+      path: data.length - 1,
       type: string()
     });
-
   });
 
 export type D = _D;
@@ -118,22 +114,21 @@ export const E = array(Any())
     validators.pipeIssues({
       ctx,
       data: data.slice(3, -2),
-      path: 3,
+      path: `3-${3 + data.slice(3, -2).length}`,
       type: array(string())
     });
     validators.pipeIssues({
       ctx,
-      data: data.slice(-2)[0],
-      path: -2,
+      data: data[data.length - 2],
+      path: data.length - 2,
       type: number()
     });
     validators.pipeIssues({
       ctx,
-      data: data.slice(-1)[0],
-      path: -1,
+      data: data[data.length - 1],
+      path: data.length - 1,
       type: boolean()
     });
-
   });
 
 export type E = _E;
