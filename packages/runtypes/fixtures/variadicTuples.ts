@@ -14,19 +14,19 @@ export const B = Array(Unknown).withConstraint<_B>(data =>
 export type B = Static<typeof B>;
 
 export const C = Array(Unknown).withConstraint<_C>(data =>
-  data.length >= 1 && Array(String).guard(data.slice(0, -1)) && Number.guard(data.slice(-1)[0])
+  data.length >= 1 && Array(String).guard(data.slice(0, -1)) && Number.guard(data[data.length - 1])
 );
 
 export type C = Static<typeof C>;
 
 export const D = Array(Unknown).withConstraint<_D>(data =>
-  data.length >= 2 && String.guard(data[0]) && Array(String).guard(data.slice(1, -1)) && String.guard(data.slice(-1)[0])
+  data.length >= 2 && String.guard(data[0]) && Array(String).guard(data.slice(1, -1)) && String.guard(data[data.length - 1])
 );
 
 export type D = Static<typeof D>;
 
 export const E = Array(Unknown).withConstraint<_E>(data =>
-  data.length >= 5 && String.guard(data[0]) && Number.guard(data[1]) && Boolean.guard(data[2]) && Array(String).guard(data.slice(3, -2)) && Number.guard(data.slice(-2)[0]) && Boolean.guard(data.slice(-1)[0])
+  data.length >= 5 && String.guard(data[0]) && Number.guard(data[1]) && Boolean.guard(data[2]) && Array(String).guard(data.slice(3, -2)) && Number.guard(data[data.length - 2]) && Boolean.guard(data[data.length - 1])
 );
 
 export type E = Static<typeof E>;
