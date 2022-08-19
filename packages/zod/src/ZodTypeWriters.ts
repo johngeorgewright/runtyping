@@ -213,71 +213,54 @@ export default class ZodTypeWriters extends TypeWriters {
         .min(${Tuple.getTupleMinSize(type)})
         .superRefine((data, ctx) => {`,
     ]
-    yield* this.#variadicTupleElements(Tuple.getTupleElements(type))
+
+    yield* this.variadicTupleElements({
+      tupleType: type,
+      element: function* (type, index) {
+        yield [Import, { source: '@runtyping/zod', name: 'validators' }]
+        yield [
+          Write,
+          `validators.pipeIssues({
+            ctx,
+            data: ${
+              index >= 0 ? `data[${index}]` : `data[data.length${index}]`
+            },
+            path: ${index >= 0 ? index : `data.length${index}`},
+            type: `,
+        ]
+        yield* this.generateOrReuseType(type)
+        yield [
+          Write,
+          `
+          });`,
+        ]
+      },
+      variadicElement: function* (this: ZodTypeWriters, type, from, to) {
+        yield [Import, { source: '@runtyping/zod', name: 'validators' }]
+        yield [
+          Write,
+          `validators.pipeIssues({
+            ctx,
+            data: data.slice(${from}, ${to}),
+            path: \`${from}-\${${from} + data.slice(${from}, ${to}).length}\`,
+            type: `,
+        ]
+        yield* this.#array(this.generateOrReuseType(type))
+        yield [
+          Write,
+          `
+          });`,
+        ]
+      },
+      separator: function* () {
+        yield [Write, '\n']
+      },
+    })
+
     yield [
       Write,
       `
         })`,
-    ]
-  }
-
-  *#variadicTupleElements(types: Tuple.TupleElement[]): TypeWriter {
-    let variadicIndex
-    for (let i = 0; i < types.length; i++) {
-      const { element, variadic } = types[i]
-      if (variadic) {
-        variadicIndex = i
-        yield* this.#variadicTupleVariadicElement(
-          element,
-          i,
-          i === types.length - 1 ? undefined : i - (types.length - 1)
-        )
-      } else
-        yield* this.#variadicTupleElement(
-          element,
-          variadicIndex === undefined ? i : i - types.length
-        )
-      yield [Write, '\n']
-    }
-  }
-
-  *#variadicTupleElement(type: Type, index: number): TypeWriter {
-    yield [Import, { source: '@runtyping/zod', name: 'validators' }]
-    yield [
-      Write,
-      `validators.pipeIssues({
-        ctx,
-        data: ${index >= 0 ? `data[${index}]` : `data.slice(${index})[0]`},
-        path: ${index},
-        type: `,
-    ]
-    yield* this.generateOrReuseType(type)
-    yield [
-      Write,
-      `
-      });`,
-    ]
-  }
-
-  *#variadicTupleVariadicElement(
-    type: Type,
-    from: number,
-    to?: number
-  ): TypeWriter {
-    yield [Import, { source: '@runtyping/zod', name: 'validators' }]
-    yield [
-      Write,
-      `validators.pipeIssues({
-        ctx,
-        data: data.slice(${from}, ${to}),
-        path: ${from},
-        type: `,
-    ]
-    yield* this.#array(this.generateOrReuseType(type))
-    yield [
-      Write,
-      `
-      });`,
     ]
   }
 

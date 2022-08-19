@@ -42,11 +42,11 @@ export const C = array(Unknown).pipe(new Type<_C, _C, unknown[]>(
   (u): u is _C =>
     Array.isArray(u) && u.length >= 1
     && array(string).is(u.slice(0, -1))
-    && number.is(u.slice(-1)[0]),
+    && number.is(u[u.length - 1]),
   (i, c) =>
     i.length >= 1
       && array(string).is(i.slice(0, -1))
-      && number.is(i.slice(-1)[0])
+      && number.is(i[i.length - 1])
       ? success(i as _C)
       : failure(i, c, 'Variadic tuple does not match schema'),
   (a) => a
@@ -60,12 +60,12 @@ export const D = array(Unknown).pipe(new Type<_D, _D, unknown[]>(
     Array.isArray(u) && u.length >= 2
     && string.is(u[0])
     && array(string).is(u.slice(1, -1))
-    && string.is(u.slice(-1)[0]),
+    && string.is(u[u.length - 1]),
   (i, c) =>
     i.length >= 2
       && string.is(i[0])
       && array(string).is(i.slice(1, -1))
-      && string.is(i.slice(-1)[0])
+      && string.is(i[i.length - 1])
       ? success(i as _D)
       : failure(i, c, 'Variadic tuple does not match schema'),
   (a) => a
@@ -81,16 +81,16 @@ export const E = array(Unknown).pipe(new Type<_E, _E, unknown[]>(
     && number.is(u[1])
     && boolean.is(u[2])
     && array(string).is(u.slice(3, -2))
-    && number.is(u.slice(-2)[0])
-    && boolean.is(u.slice(-1)[0]),
+    && number.is(u[u.length - 2])
+    && boolean.is(u[u.length - 1]),
   (i, c) =>
     i.length >= 5
       && string.is(i[0])
       && number.is(i[1])
       && boolean.is(i[2])
       && array(string).is(i.slice(3, -2))
-      && number.is(i.slice(-2)[0])
-      && boolean.is(i.slice(-1)[0])
+      && number.is(i[i.length - 2])
+      && boolean.is(i[i.length - 1])
       ? success(i as _E)
       : failure(i, c, 'Variadic tuple does not match schema'),
   (a) => a
