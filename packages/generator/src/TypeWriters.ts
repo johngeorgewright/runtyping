@@ -96,7 +96,7 @@ export default abstract class TypeWriters {
     }
   }
 
-  protected *generateOrReuseType(type: Type): TypeWriter {
+  *generateOrReuseType(type: Type): TypeWriter {
     const typeName =
       type.getAliasSymbol()?.getName() || type.getSymbol()?.getName()
 
@@ -174,6 +174,44 @@ export default abstract class TypeWriters {
         objectType
       )}<${generics.map((generic) => generic.getText())}>>>`,
     ]
+  }
+
+  protected *variadicTupleElements({
+    tupleType,
+    element,
+    separator,
+    variadicElement,
+  }: {
+    tupleType: Type
+    element(this: TypeWriters, type: Type, index: number): TypeWriter
+    variadicElement(
+      this: TypeWriters,
+      type: Type,
+      from: number,
+      to?: number
+    ): TypeWriter
+    separator?(): TypeWriter
+  }): TypeWriter {
+    const types = Tuple.getTupleElements(tupleType)
+    let variadicIndex
+    for (let i = 0; i < types.length; i++) {
+      if (separator) yield* separator()
+      const { element: elementType, variadic } = types[i]
+      if (variadic) {
+        variadicIndex = i
+        yield* variadicElement.call(
+          this,
+          elementType,
+          i,
+          i === types.length - 1 ? undefined : i - (types.length - 1)
+        )
+      } else
+        yield* element.call(
+          this,
+          elementType,
+          variadicIndex === undefined ? i : i - types.length
+        )
+    }
   }
 
   abstract defaultStaticImplementation(type: Type): TypeWriter
