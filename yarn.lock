@@ -1961,7 +1961,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
     "@types/node": 16.11.56
-    "@types/source-map-support": 0.5.4
+    "@types/source-map-support": 0.5.5
     commitizen: 4.2.5
     concurrently: 7.3.0
     cz-conventional-changelog: 3.3.0
@@ -2748,12 +2748,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/source-map-support@npm:0.5.4":
-  version: 0.5.4
-  resolution: "@types/source-map-support@npm:0.5.4"
+"@types/source-map-support@npm:0.5.5":
+  version: 0.5.5
+  resolution: "@types/source-map-support@npm:0.5.5"
   dependencies:
     source-map: ^0.6.0
-  checksum: 160ff77e8a101b18d9915cb5320fd73d484679aef8518ce007b9b5988e333631778730196c4bb15517ff881bee805663fd8640c0ce2ebfab65f061103c452369
+  checksum: 74d4fdd24f6d1fa92331ba07211ed4a7c60e78dcfd4899cd74a8aeebe2febaf9bac5f25a4a9ac4c9b260f01343df9e0ec01e6233526161cdcf44784e3298eea5
   languageName: node
   linkType: hard
 
