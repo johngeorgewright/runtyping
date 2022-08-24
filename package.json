@@ -75,5 +75,5 @@
   "dependencies": {
     "tslib": "2.4.0"
   },
-  "packageManager": "yarn@3.2.2"
+  "packageManager": "yarn@3.2.3"
 }
