@@ -39,7 +39,7 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "28.1.8",
     "@types/node": "16.11.56",
-    "@types/source-map-support": "0.5.4",
+    "@types/source-map-support": "0.5.5",
     "commitizen": "4.2.5",
     "concurrently": "7.3.0",
     "cz-conventional-changelog": "3.3.0",
