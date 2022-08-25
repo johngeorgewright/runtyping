@@ -225,7 +225,8 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override *variadicTuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'array' }]
-    yield [Static, [type, yield* this.getStaticReference(type)]]
+    if (yield [CanDeclareStatics, type])
+      yield [Static, [type, yield* this.getStaticReference(type)]]
     yield* this.#array(this.#simple('any'))
     yield [
       Write,
