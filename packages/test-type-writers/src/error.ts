@@ -6,7 +6,7 @@ export class ExpectedFailure extends Error {
   ) {
     super(
       `Expected a failure for ${testName}.${type} but it succeeded
-Input: ${JSON.stringify(data, null, 2)}`
+Input: ${stringify(data)}`
     )
   }
 }
@@ -21,7 +21,13 @@ export class ExpectedSuccess extends Error {
     super(
       `Expected success for ${testName}.${type} but it failed
 ${error.message}
-Input: ${JSON.stringify(data, null, 2)}`
+Input: ${stringify(data)}`
     )
   }
+}
+
+function stringify(data: unknown) {
+  return typeof data === 'function'
+    ? data.toString()
+    : JSON.stringify(data, null, 2)
 }
