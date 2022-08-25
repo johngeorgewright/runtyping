@@ -143,10 +143,12 @@ export default abstract class TypeWriters {
     {
       properties = type.getProperties(),
       whenOptional,
+      whenRequired,
     }: {
       whenOptional?(propertyWriter: TypeWriter): TypeWriter
+      whenRequired?(propertyWriter: TypeWriter): TypeWriter
       properties?: CompilerSymbol[]
-    }
+    } = {}
   ): TypeWriter {
     const typeArguments = getGenerics(type).map((typeArgument) =>
       typeArgument.getText()
@@ -158,6 +160,8 @@ export default abstract class TypeWriters {
       const propertyType = property.getValueDeclarationOrThrow().getType()
       yield* property.hasFlags(SymbolFlags.Optional) && whenOptional
         ? whenOptional(propertyWriter(propertyType))
+        : whenRequired
+        ? whenRequired(propertyWriter(propertyType))
         : propertyWriter(propertyType)
       yield [Write, ',']
     }

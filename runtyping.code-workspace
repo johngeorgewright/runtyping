@@ -11,6 +11,7 @@
     { "name": "🏗 @runtyping/scaffold", "path": "packages/scaffold" },
     { "name": "📦 @runtyping/generator", "path": "packages/generator" },
     { "name": "📦 @runtyping/io-ts", "path": "packages/io-ts" },
+    { "name": "📦 @runtyping/joi", "path": "packages/joi" },
     { "name": "📦 @runtyping/runtypes", "path": "packages/runtypes" },
     {
       "name": "📦 @runtyping/test-type-writers",

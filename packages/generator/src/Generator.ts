@@ -1,11 +1,10 @@
-import { cast as castArray } from '@johngw/array'
+import { cast as castArray, separate } from '@johngw/array'
 import { IteratorHandler } from '@johngw/iterator'
 import { compileFromFile } from 'json-schema-to-typescript'
 import { dirname, extname, isAbsolute, resolve as resolvePath } from 'path'
 import {
   EnumDeclaration,
   FunctionDeclaration,
-  ImportSpecifierStructure,
   IndentationText,
   InterfaceDeclaration,
   NewLineKind,
@@ -21,7 +20,12 @@ import {
   VariableDeclaration,
   VariableDeclarationKind,
 } from 'ts-morph'
-import { InstructionSourceType } from './runtypes'
+import {
+  ImportSpec,
+  InstructionSourceType,
+  isDefaultImportSpec,
+  NamedImportSpec,
+} from './runtypes'
 import {
   DeclareAndUse,
   DeclareType,
@@ -59,10 +63,6 @@ export type GeneratorOptions = GeneratorOptionsBase & {
 }
 
 type SourceCodeFile = SourceFile
-
-export type ImportSpec = Omit<ImportSpecifierStructure, 'kind'> & {
-  source: string
-}
 
 export default class Generator {
   #circularReferences = new Set<string>()
@@ -131,13 +131,24 @@ export default class Generator {
 
   #addImports(imports: ImportSpec[]) {
     const sourceImportMap = groupBy(imports, 'source')
-    for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
-      this.#targetFile.addImportDeclaration({
-        namedImports: imports.sort(({ name: nameA }, { name: nameB }) =>
-          nameA.localeCompare(nameB)
-        ),
-        moduleSpecifier: sourceFilePath,
-      })
+    for (const [sourceFilePath, imports] of Object.entries(sourceImportMap)) {
+      const [namedImports, [defaultImport]] = separate(
+        imports,
+        isDefaultImportSpec
+      )
+      if (namedImports.length)
+        this.#targetFile.addImportDeclaration({
+          moduleSpecifier: sourceFilePath,
+          namedImports: namedImports.sort(({ name: nameA }, { name: nameB }) =>
+            nameA.localeCompare(nameB)
+          ),
+        })
+      if (defaultImport)
+        this.#targetFile.addImportDeclaration({
+          moduleSpecifier: sourceFilePath,
+          defaultImport: defaultImport.default,
+        })
+    }
   }
 
   async #generateRuntypeFromJSON(sourceType: InstructionSourceType) {
@@ -274,20 +285,28 @@ export default class Generator {
   }
 
   readonly #import = (importSpec: ImportSpec) => {
-    const hasImport = this.#imports.find(
-      ({ alias, name, source }) =>
-        source === importSpec.source &&
-        ('alias' in importSpec
-          ? alias === importSpec.alias
-          : name === importSpec.name)
-    )
+    const hasImport = isDefaultImportSpec(importSpec)
+      ? this.#imports.find(
+          (registeredImportSpec) =>
+            registeredImportSpec.source === importSpec.source &&
+            isDefaultImportSpec(registeredImportSpec) &&
+            registeredImportSpec.default === importSpec.default
+        )
+      : this.#imports.find(
+          (registeredImportSpec) =>
+            registeredImportSpec.source === importSpec.source &&
+            !isDefaultImportSpec(registeredImportSpec) &&
+            ('alias' in importSpec && 'alias' in registeredImportSpec
+              ? registeredImportSpec.alias === importSpec.alias
+              : registeredImportSpec.name === importSpec.name)
+        )
 
     if (!hasImport) this.#imports.push(importSpec)
   }
 
   #importFromSource(
     sourceFilePath: string,
-    importSpec: Omit<ImportSpec, 'source'>
+    importSpec: Omit<NamedImportSpec, 'source'>
   ) {
     this.#import({
       ...importSpec,

@@ -1,5 +1,5 @@
 import { OptionalKind, TypeParameterDeclarationStructure } from 'ts-morph'
-import { ImportSpec } from './Generator'
+import { ImportSpec, NamedImportSpec } from './runtypes'
 
 export const Write = Symbol.for('@runtypes/generator/TypeWriter/Write')
 export const Import = Symbol.for('@runtypes/generator/TypeWriter/Import')
@@ -21,7 +21,7 @@ export type TypeWriter<R = any> = Generator<
   | [action: typeof Import, importDeclaration: ImportSpec]
   | [
       action: typeof ImportFromSource,
-      sourceType: { name: string; alias: string }
+      importDeclaration: Omit<NamedImportSpec, 'source'>
     ]
   | [action: typeof Write, contents: string]
   | [action: typeof DeclareAndUse, name: string]

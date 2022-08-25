@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`without static types 1`] = `
+"import { Joi } from 'zod';
+
+export const One = Joi.object()type: Joi.valid()\\"one\\", value: Joi.string(),});
+
+export const Two = Joi.object()type: Joi.valid()\\"two\\", value: Joi.number(),});
+
+export const Three = Joi.alternatives().items(One, Two,);
+"
+`;

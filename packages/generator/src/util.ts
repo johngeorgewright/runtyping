@@ -1,5 +1,6 @@
 import { basename, dirname, extname, relative } from 'path'
 import { StatementedNode, ts, Type } from 'ts-morph'
+import { z } from 'zod'
 
 export function last<T>(array: T[]): T {
   return array[array.length - 1]
@@ -12,11 +13,6 @@ export function find<T, O>(array: T[], fn: (item: T) => O | false): O | void {
       return result
     }
   }
-}
-
-export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
-  for (const item of set) if (predicate(item)) return true
-  return false
 }
 
 export function getRelativeImportPath(localPath: string, remotePath: string) {
@@ -123,4 +119,8 @@ export function isBuiltInType(type: Type) {
 
 export function emptyObject<T extends Record<keyof any, unknown>>(obj: T) {
   return !Object.keys(obj).length
+}
+
+export function zodGuard<T>(validator: z.ZodType<T>) {
+  return (data: unknown): data is T => validator.safeParse(data).success
 }

@@ -6,3 +6,4 @@ package-lock.json
 packages/io-ts/fixtures
 packages/runtypes/fixtures
 packages/zod/fixtures
+packages/joi/fixtures

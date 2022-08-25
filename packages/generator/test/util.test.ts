@@ -1,4 +1,4 @@
-import { find, getRelativeImportPath, last, setHas } from '../src/util'
+import { find, getRelativeImportPath, last } from '../src/util'
 import * as path from 'path'
 
 test('last', () => {
@@ -20,10 +20,4 @@ test('getRelativeImportPath', () => {
   expect(getRelativeImportPath('./test.ts', './test/recursive.ts')).toBe(
     './test/recursive.ts'
   )
-})
-
-test('setHas', () => {
-  const set = new Set([{ mung: 'face' }])
-  expect(setHas(set, ({ mung }) => mung === 'face')).toBe(true)
-  expect(setHas(set, ({ mung }) => mung === 'mung')).toBe(false)
 })
