@@ -1,4 +1,5 @@
 import {
+  CanDeclareStatics,
   DeclareType,
   Enum,
   getTypeName,
@@ -68,9 +69,8 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override *function(type: Type): TypeWriter {
     yield [Import, { source: this.#module, alias: 'func', name: 'function' }]
-    const symbol = type.getAliasSymbol() || type.getSymbol()
-    if (symbol) {
-      const name = getFunctionName(type)
+    const name = getFunctionName(type)
+    if (name && (yield [CanDeclareStatics, type])) {
       const alias = `_${name}`
       yield [ImportFromSource, { alias, name }]
       yield [Write, 'func()']
