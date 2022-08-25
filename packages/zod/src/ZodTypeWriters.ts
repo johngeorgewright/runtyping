@@ -11,6 +11,7 @@ import {
   TypeWriters,
   Write,
 } from '@runtyping/generator'
+import { getFunctionName } from '@runtyping/generator/dist/function'
 import { titleCase } from 'title-case'
 import { Signature, ts, Type } from 'ts-morph'
 import * as zod from 'zod'
@@ -67,14 +68,30 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override *function(type: Type): TypeWriter {
     yield [Import, { source: this.#module, alias: 'func', name: 'function' }]
-    const [firstCallSignature, ...otherCallSignatures] =
-      type.getCallSignatures()
-    yield* this.#callSignature(firstCallSignature)
-    if (otherCallSignatures.length) {
-      yield [Write, '.or(']
-      for (const callSignature of otherCallSignatures)
+    const symbol = type.getAliasSymbol() || type.getSymbol()
+    if (symbol) {
+      const name = getFunctionName(type)
+      const alias = `_${name}`
+      yield [ImportFromSource, { alias, name }]
+      yield [Write, 'func()']
+      yield [
+        Static,
+        [
+          type,
+          type.isInterface() || type.getAliasSymbol()
+            ? alias
+            : `typeof ${alias}`,
+        ],
+      ]
+    } else {
+      const [firstCallSignature, ...otherCallSignatures] =
+        type.getCallSignatures()
+      yield* this.#callSignature(firstCallSignature)
+      for (const callSignature of otherCallSignatures) {
+        yield [Write, '.or(']
         yield* this.#callSignature(callSignature)
-      yield [Write, ')']
+        yield [Write, ')']
+      }
     }
   }
 
@@ -208,7 +225,7 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override *variadicTuple(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'array' }]
-    yield [Static, yield* this.getStaticReference(type)]
+    yield [Static, [type, yield* this.getStaticReference(type)]]
     yield* this.#array(this.#simple('any'))
     yield [
       Write,
