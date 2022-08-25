@@ -12,7 +12,7 @@ import {
   Write,
 } from '@runtyping/generator'
 import { titleCase } from 'title-case'
-import { ts, Type } from 'ts-morph'
+import { Signature, ts, Type } from 'ts-morph'
 import * as zod from 'zod'
 
 export default class ZodTypeWriters extends TypeWriters {
@@ -65,9 +65,31 @@ export default class ZodTypeWriters extends TypeWriters {
     yield* this.#literal(`_${enumTypeName}.${getTypeName(type)}`)
   }
 
-  override *function(): TypeWriter {
+  override *function(type: Type): TypeWriter {
     yield [Import, { source: this.#module, alias: 'func', name: 'function' }]
-    yield [Write, 'func()']
+    const [firstCallSignature, ...otherCallSignatures] =
+      type.getCallSignatures()
+    yield* this.#callSignature(firstCallSignature)
+    if (otherCallSignatures.length) {
+      yield [Write, '.or(']
+      for (const callSignature of otherCallSignatures)
+        yield* this.#callSignature(callSignature)
+      yield [Write, ')']
+    }
+  }
+
+  *#callSignature(callSignature: Signature): TypeWriter {
+    yield [Write, 'func().args(']
+    for (const parameter of callSignature.getParameters()) {
+      yield* this.generateOrReuseType(
+        parameter.getValueDeclaration()?.getType() ||
+          parameter.getDeclaredType()
+      )
+      yield [Write, ', ']
+    }
+    yield [Write, ').returns(']
+    yield* this.generateOrReuseType(callSignature.getReturnType())
+    yield [Write, ')']
   }
 
   override *intersection(type: Type): TypeWriter {
