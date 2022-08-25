@@ -2,12 +2,11 @@ export interface A {
   (foo: string, bar: number): void
 }
 
-export type B = (bar: number) => void
+export type B = (bar?: number) => void
 
 export interface C {
   (foo: string): B
   (foo: string, bar: number): void
-  (foo: string, bar?: number): any
 }
 
 export function D(foo: number) {
@@ -19,3 +18,9 @@ export async function E(foo: number) {
 }
 
 export const F = (foo: number) => foo.toString()
+
+export function G(foo: number): number
+export function G(foo: string): string
+export function G(foo: string | number): string | number {
+  return foo
+}
