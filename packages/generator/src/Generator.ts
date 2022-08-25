@@ -304,10 +304,30 @@ export default class Generator {
     })
   }
 
+  #isConsideredType(node: Node): node is ConsideredTypeDeclaration {
+    return ConsideredTypeDeclarationSyntaxKinds.some((kind) =>
+      node.isKind(kind)
+    )
+  }
+
+  /**
+   * Will get default export if typeName is not specified
+   */
   #getTypeDeclaration(
     sourceFile: SourceCodeFile,
-    typeName: string
+    typeName?: string
   ): ConsideredTypeDeclaration {
+    if (!typeName) {
+      const declaration = sourceFile
+        .getDefaultExportSymbolOrThrow()
+        .getValueDeclarationOrThrow()
+      if (!this.#isConsideredType(declaration))
+        throw new Error(
+          `Default export of ${sourceFile.getFilePath()} is an interface, type or enum`
+        )
+      return declaration
+    }
+
     const importTypeDeclaration = this.#getImportedTypeDeclaration(
       sourceFile,
       typeName
@@ -338,16 +358,36 @@ export default class Generator {
     const importInfo = find(
       sourceFile.getImportDeclarations(),
       (importDeclaration) => {
-        let [remoteIdentifier, localIdentifier] =
-          importDeclaration
-            .getImportClause()
-            ?.getDescendantsOfKind(SyntaxKind.Identifier)
-            .map((indentifier) => indentifier.getText()) || []
-        localIdentifier = localIdentifier || remoteIdentifier
+        const defaultImportName = importDeclaration
+          .getDefaultImport()
+          ?.getText()
+
+        const importSpecifier =
+          defaultImportName === typeName
+            ? {
+                localIdentifier: defaultImportName,
+                remoteIdentifier: undefined,
+              }
+            : find(
+                importDeclaration.getImportClause()?.getNamedImports() || [],
+                (importSpecifier) => {
+                  let [remoteIdentifier, localIdentifier] = importSpecifier
+                    .getDescendantsOfKind(SyntaxKind.Identifier)
+                    .map((indentifier) => indentifier.getText())
+                  localIdentifier = localIdentifier || remoteIdentifier
+                  return (
+                    localIdentifier === typeName && {
+                      remoteIdentifier,
+                      localIdentifier,
+                    }
+                  )
+                }
+              )
+
         return (
-          localIdentifier === typeName && {
+          importSpecifier?.localIdentifier === typeName && {
             path: importDeclaration.getModuleSpecifierValue(),
-            remoteIdentifier,
+            remoteIdentifier: importSpecifier.remoteIdentifier,
           }
         )
       }
@@ -378,13 +418,19 @@ export default class Generator {
     const match = importTypeNameRegExp(typeName)
     if (!match) return typeName
     for (const importDeclaration of sourceFile.getImportDeclarations()) {
-      let [remoteIdentifier, localIdentifier] =
-        importDeclaration
+      if (match.importTypeName === 'default')
+        return importDeclaration.getDefaultImportOrThrow().getText()
+      else {
+        for (const importSpecifier of importDeclaration
           .getImportClause()
-          ?.getDescendantsOfKind(SyntaxKind.Identifier)
-          .map((indentifier) => indentifier.getText()) || []
-      localIdentifier = localIdentifier || remoteIdentifier
-      if (remoteIdentifier === match.importTypeName) return localIdentifier
+          ?.getNamedImports() || []) {
+          let [remoteIdentifier, localIdentifier] = importSpecifier
+            .getDescendantsOfKind(SyntaxKind.Identifier)
+            .map((indentifier) => indentifier.getText())
+          localIdentifier = localIdentifier || remoteIdentifier
+          if (remoteIdentifier === match.importTypeName) return localIdentifier
+        }
+      }
     }
     return match.importTypeName
   }
