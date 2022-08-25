@@ -199,7 +199,7 @@ export default class Generator {
     }
 
     const canDeclareStatics = (type: Type) =>
-      type.getText() === typeDeclaration.getType().getText()
+      exportStaticType && type.getText() === typeDeclaration.getType().getText()
 
     const runTypeWriter = (typeWriter: TypeWriter) => {
       IteratorHandler.create(typeWriter)
