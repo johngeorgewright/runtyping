@@ -18,9 +18,9 @@ import { ts, Type } from 'ts-morph'
 export default class RuntypesTypeWriters extends TypeWriters {
   #module = 'runtypes';
 
-  override *defaultStaticImplementation(): TypeWriter {
+  override *defaultStaticImplementation(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'Static' }]
-    yield [Static, 'Static<typeof ${name}>']
+    yield [Static, [type, 'Static<typeof ${name}>']]
   }
 
   override *lazy(type: Type): TypeWriter {
