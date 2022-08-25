@@ -22,9 +22,9 @@ import ts, { EnumType } from '@ts-morph/common/lib/typescript'
 export default class IoTsTypeWriters extends TypeWriters {
   #module = 'io-ts';
 
-  override *defaultStaticImplementation(): TypeWriter {
+  override *defaultStaticImplementation(type: Type): TypeWriter {
     yield [Import, { source: this.#module, name: 'TypeOf' }]
-    yield [Static, 'TypeOf<typeof ${name}>']
+    yield [Static, [type, 'TypeOf<typeof ${name}>']]
   }
 
   protected override *lazy(type: Type): TypeWriter {

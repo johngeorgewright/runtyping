@@ -18,9 +18,9 @@ import * as zod from 'zod'
 export default class ZodTypeWriters extends TypeWriters {
   #module = 'zod';
 
-  override *defaultStaticImplementation(): TypeWriter {
+  override *defaultStaticImplementation(type: Type): TypeWriter {
     yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
-    yield [Static, 'Infer<typeof ${name}>']
+    yield [Static, [type, 'Infer<typeof ${name}>']]
   }
 
   override any() {
