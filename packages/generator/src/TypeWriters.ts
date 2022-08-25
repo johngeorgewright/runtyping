@@ -202,25 +202,31 @@ export default abstract class TypeWriters {
 
     yield [
       StaticParameters,
-      generics.map((generic) => {
-        const constraint = generic.getConstraint()
-        const constraintDeclaredType = constraint
-          ?.getSymbol()
-          ?.getDeclaredType()
-        return {
-          name: generic.getText(),
-          constraint: constraintDeclaredType
-            ? getTypeName(constraintDeclaredType)
-            : constraint?.getText(),
-        }
-      }),
+      [
+        objectType,
+        generics.map((generic) => {
+          const constraint = generic.getConstraint()
+          const constraintDeclaredType = constraint
+            ?.getSymbol()
+            ?.getDeclaredType()
+          return {
+            name: generic.getText(),
+            constraint: constraintDeclaredType
+              ? getTypeName(constraintDeclaredType)
+              : constraint?.getText(),
+          }
+        }),
+      ],
     ]
 
     yield [
       Static,
-      `${staticHelper}<ReturnType<typeof ${getTypeName(
-        objectType
-      )}<${generics.map((generic) => generic.getText())}>>>`,
+      [
+        objectType,
+        `${staticHelper}<ReturnType<typeof ${getTypeName(
+          objectType
+        )}<${generics.map((generic) => generic.getText())}>>>`,
+      ],
     ]
   }
 
