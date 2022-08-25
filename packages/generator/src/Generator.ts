@@ -205,11 +205,13 @@ export default class Generator {
         .handle(ImportFromSource, (importSpec) => {
           this.#importFromSource(instructionSourceType.file, importSpec)
         })
-        .handle(Static, (value) => {
-          staticImplementation = value
+        .handle(Static, ([type, value]) => {
+          if (type.getText() === typeDeclaration.getType().getText())
+            staticImplementation = value
         })
-        .handle(StaticParameters, (value) => {
-          staticTypeParameters = value
+        .handle(StaticParameters, ([type, value]) => {
+          if (type.getText() === typeDeclaration.getType().getText())
+            staticTypeParameters = value
         })
         .handle(DeclareAndUse, (value) => {
           const recursiveValue = recursive && value === typeName
