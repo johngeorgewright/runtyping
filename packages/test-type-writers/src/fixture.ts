@@ -54,9 +54,14 @@ async function getDataNames(testName: string): Promise<string[]> {
         : name
     )
   }
-  return $getDataNames(
-    await import(pathHelper.join(fixturesDataDir, `${testName}.ts`))
-  )
+  try {
+    return $getDataNames(
+      await import(pathHelper.join(fixturesDataDir, `${testName}.ts`))
+    )
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
 }
 
 async function generate(
