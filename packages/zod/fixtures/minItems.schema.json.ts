@@ -1,4 +1,4 @@
-import { any as Any, array, object, record, string, undefined as Undefined, unknown as Unknown } from 'zod';
+import { any as Any, array, infer as Infer, object, record, string, undefined as Undefined, unknown as Unknown } from 'zod';
 import { validators } from '@runtyping/zod';
 
 export const ExampleSchema = object({
@@ -26,4 +26,4 @@ export const ExampleSchema = object({
     }).or(Undefined()).optional(),
 });
 
-export type ExampleSchema = [{ [k: string]: unknown; }, { [k: string]: unknown; }, ...{ [k: string]: unknown; }[]];
+export type ExampleSchema = Infer<typeof ExampleSchema>;
