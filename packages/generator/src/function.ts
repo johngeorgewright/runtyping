@@ -5,8 +5,8 @@ export function getFunctionName(type: Type) {
   const firstDeclaration = symbol.getDeclarations()[0]
   return firstDeclaration.isKind(SyntaxKind.ArrowFunction)
     ? firstDeclaration
-        .getFirstAncestorByKindOrThrow(SyntaxKind.VariableDeclaration)
-        .getFirstChildByKindOrThrow(SyntaxKind.Identifier)
-        .getText()
+        .getFirstAncestorByKind(SyntaxKind.VariableDeclaration)
+        ?.getFirstChildByKind(SyntaxKind.Identifier)
+        ?.getText()
     : symbol.getName()
 }
