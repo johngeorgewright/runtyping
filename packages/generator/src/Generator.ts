@@ -16,6 +16,7 @@ import {
   SourceFile,
   SyntaxKind,
   ts,
+  Type,
   TypeAliasDeclaration,
   TypeParameterDeclarationStructure,
   VariableDeclaration,
@@ -23,6 +24,7 @@ import {
 } from 'ts-morph'
 import { InstructionSourceType } from './runtypes'
 import {
+  CanDeclareStatics,
   DeclareAndUse,
   DeclareType,
   Import,
@@ -196,8 +198,12 @@ export default class Generator {
       )
     }
 
+    const canDeclareStatics = (type: Type) =>
+      type.getText() === typeDeclaration.getType().getText()
+
     const runTypeWriter = (typeWriter: TypeWriter) => {
       IteratorHandler.create(typeWriter)
+        .handle(CanDeclareStatics, canDeclareStatics)
         .handle(Write, (value) => {
           writer = writer.write(value)
         })
@@ -206,12 +212,10 @@ export default class Generator {
           this.#importFromSource(instructionSourceType.file, importSpec)
         })
         .handle(Static, ([type, value]) => {
-          if (type.getText() === typeDeclaration.getType().getText())
-            staticImplementation = value
+          if (canDeclareStatics(type)) staticImplementation = value
         })
         .handle(StaticParameters, ([type, value]) => {
-          if (type.getText() === typeDeclaration.getType().getText())
-            staticTypeParameters = value
+          if (canDeclareStatics(type)) staticTypeParameters = value
         })
         .handle(DeclareAndUse, (value) => {
           const recursiveValue = recursive && value === typeName
