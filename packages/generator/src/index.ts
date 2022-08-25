@@ -13,4 +13,5 @@ export {
   sortUndefinedFirst,
 } from './util'
 export * as Enum from './enum'
+export * as Function from './function'
 export * as Tuple from './tuple'
