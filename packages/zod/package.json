@@ -18,6 +18,7 @@
     "runtyping": "dist/cli.js"
   },
   "peerDependencies": {
+    "typescript": "^4.7.4",
     "zod": "^3.17.9"
   },
   "devDependencies": {

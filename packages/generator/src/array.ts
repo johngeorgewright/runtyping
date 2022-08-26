@@ -4,14 +4,14 @@ import { getTypeName } from './util'
 export function isArray(type: Type): boolean {
   return type.isArray()
     ? true
-    : type.isObject()
+    : type.isObject() || type.isInterface()
     ? !!type.getSymbol()?.getDeclarations().some(getArrayInhertianceElementType)
     : false
 }
 
 export function getArrayElementType(type: Type) {
   if (type.isArray()) return type.getArrayElementType()
-  if (type.isObject())
+  if (type.isObject() || type.isInterface())
     for (const declaration of type.getSymbol()?.getDeclarations() || []) {
       const element = getArrayInhertianceElementType(declaration)
       if (element) return element

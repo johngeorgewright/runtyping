@@ -44,6 +44,7 @@ import {
   isRelative,
 } from './util'
 import { groupBy } from 'lodash'
+import resolutionHostFactory from './resolutionHostFactory'
 
 type GeneratorOptionsBase =
   | {
@@ -91,9 +92,12 @@ export default class Generator {
               usePrefixAndSuffixTextForRename: false,
               useTrailingCommas: true,
             },
+            resolutionHost: resolutionHostFactory,
             skipAddingFilesFromTsConfig: true,
             tsConfigFilePath:
-              'tsConfigFile' in options ? options.tsConfigFile : undefined,
+              'tsConfigFile' in options
+                ? options.tsConfigFile
+                : `${process.cwd()}/tsconfig.json`,
           })
 
     this.#targetFile = this.#project.createSourceFile(options.targetFile, '', {
@@ -228,7 +232,11 @@ export default class Generator {
         })
         .handle(DeclareAndUse, (value) => {
           const recursiveValue = recursive && value === typeName
-          if (recursiveValue || this.#hasTypeDeclaration(sourceFile, value)) {
+          if (
+            recursiveValue ||
+            this.#exports.has(value) ||
+            this.#hasTypeDeclaration(sourceFile, value)
+          ) {
             writer = writer.write(this.#formatRuntypeName(value))
             if (
               !recursiveValue &&
@@ -355,12 +363,11 @@ export default class Generator {
         node.getVariableDeclaration(name)
     )
 
-    if (!declaration)
+    if (declaration) return declaration
+    else
       throw new Error(
         `Cannot find any interface, type or enum called "${typeName}" in ${sourceFile.getFilePath()}.`
       )
-
-    return declaration
   }
 
   #getImportedTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
@@ -385,10 +392,11 @@ export default class Generator {
                     .map((indentifier) => indentifier.getText())
                   localIdentifier = localIdentifier || remoteIdentifier
                   return (
-                    localIdentifier === typeName && {
+                    (localIdentifier === typeName && {
                       remoteIdentifier,
                       localIdentifier,
-                    }
+                    }) ||
+                    false
                   )
                 }
               )
