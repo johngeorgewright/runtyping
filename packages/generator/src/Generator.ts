@@ -44,7 +44,6 @@ import {
   isRelative,
 } from './util'
 import { groupBy } from 'lodash'
-import resolutionHostFactory from './resolutionHostFactory'
 
 type GeneratorOptionsBase =
   | {
@@ -92,12 +91,9 @@ export default class Generator {
               usePrefixAndSuffixTextForRename: false,
               useTrailingCommas: true,
             },
-            resolutionHost: resolutionHostFactory,
             skipAddingFilesFromTsConfig: true,
             tsConfigFilePath:
-              'tsConfigFile' in options
-                ? options.tsConfigFile
-                : `${process.cwd()}/tsconfig.json`,
+              'tsConfigFile' in options ? options.tsConfigFile : undefined,
           })
 
     this.#targetFile = this.#project.createSourceFile(options.targetFile, '', {
