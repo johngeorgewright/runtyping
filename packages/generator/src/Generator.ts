@@ -1,7 +1,8 @@
 import { cast as castArray } from '@johngw/array'
 import { IteratorHandler } from '@johngw/iterator'
 import { compileFromFile } from 'json-schema-to-typescript'
-import { dirname, extname, isAbsolute, resolve as resolvePath } from 'path'
+import { extname, isAbsolute } from 'path'
+import ts from 'typescript'
 import {
   EnumDeclaration,
   FunctionDeclaration,
@@ -15,7 +16,6 @@ import {
   QuoteKind,
   SourceFile,
   SyntaxKind,
-  ts,
   Type,
   TypeAliasDeclaration,
   TypeParameterDeclarationStructure,
@@ -172,16 +172,20 @@ export default class Generator {
   }
 
   #writeRuntype(
-    sourceFile: SourceCodeFile,
+    startingSourceFile: SourceCodeFile,
     sourceType: string,
     instructionSourceType: InstructionSourceType
   ) {
+    const typeDeclaration = this.#getTypeDeclaration(
+      startingSourceFile,
+      sourceType
+    )
+    const sourceFile = typeDeclaration.getSourceFile()
+    const recursive = isRecursive(typeDeclaration)
+    const circular = isCircular(typeDeclaration)
     const sourceTypeLocalName = this.#getLocalName(sourceFile, sourceType)
     const runTypeName = this.#formatRuntypeName(sourceTypeLocalName)
     const typeName = this.#formatTypeName(sourceTypeLocalName)
-    const typeDeclaration = this.#getTypeDeclaration(sourceFile, sourceType)
-    const recursive = isRecursive(typeDeclaration)
-    const circular = isCircular(typeDeclaration)
     const exportStaticType =
       instructionSourceType.exportStaticType === undefined
         ? true
@@ -214,7 +218,7 @@ export default class Generator {
         })
         .handle(Import, this.#import)
         .handle(ImportFromSource, (importSpec) => {
-          this.#importFromSource(instructionSourceType.file, importSpec)
+          this.#importFromSource(sourceFile.getFilePath(), importSpec)
         })
         .handle(Static, ([type, value]) => {
           if (canDeclareStatics(type)) staticImplementation = value
@@ -400,17 +404,25 @@ export default class Generator {
 
     if (!importInfo) return
 
-    const importPath =
-      isAbsolute(importInfo.path) || !importInfo.path.startsWith('.')
-        ? importInfo.path
-        : resolvePath(dirname(sourceFile.getFilePath()), importInfo.path)
+    const importPath = ts.resolveModuleName(
+      importInfo.path,
+      sourceFile.getFilePath(),
+      this.#project.compilerOptions.get(),
+      this.#project.getModuleResolutionHost()
+    ).resolvedModule?.resolvedFileName
 
-    return this.#getTypeDeclaration(
-      this.#project.addSourceFileAtPath(
-        /\.(m|j)?ts$/.test(importPath) ? importPath : `${importPath}.ts`
-      ),
+    if (!importPath)
+      throw new Error(
+        `Cannot find module ${importInfo.path} from ${sourceFile.getFilePath()}`
+      )
+
+    const sourceCodeFile = this.#project.addSourceFileAtPath(importPath)
+    const typeDeclaration = this.#getTypeDeclaration(
+      sourceCodeFile,
       importInfo.remoteIdentifier
     )
+
+    return typeDeclaration
   }
 
   /**
@@ -443,7 +455,7 @@ export default class Generator {
   #hasTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
     try {
       return !!this.#getTypeDeclaration(sourceFile, typeName)
-    } catch (error) {
+    } catch (error: any) {
       return false
     }
   }
@@ -470,13 +482,12 @@ function findReferenceWithinDeclaration(
 ) {
   for (const node of typeDeclaration.getDescendantsOfKind(
     SyntaxKind.TypeReference
-  )) {
+  ))
     if (node.getText() === name) return true
-  }
   return false
 }
 
-function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
+export function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
   const name = typeDeclaration.getName()
   if (!name) return false
 
@@ -511,7 +522,7 @@ function getNodeDeclaration(node: Node<ts.Node>) {
 }
 
 function getNodeIdentifier(node: Node<ts.Node>) {
-  return node.getFirstDescendantByKind(SyntaxKind.Identifier)?.getText()
+  return node.getFirstChildByKind(SyntaxKind.Identifier)?.getText()
 }
 
 const ConsideredTypeDeclarationSyntaxKinds = [

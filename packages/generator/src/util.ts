@@ -5,13 +5,17 @@ export function last<T>(array: T[]): T {
   return array[array.length - 1]
 }
 
-export function find<T, O>(array: T[], fn: (item: T) => O | false): O | void {
+export function find<T, O>(
+  array: T[],
+  fn: (item: T) => O | false
+): O | undefined {
   for (const item of array) {
     const result = fn(item)
     if (result !== false) {
       return result
     }
   }
+  return
 }
 
 export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {

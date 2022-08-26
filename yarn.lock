@@ -2050,6 +2050,7 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
+    "@types/json-schema": 7.0.11
     "@types/mkdirp": 1.0.2
     "@types/node": 18.0.6
     assert-never: 1.2.1
@@ -2547,7 +2548,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.11, @types/json-schema@npm:^7.0.9":
+"@types/json-schema@npm:*, @types/json-schema@npm:7.0.11, @types/json-schema@npm:^7.0.11, @types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d
