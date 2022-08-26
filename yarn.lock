@@ -1910,6 +1910,8 @@ __metadata:
     typescript-json-schema: 0.54.0
     yargs: 17.5.1
     zod: 3.18.0
+  peerDependencies:
+    typescript: ^4.7.4
   languageName: unknown
   linkType: soft
 
@@ -2099,6 +2101,7 @@ __metadata:
     typescript: 4.7.4
     zod: 3.18.0
   peerDependencies:
+    typescript: ^4.7.4
     zod: ^3.17.9
   bin:
     runtyping: dist/cli.js
