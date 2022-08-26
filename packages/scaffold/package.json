@@ -31,7 +31,7 @@
     "semantic-release": "19.0.5",
     "semantic-release-monorepo": "7.0.5",
     "ts-jest": "28.0.8",
-    "typescript": "4.7.4"
+    "typescript": "4.8.2"
   },
   "dependencies": {
     "change-case": "4.1.2",
