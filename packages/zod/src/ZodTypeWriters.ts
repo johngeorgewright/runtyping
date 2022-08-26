@@ -29,10 +29,8 @@ export default class ZodTypeWriters extends TypeWriters {
     return this.#simple('any')
   }
 
-  override *array(type: Type): TypeWriter {
-    yield* this.#array(
-      this.generateOrReuseType(type.getArrayElementTypeOrThrow())
-    )
+  override array(_type: Type, elementType: Type): TypeWriter {
+    return this.#array(this.generateOrReuseType(elementType))
   }
 
   *#array(element: TypeWriter): TypeWriter {

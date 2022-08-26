@@ -55,10 +55,8 @@ export default class IoTsTypeWriters extends TypeWriters {
     return this.#simple('boolean')
   }
 
-  protected override *array(type: Type): TypeWriter {
-    yield* this.#array(
-      this.generateOrReuseType(type.getArrayElementTypeOrThrow())
-    )
+  protected override array(_type: Type, elementType: Type): TypeWriter {
+    return this.#array(this.generateOrReuseType(elementType))
   }
 
   *#array(typeWriter: TypeWriter): TypeWriter {
