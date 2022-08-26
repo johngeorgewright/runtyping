@@ -24,6 +24,14 @@ export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
 }
 
 export function getRelativeImportPath(localPath: string, remotePath: string) {
+  if (remotePath.includes('/node_modules/')) {
+    const nodeModulePath = remotePath
+      .slice(remotePath.lastIndexOf('/node_modules/') + '/node_modules/'.length)
+      .replace(/(\.d)?\.ts$/, '')
+    return nodeModulePath.startsWith('@types/')
+      ? nodeModulePath.replace('@types/', '').replace('__', '/')
+      : nodeModulePath
+  }
   if (!/^(\/|\.)/.test(remotePath)) return remotePath
   const localDir = dirname(localPath)
   const remoteDir = dirname(remotePath)
