@@ -1884,7 +1884,7 @@ __metadata:
     "@johngw/iterator": 1.2.0
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@ts-morph/common": 0.16.0
@@ -1924,7 +1924,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@ts-morph/common": 0.16.0
@@ -1960,7 +1960,7 @@ __metadata:
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/exec": 6.0.3
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
     "@types/node": 16.11.56
@@ -1995,7 +1995,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
@@ -2024,7 +2024,7 @@ __metadata:
   dependencies:
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
     "@types/prettier": 2.7.0
@@ -2050,7 +2050,7 @@ __metadata:
     "@runtyping/generator": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
@@ -2083,7 +2083,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
-    "@semantic-release/github": 8.0.5
+    "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 28.1.8
@@ -2173,12 +2173,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:8.0.5":
-  version: 8.0.5
-  resolution: "@semantic-release/github@npm:8.0.5"
+"@semantic-release/github@npm:8.0.6":
+  version: 8.0.6
+  resolution: "@semantic-release/github@npm:8.0.6"
   dependencies:
     "@octokit/rest": ^19.0.0
-    "@semantic-release/error": ^2.2.0
+    "@semantic-release/error": ^3.0.0
     aggregate-error: ^3.0.0
     bottleneck: ^2.18.1
     debug: ^4.0.0
@@ -2195,7 +2195,7 @@ __metadata:
     url-join: ^4.0.0
   peerDependencies:
     semantic-release: ">=18.0.0-beta.1"
-  checksum: 4e117138aef8066233ef5e4fb07004b90aae067010169b086cbca2a338219b246a9d51b75a6dd3828d3dc87ec370ecde4b090f268684ac6e0697d8525520d8be
+  checksum: 744112e4678fcef6666438898a57c6baa6c70043990ef1aa343a8a156ee11a64f4c71cc898a4c54307108de2e3e98dbcd35425cda02d2a5afa28d848fe65c3f8
   languageName: node
   linkType: hard
 
