@@ -1918,7 +1918,7 @@ __metadata:
     "@types/json-schema": 7.0.11
     "@types/node": 18.6.3
     fp-ts: 2.12.2
-    io-ts: 2.2.17
+    io-ts: 2.2.18
     jest: 28.1.3
     rimraf: 3.0.2
     semantic-release: 19.0.5
@@ -6836,12 +6836,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"io-ts@npm:2.2.17":
-  version: 2.2.17
-  resolution: "io-ts@npm:2.2.17"
+"io-ts@npm:2.2.18":
+  version: 2.2.18
+  resolution: "io-ts@npm:2.2.18"
   peerDependencies:
     fp-ts: ^2.5.0
-  checksum: 51e8f2f3487a41e5f327be1529e63e6da042317a9153a7bfa4f799dc6a7332938b656ea9ca02ccdda391dc4e43571d44f9899dba0ef32e2c19bc6a6153dc5cac
+  checksum: 8b5a22b0ccc0dd24a2520d9dc27095e144b86426c7cc5ce7a406d1f9cbbde2aa450632e6f3fb435817b6b56ecebea434b049feb2c6752fce0b810787295bf15f
   languageName: node
   linkType: hard
 
