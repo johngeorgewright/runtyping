@@ -7,7 +7,6 @@ import {
   ImportSpecifierStructure,
   IndentationText,
   NewLineKind,
-  Node,
   OptionalKind,
   Project,
   QuoteKind,
@@ -31,7 +30,7 @@ import {
 } from './TypeWriter'
 import TypeWriters from './TypeWriters'
 import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
-import { find, getRelativeImportPath, getTypeName, isRelative } from './util'
+import { find, getRelativeImportPath, isRelative } from './util'
 import { groupBy } from 'lodash'
 import {
   ConsideredTypeDeclaration,
@@ -41,7 +40,6 @@ import {
   isCircular,
   isConsideredType,
   isRecursive,
-  validateConsideredType,
 } from './node'
 
 type GeneratorOptionsBase =
