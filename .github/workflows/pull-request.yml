@@ -12,15 +12,30 @@ jobs:
       matrix:
         node-version: [14.x, 16.x, 18.x]
     steps:
-      - name: Checkout project
+      - name: Checkout
         uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install
-        run: yarn --immutable
+
+      - name: Restore cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            .yarn/unplugged
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Yarn
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
       - name: Build
         run: yarn build
+
       - name: Test
         run: yarn test

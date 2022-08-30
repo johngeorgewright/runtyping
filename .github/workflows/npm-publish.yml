@@ -24,8 +24,19 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Setup
-        run: yarn --immutable
+      - name: Restore cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            .yarn/unplugged
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Yarn
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --immutable
 
       - name: Build
         run: yarn build
@@ -58,11 +69,24 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Setup
+      - name: Setup Registries
         run: |
           yarn config set --home 'npmRegistries["https://registry.npmjs.org"].npmAuthToken' '${{ secrets.NPM_TOKEN }}'
           yarn config set --home npmPublishRegistry https://registry.npmjs.org
-          yarn --immutable
+
+      - name: Restore cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            .yarn/unplugged
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Yarn
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --immutable
 
       - name: Download dists
         uses: actions/download-artifact@v3

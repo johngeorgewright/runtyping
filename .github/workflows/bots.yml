@@ -5,6 +5,48 @@ on:
     types: [opened]
 
 jobs:
+  yarn-sdk:
+    name: Rebuild Yarn SDKs
+    runs-on: ubuntu-latest
+    if: github.actor == 'renovate[bot]'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: |
+            .yarn/unplugged
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Yarn
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Update SDKs
+        run: yarn dlx @yarnpkg/sdks
+
+      - name: Commit
+        run: |
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+          git add .yarn
+
+          if [[ $(git status --short) ]]
+          then
+            git commit -m "chore: rebuild"
+            git push
+          fi
+
   auto-approve:
     name: Auto Approve
     runs-on: ubuntu-latest
