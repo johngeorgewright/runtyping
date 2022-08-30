@@ -43,7 +43,7 @@ jobs:
 
           if [[ $(git status --short) ]]
           then
-            git commit -m "chore: rebuild"
+            git commit -m "chore: rebuild yarn sdks"
             git push
           fi
 
