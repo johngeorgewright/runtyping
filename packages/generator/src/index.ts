@@ -14,5 +14,6 @@ export {
 } from './util'
 export * as Enum from './enum'
 export * as Function from './function'
+export * as Node from './node'
 export * as Tuple from './tuple'
 export { default as resolutionHostFactory } from './resolutionHostFactory'
