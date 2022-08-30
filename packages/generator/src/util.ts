@@ -1,17 +1,21 @@
 import { basename, dirname, extname, relative } from 'path'
-import { StatementedNode, ts, Type } from 'ts-morph'
+import { ts, Type } from 'ts-morph'
 
 export function last<T>(array: T[]): T {
   return array[array.length - 1]
 }
 
-export function find<T, O>(array: T[], fn: (item: T) => O | false): O | void {
+export function find<T, O>(
+  array: T[],
+  fn: (item: T) => O | false
+): O | undefined {
   for (const item of array) {
     const result = fn(item)
     if (result !== false) {
       return result
     }
   }
+  return
 }
 
 export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
@@ -20,6 +24,14 @@ export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
 }
 
 export function getRelativeImportPath(localPath: string, remotePath: string) {
+  if (remotePath.includes('/node_modules/')) {
+    const nodeModulePath = remotePath
+      .slice(remotePath.lastIndexOf('/node_modules/') + '/node_modules/'.length)
+      .replace(/(\.d)?\.ts$/, '')
+    return nodeModulePath.startsWith('@types/')
+      ? nodeModulePath.replace('@types/', '').replace('__', '/')
+      : nodeModulePath
+  }
   if (!/^(\/|\.)/.test(remotePath)) return remotePath
   const localDir = dirname(localPath)
   const remoteDir = dirname(remotePath)
@@ -33,42 +45,6 @@ export function getRelativeImportPath(localPath: string, remotePath: string) {
 
 export function isRelative(path: string) {
   return /^\.{1,2}\//.test(path)
-}
-
-export function doInModule<
-  T extends (node: StatementedNode, name: string) => any
->(root: StatementedNode, name: string, fn: T): ReturnType<T> {
-  const nameParts = name.split('.')
-  const targetNode = nameParts
-    .slice(0, -1)
-    .reduce(
-      (a, x) => a.getModule(x) ?? a.addModule({ name: x, isExported: true }),
-      root
-    )
-  return fn(
-    targetNode,
-    nameParts.reduceRight((x) => x)
-  )
-}
-
-export function findInModule<
-  T extends (node: StatementedNode, name: string) => any
->(root: StatementedNode, name: string, fn: T): ReturnType<T> | undefined {
-  const findInModuleInner = (
-    node: StatementedNode,
-    nameParts: string[]
-  ): ReturnType<T> | undefined => {
-    if (nameParts.length === 0) return undefined
-    if (nameParts.length === 1) return fn(node, nameParts[0])
-    for (const child of node
-      .getModules()
-      .filter((x) => x.getName() === nameParts[0])) {
-      const out = findInModuleInner(child, nameParts.slice(1))
-      if (out !== undefined) return out
-    }
-    return undefined
-  }
-  return findInModuleInner(root, name.split('.'))
 }
 
 export type PickByValue<T, ValueType> = Pick<

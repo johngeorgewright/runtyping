@@ -1,5 +1,6 @@
 import { Symbol as CompilerSymbol, SymbolFlags, ts, Type } from 'ts-morph'
 import { Tuple } from '.'
+import { getArrayElementType, isArray } from './array'
 import {
   DeclareAndUse,
   ImportFromSource,
@@ -47,8 +48,8 @@ export default abstract class TypeWriters {
       case type.isBoolean():
         return yield* this.boolean(type)
 
-      case type.isArray():
-        return yield* this.array(type)
+      case isArray(type):
+        return yield* this.array(type, getArrayElementType(type))
 
       case type.isTuple():
         return yield* Tuple.isVariadicTuple(type)
@@ -274,7 +275,7 @@ export default abstract class TypeWriters {
   protected abstract string(type: Type): TypeWriter
   protected abstract number(type: Type): TypeWriter
   protected abstract boolean(type: Type): TypeWriter
-  protected abstract array(type: Type): TypeWriter
+  protected abstract array(type: Type, elementType?: Type): TypeWriter
   protected abstract tuple(type: Type): TypeWriter
   protected abstract variadicTuple(type: Type): TypeWriter
   protected abstract enum(type: Type): TypeWriter
