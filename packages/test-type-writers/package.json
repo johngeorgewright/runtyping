@@ -41,7 +41,7 @@
   "dependencies": {
     "assert-never": "1.2.1",
     "mkdirp": "1.0.4",
-    "ts-morph": "15.1.0",
+    "ts-morph": "16.0.0",
     "tslib": "2.4.0"
   }
 }

@@ -2498,7 +2498,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release", "npm:19.0.5"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=a1c5e5"],\
@@ -2540,7 +2540,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release", "npm:19.0.5"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=a1c5e5"],\
@@ -2576,7 +2576,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["title-case", "npm:3.0.3"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=a1c5e5"]\
@@ -2644,7 +2644,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release", "npm:19.0.5"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=a1c5e5"]\
@@ -2703,7 +2703,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release", "npm:19.0.5"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:f1a80c3a62aa3d56d715a4b5f3a60705cbb1fd6970cbba9518587f5e38458e21ea6a9be4b49eee281df8494299dad8f7c4c0eecf038c405a15963c5e6d48df99#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["type-fest", "npm:2.19.0"],\
@@ -2739,7 +2739,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release", "npm:19.0.5"],\
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:f1a80c3a62aa3d56d715a4b5f3a60705cbb1fd6970cbba9518587f5e38458e21ea6a9be4b49eee281df8494299dad8f7c4c0eecf038c405a15963c5e6d48df99#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["type-fest", "npm:2.19.0"],\
@@ -2770,7 +2770,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
             ["title-case", "npm:3.0.3"],\
             ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:28.0.8"],\
-            ["ts-morph", "npm:15.1.0"],\
+            ["ts-morph", "npm:16.0.0"],\
             ["ts-node", "virtual:f1a80c3a62aa3d56d715a4b5f3a60705cbb1fd6970cbba9518587f5e38458e21ea6a9be4b49eee281df8494299dad8f7c4c0eecf038c405a15963c5e6d48df99#npm:10.9.1"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=a1c5e5"],\
@@ -3152,6 +3152,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.16.0-b38c43f43a-0ef97330a1.zip/node_modules/@ts-morph/common/",\
           "packageDependencies": [\
             ["@ts-morph/common", "npm:0.16.0"],\
+            ["fast-glob", "npm:3.2.11"],\
+            ["minimatch", "npm:5.1.0"],\
+            ["mkdirp", "npm:1.0.4"],\
+            ["path-browserify", "npm:1.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.17.0", {\
+          "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.17.0-28b99a6209-f588c0acab.zip/node_modules/@ts-morph/common/",\
+          "packageDependencies": [\
+            ["@ts-morph/common", "npm:0.17.0"],\
             ["fast-glob", "npm:3.2.11"],\
             ["minimatch", "npm:5.1.0"],\
             ["mkdirp", "npm:1.0.4"],\
@@ -5222,11 +5233,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["code-block-writer", [\
-        ["npm:11.0.0", {\
-          "packageLocation": "./.yarn/cache/code-block-writer-npm-11.0.0-3f31b00c5b-d3d92a06f7.zip/node_modules/code-block-writer/",\
+        ["npm:11.0.3", {\
+          "packageLocation": "./.yarn/cache/code-block-writer-npm-11.0.3-01e06f4812-f0a2605f19.zip/node_modules/code-block-writer/",\
           "packageDependencies": [\
-            ["code-block-writer", "npm:11.0.0"],\
-            ["tslib", "npm:2.3.1"]\
+            ["code-block-writer", "npm:11.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14571,12 +14581,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["ts-morph", [\
-        ["npm:15.1.0", {\
-          "packageLocation": "./.yarn/cache/ts-morph-npm-15.1.0-604b2a3760-95e0262142.zip/node_modules/ts-morph/",\
+        ["npm:16.0.0", {\
+          "packageLocation": "./.yarn/cache/ts-morph-npm-16.0.0-ed75f04862-a45ee1a2da.zip/node_modules/ts-morph/",\
           "packageDependencies": [\
-            ["ts-morph", "npm:15.1.0"],\
-            ["@ts-morph/common", "npm:0.16.0"],\
-            ["code-block-writer", "npm:11.0.0"]\
+            ["ts-morph", "npm:16.0.0"],\
+            ["@ts-morph/common", "npm:0.17.0"],\
+            ["code-block-writer", "npm:11.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
