@@ -1873,7 +1873,7 @@ __metadata:
     "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@ts-morph/common": 0.16.0
+    "@ts-morph/common": 0.17.0
     "@types/jest": 28.1.8
     "@types/js-yaml": 4.0.5
     "@types/lodash": 4.14.184
@@ -1913,7 +1913,7 @@ __metadata:
     "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@ts-morph/common": 0.16.0
+    "@ts-morph/common": 0.17.0
     "@types/jest": 28.1.8
     "@types/json-schema": 7.0.11
     "@types/node": 18.6.3
@@ -2350,7 +2350,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:0.16.0, @ts-morph/common@npm:~0.16.0":
+"@ts-morph/common@npm:0.17.0":
+  version: 0.17.0
+  resolution: "@ts-morph/common@npm:0.17.0"
+  dependencies:
+    fast-glob: ^3.2.11
+    minimatch: ^5.1.0
+    mkdirp: ^1.0.4
+    path-browserify: ^1.0.1
+  checksum: f588c0acabcc6ca9463ac09b343d67a73f6e7bf47f674aaff11542b95b58342556b05241610b9e6dffc2966db529e7261b6860577786f919a835c22488ec9260
+  languageName: node
+  linkType: hard
+
+"@ts-morph/common@npm:~0.16.0":
   version: 0.16.0
   resolution: "@ts-morph/common@npm:0.16.0"
   dependencies:
