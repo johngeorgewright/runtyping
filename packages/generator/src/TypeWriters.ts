@@ -41,6 +41,10 @@ export default abstract class TypeWriters {
         yield* this.enumLiteral(type)
         break
 
+      case type.isNever():
+        yield* this.never(type)
+        break
+
       case type.isNull():
         yield* this.null(type)
         break
@@ -342,4 +346,5 @@ export default abstract class TypeWriters {
   protected abstract numberIndexedObject(type: Type): TypeWriter
   protected abstract object(type: Type<ts.ObjectType>): TypeWriter
   protected abstract withGenerics(type: Type): TypeWriter<() => TypeWriter>
+  protected abstract never(type: Type): TypeWriter
 }
