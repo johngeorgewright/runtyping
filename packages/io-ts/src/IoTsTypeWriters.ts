@@ -313,10 +313,12 @@ export default class IoTsTypeWriters extends TypeWriters {
     yield [Write, '])']
   }
 
-  protected override *genericObject(type: Type<ts.ObjectType>): TypeWriter {
+  protected override *withGenerics(
+    type: Type<ts.Type>
+  ): TypeWriter<() => TypeWriter<any>> {
     yield [Import, { source: this.#module, name: 'TypeOf' }]
     yield [Import, { source: this.#module, name: 'Type' }]
-    yield* this.objectFunction(type, 'Type', 'TypeOf')
+    return yield* this.openGenericFunction(type, 'Type', 'TypeOf')
   }
 
   *#simple(type: SimpleIOTSType): TypeWriter {

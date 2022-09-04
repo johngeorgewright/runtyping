@@ -47,16 +47,6 @@ export function findInModule<
   return findInModuleInner(root, name.split('.'))
 }
 
-export function importTypeNameRegExp(typeName: string) {
-  const match = /^import\("([\/\\\w\.-]+)"\)\.(\w+)$/.exec(typeName)
-  return (
-    match && {
-      importPath: /\.(m|j)?ts$/.test(match[1]) ? match[1] : `${match[1]}`,
-      importTypeName: match[2],
-    }
-  )
-}
-
 export function isRecursive(typeDeclaration: ConsideredTypeDeclaration) {
   const name = typeDeclaration.getName()
   return !!name && findReferenceWithinDeclaration(name, typeDeclaration)

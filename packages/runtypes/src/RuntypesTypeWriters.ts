@@ -158,7 +158,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override any() {
-    return this.#simple('Unknown')
+    return this.unknown()
   }
 
   override unknown() {
@@ -194,10 +194,12 @@ export default class RuntypesTypeWriters extends TypeWriters {
     yield [Write, '})']
   }
 
-  override *genericObject(type: Type<ts.ObjectType>): TypeWriter {
+  protected override *withGenerics(
+    type: Type<ts.ObjectType>
+  ): TypeWriter<() => TypeWriter> {
     yield [Import, { source: this.#module, name: 'Static' }]
     yield [Import, { source: this.#module, name: 'Runtype' }]
-    yield* this.objectFunction(type, 'Runtype', 'Static')
+    return yield* this.openGenericFunction(type, 'Runtype', 'Static')
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {

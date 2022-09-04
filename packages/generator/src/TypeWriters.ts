@@ -2,6 +2,12 @@ import { Symbol as CompilerSymbol, SymbolFlags, ts, Type } from 'ts-morph'
 import { Tuple } from '.'
 import { getArrayElementType, isArray } from './array'
 import {
+  escapeQuottedPropName,
+  getGenerics,
+  isBuiltInType,
+  propNameRequiresQuotes,
+} from './object'
+import {
   DeclareAndUse,
   ImportFromSource,
   Static,
@@ -9,13 +15,7 @@ import {
   TypeWriter,
   Write,
 } from './TypeWriter'
-import {
-  escapeQuottedPropName,
-  getGenerics,
-  getTypeName,
-  isBuiltInType,
-  propNameRequiresQuotes,
-} from './util'
+import { getTypeName } from './util'
 
 export default abstract class TypeWriters {
   *typeWriter(
@@ -28,91 +28,139 @@ export default abstract class TypeWriters {
       circular?: boolean
     } = {}
   ): TypeWriter {
+    const closeGenericFunction =
+      this.#requiresGenericFunction(type) && (yield* this.withGenerics(type))
+
     switch (true) {
       case circular:
       case recursive:
-        return yield* this.lazy(type)
+        yield* this.lazy(type)
+        break
 
       case type.isEnumLiteral():
-        return yield* this.enumLiteral(type)
+        yield* this.enumLiteral(type)
+        break
 
       case type.isNull():
-        return yield* this.null(type)
+        yield* this.null(type)
+        break
 
       case type.isString():
-        return yield* this.string(type)
+        yield* this.string(type)
+        break
 
       case type.isNumber():
-        return yield* this.number(type)
+        yield* this.number(type)
+        break
 
       case type.isBoolean():
-        return yield* this.boolean(type)
+        yield* this.boolean(type)
+        break
 
       case isArray(type):
-        return yield* this.array(type, getArrayElementType(type))
+        yield* this.array(type, getArrayElementType(type))
+        break
 
       case type.isTuple():
-        return yield* Tuple.isVariadicTuple(type)
+        yield* Tuple.isVariadicTuple(type)
           ? this.variadicTuple(type)
           : this.tuple(type)
+        break
 
       case type.isEnum():
-        return yield* this.enum(type)
+        yield* this.enum(type)
+        break
 
       case type.isIntersection():
-        return yield* this.intersection(type)
+        yield* this.intersection(type)
+        break
 
       case type.isUnion():
-        return yield* this.union(type)
+        yield* this.union(type)
+        break
 
       case type.isLiteral():
-        return yield* this.literal(type)
+        yield* this.literal(type)
+        break
 
       case type.isAny():
-        return yield* this.any(type)
+        yield* this.any(type)
+        break
 
       case type.isUnknown():
-        return yield* this.unknown(type)
+        yield* this.unknown(type)
+        break
 
       case type.isUndefined():
-        return yield* this.undefined(type)
+        yield* this.undefined(type)
+        break
 
       case type.getText() === 'void':
-        return yield* this.void(type)
+        yield* this.void(type)
+        break
 
       case type.getCallSignatures().length > 0:
-        return yield* this.function(type)
+        yield* this.function(type)
+        break
 
       case type.isInterface():
       case type.isObject():
         switch (true) {
           case isBuiltInType(type):
-            return yield* this.builtInObject(type)
+            yield* this.builtInObject(type)
+            break
           case !!type.getStringIndexType():
-            return yield* this.stringIndexedObject(type)
+            yield* this.stringIndexedObject(type)
+            break
           case !!type.getNumberIndexType():
-            return yield* this.numberIndexedObject(type)
-          case !!getGenerics(type).length:
-            return yield* this.genericObject(type as Type<ts.ObjectType>)
+            yield* this.numberIndexedObject(type)
+            break
           default:
-            return yield* this.object(type as Type<ts.ObjectType>)
+            yield* this.object(type as Type<ts.ObjectType>)
         }
+        break
 
       default:
-        throw new Error('!!! TYPE ' + type.getText() + ' NOT PARSED !!!')
+        try {
+          yield [Write, getTypeName(type)]
+        } catch (error) {
+          yield* this.unknown(type)
+        }
+        break
+    }
+
+    if (closeGenericFunction) yield* closeGenericFunction()
+  }
+
+  #requiresGenericFunction(type: Type) {
+    try {
+      getTypeName(type)
+      return !!getGenerics(type).length && !type.isArray() && !type.isTuple()
+    } catch (error) {
+      return false
     }
   }
 
   *generateOrReuseType(type: Type): TypeWriter {
-    const typeName =
-      type.getAliasSymbol()?.getName() || type.getSymbol()?.getName()
+    const symbol = type.getAliasSymbol() || type.getSymbol()
+    const typeName = symbol?.getName()
 
     if (
       !!typeName &&
       !type.isEnumLiteral() &&
       (yield [DeclareAndUse, typeName])
-    )
+    ) {
+      if (this.#requiresGenericFunction(type)) {
+        yield [Write, '(']
+        for (const arg of getGenerics(type)) {
+          yield* this.generateOrReuseType(arg)
+          yield [Write, ', ']
+        }
+        yield [Write, ')']
+      }
+
       return
+    }
 
     yield* this.typeWriter(type)
   }
@@ -170,12 +218,12 @@ export default abstract class TypeWriters {
     }
   }
 
-  protected *objectFunction(
-    objectType: Type<ts.ObjectType>,
+  protected *openGenericFunction(
+    type: Type,
     baseType: string,
     staticHelper: string
-  ): TypeWriter {
-    const generics = getGenerics(objectType)
+  ): TypeWriter<() => TypeWriter> {
+    const generics = getGenerics(type)
     yield [Write, '<']
 
     for (const generic of generics) {
@@ -199,36 +247,37 @@ export default abstract class TypeWriters {
       yield [Write, `${generic.getText()}: ${baseType}<${generic.getText()}>, `]
 
     yield [Write, ') => ']
-    yield* this.object(objectType)
 
-    yield [
-      StaticParameters,
-      [
-        objectType,
-        generics.map((generic) => {
-          const constraint = generic.getConstraint()
-          const constraintDeclaredType = constraint
-            ?.getSymbol()
-            ?.getDeclaredType()
-          return {
-            name: generic.getText(),
-            constraint: constraintDeclaredType
-              ? getTypeName(constraintDeclaredType)
-              : constraint?.getText(),
-          }
-        }),
-      ],
-    ]
+    return function* closeGenericFunction() {
+      yield [
+        StaticParameters,
+        [
+          type,
+          generics.map((generic) => {
+            const constraint = generic.getConstraint()
+            const constraintDeclaredType = constraint
+              ?.getSymbol()
+              ?.getDeclaredType()
+            return {
+              name: generic.getText(),
+              constraint: constraintDeclaredType
+                ? getTypeName(constraintDeclaredType)
+                : constraint?.getText(),
+            }
+          }),
+        ],
+      ]
 
-    yield [
-      Static,
-      [
-        objectType,
-        `${staticHelper}<ReturnType<typeof ${getTypeName(
-          objectType
-        )}<${generics.map((generic) => generic.getText())}>>>`,
-      ],
-    ]
+      yield [
+        Static,
+        [
+          type,
+          `${staticHelper}<ReturnType<typeof ${getTypeName(
+            type
+          )}<${generics.map((generic) => generic.getText())}>>>`,
+        ],
+      ]
+    }
   }
 
   protected *variadicTupleElements({
@@ -292,5 +341,5 @@ export default abstract class TypeWriters {
   protected abstract stringIndexedObject(type: Type): TypeWriter
   protected abstract numberIndexedObject(type: Type): TypeWriter
   protected abstract object(type: Type<ts.ObjectType>): TypeWriter
-  protected abstract genericObject(type: Type<ts.ObjectType>): TypeWriter
+  protected abstract withGenerics(type: Type): TypeWriter<() => TypeWriter>
 }

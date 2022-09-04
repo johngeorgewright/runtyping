@@ -171,12 +171,6 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [Write, '})']
   }
 
-  override *genericObject(type: Type<ts.ObjectType>): TypeWriter {
-    yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
-    yield [Import, { source: this.#module, name: 'ZodType' }]
-    yield* this.objectFunction(type, 'ZodType', 'Infer')
-  }
-
   override string() {
     return this.#simple('string')
   }
@@ -285,6 +279,14 @@ export default class ZodTypeWriters extends TypeWriters {
 
   override void() {
     return this.#simple('void')
+  }
+
+  override *withGenerics(
+    type: Type<ts.Type>
+  ): TypeWriter<() => TypeWriter<any>> {
+    yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
+    yield [Import, { source: this.#module, name: 'ZodType' }]
+    return yield* this.openGenericFunction(type, 'ZodType', 'Infer')
   }
 
   *#simple(type: keyof typeof zod): TypeWriter {

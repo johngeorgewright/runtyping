@@ -10,7 +10,6 @@ import {
   OptionalKind,
   Project,
   QuoteKind,
-  SourceFile,
   SyntaxKind,
   Type,
   TypeParameterDeclarationStructure,
@@ -36,11 +35,11 @@ import {
   ConsideredTypeDeclaration,
   doInModule,
   findInModule,
-  importTypeNameRegExp,
   isCircular,
   isConsideredType,
   isRecursive,
 } from './node'
+import { getLocalName, SourceCodeFile } from './sourceFile'
 
 type GeneratorOptionsBase =
   | {
@@ -56,8 +55,6 @@ export type GeneratorOptions = GeneratorOptionsBase & {
   typeFormat?: string
   typeWriters: TypeWriters
 }
-
-type SourceCodeFile = SourceFile
 
 export type ImportSpec = Omit<ImportSpecifierStructure, 'kind'> & {
   source: string
@@ -180,7 +177,7 @@ export default class Generator {
     const sourceFile = typeDeclaration.getSourceFile()
     const recursive = isRecursive(typeDeclaration)
     const circular = isCircular(typeDeclaration)
-    const sourceTypeLocalName = this.#getLocalName(sourceFile, sourceType)
+    const sourceTypeLocalName = getLocalName(sourceFile, sourceType)
     const runTypeName = this.#formatRuntypeName(sourceTypeLocalName)
     const typeName = this.#formatTypeName(sourceTypeLocalName)
     const exportStaticType =
@@ -223,20 +220,20 @@ export default class Generator {
         .handle(StaticParameters, ([type, value]) => {
           if (canDeclareStatics(type)) staticTypeParameters = value
         })
-        .handle(DeclareAndUse, (value) => {
-          const recursiveValue = recursive && value === typeName
+        .handle(DeclareAndUse, (name) => {
+          const recursiveValue = recursive && name === typeName
           if (
             recursiveValue ||
-            this.#exports.has(value) ||
-            this.#hasTypeDeclaration(sourceFile, value)
+            this.#exports.has(name) ||
+            this.#hasTypeDeclaration(sourceFile, name)
           ) {
-            writer = writer.write(this.#formatRuntypeName(value))
+            writer = writer.write(this.#formatRuntypeName(name))
             if (
               !recursiveValue &&
-              !this.#exports.has(value) &&
-              !this.#circularReferences.has(value)
+              !this.#exports.has(name) &&
+              !this.#circularReferences.has(name)
             )
-              this.#writeRuntype(sourceFile, value, instructionSourceType)
+              this.#writeRuntype(sourceFile, name, instructionSourceType)
             return true
           }
           return undefined
@@ -418,33 +415,6 @@ export default class Generator {
     )
 
     return typeDeclaration
-  }
-
-  /**
-   * Sometimes a typeName can be in the format of:
-   * `import("/some/path").A`
-   * When this occurs, decipher the source file's local
-   * alias of the imported type.
-   */
-  #getLocalName(sourceFile: SourceCodeFile, typeName: string) {
-    const match = importTypeNameRegExp(typeName)
-    if (!match) return typeName
-    for (const importDeclaration of sourceFile.getImportDeclarations()) {
-      if (match.importTypeName === 'default')
-        return importDeclaration.getDefaultImportOrThrow().getText()
-      else {
-        for (const importSpecifier of importDeclaration
-          .getImportClause()
-          ?.getNamedImports() || []) {
-          let [remoteIdentifier, localIdentifier] = importSpecifier
-            .getDescendantsOfKind(SyntaxKind.Identifier)
-            .map((indentifier) => indentifier.getText())
-          localIdentifier = localIdentifier || remoteIdentifier
-          if (remoteIdentifier === match.importTypeName) return localIdentifier
-        }
-      }
-    }
-    return match.importTypeName
   }
 
   #hasTypeDeclaration(sourceFile: SourceCodeFile, typeName: string) {
