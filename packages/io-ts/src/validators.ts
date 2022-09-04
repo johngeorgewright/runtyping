@@ -21,3 +21,12 @@ export function arrayOfLength<T extends unknown[]>(length: number) {
     (a) => a
   )
 }
+
+export const never = new Type<any>(
+  'never',
+  (_): _ is never => false,
+  (u, c) => failure(u, c),
+  () => {
+    throw new Error('cannot encode never')
+  }
+)

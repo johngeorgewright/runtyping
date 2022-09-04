@@ -143,6 +143,10 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [Write, `literal(${value})`]
   }
 
+  override never() {
+    return this.#simple('never')
+  }
+
   override null() {
     return this.#simple('null')
   }

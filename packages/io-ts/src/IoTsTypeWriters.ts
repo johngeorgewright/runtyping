@@ -226,6 +226,11 @@ export default class IoTsTypeWriters extends TypeWriters {
     return this.#simple('void')
   }
 
+  protected override *never(): TypeWriter {
+    yield [Import, { source: '@runtyping/io-ts', name: 'validators' }]
+    yield [Write, 'validators.never']
+  }
+
   protected override function() {
     return this.#simple('Function')
   }

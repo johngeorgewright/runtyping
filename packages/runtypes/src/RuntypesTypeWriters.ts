@@ -173,6 +173,10 @@ export default class RuntypesTypeWriters extends TypeWriters {
     return this.#simple('Void')
   }
 
+  override never() {
+    return this.#simple('Never')
+  }
+
   override function() {
     return this.#simple('Function')
   }
