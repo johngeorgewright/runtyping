@@ -1895,7 +1895,7 @@ __metadata:
     typescript: 4.8.2
     typescript-json-schema: 0.54.0
     yargs: 17.5.1
-    zod: 3.18.0
+    zod: 3.19.0
   peerDependencies:
     typescript: ^4.7.4
   languageName: unknown
@@ -2086,7 +2086,7 @@ __metadata:
     ts-node: 10.9.1
     tslib: 2.4.0
     typescript: 4.8.2
-    zod: 3.18.0
+    zod: 3.19.0
   peerDependencies:
     typescript: ^4.7.4
     zod: ^3.17.9
@@ -13650,7 +13650,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.18.0, zod@npm:zod@*":
+"zod@npm:3.19.0":
+  version: 3.19.0
+  resolution: "zod@npm:3.19.0"
+  checksum: 35b9270ba73ff15e1cc3e529cdd49b78ceb5f9204770b974ffa5d1728ad1be8429315aa25263d088edecaa99ecc3631339fe79313435154060951706294f47e5
+  languageName: node
+  linkType: hard
+
+"zod@npm:zod@*":
   version: 3.18.0
   resolution: "zod@npm:3.18.0"
   checksum: 86a9a9928f4b40a07020d4b9832842fa4a70050c2d7bd1b2866bc1acfd734aa53a40f87a99a4312a637341a608b0105770c7a1f83b56df78e97691b4f5badcd8
