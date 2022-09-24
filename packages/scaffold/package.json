@@ -23,7 +23,7 @@
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "28.1.8",
     "@types/node": "16.11.60",
-    "@types/prettier": "2.7.0",
+    "@types/prettier": "2.7.1",
     "@types/rimraf": "3.0.2",
     "@types/yeoman-generator": "5.2.11",
     "jest": "28.1.3",
