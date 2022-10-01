@@ -2503,7 +2503,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-json-schema", "npm:0.54.0"],\
-            ["yargs", "npm:17.5.1"],\
+            ["yargs", "npm:17.6.0"],\
             ["zod", "npm:3.19.1"]\
           ],\
           "packagePeers": [\
@@ -2545,7 +2545,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-json-schema", "npm:0.54.0"],\
-            ["yargs", "npm:17.5.1"],\
+            ["yargs", "npm:17.6.0"],\
             ["zod", "npm:3.19.1"]\
           ],\
           "linkType": "SOFT"\
@@ -5107,6 +5107,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cliui-npm-7.0.4-d6b8a9edb6-ce2e8f578a.zip/node_modules/cliui/",\
           "packageDependencies": [\
             ["cliui", "npm:7.0.4"],\
+            ["string-width", "npm:4.2.3"],\
+            ["strip-ansi", "npm:6.0.1"],\
+            ["wrap-ansi", "npm:7.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/cliui-npm-8.0.1-3b029092cf-79648b3b00.zip/node_modules/cliui/",\
+          "packageDependencies": [\
+            ["cliui", "npm:8.0.1"],\
             ["string-width", "npm:4.2.3"],\
             ["strip-ansi", "npm:6.0.1"],\
             ["wrap-ansi", "npm:7.0.0"]\
@@ -15540,6 +15550,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["yargs", "npm:17.5.1"],\
             ["cliui", "npm:7.0.4"],\
+            ["escalade", "npm:3.1.1"],\
+            ["get-caller-file", "npm:2.0.5"],\
+            ["require-directory", "npm:2.1.1"],\
+            ["string-width", "npm:4.2.3"],\
+            ["y18n", "npm:5.0.8"],\
+            ["yargs-parser", "npm:21.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:17.6.0", {\
+          "packageLocation": "./.yarn/cache/yargs-npm-17.6.0-6343ad1a2d-604bdb4a63.zip/node_modules/yargs/",\
+          "packageDependencies": [\
+            ["yargs", "npm:17.6.0"],\
+            ["cliui", "npm:8.0.1"],\
             ["escalade", "npm:3.1.1"],\
             ["get-caller-file", "npm:2.0.5"],\
             ["require-directory", "npm:2.1.1"],\
