@@ -2564,7 +2564,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/json-schema", "npm:7.0.11"],\
             ["@types/node", "npm:16.11.64"],\
             ["fp-ts", "npm:2.12.3"],\
-            ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.18"],\
+            ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.19"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:28.1.3"],\
             ["rimraf", "npm:3.0.2"],\
             ["semantic-release", "npm:19.0.5"],\
@@ -8181,17 +8181,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["io-ts", [\
-        ["npm:2.2.18", {\
-          "packageLocation": "./.yarn/cache/io-ts-npm-2.2.18-f566ee3cf2-8b5a22b0cc.zip/node_modules/io-ts/",\
+        ["npm:2.2.19", {\
+          "packageLocation": "./.yarn/cache/io-ts-npm-2.2.19-f421c29ada-fe6a0203e4.zip/node_modules/io-ts/",\
           "packageDependencies": [\
-            ["io-ts", "npm:2.2.18"]\
+            ["io-ts", "npm:2.2.19"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.18", {\
-          "packageLocation": "./.yarn/__virtual__/io-ts-virtual-686af37940/0/cache/io-ts-npm-2.2.18-f566ee3cf2-8b5a22b0cc.zip/node_modules/io-ts/",\
+        ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.19", {\
+          "packageLocation": "./.yarn/__virtual__/io-ts-virtual-49b1db775b/0/cache/io-ts-npm-2.2.19-f421c29ada-fe6a0203e4.zip/node_modules/io-ts/",\
           "packageDependencies": [\
-            ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.18"],\
+            ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.19"],\
             ["@types/fp-ts", null],\
             ["fp-ts", "npm:2.12.3"]\
           ],\
