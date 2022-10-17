@@ -1,12 +1,9 @@
-import { InitialOptionsTsJest } from 'ts-jest'
+import { JestConfigWithTsJest } from 'ts-jest'
 
-const config: InitialOptionsTsJest = {
-  preset: 'ts-jest',
+const config: JestConfigWithTsJest = {
   testEnvironment: 'node',
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.test.json',
-    },
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', { tsconfig: 'tsconfig.test.json' }],
   },
 }
 
