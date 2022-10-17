@@ -1935,7 +1935,7 @@ __metadata:
     "@types/jest": 29.1.2
     "@types/json-schema": 7.0.11
     "@types/node": 16.11.66
-    fp-ts: 2.13.0
+    fp-ts: 2.13.1
     io-ts: 2.2.19
     jest: 29.2.0
     rimraf: 3.0.2
@@ -1972,7 +1972,7 @@ __metadata:
     commitizen: 4.2.5
     concurrently: 7.4.0
     cz-conventional-changelog: 3.3.0
-    fp-ts: 2.13.0
+    fp-ts: 2.13.1
     husky: 8.0.1
     isbinaryfile: 5.0.0
     jest: 29.2.0
@@ -5732,10 +5732,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fp-ts@npm:2.13.0":
-  version: 2.13.0
-  resolution: "fp-ts@npm:2.13.0"
-  checksum: d5693de46a519333ac5b8b960189f81556b5ab7735328679c9aad2f1c75af44ec7f7a00c24ba62ef222daf5212e140b48e68ce79fdda57741cad47d9bbfbc5d9
+"fp-ts@npm:2.13.1":
+  version: 2.13.1
+  resolution: "fp-ts@npm:2.13.1"
+  checksum: 618e0028aca9ff1d52b86f438499ccab149825bdab14c678d22c3e2ccbf9d36fd1f26d463bf0ae1e63f5cd79dd54c8218af2cca0daeea68b039307b751ae9563
   languageName: node
   linkType: hard
 
