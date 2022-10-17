@@ -32,7 +32,7 @@ export function getRelativeImportPath(localPath: string, remotePath: string) {
       ? nodeModulePath.replace('@types/', '').replace('__', '/')
       : nodeModulePath
   }
-  if (!/^(\/|\.)/.test(remotePath)) return remotePath
+  if (!/^(\/|\.|[A-Z]:)/.test(remotePath)) return remotePath
   const localDir = dirname(localPath)
   const remoteDir = dirname(remotePath)
   if (localDir === '.' && remoteDir.startsWith('./')) return remotePath

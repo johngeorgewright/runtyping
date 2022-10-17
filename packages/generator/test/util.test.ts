@@ -32,6 +32,12 @@ test('getRelativeImportPath', () => {
       '../../.yarn/cache/ts-morph-npm-15.1.0-604b2a3760-95e0262142.zip/node_modules/@types/ts-morph__common/lib/ts-morph.d.ts'
     )
   ).toBe('ts-morph/common/lib/ts-morph')
+  expect(
+    getRelativeImportPath(
+      'C:/Users/jonah/WebstormProjects/test/test.runtyping.ts',
+      'C:/Users/jonah/WebstormProjects/test/test.ts'
+    )
+  ).toBe('./test')
 })
 
 test('setHas', () => {
