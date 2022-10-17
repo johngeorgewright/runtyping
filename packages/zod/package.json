@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/zod",
-  "version": "1.3.0",
+  "version": "0.0.0",
   "description": "Generate zod from static types & JSON schema.",
   "main": "dist/index.js",
   "scripts": {
