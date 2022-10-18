@@ -1892,7 +1892,7 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@ts-morph/common": 0.17.0
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/js-yaml": 4.0.5
     "@types/lodash": 4.14.186
     "@types/node": 16.11.66
@@ -1932,7 +1932,7 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
     "@ts-morph/common": 0.17.0
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/json-schema": 7.0.11
     "@types/node": 16.11.66
     fp-ts: 2.13.1
@@ -1966,7 +1966,7 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.6
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/node": 16.11.66
     "@types/source-map-support": 0.5.6
     commitizen: 4.2.5
@@ -2002,7 +2002,7 @@ __metadata:
     "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/json-schema": 7.0.11
     "@types/node": 16.11.66
     jest: 29.2.0
@@ -2030,7 +2030,7 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.6
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/node": 16.11.66
     "@types/prettier": 2.7.1
     "@types/rimraf": 3.0.2
@@ -2058,7 +2058,7 @@ __metadata:
     "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/json-schema": 7.0.11
     "@types/mkdirp": 1.0.2
     "@types/node": 16.11.66
@@ -2091,7 +2091,7 @@ __metadata:
     "@semantic-release/github": 8.0.6
     "@semantic-release/npm": 9.0.1
     "@semantic-release/release-notes-generator": 10.0.3
-    "@types/jest": 29.1.2
+    "@types/jest": 29.2.0
     "@types/json-schema": 7.0.11
     "@types/node": 16.11.66
     jest: 29.2.0
@@ -2536,13 +2536,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:29.1.2":
-  version: 29.1.2
-  resolution: "@types/jest@npm:29.1.2"
+"@types/jest@npm:29.2.0":
+  version: 29.2.0
+  resolution: "@types/jest@npm:29.2.0"
   dependencies:
     expect: ^29.0.0
     pretty-format: ^29.0.0
-  checksum: a6761b5ac132c641740886f9c0714607255ebffb6add5989f51ea9e392fc3c5cd474e7590f12b003d5b67ce177dfbc8d3d60d0baa335c48c50deeee6b755a473
+  checksum: 6779e63d8d7507b116a61b2935a200e48531849fc1ac74090212759fe17716777ca6d2c3a8d927a563e9cfa474ae91d40b1688376ae80e3a08974b3c9e9691e1
   languageName: node
   linkType: hard
 
