@@ -46,7 +46,7 @@
     "json-schema-to-typescript": "11.0.2",
     "lodash": "4.17.21",
     "ts-morph": "16.0.0",
-    "tslib": "2.4.0",
+    "tslib": "2.4.1",
     "yargs": "17.6.0",
     "zod": "3.19.1"
   },
