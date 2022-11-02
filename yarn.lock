@@ -1935,7 +1935,7 @@ __metadata:
     tslib: 2.4.1
     typescript: 4.8.4
     typescript-json-schema: 0.54.0
-    yargs: 17.6.0
+    yargs: 17.6.1
     zod: 3.19.1
   peerDependencies:
     typescript: ^4.7.4
@@ -13507,9 +13507,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:17.6.0":
-  version: 17.6.0
-  resolution: "yargs@npm:17.6.0"
+"yargs@npm:17.6.1":
+  version: 17.6.1
+  resolution: "yargs@npm:17.6.1"
   dependencies:
     cliui: ^8.0.1
     escalade: ^3.1.1
@@ -13518,7 +13518,7 @@ __metadata:
     string-width: ^4.2.3
     y18n: ^5.0.5
     yargs-parser: ^21.0.0
-  checksum: 604bdb4a6395a870540d2f3fea083c8e28441f12da8fd05b172b1e68480f00ed73d76be4a05fac19de9bf55ec7729b41e81cf555cccaed700aa192e4fff64872
+  checksum: 8b88285c7826461156dd76aa749562421d73077af6aee014117a99621e665d9c5ed8ff4734bd46545104101d960e0f0df98fb9f9dd18e5f9a00df3ff46dd4cf1
   languageName: node
   linkType: hard
 
