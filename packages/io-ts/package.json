@@ -27,7 +27,7 @@
     "@semantic-release/github": "8.0.7",
     "@semantic-release/npm": "9.0.1",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@types/jest": "29.2.4",
+    "@types/jest": "29.2.5",
     "@types/json-schema": "7.0.11",
     "@types/node": "18.11.18",
     "fp-ts": "2.13.1",
