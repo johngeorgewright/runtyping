@@ -1950,7 +1950,7 @@ __metadata:
     js-yaml: 4.1.0
     json-schema-to-typescript: 11.0.2
     lodash: 4.17.21
-    prettier: 2.8.2
+    prettier: 2.8.3
     rimraf: 3.0.2
     semantic-release: 19.0.5
     semantic-release-monorepo: 7.0.5
@@ -2025,7 +2025,7 @@ __metadata:
     isbinaryfile: 5.0.0
     jest: 29.3.1
     lint-staged: 13.1.0
-    prettier: 2.8.2
+    prettier: 2.8.3
     rimraf: 3.0.2
     runtypes: 6.6.0
     semantic-release: 19.0.5
@@ -2085,7 +2085,7 @@ __metadata:
     "@types/yeoman-generator": 5.2.11
     change-case: 4.1.2
     jest: 29.3.1
-    prettier: 2.8.2
+    prettier: 2.8.3
     rimraf: 3.0.2
     semantic-release: 19.0.5
     semantic-release-monorepo: 7.0.5
@@ -10832,12 +10832,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.2":
-  version: 2.8.2
-  resolution: "prettier@npm:2.8.2"
+"prettier@npm:2.8.3":
+  version: 2.8.3
+  resolution: "prettier@npm:2.8.3"
   bin:
     prettier: bin-prettier.js
-  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
+  checksum: 92f2ceb522d454370e02082aa74ad27388672f7cee8975028b59517c069fe643bdc73e322675c8faf2ff173d7a626d1a6389f26b474000308e793aa25fff46e5
   languageName: node
   linkType: hard
 
