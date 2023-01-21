@@ -1948,7 +1948,7 @@ __metadata:
     "@types/yargs": 17.0.20
     jest: 29.3.1
     js-yaml: 4.1.0
-    json-schema-to-typescript: 11.0.2
+    json-schema-to-typescript: 11.0.3
     lodash: 4.17.21
     prettier: 2.8.3
     rimraf: 3.0.2
@@ -8117,9 +8117,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-schema-to-typescript@npm:11.0.2":
-  version: 11.0.2
-  resolution: "json-schema-to-typescript@npm:11.0.2"
+"json-schema-to-typescript@npm:11.0.3":
+  version: 11.0.3
+  resolution: "json-schema-to-typescript@npm:11.0.3"
   dependencies:
     "@bcherny/json-schema-ref-parser": 9.0.9
     "@types/json-schema": ^7.0.11
@@ -8137,7 +8137,7 @@ __metadata:
     prettier: ^2.6.2
   bin:
     json2ts: dist/src/cli.js
-  checksum: 850dd6044ed2088e68589dee3f7c25f6440515aa6711a7510ad4a02b090557fbe22b81d5e7236ba83be625534740e14db7b1923f03f70872ad1171dd3c2112d2
+  checksum: 3d7732f59b5e5dd3dedef764bd70de26b4385255ce4376ae2dcca0c850e737c36281263a650837d7d55aec2c06e40d1384bc670b55e36560a111298db118c3df
   languageName: node
   linkType: hard
 
