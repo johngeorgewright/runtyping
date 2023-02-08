@@ -48,7 +48,7 @@
     "isbinaryfile": "5.0.0",
     "jest": "29.4.2",
     "lint-staged": "13.1.1",
-    "prettier": "2.8.3",
+    "prettier": "2.8.4",
     "rimraf": "3.0.2",
     "runtypes": "6.6.0",
     "semantic-release": "19.0.5",
