@@ -2101,7 +2101,7 @@ __metadata:
     ts-jest: 29.0.5
     tslib: 2.5.0
     typescript: 4.8.4
-    yeoman-generator: 5.7.1
+    yeoman-generator: 5.8.0
   languageName: unknown
   linkType: soft
 
@@ -5242,7 +5242,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ejs@npm:^3.1.6":
+"ejs@npm:^3.1.6, ejs@npm:^3.1.8":
   version: 3.1.8
   resolution: "ejs@npm:3.1.8"
   dependencies:
@@ -6391,7 +6391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^11.0.3":
+"globby@npm:^11.0.3, globby@npm:^11.1.0":
   version: 11.1.0
   resolution: "globby@npm:11.1.0"
   dependencies:
@@ -9043,6 +9043,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mem-fs-editor@npm:^9.0.0":
+  version: 9.6.0
+  resolution: "mem-fs-editor@npm:9.6.0"
+  dependencies:
+    binaryextensions: ^4.16.0
+    commondir: ^1.0.1
+    deep-extend: ^0.6.0
+    ejs: ^3.1.8
+    globby: ^11.1.0
+    isbinaryfile: ^4.0.8
+    minimatch: ^3.1.2
+    multimatch: ^5.0.0
+    normalize-path: ^3.0.0
+    textextensions: ^5.13.0
+  peerDependencies:
+    mem-fs: ^2.1.0
+  peerDependenciesMeta:
+    mem-fs:
+      optional: true
+  checksum: e8bbab0366308725e841c16761560832b9e3525e81253c8d40c2e06512e8ef169227d67ffc8a167715304bbef91126d23d3ed79dade18eb7b6b23a92c7b5a119
+  languageName: node
+  linkType: hard
+
 "mem-fs@npm:^1.2.0 || ^2.0.0":
   version: 2.2.1
   resolution: "mem-fs@npm:2.2.1"
@@ -9244,7 +9267,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^3.1.1":
+"minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -13937,9 +13960,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yeoman-generator@npm:5.7.1":
-  version: 5.7.1
-  resolution: "yeoman-generator@npm:5.7.1"
+"yeoman-generator@npm:5.8.0":
+  version: 5.8.0
+  resolution: "yeoman-generator@npm:5.8.0"
   dependencies:
     chalk: ^4.1.0
     dargs: ^7.0.0
@@ -13947,6 +13970,7 @@ __metadata:
     execa: ^5.1.1
     github-username: ^6.0.0
     lodash: ^4.17.11
+    mem-fs-editor: ^9.0.0
     minimist: ^1.2.5
     read-pkg-up: ^7.0.1
     run-async: ^2.0.0
@@ -13959,7 +13983,7 @@ __metadata:
   peerDependenciesMeta:
     yeoman-environment:
       optional: true
-  checksum: 9eaa64b264f31541d2d2fcbdc1aa74f8895b9e7bc8e82b6ca71f14d7d819278fe539f4cf79d8ee4fdc8c5c195153251834dd3828bfd69bc167c795f2d91d2ba0
+  checksum: dd9fbbfca7c37cc002c794b897a92b4c83b3019b662896d92a12671823a1ad7f04da2c0d1b14c85afdabf691a2f38630afc08f5250de29ab1a5cadd6e792ad41
   languageName: node
   linkType: hard
 
