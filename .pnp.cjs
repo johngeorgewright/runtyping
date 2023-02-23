@@ -2573,7 +2573,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/yargs", "npm:17.0.22"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.4.3"],\
             ["js-yaml", "npm:4.1.0"],\
-            ["json-schema-to-typescript", "npm:11.0.5"],\
+            ["json-schema-to-typescript", "npm:12.0.0"],\
             ["lodash", "npm:4.17.21"],\
             ["prettier", "npm:2.8.4"],\
             ["rimraf", "npm:4.1.2"],\
@@ -2615,7 +2615,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/yargs", "npm:17.0.22"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.4.3"],\
             ["js-yaml", "npm:4.1.0"],\
-            ["json-schema-to-typescript", "npm:11.0.5"],\
+            ["json-schema-to-typescript", "npm:12.0.0"],\
             ["lodash", "npm:4.17.21"],\
             ["prettier", "npm:2.8.4"],\
             ["rimraf", "npm:4.1.2"],\
@@ -7563,10 +7563,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:f09ea06cee42549c9ec314c42a1e0288aaad7953553c5d069b8e28772dfa0ac570422166937935b8b974d33ae608be531e737ba2405c7dbfdb4b8e5755ebc439#npm:4.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/glob-promise-virtual-2425e349df/0/cache/glob-promise-npm-4.2.2-30777327f7-c1a3d95f7c.zip/node_modules/glob-promise/",\
+        ["virtual:e48d218b76c80baae783d342229ce102cc835075332e7335dd2b6f3ac4c12232fb7e6863a12d0dd9db47ec142595dda49611d15477ab7430b7912b7c228f2892#npm:4.2.2", {\
+          "packageLocation": "./.yarn/__virtual__/glob-promise-virtual-e6f461f06b/0/cache/glob-promise-npm-4.2.2-30777327f7-c1a3d95f7c.zip/node_modules/glob-promise/",\
           "packageDependencies": [\
-            ["glob-promise", "virtual:f09ea06cee42549c9ec314c42a1e0288aaad7953553c5d069b8e28772dfa0ac570422166937935b8b974d33ae608be531e737ba2405c7dbfdb4b8e5755ebc439#npm:4.2.2"],\
+            ["glob-promise", "virtual:e48d218b76c80baae783d342229ce102cc835075332e7335dd2b6f3ac4c12232fb7e6863a12d0dd9db47ec142595dda49611d15477ab7430b7912b7c228f2892#npm:4.2.2"],\
             ["@types/glob", "npm:7.2.0"],\
             ["glob", "npm:7.2.0"]\
           ],\
@@ -9695,10 +9695,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["json-schema-to-typescript", [\
-        ["npm:11.0.5", {\
-          "packageLocation": "./.yarn/cache/json-schema-to-typescript-npm-11.0.5-f09ea06cee-2b1114e32a.zip/node_modules/json-schema-to-typescript/",\
+        ["npm:12.0.0", {\
+          "packageLocation": "./.yarn/cache/json-schema-to-typescript-npm-12.0.0-e48d218b76-4d662dd433.zip/node_modules/json-schema-to-typescript/",\
           "packageDependencies": [\
-            ["json-schema-to-typescript", "npm:11.0.5"],\
+            ["json-schema-to-typescript", "npm:12.0.0"],\
             ["@bcherny/json-schema-ref-parser", "npm:10.0.5-fork"],\
             ["@types/json-schema", "npm:7.0.11"],\
             ["@types/lodash", "npm:4.14.182"],\
@@ -9706,7 +9706,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cli-color", "npm:2.0.2"],\
             ["get-stdin", "npm:8.0.0"],\
             ["glob", "npm:7.2.0"],\
-            ["glob-promise", "virtual:f09ea06cee42549c9ec314c42a1e0288aaad7953553c5d069b8e28772dfa0ac570422166937935b8b974d33ae608be531e737ba2405c7dbfdb4b8e5755ebc439#npm:4.2.2"],\
+            ["glob-promise", "virtual:e48d218b76c80baae783d342229ce102cc835075332e7335dd2b6f3ac4c12232fb7e6863a12d0dd9db47ec142595dda49611d15477ab7430b7912b7c228f2892#npm:4.2.2"],\
             ["is-glob", "npm:4.0.3"],\
             ["lodash", "npm:4.17.21"],\
             ["minimist", "npm:1.2.6"],\
