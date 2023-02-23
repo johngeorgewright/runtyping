@@ -43,7 +43,7 @@
     "@johngw/iterator": "1.2.0",
     "@ts-morph/common": "0.17.0",
     "js-yaml": "4.1.0",
-    "json-schema-to-typescript": "11.0.4",
+    "json-schema-to-typescript": "11.0.5",
     "lodash": "4.17.21",
     "ts-morph": "16.0.0",
     "tslib": "2.5.0",
