@@ -2789,7 +2789,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/runtyping__generator", null],\
             ["assert-never", "npm:1.2.1"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.4.3"],\
-            ["mkdirp", "npm:1.0.4"],\
+            ["mkdirp", "npm:2.1.4"],\
             ["rimraf", "npm:4.1.2"],\
             ["runtypes", "npm:6.5.1"],\
             ["semantic-release", "npm:20.1.1"],\
@@ -2825,7 +2825,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.14.2"],\
             ["assert-never", "npm:1.2.1"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.4.3"],\
-            ["mkdirp", "npm:1.0.4"],\
+            ["mkdirp", "npm:2.1.4"],\
             ["rimraf", "npm:4.1.2"],\
             ["runtypes", "npm:6.5.1"],\
             ["semantic-release", "npm:20.1.1"],\
@@ -11247,6 +11247,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mkdirp-npm-1.0.4-37f6ef56b9-a96865108c.zip/node_modules/mkdirp/",\
           "packageDependencies": [\
             ["mkdirp", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.1.4", {\
+          "packageLocation": "./.yarn/cache/mkdirp-npm-2.1.4-e95bfad47e-3950ee69fc.zip/node_modules/mkdirp/",\
+          "packageDependencies": [\
+            ["mkdirp", "npm:2.1.4"]\
           ],\
           "linkType": "HARD"\
         }]\
