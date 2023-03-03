@@ -1959,7 +1959,7 @@ __metadata:
     "@types/jest": 29.4.0
     "@types/js-yaml": 4.0.5
     "@types/lodash": 4.14.191
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     "@types/prettier": 2.7.2
     "@types/yargs": 17.0.22
     jest: 29.4.3
@@ -1998,7 +1998,7 @@ __metadata:
     "@ts-morph/common": 0.17.0
     "@types/jest": 29.4.0
     "@types/json-schema": 7.0.11
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     fp-ts: 2.13.1
     io-ts: 2.2.20
     jest: 29.4.3
@@ -2031,7 +2031,7 @@ __metadata:
     "@semantic-release/github": 8.0.7
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.4.0
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     "@types/source-map-support": 0.5.6
     commitizen: 4.3.0
     concurrently: 7.6.0
@@ -2068,7 +2068,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.4.0
     "@types/json-schema": 7.0.11
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     jest: 29.4.3
     rimraf: 4.2.0
     runtypes: 6.6.0
@@ -2095,7 +2095,7 @@ __metadata:
     "@semantic-release/github": 8.0.7
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.4.0
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     "@types/prettier": 2.7.2
     "@types/rimraf": 3.0.2
     "@types/yeoman-generator": 5.2.11
@@ -2125,7 +2125,7 @@ __metadata:
     "@types/jest": 29.4.0
     "@types/json-schema": 7.0.11
     "@types/mkdirp": 1.0.2
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     assert-never: 1.2.1
     jest: 29.4.3
     mkdirp: 2.1.4
@@ -2157,7 +2157,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.4.0
     "@types/json-schema": 7.0.11
-    "@types/node": 18.14.4
+    "@types/node": 18.14.5
     jest: 29.4.3
     rimraf: 4.2.0
     semantic-release: 20.1.1
@@ -2773,10 +2773,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.14.4":
-  version: 18.14.4
-  resolution: "@types/node@npm:18.14.4"
-  checksum: 3f2f625777747b9f87e793eea5a8bbf1ac2c828846bda5811d07a457d55cfe6762239779759de61e7b7e917632b9ceee3f7ffd2a024117e7ec364dc1b4eb8d55
+"@types/node@npm:18.14.5":
+  version: 18.14.5
+  resolution: "@types/node@npm:18.14.5"
+  checksum: 415fb0edc132baa9580f1b7a381a3f10b662f5d7a7d11641917fa0961788ccede3272badc414aadc47306e9fc35c5f6c59159ac470b46d3f3a15fb0446224c8c
   languageName: node
   linkType: hard
 
