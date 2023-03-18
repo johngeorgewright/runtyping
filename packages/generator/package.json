@@ -21,7 +21,7 @@
     "@semantic-release/github": "8.0.7",
     "@semantic-release/npm": "9.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
-    "@types/jest": "29.4.4",
+    "@types/jest": "29.5.0",
     "@types/js-yaml": "4.0.5",
     "@types/lodash": "4.14.191",
     "@types/node": "18.15.3",
