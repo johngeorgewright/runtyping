@@ -1961,7 +1961,7 @@ __metadata:
     "@types/lodash": 4.14.191
     "@types/node": 18.15.5
     "@types/prettier": 2.7.2
-    "@types/yargs": 17.0.22
+    "@types/yargs": 17.0.23
     jest: 29.5.0
     js-yaml: 4.1.0
     json-schema-to-typescript: 11.0.5
@@ -2904,12 +2904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:17.0.22":
-  version: 17.0.22
-  resolution: "@types/yargs@npm:17.0.22"
+"@types/yargs@npm:17.0.23":
+  version: 17.0.23
+  resolution: "@types/yargs@npm:17.0.23"
   dependencies:
     "@types/yargs-parser": "*"
-  checksum: 0773523fda71bafdc52f13f5970039e535a353665a60ba9261149a5c9c2b908242e6e77fbb7a8c06931ec78ce889d64d09673c68ba23eb5f5742d5385d0d1982
+  checksum: c5f787d7a9a36ea94ba5d3f340fc5d93d2860eff8fa9731cd614ed23212e4fca75637e2386e37e376a720e4bf088ceed6f39050f1c3638fc1b75bce5c70b1ad4
   languageName: node
   linkType: hard
 
