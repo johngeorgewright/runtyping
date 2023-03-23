@@ -1971,7 +1971,7 @@ __metadata:
     semantic-release: 20.1.3
     semantic-release-monorepo: 7.0.5
     ts-jest: 29.0.5
-    ts-morph: 16.0.0
+    ts-morph: 17.0.1
     ts-node: 10.9.1
     tslib: 2.5.0
     typescript: 4.8.4
@@ -2007,7 +2007,7 @@ __metadata:
     semantic-release-monorepo: 7.0.5
     title-case: 3.0.3
     ts-jest: 29.0.5
-    ts-morph: 16.0.0
+    ts-morph: 17.0.1
     ts-node: 10.9.1
     tslib: 2.5.0
     typescript: 4.8.4
@@ -2075,7 +2075,7 @@ __metadata:
     semantic-release: 20.1.3
     semantic-release-monorepo: 7.0.5
     ts-jest: 29.0.5
-    ts-morph: 16.0.0
+    ts-morph: 17.0.1
     ts-node: 10.9.1
     tslib: 2.5.0
     typescript: 4.8.4
@@ -2133,7 +2133,7 @@ __metadata:
     semantic-release: 20.1.3
     semantic-release-monorepo: 7.0.5
     ts-jest: 29.0.5
-    ts-morph: 16.0.0
+    ts-morph: 17.0.1
     ts-node: 10.9.1
     tslib: 2.5.0
     type-fest: 3.6.1
@@ -2164,7 +2164,7 @@ __metadata:
     semantic-release-monorepo: 7.0.5
     title-case: 3.0.3
     ts-jest: 29.0.5
-    ts-morph: 16.0.0
+    ts-morph: 17.0.1
     ts-node: 10.9.1
     tslib: 2.5.0
     typescript: 4.8.4
@@ -2465,7 +2465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:0.17.0, @ts-morph/common@npm:~0.17.0":
+"@ts-morph/common@npm:0.17.0":
   version: 0.17.0
   resolution: "@ts-morph/common@npm:0.17.0"
   dependencies:
@@ -2474,6 +2474,18 @@ __metadata:
     mkdirp: ^1.0.4
     path-browserify: ^1.0.1
   checksum: f588c0acabcc6ca9463ac09b343d67a73f6e7bf47f674aaff11542b95b58342556b05241610b9e6dffc2966db529e7261b6860577786f919a835c22488ec9260
+  languageName: node
+  linkType: hard
+
+"@ts-morph/common@npm:~0.18.0":
+  version: 0.18.1
+  resolution: "@ts-morph/common@npm:0.18.1"
+  dependencies:
+    fast-glob: ^3.2.12
+    minimatch: ^5.1.0
+    mkdirp: ^1.0.4
+    path-browserify: ^1.0.1
+  checksum: 848fff5f7a6428d7c2f055de20cf8df864a967aac0cc03adc558d853442085a8fd9dec70429da24d67d263794b315edb0791c46d23ad9ae513251a7702df8031
   languageName: node
   linkType: hard
 
@@ -5751,6 +5763,19 @@ __metadata:
     merge2: ^1.3.0
     micromatch: ^4.0.4
   checksum: f473105324a7780a20c06de842e15ddbb41d3cb7e71d1e4fe6e8373204f22245d54f5ab9e2061e6a1c613047345954d29b022e0e76f5c28b1df9858179a0e6d7
+  languageName: node
+  linkType: hard
+
+"fast-glob@npm:^3.2.12":
+  version: 3.2.12
+  resolution: "fast-glob@npm:3.2.12"
+  dependencies:
+    "@nodelib/fs.stat": ^2.0.2
+    "@nodelib/fs.walk": ^1.2.3
+    glob-parent: ^5.1.2
+    merge2: ^1.3.0
+    micromatch: ^4.0.4
+  checksum: 0b1990f6ce831c7e28c4d505edcdaad8e27e88ab9fa65eedadb730438cfc7cde4910d6c975d6b7b8dc8a73da4773702ebcfcd6e3518e73938bb1383badfe01c2
   languageName: node
   linkType: hard
 
@@ -13210,13 +13235,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-morph@npm:16.0.0":
-  version: 16.0.0
-  resolution: "ts-morph@npm:16.0.0"
+"ts-morph@npm:17.0.1":
+  version: 17.0.1
+  resolution: "ts-morph@npm:17.0.1"
   dependencies:
-    "@ts-morph/common": ~0.17.0
+    "@ts-morph/common": ~0.18.0
     code-block-writer: ^11.0.3
-  checksum: a45ee1a2da09b06ac45a468c1cb9b00cc1b335224afddb22c30e4ad8a747b71c8a7c6cea29a6309ebf68d69f5dc8d3650d381891b77da5e2ad3e301dc3de40d5
+  checksum: 4748ab45d0fb0be235f69399ea217cf1c5984ad2ef3ff9eba5a417571f73098c6f1f765fc011eaadc48179471b977f1e44f72eb993932e5c74c5031ab6c60f3a
   languageName: node
   linkType: hard
 
