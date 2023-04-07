@@ -47,7 +47,7 @@
     "husky": "8.0.3",
     "isbinaryfile": "5.0.0",
     "jest": "29.5.0",
-    "lint-staged": "13.2.0",
+    "lint-staged": "13.2.1",
     "prettier": "2.8.7",
     "rimraf": "4.4.1",
     "runtypes": "6.6.0",
