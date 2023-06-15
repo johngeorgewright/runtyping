@@ -38,7 +38,7 @@
     "typescript-json-schema": "0.56.0"
   },
   "dependencies": {
-    "@johngw/array": "3.3.0",
+    "@johngw/array": "3.3.2",
     "@johngw/error": "2.2.0",
     "@johngw/iterator": "1.2.0",
     "@ts-morph/common": "0.17.0",
