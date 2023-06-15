@@ -1334,12 +1334,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/array@npm:3.3.0":
-  version: 3.3.0
-  resolution: "@johngw/array@npm:3.3.0"
+"@johngw/array@npm:3.3.2":
+  version: 3.3.2
+  resolution: "@johngw/array@npm:3.3.2"
   dependencies:
-    tslib: ^2.3.1
-  checksum: dc4ebc8d5108e42f830553ef8050b15d2d947710f8c73aabbfb6fe4955c6057b89219530db8afde9d820be35e7c9948cc29707591fd5bbb8aadc715825b26b95
+    tslib: 2.5.2
+  checksum: 418de1b03fadb65d363966490ac941b3f29ffeb6a03ff864ea9782b4d9918b7e42e270e318461ba6e29d02a1e0db87051119afbb9bc91e4affd644e0945f666e
   languageName: node
   linkType: hard
 
@@ -1947,7 +1947,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@runtyping/generator@workspace:packages/generator"
   dependencies:
-    "@johngw/array": 3.3.0
+    "@johngw/array": 3.3.2
     "@johngw/error": 2.2.0
     "@johngw/iterator": 1.2.0
     "@semantic-release/commit-analyzer": 9.0.2
@@ -1987,7 +1987,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@runtyping/io-ts@workspace:packages/io-ts"
   dependencies:
-    "@johngw/array": 3.3.0
+    "@johngw/array": 3.3.2
     "@runtyping/generator": "workspace:*"
     "@runtyping/test-type-writers": "workspace:*"
     "@semantic-release/commit-analyzer": 9.0.2
@@ -13297,6 +13297,13 @@ __metadata:
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+  languageName: node
+  linkType: hard
+
+"tslib@npm:2.5.2":
+  version: 2.5.2
+  resolution: "tslib@npm:2.5.2"
+  checksum: 4d3c1e238b94127ed0e88aa0380db3c2ddae581dc0f4bae5a982345e9f50ee5eda90835b8bfba99b02df10a5734470be197158c36f9129ac49fdc14a6a9da222
   languageName: node
   linkType: hard
 
