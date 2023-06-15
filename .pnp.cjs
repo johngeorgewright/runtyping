@@ -1852,11 +1852,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@johngw/error", [\
-        ["npm:2.2.0", {\
-          "packageLocation": "./.yarn/cache/@johngw-error-npm-2.2.0-23e64f1ced-77ea2944b5.zip/node_modules/@johngw/error/",\
+        ["npm:2.2.2", {\
+          "packageLocation": "./.yarn/cache/@johngw-error-npm-2.2.2-77cb4d6605-b2beaf16a1.zip/node_modules/@johngw/error/",\
           "packageDependencies": [\
-            ["@johngw/error", "npm:2.2.0"],\
-            ["tslib", "npm:2.3.1"]\
+            ["@johngw/error", "npm:2.2.2"],\
+            ["tslib", "npm:2.5.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2565,7 +2565,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
             ["@johngw/array", "npm:3.3.2"],\
-            ["@johngw/error", "npm:2.2.0"],\
+            ["@johngw/error", "npm:2.2.2"],\
             ["@johngw/iterator", "npm:1.2.0"],\
             ["@semantic-release/commit-analyzer", "virtual:c75f2aad1cfb1386ad5202acb59b82b91b33a53c730761c9fc148a23fea3225950eae1f6d7635bbf8de086fa8e510a43201fc331edd45e67dc120f369cd0411e#npm:9.0.2"],\
             ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
@@ -2608,7 +2608,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@runtyping/generator", "workspace:packages/generator"],\
             ["@johngw/array", "npm:3.3.2"],\
-            ["@johngw/error", "npm:2.2.0"],\
+            ["@johngw/error", "npm:2.2.2"],\
             ["@johngw/iterator", "npm:1.2.0"],\
             ["@semantic-release/commit-analyzer", "virtual:c75f2aad1cfb1386ad5202acb59b82b91b33a53c730761c9fc148a23fea3225950eae1f6d7635bbf8de086fa8e510a43201fc331edd45e67dc120f369cd0411e#npm:9.0.2"],\
             ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
