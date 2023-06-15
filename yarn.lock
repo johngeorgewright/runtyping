@@ -1343,12 +1343,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/error@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@johngw/error@npm:2.2.0"
+"@johngw/error@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@johngw/error@npm:2.2.2"
   dependencies:
-    tslib: ^2.3.1
-  checksum: 77ea2944b5d353d2c69789d29fced3bc4651959b08da8bfd0ceda2dfb0fd9e18a63ecc53027586d8c64bd9fac5a71d863226db5babe1006abf5e9b3f3dafa5c7
+    tslib: 2.5.2
+  checksum: b2beaf16a1d07b6b69da15632f073df1f9175a39e102660bf558f24790cb9069ca6851b5c4501fb0ea85e098abac98c7864da28869d07444bdc70c1007cc9c1d
   languageName: node
   linkType: hard
 
@@ -1948,7 +1948,7 @@ __metadata:
   resolution: "@runtyping/generator@workspace:packages/generator"
   dependencies:
     "@johngw/array": 3.3.2
-    "@johngw/error": 2.2.0
+    "@johngw/error": 2.2.2
     "@johngw/iterator": 1.2.0
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1

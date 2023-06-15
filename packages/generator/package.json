@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@johngw/array": "3.3.2",
-    "@johngw/error": "2.2.0",
+    "@johngw/error": "2.2.2",
     "@johngw/iterator": "1.2.0",
     "@ts-morph/common": "0.17.0",
     "js-yaml": "4.1.0",
