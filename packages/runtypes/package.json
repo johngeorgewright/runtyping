@@ -42,6 +42,6 @@
   "dependencies": {
     "@runtyping/generator": "workspace:*",
     "ts-morph": "16.0.0",
-    "tslib": "2.5.0"
+    "tslib": "2.5.3"
   }
 }
