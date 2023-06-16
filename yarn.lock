@@ -1352,13 +1352,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/iterator@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@johngw/iterator@npm:1.2.0"
+"@johngw/iterator@npm:1.2.2":
+  version: 1.2.2
+  resolution: "@johngw/iterator@npm:1.2.2"
   dependencies:
-    ts-toolbelt: ^9.6.0
-    tslib: ^2.3.1
-  checksum: c986952964d83c294fb6d116eb0dcd88dfe4d78fb3e37d0d428dc9c66633fe9ab9c05a7b04c63359292e137e118eac9aa0e4816666fd7850c7038dfb8ee7cdbc
+    ts-toolbelt: 9.6.0
+    tslib: 2.5.2
+  checksum: f027392340dd15c8d614f89ab9e6259c30dc0dd358104a9063967fbdd4cbc243204f4733c7e8227b9ad6d10f77397495442f017fae99e457f6b1a52e3df69205
   languageName: node
   linkType: hard
 
@@ -1949,7 +1949,7 @@ __metadata:
   dependencies:
     "@johngw/array": 3.3.2
     "@johngw/error": 2.2.2
-    "@johngw/iterator": 1.2.0
+    "@johngw/iterator": 1.2.2
     "@semantic-release/commit-analyzer": 9.0.2
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.7
@@ -13286,7 +13286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-toolbelt@npm:^9.6.0":
+"ts-toolbelt@npm:9.6.0":
   version: 9.6.0
   resolution: "ts-toolbelt@npm:9.6.0"
   checksum: 9f35fd95d895a5d32ea9fd2e532a695b0bae6cbff6832b77292efa188a0ed1ed6e54f63f74a8920390f3d909a7a3adb20a144686372a8e78b420246a9bd3d58a
@@ -13314,7 +13314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2, tslib@npm:^2.1.0, tslib@npm:^2.3.1":
+"tslib@npm:^2, tslib@npm:^2.1.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
