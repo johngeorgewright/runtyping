@@ -72,7 +72,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:7.6.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
-            ["fp-ts", "npm:2.16.0"],\
+            ["fp-ts", "npm:2.16.1"],\
             ["husky", "npm:8.0.3"],\
             ["isbinaryfile", "npm:5.0.0"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.5.0"],\
@@ -2812,7 +2812,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.2"],\
             ["@types/json-schema", "npm:7.0.13"],\
             ["@types/node", "npm:18.16.18"],\
-            ["fp-ts", "npm:2.16.0"],\
+            ["fp-ts", "npm:2.16.1"],\
             ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.5.0"],\
             ["rimraf", "npm:4.4.1"],\
@@ -2847,7 +2847,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:7.6.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
-            ["fp-ts", "npm:2.16.0"],\
+            ["fp-ts", "npm:2.16.1"],\
             ["husky", "npm:8.0.3"],\
             ["isbinaryfile", "npm:5.0.0"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.5.0"],\
@@ -7535,10 +7535,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["fp-ts", [\
-        ["npm:2.16.0", {\
-          "packageLocation": "./.yarn/cache/fp-ts-npm-2.16.0-edfc855005-0724a4d8b2.zip/node_modules/fp-ts/",\
+        ["npm:2.16.1", {\
+          "packageLocation": "./.yarn/cache/fp-ts-npm-2.16.1-8deb3ec2d6-94e8bb1d03.zip/node_modules/fp-ts/",\
           "packageDependencies": [\
-            ["fp-ts", "npm:2.16.0"]\
+            ["fp-ts", "npm:2.16.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8914,7 +8914,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20"],\
             ["@types/fp-ts", null],\
-            ["fp-ts", "npm:2.16.0"]\
+            ["fp-ts", "npm:2.16.1"]\
           ],\
           "packagePeers": [\
             "@types/fp-ts",\
