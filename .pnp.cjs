@@ -58,8 +58,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@commitlint/cli", "npm:17.6.5"],\
-            ["@commitlint/config-conventional", "npm:17.6.5"],\
+            ["@commitlint/cli", "npm:17.7.2"],\
+            ["@commitlint/config-conventional", "npm:17.7.0"],\
             ["@jest/types", "npm:29.5.0"],\
             ["@semantic-release/commit-analyzer", "virtual:c75f2aad1cfb1386ad5202acb59b82b91b33a53c730761c9fc148a23fea3225950eae1f6d7635bbf8de086fa8e510a43201fc331edd45e67dc120f369cd0411e#npm:9.0.2"],\
             ["@semantic-release/exec", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:6.0.3"],\
@@ -1212,13 +1212,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/cli", [\
-        ["npm:17.6.5", {\
-          "packageLocation": "./.yarn/cache/@commitlint-cli-npm-17.6.5-1dd10cbe12-acc57bdb73.zip/node_modules/@commitlint/cli/",\
+        ["npm:17.7.2", {\
+          "packageLocation": "./.yarn/cache/@commitlint-cli-npm-17.7.2-df7bff3a18-7d5d86b279.zip/node_modules/@commitlint/cli/",\
           "packageDependencies": [\
-            ["@commitlint/cli", "npm:17.6.5"],\
+            ["@commitlint/cli", "npm:17.7.2"],\
             ["@commitlint/format", "npm:17.4.4"],\
-            ["@commitlint/lint", "npm:17.6.5"],\
-            ["@commitlint/load", "npm:17.5.0"],\
+            ["@commitlint/lint", "npm:17.7.0"],\
+            ["@commitlint/load", "npm:17.7.2"],\
             ["@commitlint/read", "npm:17.5.1"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["execa", "npm:5.1.1"],\
@@ -1231,20 +1231,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/config-conventional", [\
-        ["npm:17.6.5", {\
-          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-17.6.5-ef8d82de49-f2c637a993.zip/node_modules/@commitlint/config-conventional/",\
+        ["npm:17.7.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-17.7.0-291cc2bbe4-932cf35c12.zip/node_modules/@commitlint/config-conventional/",\
           "packageDependencies": [\
-            ["@commitlint/config-conventional", "npm:17.6.5"],\
-            ["conventional-changelog-conventionalcommits", "npm:5.0.0"]\
+            ["@commitlint/config-conventional", "npm:17.7.0"],\
+            ["conventional-changelog-conventionalcommits", "npm:6.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["@commitlint/config-validator", [\
-        ["npm:17.4.4", {\
-          "packageLocation": "./.yarn/cache/@commitlint-config-validator-npm-17.4.4-b7036cb1d2-71ee818608.zip/node_modules/@commitlint/config-validator/",\
+        ["npm:17.6.7", {\
+          "packageLocation": "./.yarn/cache/@commitlint-config-validator-npm-17.6.7-48bc1fd773-e13e512ce9.zip/node_modules/@commitlint/config-validator/",\
           "packageDependencies": [\
-            ["@commitlint/config-validator", "npm:17.4.4"],\
+            ["@commitlint/config-validator", "npm:17.6.7"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["ajv", "npm:8.11.0"]\
           ],\
@@ -1252,10 +1252,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/ensure", [\
-        ["npm:17.4.4", {\
-          "packageLocation": "./.yarn/cache/@commitlint-ensure-npm-17.4.4-67e8d2348c-c21c189f22.zip/node_modules/@commitlint/ensure/",\
+        ["npm:17.6.7", {\
+          "packageLocation": "./.yarn/cache/@commitlint-ensure-npm-17.6.7-e614041bfc-1ffdce807d.zip/node_modules/@commitlint/ensure/",\
           "packageDependencies": [\
-            ["@commitlint/ensure", "npm:17.4.4"],\
+            ["@commitlint/ensure", "npm:17.6.7"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["lodash.camelcase", "npm:4.3.0"],\
             ["lodash.kebabcase", "npm:4.1.1"],\
@@ -1294,24 +1294,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/is-ignored", [\
-        ["npm:17.6.5", {\
-          "packageLocation": "./.yarn/cache/@commitlint-is-ignored-npm-17.6.5-eb9c495070-2b7b7f0773.zip/node_modules/@commitlint/is-ignored/",\
+        ["npm:17.7.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-is-ignored-npm-17.7.0-3cce752734-aa0b695d6e.zip/node_modules/@commitlint/is-ignored/",\
           "packageDependencies": [\
-            ["@commitlint/is-ignored", "npm:17.6.5"],\
+            ["@commitlint/is-ignored", "npm:17.7.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
-            ["semver", "npm:7.5.0"]\
+            ["semver", "npm:7.5.4"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["@commitlint/lint", [\
-        ["npm:17.6.5", {\
-          "packageLocation": "./.yarn/cache/@commitlint-lint-npm-17.6.5-4378eb0cdb-6a6c04a5ec.zip/node_modules/@commitlint/lint/",\
+        ["npm:17.7.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-lint-npm-17.7.0-cecf2cfc6a-72765e0f2c.zip/node_modules/@commitlint/lint/",\
           "packageDependencies": [\
-            ["@commitlint/lint", "npm:17.6.5"],\
-            ["@commitlint/is-ignored", "npm:17.6.5"],\
-            ["@commitlint/parse", "npm:17.6.5"],\
-            ["@commitlint/rules", "npm:17.6.5"],\
+            ["@commitlint/lint", "npm:17.7.0"],\
+            ["@commitlint/is-ignored", "npm:17.7.0"],\
+            ["@commitlint/parse", "npm:17.7.0"],\
+            ["@commitlint/rules", "npm:17.7.0"],\
             ["@commitlint/types", "npm:17.4.4"]\
           ],\
           "linkType": "HARD"\
@@ -1334,23 +1334,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:17.5.0", {\
-          "packageLocation": "./.yarn/cache/@commitlint-load-npm-17.5.0-ef6136dc31-c039114b0a.zip/node_modules/@commitlint/load/",\
+        ["npm:17.7.2", {\
+          "packageLocation": "./.yarn/cache/@commitlint-load-npm-17.7.2-d99df99cfd-dda9f7efd6.zip/node_modules/@commitlint/load/",\
           "packageDependencies": [\
-            ["@commitlint/load", "npm:17.5.0"],\
-            ["@commitlint/config-validator", "npm:17.4.4"],\
+            ["@commitlint/load", "npm:17.7.2"],\
+            ["@commitlint/config-validator", "npm:17.6.7"],\
             ["@commitlint/execute-rule", "npm:17.4.0"],\
-            ["@commitlint/resolve-extends", "npm:17.4.4"],\
+            ["@commitlint/resolve-extends", "npm:17.6.7"],\
             ["@commitlint/types", "npm:17.4.4"],\
-            ["@types/node", "npm:16.11.7"],\
+            ["@types/node", "npm:20.5.1"],\
             ["chalk", "npm:4.1.2"],\
             ["cosmiconfig", "npm:8.0.0"],\
-            ["cosmiconfig-typescript-loader", "virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:4.0.0"],\
+            ["cosmiconfig-typescript-loader", "virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:4.0.0"],\
             ["lodash.isplainobject", "npm:4.0.6"],\
             ["lodash.merge", "npm:4.6.2"],\
             ["lodash.uniq", "npm:4.5.0"],\
             ["resolve-from", "npm:5.0.0"],\
-            ["ts-node", "virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:10.9.1"],\
+            ["ts-node", "virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=b5f058"]\
           ],\
           "linkType": "HARD"\
@@ -1366,13 +1366,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/parse", [\
-        ["npm:17.6.5", {\
-          "packageLocation": "./.yarn/cache/@commitlint-parse-npm-17.6.5-af228ed605-579dd7b25d.zip/node_modules/@commitlint/parse/",\
+        ["npm:17.7.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-parse-npm-17.7.0-6aacd7c91c-d70d539325.zip/node_modules/@commitlint/parse/",\
           "packageDependencies": [\
-            ["@commitlint/parse", "npm:17.6.5"],\
+            ["@commitlint/parse", "npm:17.7.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
-            ["conventional-changelog-angular", "npm:5.0.13"],\
-            ["conventional-commits-parser", "npm:3.2.3"]\
+            ["conventional-changelog-angular", "npm:6.0.0"],\
+            ["conventional-commits-parser", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1403,11 +1403,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:17.4.4", {\
-          "packageLocation": "./.yarn/cache/@commitlint-resolve-extends-npm-17.4.4-cf53685f20-d7bf1ff1ad.zip/node_modules/@commitlint/resolve-extends/",\
+        ["npm:17.6.7", {\
+          "packageLocation": "./.yarn/cache/@commitlint-resolve-extends-npm-17.6.7-d3d339bea3-3717b4ccef.zip/node_modules/@commitlint/resolve-extends/",\
           "packageDependencies": [\
-            ["@commitlint/resolve-extends", "npm:17.4.4"],\
-            ["@commitlint/config-validator", "npm:17.4.4"],\
+            ["@commitlint/resolve-extends", "npm:17.6.7"],\
+            ["@commitlint/config-validator", "npm:17.6.7"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["import-fresh", "npm:3.3.0"],\
             ["lodash.mergewith", "npm:4.6.2"],\
@@ -1418,11 +1418,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/rules", [\
-        ["npm:17.6.5", {\
-          "packageLocation": "./.yarn/cache/@commitlint-rules-npm-17.6.5-8317b1f8b5-7f62c59415.zip/node_modules/@commitlint/rules/",\
+        ["npm:17.7.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-rules-npm-17.7.0-6a1ec3090e-bc6af55cb8.zip/node_modules/@commitlint/rules/",\
           "packageDependencies": [\
-            ["@commitlint/rules", "npm:17.6.5"],\
-            ["@commitlint/ensure", "npm:17.4.4"],\
+            ["@commitlint/rules", "npm:17.7.0"],\
+            ["@commitlint/ensure", "npm:17.6.7"],\
             ["@commitlint/message", "npm:17.4.2"],\
             ["@commitlint/to-lines", "npm:17.4.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
@@ -2833,8 +2833,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@runtyping/mono-repo", "workspace:."],\
-            ["@commitlint/cli", "npm:17.6.5"],\
-            ["@commitlint/config-conventional", "npm:17.6.5"],\
+            ["@commitlint/cli", "npm:17.7.2"],\
+            ["@commitlint/config-conventional", "npm:17.7.0"],\
             ["@jest/types", "npm:29.5.0"],\
             ["@semantic-release/commit-analyzer", "virtual:c75f2aad1cfb1386ad5202acb59b82b91b33a53c730761c9fc148a23fea3225950eae1f6d7635bbf8de086fa8e510a43201fc331edd45e67dc120f369cd0411e#npm:9.0.2"],\
             ["@semantic-release/exec", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:6.0.3"],\
@@ -3846,6 +3846,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-18.16.18-d20a21c8b6-d32d8a0a04.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:18.16.18"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:20.5.1", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.5.1-d4e9ac5c26-3dbe611cd6.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:20.5.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5982,16 +5989,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["q", "npm:1.5.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:6.0.0", {\
+          "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-6.0.0-7d83e24a10-ddc59ead53.zip/node_modules/conventional-changelog-angular/",\
+          "packageDependencies": [\
+            ["conventional-changelog-angular", "npm:6.0.0"],\
+            ["compare-func", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["conventional-changelog-conventionalcommits", [\
-        ["npm:5.0.0", {\
-          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-5.0.0-a270202fe8-b67d12e4e0.zip/node_modules/conventional-changelog-conventionalcommits/",\
+        ["npm:6.1.0", {\
+          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-6.1.0-10dd027396-4383a35cdf.zip/node_modules/conventional-changelog-conventionalcommits/",\
           "packageDependencies": [\
-            ["conventional-changelog-conventionalcommits", "npm:5.0.0"],\
-            ["compare-func", "npm:2.0.0"],\
-            ["lodash", "npm:4.17.21"],\
-            ["q", "npm:1.5.1"]\
+            ["conventional-changelog-conventionalcommits", "npm:6.1.0"],\
+            ["compare-func", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6045,6 +6058,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["meow", "npm:8.1.2"],\
             ["split2", "npm:3.2.2"],\
             ["through2", "npm:4.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/conventional-commits-parser-npm-4.0.0-bc0a9be0fa-12d95b5ba8.zip/node_modules/conventional-commits-parser/",\
+          "packageDependencies": [\
+            ["conventional-commits-parser", "npm:4.0.0"],\
+            ["JSONStream", "npm:1.3.5"],\
+            ["is-text-path", "npm:1.0.1"],\
+            ["meow", "npm:8.1.2"],\
+            ["split2", "npm:3.2.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6124,16 +6148,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:4.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/cosmiconfig-typescript-loader-virtual-e557ece180/0/cache/cosmiconfig-typescript-loader-npm-4.0.0-cf43f43006-9151ffe62d.zip/node_modules/cosmiconfig-typescript-loader/",\
+        ["virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/cosmiconfig-typescript-loader-virtual-06613fac9d/0/cache/cosmiconfig-typescript-loader-npm-4.0.0-cf43f43006-9151ffe62d.zip/node_modules/cosmiconfig-typescript-loader/",\
           "packageDependencies": [\
-            ["cosmiconfig-typescript-loader", "virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:4.0.0"],\
+            ["cosmiconfig-typescript-loader", "virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:4.0.0"],\
             ["@types/cosmiconfig", null],\
-            ["@types/node", "npm:16.11.7"],\
+            ["@types/node", "npm:20.5.1"],\
             ["@types/ts-node", null],\
             ["@types/typescript", null],\
             ["cosmiconfig", "npm:8.0.0"],\
-            ["ts-node", "virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:10.9.1"],\
+            ["ts-node", "virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=b5f058"]\
           ],\
           "packagePeers": [\
@@ -14571,14 +14595,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:7.5.0", {\
-          "packageLocation": "./.yarn/cache/semver-npm-7.5.0-160502ad5d-2d26693775.zip/node_modules/semver/",\
-          "packageDependencies": [\
-            ["semver", "npm:7.5.0"],\
-            ["lru-cache", "npm:6.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:7.5.2", {\
           "packageLocation": "./.yarn/cache/semver-npm-7.5.2-28fb0fd2d6-3fdf5d1e6f.zip/node_modules/semver/",\
           "packageDependencies": [\
@@ -16010,10 +16026,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:10.9.1", {\
-          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-4c9d9a7987/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
+        ["virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:10.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-ea7cc7f1d4/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
           "packageDependencies": [\
-            ["ts-node", "virtual:ef6136dc31186c42f92851afb237eadaa9d36085920cabb6ed6ea317680c8271d6b94afcb795fd7e58c08243e470be87ece6bb707daf3ecb0604f7fd8c1aa682#npm:10.9.1"],\
+            ["ts-node", "virtual:d99df99cfd30294d8d2a33722f24e2eed11d8e1f6aca1118ed6504fe6232d3c834a406fca445a342b13e3e2f3d8673003414ee87e79b986ebb42edb6ba54b364#npm:10.9.1"],\
             ["@cspotcode/source-map-support", "npm:0.8.1"],\
             ["@swc/core", null],\
             ["@swc/wasm", null],\
@@ -16021,7 +16037,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.9"],\
             ["@tsconfig/node14", "npm:1.0.1"],\
             ["@tsconfig/node16", "npm:1.0.2"],\
-            ["@types/node", "npm:16.11.7"],\
+            ["@types/node", "npm:20.5.1"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
@@ -25918,7 +25934,6 @@ function reportRequiredFilesToWatchMode(files) {
 }
 
 function applyPatch(pnpapi, opts) {
-  const defaultCache = {};
   let enableNativeHooks = true;
   process.versions.pnp = String(pnpapi.VERSIONS.std);
   const moduleExports = require$$0__default.default;
@@ -25938,62 +25953,13 @@ function applyPatch(pnpapi, opts) {
   }
   const originalModuleLoad = require$$0.Module._load;
   require$$0.Module._load = function(request, parent, isMain) {
-    if (!enableNativeHooks)
-      return originalModuleLoad.call(require$$0.Module, request, parent, isMain);
-    if (isBuiltinModule(request)) {
-      try {
-        enableNativeHooks = false;
-        return originalModuleLoad.call(require$$0.Module, request, parent, isMain);
-      } finally {
-        enableNativeHooks = true;
+    if (request === `pnpapi`) {
+      const parentApiPath = opts.manager.getApiPathFromParent(parent);
+      if (parentApiPath) {
+        return opts.manager.getApiEntry(parentApiPath, true).instance;
       }
     }
-    const parentApiPath = opts.manager.getApiPathFromParent(parent);
-    const parentApi = parentApiPath !== null ? opts.manager.getApiEntry(parentApiPath, true).instance : null;
-    if (parentApi === null)
-      return originalModuleLoad(request, parent, isMain);
-    if (request === `pnpapi`)
-      return parentApi;
-    const modulePath = require$$0.Module._resolveFilename(request, parent, isMain);
-    const isOwnedByRuntime = parentApi !== null ? parentApi.findPackageLocator(modulePath) !== null : false;
-    const moduleApiPath = isOwnedByRuntime ? parentApiPath : opts.manager.findApiPathFor(npath.dirname(modulePath));
-    const entry = moduleApiPath !== null ? opts.manager.getApiEntry(moduleApiPath) : { instance: null, cache: defaultCache };
-    const cacheEntry = entry.cache[modulePath];
-    if (cacheEntry) {
-      if (cacheEntry.loaded === false && cacheEntry.isLoading !== true) {
-        try {
-          cacheEntry.isLoading = true;
-          if (isMain) {
-            process.mainModule = cacheEntry;
-            cacheEntry.id = `.`;
-          }
-          cacheEntry.load(modulePath);
-        } finally {
-          cacheEntry.isLoading = false;
-        }
-      }
-      return cacheEntry.exports;
-    }
-    const module = new require$$0.Module(modulePath, parent != null ? parent : void 0);
-    module.pnpApiPath = moduleApiPath;
-    reportRequiredFilesToWatchMode([modulePath]);
-    entry.cache[modulePath] = module;
-    if (isMain) {
-      process.mainModule = module;
-      module.id = `.`;
-    }
-    let hasThrown = true;
-    try {
-      module.isLoading = true;
-      module.load(modulePath);
-      hasThrown = false;
-    } finally {
-      module.isLoading = false;
-      if (hasThrown) {
-        delete require$$0.Module._cache[modulePath];
-      }
-    }
-    return module.exports;
+    return originalModuleLoad.call(require$$0.Module, request, parent, isMain);
   };
   function getIssuerSpecsFromPaths(paths) {
     return paths.map((path) => ({
@@ -26061,7 +26027,7 @@ function applyPatch(pnpapi, opts) {
       const parentDirectory = (parent == null ? void 0 : parent.filename) != null ? npath.dirname(parent.filename) : null;
       const absoluteRequest = npath.isAbsolute(request) ? request : parentDirectory !== null ? npath.resolve(parentDirectory, request) : null;
       if (absoluteRequest !== null) {
-        const apiPath = parentDirectory === npath.dirname(absoluteRequest) && (parent == null ? void 0 : parent.pnpApiPath) ? parent.pnpApiPath : opts.manager.findApiPathFor(absoluteRequest);
+        const apiPath = parent && parentDirectory === npath.dirname(absoluteRequest) ? opts.manager.getApiPathFromParent(parent) : opts.manager.findApiPathFor(absoluteRequest);
         if (apiPath !== null) {
           issuerSpecs.unshift({
             apiPath,
@@ -27782,7 +27748,6 @@ function makeManager(pnpapi, opts) {
   const initialApiStats = opts.fakeFs.statSync(npath.toPortablePath(initialApiPath));
   const apiMetadata = /* @__PURE__ */ new Map([
     [initialApiPath, {
-      cache: require$$0.Module._cache,
       instance: pnpapi,
       stats: initialApiStats,
       lastRefreshCheck: Date.now()
@@ -27814,7 +27779,6 @@ function makeManager(pnpapi, opts) {
       }
     } else {
       apiMetadata.set(pnpApiPath, apiEntry = {
-        cache: {},
         instance: loadApiInstance(pnpApiPath),
         stats: opts.fakeFs.statSync(pnpApiPath),
         lastRefreshCheck: Date.now()
@@ -27884,19 +27848,16 @@ ${controlSegment}
     } while (curr !== PortablePath.root);
     return addToCacheAndReturn(start, curr, null);
   }
+  const moduleToApiPathCache = /* @__PURE__ */ new WeakMap();
   function getApiPathFromParent(parent) {
     if (parent == null)
       return initialApiPath;
-    if (typeof parent.pnpApiPath === `undefined`) {
-      if (parent.filename !== null) {
-        return parent.pnpApiPath = findApiPathFor(parent.filename);
-      } else {
-        return initialApiPath;
-      }
-    }
-    if (parent.pnpApiPath !== null)
-      return parent.pnpApiPath;
-    return null;
+    let apiPath = moduleToApiPathCache.get(parent);
+    if (typeof apiPath !== `undefined`)
+      return apiPath;
+    apiPath = parent.filename ? findApiPathFor(parent.filename) : null;
+    moduleToApiPathCache.set(parent, apiPath);
+    return apiPath;
   }
   return {
     getApiPathFromParent,
