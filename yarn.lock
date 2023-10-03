@@ -2129,7 +2129,7 @@ __metadata:
     ts-jest: 29.1.1
     ts-morph: 16.0.0
     ts-node: 10.9.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     typescript: 4.8.4
     typescript-json-schema: 0.61.0
     yargs: 17.7.2
@@ -2165,7 +2165,7 @@ __metadata:
     ts-jest: 29.1.1
     ts-morph: 16.0.0
     ts-node: 10.9.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     typescript: 4.8.4
   peerDependencies:
     io-ts: ^2.0.0
@@ -2205,7 +2205,7 @@ __metadata:
     source-map-support: 0.5.21
     ts-jest: 29.1.1
     ts-node: 10.9.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     typescript: 4.8.4
     yo: 4.3.1
   languageName: unknown
@@ -2233,7 +2233,7 @@ __metadata:
     ts-jest: 29.1.1
     ts-morph: 16.0.0
     ts-node: 10.9.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     typescript: 4.8.4
   peerDependencies:
     runtypes: ^6.5.1
@@ -2262,7 +2262,7 @@ __metadata:
     semantic-release: 20.1.3
     semantic-release-monorepo: 7.0.5
     ts-jest: 29.1.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     typescript: 4.8.4
     yeoman-generator: 5.9.0
   languageName: unknown
@@ -2291,7 +2291,7 @@ __metadata:
     ts-jest: 29.1.1
     ts-morph: 16.0.0
     ts-node: 10.9.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     type-fest: 3.7.1
     typescript: 4.8.4
   peerDependencies:
@@ -2322,7 +2322,7 @@ __metadata:
     ts-jest: 29.1.1
     ts-morph: 16.0.0
     ts-node: 10.9.1
-    tslib: 2.5.3
+    tslib: 2.6.2
     typescript: 4.8.4
     zod: 3.22.2
   peerDependencies:
@@ -14043,10 +14043,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.5.3":
-  version: 2.5.3
-  resolution: "tslib@npm:2.5.3"
-  checksum: 88902b309afaf83259131c1e13da1dceb0ad1682a213143a1346a649143924d78cf3760c448b84d796938fd76127183894f8d85cbb3bf9c4fddbfcc140c0003c
+"tslib@npm:2.6.2":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
