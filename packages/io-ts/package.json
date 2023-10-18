@@ -28,7 +28,7 @@
     "@semantic-release/npm": "9.0.2",
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "29.5.6",
-    "@types/json-schema": "7.0.13",
+    "@types/json-schema": "7.0.14",
     "@types/node": "18.18.5",
     "fp-ts": "2.16.1",
     "io-ts": "2.2.20",

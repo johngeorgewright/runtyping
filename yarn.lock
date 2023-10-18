@@ -2153,7 +2153,7 @@ __metadata:
     "@semantic-release/release-notes-generator": 10.0.3
     "@ts-morph/common": 0.17.0
     "@types/jest": 29.5.6
-    "@types/json-schema": 7.0.13
+    "@types/json-schema": 7.0.14
     "@types/node": 18.18.5
     fp-ts: 2.16.1
     io-ts: 2.2.20
@@ -2223,7 +2223,7 @@ __metadata:
     "@semantic-release/npm": 9.0.2
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.5.6
-    "@types/json-schema": 7.0.13
+    "@types/json-schema": 7.0.14
     "@types/node": 18.18.5
     jest: 29.7.0
     rimraf: 4.4.1
@@ -2279,7 +2279,7 @@ __metadata:
     "@semantic-release/npm": 9.0.2
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.5.6
-    "@types/json-schema": 7.0.13
+    "@types/json-schema": 7.0.14
     "@types/mkdirp": 1.0.2
     "@types/node": 18.18.5
     assert-never: 1.2.1
@@ -2312,7 +2312,7 @@ __metadata:
     "@semantic-release/npm": 9.0.2
     "@semantic-release/release-notes-generator": 10.0.3
     "@types/jest": 29.5.6
-    "@types/json-schema": 7.0.13
+    "@types/json-schema": 7.0.14
     "@types/node": 18.18.5
     jest: 29.7.0
     rimraf: 4.4.1
@@ -2874,10 +2874,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:7.0.13":
-  version: 7.0.13
-  resolution: "@types/json-schema@npm:7.0.13"
-  checksum: 345df21a678fa72fb389f35f33de77833d09d4a142bb2bcb27c18690efa4cf70fc2876e43843cefb3fbdb9fcb12cd3e970a90936df30f53bbee899865ff605ab
+"@types/json-schema@npm:7.0.14":
+  version: 7.0.14
+  resolution: "@types/json-schema@npm:7.0.14"
+  checksum: 4b3dd99616c7c808201c56f6c7f6552eb67b5c0c753ab3fa03a6cb549aae950da537e9558e53fa65fba23d1be624a1e4e8d20c15027efbe41e03ca56f2b04fb0
   languageName: node
   linkType: hard
 
