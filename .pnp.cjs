@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
             ["@types/jest", "npm:29.5.6"],\
             ["@types/node", "npm:18.18.6"],\
-            ["@types/source-map-support", "npm:0.5.8"],\
+            ["@types/source-map-support", "npm:0.5.9"],\
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:7.6.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
@@ -2843,7 +2843,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
             ["@types/jest", "npm:29.5.6"],\
             ["@types/node", "npm:18.18.6"],\
-            ["@types/source-map-support", "npm:0.5.8"],\
+            ["@types/source-map-support", "npm:0.5.9"],\
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:7.6.0"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
@@ -3922,10 +3922,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/source-map-support", [\
-        ["npm:0.5.8", {\
-          "packageLocation": "./.yarn/cache/@types-source-map-support-npm-0.5.8-fda76625f5-333d77b70f.zip/node_modules/@types/source-map-support/",\
+        ["npm:0.5.9", {\
+          "packageLocation": "./.yarn/cache/@types-source-map-support-npm-0.5.9-6cd6762b1d-3a2c7b48aa.zip/node_modules/@types/source-map-support/",\
           "packageDependencies": [\
-            ["@types/source-map-support", "npm:0.5.8"],\
+            ["@types/source-map-support", "npm:0.5.9"],\
             ["source-map", "npm:0.6.1"]\
           ],\
           "linkType": "HARD"\
