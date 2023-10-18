@@ -2727,7 +2727,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
             ["@ts-morph/common", "npm:0.17.0"],\
             ["@types/jest", "npm:29.5.6"],\
-            ["@types/js-yaml", "npm:4.0.7"],\
+            ["@types/js-yaml", "npm:4.0.8"],\
             ["@types/lodash", "npm:4.14.199"],\
             ["@types/node", "npm:18.18.5"],\
             ["@types/prettier", "npm:2.7.3"],\
@@ -2770,7 +2770,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
             ["@ts-morph/common", "npm:0.17.0"],\
             ["@types/jest", "npm:29.5.6"],\
-            ["@types/js-yaml", "npm:4.0.7"],\
+            ["@types/js-yaml", "npm:4.0.8"],\
             ["@types/lodash", "npm:4.14.199"],\
             ["@types/node", "npm:18.18.5"],\
             ["@types/prettier", "npm:2.7.3"],\
@@ -3700,10 +3700,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/js-yaml", [\
-        ["npm:4.0.7", {\
-          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.7-06f1295a48-e02eca876f.zip/node_modules/@types/js-yaml/",\
+        ["npm:4.0.8", {\
+          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.8-9956f51f10-a5a77a5a1e.zip/node_modules/@types/js-yaml/",\
           "packageDependencies": [\
-            ["@types/js-yaml", "npm:4.0.7"]\
+            ["@types/js-yaml", "npm:4.0.8"]\
           ],\
           "linkType": "HARD"\
         }]\
