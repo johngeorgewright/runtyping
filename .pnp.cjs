@@ -2732,7 +2732,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.18.6"],\
             ["@types/prettier", "npm:2.7.3"],\
             ["@types/typescript", null],\
-            ["@types/yargs", "npm:17.0.28"],\
+            ["@types/yargs", "npm:17.0.29"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:11.0.5"],\
@@ -2774,7 +2774,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.200"],\
             ["@types/node", "npm:18.18.6"],\
             ["@types/prettier", "npm:2.7.3"],\
-            ["@types/yargs", "npm:17.0.28"],\
+            ["@types/yargs", "npm:17.0.29"],\
             ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
             ["js-yaml", "npm:4.1.0"],\
             ["json-schema-to-typescript", "npm:11.0.5"],\
@@ -3979,10 +3979,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:17.0.28", {\
-          "packageLocation": "./.yarn/cache/@types-yargs-npm-17.0.28-0ffbb5b635-f78c5e5c29.zip/node_modules/@types/yargs/",\
+        ["npm:17.0.29", {\
+          "packageLocation": "./.yarn/cache/@types-yargs-npm-17.0.29-6860504025-8bbc0edd57.zip/node_modules/@types/yargs/",\
           "packageDependencies": [\
-            ["@types/yargs", "npm:17.0.28"],\
+            ["@types/yargs", "npm:17.0.29"],\
             ["@types/yargs-parser", "npm:20.2.1"]\
           ],\
           "linkType": "HARD"\
