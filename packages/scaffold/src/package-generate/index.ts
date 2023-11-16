@@ -94,6 +94,7 @@ export = class PackageGenerator extends Generator {
     this.packageJson.set('scripts', {
       build: 'yarn clean && tsc',
       clean: 'rimraf dist',
+      release: 'semantic-release && sleep 3',
       start: 'tsc --watch --preserveWatchOutput',
       test: 'jest',
     })

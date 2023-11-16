@@ -12,7 +12,7 @@
     "clean": "yarn workspaces foreach run clean",
     "package:generate": "node --require ts-node/register $(yarn bin yo) ./packages/scaffold/src/package-generate",
     "package:remove": "node --require ts-node/register $(yarn bin yo) ./packages/scaffold/src/package-remove",
-    "release": "yarn workspaces foreach --no-private --topological-dev run semantic-release",
+    "release": "yarn workspaces foreach --no-private --topological-dev run release",
     "start": "yarn build && yarn workspaces foreach --no-private --parallel --interlaced run start",
     "test": "yarn workspaces foreach run test",
     "prepare": "husky install"
