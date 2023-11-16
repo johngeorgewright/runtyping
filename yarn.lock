@@ -2326,7 +2326,6 @@ __metadata:
     typescript: 4.8.4
     zod: 3.22.4
   peerDependencies:
-    typescript: ^4.7.4
     zod: ^3.17.9
   bin:
     runtyping: dist/cli.js
