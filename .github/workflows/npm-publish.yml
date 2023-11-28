@@ -17,7 +17,7 @@ jobs:
 
       - name: NVM
         id: nvm
-        run: echo "::set-output name=version::$(cat .nvmrc)"
+        run: echo "version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
