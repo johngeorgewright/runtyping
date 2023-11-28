@@ -1,5 +1,5 @@
 import assertNever from 'assert-never'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import * as pathHelper from 'path'
 import { Project, SourceFile } from 'ts-morph'
 import { Generator } from '@runtyping/generator'
