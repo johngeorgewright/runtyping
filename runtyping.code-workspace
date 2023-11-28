@@ -19,8 +19,7 @@
     { "name": "📦 @runtyping/zod", "path": "packages/zod" }
   ],
   "settings": {
-    "jest.jestCommandLine": "yarn test",
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "prettier.prettierPath": "../../.yarn/sdks/prettier/index.js",
     "search.exclude": { "**/dist": true, "**/.yarn": true, "**/.pnp.*": true },
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.tsdk": ".yarn/sdks/typescript/lib"
