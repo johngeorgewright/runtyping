@@ -2157,12 +2157,12 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.1"
     tslib: "npm:2.6.2"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
     typescript-json-schema: "npm:0.62.0"
     yargs: "npm:17.7.2"
     zod: "npm:3.22.4"
   peerDependencies:
-    typescript: ^4.7.4
+    typescript: ^4.7.4 || ^5.0.0
   languageName: unknown
   linkType: soft
 
@@ -2193,7 +2193,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.1"
     tslib: "npm:2.6.2"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
   peerDependencies:
     io-ts: ^2.0.0
   bin:
@@ -2233,7 +2233,7 @@ __metadata:
     ts-jest: "npm:29.1.1"
     ts-node: "npm:10.9.1"
     tslib: "npm:2.6.2"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
     yo: "npm:4.3.1"
   languageName: unknown
   linkType: soft
@@ -2261,7 +2261,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.1"
     tslib: "npm:2.6.2"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
   peerDependencies:
     runtypes: ^6.5.1
   bin:
@@ -2290,7 +2290,7 @@ __metadata:
     semantic-release-monorepo: "npm:7.0.5"
     ts-jest: "npm:29.1.1"
     tslib: "npm:2.6.2"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
     yeoman-generator: "npm:5.10.0"
   languageName: unknown
   linkType: soft
@@ -2320,7 +2320,7 @@ __metadata:
     ts-node: "npm:10.9.1"
     tslib: "npm:2.6.2"
     type-fest: "npm:4.8.3"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
   peerDependencies:
     "@runtyping/generator": "workspace:*"
     "@types/json-schema": ^7.0.11
@@ -2350,7 +2350,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.1"
     tslib: "npm:2.6.2"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.4.3"
     zod: "npm:3.22.4"
   peerDependencies:
     zod: ^3.17.9
@@ -14403,13 +14403,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.2.2":
-  version: 5.2.2
-  resolution: "typescript@npm:5.2.2"
+"typescript@npm:5.4.3":
+  version: 5.4.3
+  resolution: "typescript@npm:5.4.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d65e50eb849bd21ff8677e5b9447f9c6e74777e346afd67754934264dcbf4bd59e7d2473f6062d9a015d66bd573311166357e3eb07fea0b52859cf9bb2b58555
+  checksum: de4c69f49a7ad4b1ea66a6dcc8b055ac34eb56af059a069d8988dd811c5e649be07e042e5bf573e8d0ac3ec2f30e6c999aa651cd09f6e9cbc6113749e8b6be20
   languageName: node
   linkType: hard
 
@@ -14433,13 +14433,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>":
-  version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"
+"typescript@patch:typescript@npm%3A5.4.3#optional!builtin<compat/typescript>":
+  version: 5.4.3
+  resolution: "typescript@patch:typescript@npm%3A5.4.3#optional!builtin<compat/typescript>::version=5.4.3&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f79cc2ba802c94c2b78dbb00d767a10adb67368ae764709737dc277273ec148aa4558033a03ce901406b35fddf4eac46dabc94a1e1d12d2587e2b9cfe5707b4a
+  checksum: 3abea475798fdf7ee46e75dafc50c85f30fd1e7061559ec2af61646f23d16c91742703f04f0ac55be52f58ca05c02f77404b7b94bbad16278c9a54c9eeb4f4ea
   languageName: node
   linkType: hard
 
