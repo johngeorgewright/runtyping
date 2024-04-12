@@ -73,6 +73,12 @@ async function generate(
     typeWriters,
     targetFile: pathHelper.join(fixturesDestDir, `${testName}.ts`),
     project,
+    transformers: {
+      TransformStringToNumber: {
+        file: '@runtyping/test-type-writers/dist/transformers/stringToNumber',
+        export: 'stringToNumber',
+      },
+    },
     ...generatorOpts,
   })
 

@@ -22,6 +22,6 @@
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.js",
     "search.exclude": { "**/dist": true, "**/.yarn": true, "**/.pnp.*": true },
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "typescript.tsdk": ".yarn/sdks/typescript/lib"
+    "typescript.tsdk": "✨ @runtyping/mono-repo/.yarn/sdks/typescript/lib"
   }
 }

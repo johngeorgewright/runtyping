@@ -6,6 +6,7 @@ testTypeWriters<Runtype>({
   createNumberValidator: () => Number,
   createStringValidator: () => String,
   createObjectValidator: Record,
+  ignore: ['transformer'],
   typeWriters: new RuntypesTypeWriters(),
   validate(validator, data) {
     validator.check(data)

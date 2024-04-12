@@ -8,6 +8,7 @@ testTypeWriter<t.Type<any>>({
   createNumberValidator: () => t.number,
   createStringValidator: () => t.string,
   createObjectValidator: t.type,
+  ignore: ['transformer'],
   typeWriters: new IoTsTypeWriters(),
   validate(validator, data) {
     pipe(

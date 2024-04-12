@@ -8,6 +8,6 @@ testTypeWriters<z.ZodTypeAny>({
   createObjectValidator: z.strictObject,
   typeWriters: new ZodTypeWriters(),
   validate(validator, data) {
-    validator.parse(data)
+    return validator.parse(data)
   },
 })

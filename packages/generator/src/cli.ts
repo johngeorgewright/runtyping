@@ -34,6 +34,7 @@ export default async function cli(
     targetFile,
     sourceTypes,
     runtypeFormat,
+    transformers,
     typeFormat,
   } of castArray(buildInstructions)) {
     const generator = new Generator({
@@ -41,6 +42,7 @@ export default async function cli(
       runtypeFormat,
       targetFile,
       tsConfigFile: argv.project,
+      transformers: transformers || {},
       typeFormat,
     })
     const file = await generator.generate(sourceTypes)
