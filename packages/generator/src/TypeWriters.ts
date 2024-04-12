@@ -1,5 +1,5 @@
 import { Symbol as CompilerSymbol, SymbolFlags, ts, Type } from 'ts-morph'
-import { Tuple } from '.'
+import { InstructionTypeTransformer, Tuple } from '.'
 import { getArrayElementType, isArray } from './array'
 import {
   escapeQuottedPropName,
@@ -23,9 +23,11 @@ export default abstract class TypeWriters {
     {
       recursive = false,
       circular = false,
+      transformer,
     }: {
       recursive?: boolean
       circular?: boolean
+      transformer?: InstructionTypeTransformer
     } = {}
   ): TypeWriter {
     const closeGenericFunction =
@@ -133,8 +135,13 @@ export default abstract class TypeWriters {
         break
     }
 
+    if (transformer)
+      yield* this.attachTransformer(transformer.file, transformer.export)
+
     if (closeGenericFunction) yield* closeGenericFunction()
   }
+
+  *attachTransformer(_fileName: string, _exportName: string): TypeWriter {}
 
   #requiresGenericFunction(type: Type) {
     try {

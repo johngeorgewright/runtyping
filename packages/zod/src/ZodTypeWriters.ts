@@ -21,8 +21,8 @@ export default class ZodTypeWriters extends TypeWriters {
   #module = 'zod';
 
   override *defaultStaticImplementation(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
-    yield [Static, [type, 'Infer<typeof ${name}>']]
+    yield [Import, { source: this.#module, name: 'output' }]
+    yield [Static, [type, 'output<typeof ${name}>']]
   }
 
   override any() {
@@ -38,6 +38,15 @@ export default class ZodTypeWriters extends TypeWriters {
     yield [Write, 'array(']
     yield* element
     yield [Write, ')']
+  }
+
+  override *attachTransformer(
+    fileName: string,
+    exportName: string
+  ): TypeWriter {
+    const alias = `${exportName}Transformer`
+    yield [Import, { source: fileName, name: exportName, alias }]
+    yield [Write, `.transform(${alias})`]
   }
 
   override boolean() {
@@ -288,9 +297,9 @@ export default class ZodTypeWriters extends TypeWriters {
   override *withGenerics(
     type: Type<ts.Type>
   ): TypeWriter<() => TypeWriter<any>> {
-    yield [Import, { source: this.#module, alias: 'Infer', name: 'infer' }]
+    yield [Import, { source: this.#module, name: 'output' }]
     yield [Import, { source: this.#module, name: 'ZodType' }]
-    return yield* this.openGenericFunction(type, 'ZodType', 'Infer')
+    return yield* this.openGenericFunction(type, 'ZodType', 'output')
   }
 
   *#simple(type: keyof typeof zod): TypeWriter {

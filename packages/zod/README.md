@@ -20,6 +20,10 @@ npm install -D @runtyping/zod
 
    targetFile: ./src/other-runtypes.ts # The file to create
    runtypeFormat: {type}Rt # Optional: use a custom name format for the created runtype
+   transformers: # Optional: specify a transformer for a type
+     [TYPENAME]:
+       file: /path/to/transformer
+       export: exportNameOfTranformer
    typeFormat: {type}Type  # Optional: use a custom name format for the created type
    sourceTypes:
      exportStaticType: true # Optional: export static types as well (true by default)

@@ -15,7 +15,7 @@ import {
   TypeParameterDeclarationStructure,
   VariableDeclarationKind,
 } from 'ts-morph'
-import { InstructionSourceType } from './runtypes'
+import { InstructionSourceType, InstructionTypeTransformers } from './runtypes'
 import {
   CanDeclareStatics,
   DeclareAndUse,
@@ -54,6 +54,7 @@ export type GeneratorOptions = GeneratorOptionsBase & {
   targetFile: string
   typeFormat?: string
   typeWriters: TypeWriters
+  transformers: InstructionTypeTransformers
 }
 
 export type ImportSpec = Omit<ImportSpecifierStructure, 'kind'> & {
@@ -69,6 +70,7 @@ export default class Generator {
   #project: Project
   #imports: ImportSpec[] = []
   #targetFile: SourceCodeFile
+  #transformers: InstructionTypeTransformers
 
   constructor(options: GeneratorOptions) {
     this.#typeWriters = options.typeWriters
@@ -101,6 +103,7 @@ export default class Generator {
 
     this.#formatRuntypeName = typeNameFormatter(options.runtypeFormat)
     this.#formatTypeName = typeNameFormatter(options.typeFormat)
+    this.#transformers = options.transformers
   }
 
   get project() {
@@ -248,6 +251,9 @@ export default class Generator {
       this.#typeWriters.typeWriter(typeDeclaration.getType(), {
         circular: !!circular,
         recursive,
+        transformer: typeDeclaration.getName()
+          ? this.#transformers[typeDeclaration.getName()!]
+          : undefined,
       })
     )
 

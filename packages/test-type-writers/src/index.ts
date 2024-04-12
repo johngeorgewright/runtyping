@@ -24,6 +24,12 @@ export default function testTypeWriters<Validator>(
     const generator = new Generator({
       typeWriters: props.typeWriters,
       targetFile: pathHelper.join(fixturesDestDir, 'without-static-types.ts'),
+      transformers: {
+        TransformStringToNumber: {
+          file: '@runtyping/test-type-writers/dist/transformers/stringToNumber',
+          export: 'stringToNumber',
+        },
+      },
     })
     const sourceFile = await generator.generate([
       {
