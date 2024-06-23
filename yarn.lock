@@ -2138,7 +2138,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@ts-morph/common": "npm:0.21.0"
+    "@ts-morph/common": "npm:0.24.0"
     "@types/jest": "npm:29.5.10"
     "@types/js-yaml": "npm:4.0.9"
     "@types/lodash": "npm:4.14.202"
@@ -2178,7 +2178,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@ts-morph/common": "npm:0.21.0"
+    "@ts-morph/common": "npm:0.24.0"
     "@types/jest": "npm:29.5.10"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
@@ -2666,7 +2666,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:0.21.0, @ts-morph/common@npm:~0.21.0":
+"@ts-morph/common@npm:0.24.0":
+  version: 0.24.0
+  resolution: "@ts-morph/common@npm:0.24.0"
+  dependencies:
+    fast-glob: "npm:^3.3.2"
+    minimatch: "npm:^9.0.4"
+    mkdirp: "npm:^3.0.1"
+    path-browserify: "npm:^1.0.1"
+  checksum: 5b732789868e92689c86a902c8f4528d998ac2e183a02cfeff6cf7731075d254cf3dd1e7bb73f2943ec1fcde6f2fb1caa19ee47a17a4289be08c224d68a902d4
+  languageName: node
+  linkType: hard
+
+"@ts-morph/common@npm:~0.21.0":
   version: 0.21.0
   resolution: "@ts-morph/common@npm:0.21.0"
   dependencies:
@@ -6125,7 +6137,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.12":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.3.2":
   version: 3.3.2
   resolution: "fast-glob@npm:3.3.2"
   dependencies:
@@ -10061,6 +10073,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^9.0.4":
+  version: 9.0.4
+  resolution: "minimatch@npm:9.0.4"
+  dependencies:
+    brace-expansion: "npm:^2.0.1"
+  checksum: 4cdc18d112b164084513e890d6323370db14c22249d536ad1854539577a895e690a27513dc346392f61a4a50afbbd8abc88f3f25558bfbbbb862cd56508b20f5
+  languageName: node
+  linkType: hard
+
 "minimist-options@npm:4.1.0":
   version: 4.1.0
   resolution: "minimist-options@npm:4.1.0"
@@ -10263,7 +10284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:3.0.1":
+"mkdirp@npm:3.0.1, mkdirp@npm:^3.0.1":
   version: 3.0.1
   resolution: "mkdirp@npm:3.0.1"
   bin:
