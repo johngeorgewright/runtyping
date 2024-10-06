@@ -2138,7 +2138,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@ts-morph/common": "npm:0.21.0"
+    "@ts-morph/common": "npm:0.25.0"
     "@types/jest": "npm:29.5.10"
     "@types/js-yaml": "npm:4.0.9"
     "@types/lodash": "npm:4.14.202"
@@ -2178,7 +2178,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@ts-morph/common": "npm:0.21.0"
+    "@ts-morph/common": "npm:0.25.0"
     "@types/jest": "npm:29.5.10"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
@@ -2666,7 +2666,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:0.21.0, @ts-morph/common@npm:~0.21.0":
+"@ts-morph/common@npm:0.25.0":
+  version: 0.25.0
+  resolution: "@ts-morph/common@npm:0.25.0"
+  dependencies:
+    minimatch: "npm:^9.0.4"
+    path-browserify: "npm:^1.0.1"
+    tinyglobby: "npm:^0.2.9"
+  checksum: 9b192dfebb7179e96267ea1720f6afe77964f9f89ecaca41d372da206cdfd838a77c1080026c73115a5d3a88752b1504ec7380907e26b6424e8fb7f7625c7461
+  languageName: node
+  linkType: hard
+
+"@ts-morph/common@npm:~0.21.0":
   version: 0.21.0
   resolution: "@ts-morph/common@npm:0.21.0"
   dependencies:
@@ -6180,6 +6191,18 @@ __metadata:
   dependencies:
     bser: "npm:2.1.1"
   checksum: 9a03efc7d41ce3ca3d799d63505a1f7312caddf4e7737d39f2165bfe4872cbd4b87eccc9e6c57229ea08f14b4d7187896da31a7270b8da7a4aaa8fba2d3d1c42
+  languageName: node
+  linkType: hard
+
+"fdir@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "fdir@npm:6.4.0"
+  peerDependencies:
+    picomatch: ^3 || ^4
+  peerDependenciesMeta:
+    picomatch:
+      optional: true
+  checksum: e45d7c5d349ef4a4835c788944dae7ac5de7aab159511bc3ce8bc62164d4a25cb915c6d2f400886a9ed6f9d9cf38de394b71cb73935408c90eeafa0a8f6cc377
   languageName: node
   linkType: hard
 
@@ -10061,6 +10084,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^9.0.4":
+  version: 9.0.5
+  resolution: "minimatch@npm:9.0.5"
+  dependencies:
+    brace-expansion: "npm:^2.0.1"
+  checksum: dd6a8927b063aca6d910b119e1f2df6d2ce7d36eab91de83167dd136bb85e1ebff97b0d3de1cb08bd1f7e018ca170b4962479fefab5b2a69e2ae12cb2edc8348
+  languageName: node
+  linkType: hard
+
 "minimist-options@npm:4.1.0":
   version: 4.1.0
   resolution: "minimist-options@npm:4.1.0"
@@ -11808,6 +11840,13 @@ __metadata:
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 60c2595003b05e4535394d1da94850f5372c9427ca4413b71210f437f7b2ca091dbd611c45e8b37d10036fa8eade25c1b8951654f9d3973bfa66a2ff4d3b08bc
+  languageName: node
+  linkType: hard
+
+"picomatch@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "picomatch@npm:4.0.2"
+  checksum: ce617b8da36797d09c0baacb96ca8a44460452c89362d7cb8f70ca46b4158ba8bc3606912de7c818eb4a939f7f9015cef3c766ec8a0c6bfc725fdc078e39c717
   languageName: node
   linkType: hard
 
@@ -13965,6 +14004,16 @@ __metadata:
   version: 1.3.0
   resolution: "tiny-relative-date@npm:1.3.0"
   checksum: 82a1fa2f3b00cd77c3ff0cf45380dad9e5befa8ee344d8de8076525efda4e6bd6af8f7f483e103b5834dc34bbed337fab7ac151f1d1a429a20f434a3744057b4
+  languageName: node
+  linkType: hard
+
+"tinyglobby@npm:^0.2.9":
+  version: 0.2.9
+  resolution: "tinyglobby@npm:0.2.9"
+  dependencies:
+    fdir: "npm:^6.4.0"
+    picomatch: "npm:^4.0.2"
+  checksum: 4570dacefa7f7371f49e52c8e4b7c4638d2cab9ee2903e1142c3eff4cfe71d1b8ab6cc55f65590a3232c27f8c0bcec794e4c2f02a4370fc79f3f4f026b5d84e7
   languageName: node
   linkType: hard
 

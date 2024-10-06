@@ -2748,7 +2748,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.1.0"],\
           ["@semantic-release/npm", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:9.0.2"],\
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
-          ["@ts-morph/common", "npm:0.21.0"],\
+          ["@ts-morph/common", "npm:0.25.0"],\
           ["@types/jest", "npm:29.5.10"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.14.202"],\
@@ -2791,7 +2791,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.1.0"],\
           ["@semantic-release/npm", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:9.0.2"],\
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
-          ["@ts-morph/common", "npm:0.21.0"],\
+          ["@ts-morph/common", "npm:0.25.0"],\
           ["@types/jest", "npm:29.5.10"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.14.202"],\
@@ -2831,7 +2831,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.1.0"],\
           ["@semantic-release/npm", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:9.0.2"],\
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
-          ["@ts-morph/common", "npm:0.21.0"],\
+          ["@ts-morph/common", "npm:0.25.0"],\
           ["@types/jest", "npm:29.5.10"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:20.10.2"],\
@@ -3478,6 +3478,16 @@ const RAW_RUNTIME_STATE =
           ["minimatch", "npm:7.4.6"],\
           ["mkdirp", "npm:2.1.6"],\
           ["path-browserify", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:0.25.0", {\
+        "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.25.0-57b26009ce-9b192dfebb.zip/node_modules/@ts-morph/common/",\
+        "packageDependencies": [\
+          ["@ts-morph/common", "npm:0.25.0"],\
+          ["minimatch", "npm:9.0.5"],\
+          ["path-browserify", "npm:1.0.1"],\
+          ["tinyglobby", "npm:0.2.9"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7440,6 +7450,28 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["fb-watchman", "npm:2.0.1"],\
           ["bser", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["fdir", [\
+      ["npm:6.4.0", {\
+        "packageLocation": "./.yarn/cache/fdir-npm-6.4.0-33f29ab0e9-e45d7c5d34.zip/node_modules/fdir/",\
+        "packageDependencies": [\
+          ["fdir", "npm:6.4.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:9fd6964a88eacd2d97c26f762c41c0988e3b202c1acec75bf853bd0177e8a79c6f78278bd05f9e7235c83ed196001e74409c7ef3865d200e9663b09d3d364d9b#npm:6.4.0", {\
+        "packageLocation": "./.yarn/__virtual__/fdir-virtual-bde394780f/0/cache/fdir-npm-6.4.0-33f29ab0e9-e45d7c5d34.zip/node_modules/fdir/",\
+        "packageDependencies": [\
+          ["fdir", "virtual:9fd6964a88eacd2d97c26f762c41c0988e3b202c1acec75bf853bd0177e8a79c6f78278bd05f9e7235c83ed196001e74409c7ef3865d200e9663b09d3d364d9b#npm:6.4.0"],\
+          ["@types/picomatch", null],\
+          ["picomatch", "npm:4.0.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/picomatch",\
+          "picomatch"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11702,6 +11734,14 @@ const RAW_RUNTIME_STATE =
           ["brace-expansion", "npm:2.0.1"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:9.0.5", {\
+        "packageLocation": "./.yarn/cache/minimatch-npm-9.0.5-9aa93d97fa-dd6a8927b0.zip/node_modules/minimatch/",\
+        "packageDependencies": [\
+          ["minimatch", "npm:9.0.5"],\
+          ["brace-expansion", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["minimist", [\
@@ -13514,6 +13554,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/picomatch-npm-2.3.1-c782cfd986-60c2595003.zip/node_modules/picomatch/",\
         "packageDependencies": [\
           ["picomatch", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.0.2", {\
+        "packageLocation": "./.yarn/cache/picomatch-npm-4.0.2-e93516ddf2-ce617b8da3.zip/node_modules/picomatch/",\
+        "packageDependencies": [\
+          ["picomatch", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -15833,6 +15880,17 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/tiny-relative-date-npm-1.3.0-4737b1ee94-82a1fa2f3b.zip/node_modules/tiny-relative-date/",\
         "packageDependencies": [\
           ["tiny-relative-date", "npm:1.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tinyglobby", [\
+      ["npm:0.2.9", {\
+        "packageLocation": "./.yarn/cache/tinyglobby-npm-0.2.9-9fd6964a88-4570dacefa.zip/node_modules/tinyglobby/",\
+        "packageDependencies": [\
+          ["tinyglobby", "npm:0.2.9"],\
+          ["fdir", "virtual:9fd6964a88eacd2d97c26f762c41c0988e3b202c1acec75bf853bd0177e8a79c6f78278bd05f9e7235c83ed196001e74409c7ef3865d200e9663b09d3d364d9b#npm:6.4.0"],\
+          ["picomatch", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
