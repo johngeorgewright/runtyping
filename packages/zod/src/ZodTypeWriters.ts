@@ -41,9 +41,11 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *attachTransformer(
+    typeWriter: TypeWriter,
     fileName: string,
     exportName: string
   ): TypeWriter {
+    yield* typeWriter
     const alias = `${exportName}Transformer`
     yield [Import, { source: fileName, name: exportName, alias }]
     yield [Write, `.transform(${alias})`]
@@ -242,7 +244,7 @@ export default class ZodTypeWriters extends TypeWriters {
 
     yield* this.variadicTupleElements({
       tupleType: type,
-      element: function* (type, index) {
+      *element(type, index) {
         yield [Import, { source: '@runtyping/zod', name: 'validators' }]
         yield [
           Write,
@@ -261,7 +263,7 @@ export default class ZodTypeWriters extends TypeWriters {
           });`,
         ]
       },
-      variadicElement: function* (this: ZodTypeWriters, type, from, to) {
+      *variadicElement(this: ZodTypeWriters, type, from, to) {
         yield [Import, { source: '@runtyping/zod', name: 'validators' }]
         yield [
           Write,
@@ -278,7 +280,7 @@ export default class ZodTypeWriters extends TypeWriters {
           });`,
         ]
       },
-      separator: function* () {
+      *separator() {
         yield [Write, '\n']
       },
     })
@@ -295,11 +297,14 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *withGenerics(
+    typeWriter: TypeWriter,
     type: Type<ts.Type>
-  ): TypeWriter<() => TypeWriter<any>> {
+  ): TypeWriter {
     yield [Import, { source: this.#module, name: 'output' }]
     yield [Import, { source: this.#module, name: 'ZodType' }]
-    return yield* this.openGenericFunction(type, 'ZodType', 'output')
+    const close = yield* this.openGenericFunction(type, 'ZodType', 'output')
+    yield* typeWriter
+    yield* close()
   }
 
   *#simple(type: keyof typeof zod): TypeWriter {
