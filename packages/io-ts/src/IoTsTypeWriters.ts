@@ -128,7 +128,7 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   *#variadicTupleElements(dataName: string, type: Type): TypeWriter {
-    yield [Write, `${dataName}.length >= ${Tuple.getTupleMinSize(type)}`]
+    yield [Write, `${dataName}.length >= ${Tuple.getTupleMinSize(type)} &&`]
     yield* this.variadicTupleElements({
       tupleType: type,
       *element(type, index) {
@@ -319,11 +319,14 @@ export default class IoTsTypeWriters extends TypeWriters {
   }
 
   protected override *withGenerics(
+    typeWriter: TypeWriter,
     type: Type<ts.Type>
-  ): TypeWriter<() => TypeWriter<any>> {
+  ): TypeWriter {
     yield [Import, { source: this.#module, name: 'TypeOf' }]
     yield [Import, { source: this.#module, name: 'Type' }]
-    return yield* this.openGenericFunction(type, 'Type', 'TypeOf')
+    const close = yield* this.openGenericFunction(type, 'Type', 'TypeOf')
+    yield* typeWriter
+    yield* close()
   }
 
   *#simple(type: SimpleIOTSType): TypeWriter {
@@ -335,6 +338,14 @@ export default class IoTsTypeWriters extends TypeWriters {
       yield [Import, { source: this.#module, name: type }]
       yield [Write, type]
     }
+  }
+
+  override attachTransformer(
+    typeWriter: TypeWriter,
+    _fileName: string,
+    _exportName: string
+  ): TypeWriter {
+    return typeWriter
   }
 }
 
