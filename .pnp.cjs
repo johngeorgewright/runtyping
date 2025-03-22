@@ -75,7 +75,7 @@ const RAW_RUNTIME_STATE =
           ["commitizen", "npm:4.3.0"],\
           ["concurrently", "npm:8.2.2"],\
           ["cz-conventional-changelog", "npm:3.3.0"],\
-          ["fp-ts", "npm:2.16.1"],\
+          ["fp-ts", "npm:2.16.9"],\
           ["husky", "npm:8.0.3"],\
           ["isbinaryfile", "npm:5.0.0"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
@@ -2840,7 +2840,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:20.10.2"],\
-          ["fp-ts", "npm:2.16.1"],\
+          ["fp-ts", "npm:2.16.9"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["rimraf", "npm:5.0.5"],\
@@ -2875,7 +2875,7 @@ const RAW_RUNTIME_STATE =
           ["commitizen", "npm:4.3.0"],\
           ["concurrently", "npm:8.2.2"],\
           ["cz-conventional-changelog", "npm:3.3.0"],\
-          ["fp-ts", "npm:2.16.1"],\
+          ["fp-ts", "npm:2.16.9"],\
           ["husky", "npm:8.0.3"],\
           ["isbinaryfile", "npm:5.0.0"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
@@ -7694,10 +7694,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["fp-ts", [\
-      ["npm:2.16.1", {\
-        "packageLocation": "./.yarn/cache/fp-ts-npm-2.16.1-8deb3ec2d6-31d2fe47ff.zip/node_modules/fp-ts/",\
+      ["npm:2.16.9", {\
+        "packageLocation": "./.yarn/cache/fp-ts-npm-2.16.9-9cc01932e7-af5c3fa829.zip/node_modules/fp-ts/",\
         "packageDependencies": [\
-          ["fp-ts", "npm:2.16.1"]\
+          ["fp-ts", "npm:2.16.9"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9088,7 +9088,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20"],\
           ["@types/fp-ts", null],\
-          ["fp-ts", "npm:2.16.1"]\
+          ["fp-ts", "npm:2.16.9"]\
         ],\
         "packagePeers": [\
           "@types/fp-ts",\
