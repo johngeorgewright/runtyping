@@ -52,6 +52,6 @@
     "zod": "3.22.4"
   },
   "peerDependencies": {
-    "typescript": "^4.7.4"
+    "typescript": ">= 4.7.4"
   }
 }
