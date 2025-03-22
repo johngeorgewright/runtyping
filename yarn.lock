@@ -2216,7 +2216,7 @@ __metadata:
     "@types/jest": "npm:29.5.14"
     "@types/node": "npm:20.10.2"
     "@types/source-map-support": "npm:0.5.10"
-    commitizen: "npm:4.3.0"
+    commitizen: "npm:4.3.1"
     concurrently: "npm:8.2.2"
     cz-conventional-changelog: "npm:3.3.0"
     fp-ts: "npm:2.16.1"
@@ -4782,9 +4782,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.3.0":
-  version: 4.3.0
-  resolution: "commitizen@npm:4.3.0"
+"commitizen@npm:4.3.1":
+  version: 4.3.1
+  resolution: "commitizen@npm:4.3.1"
   dependencies:
     cachedir: "npm:2.3.0"
     cz-conventional-changelog: "npm:3.3.0"
@@ -4804,7 +4804,7 @@ __metadata:
     commitizen: bin/commitizen
     cz: bin/git-cz
     git-cz: bin/git-cz
-  checksum: 45a82b7fdeb901654b39de37567995ef99c6e33e02406b25dd1059a75f880d9cd593fa4d52a32b2e70baef8754bb32c1bf8e5b9d9336f32087bf7f451cb3f72c
+  checksum: 3feeb9d235a4d433772f9987df7843ba8687d84491502ffbf0e71e33070b5910507f9923278dfbea56afb446b0b474f74117e586e3d3f6c5c5a155f1a64b6066
   languageName: node
   linkType: hard
 
