@@ -81,7 +81,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["lint-staged", "npm:15.1.0"],\
           ["prettier", "npm:2.8.8"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["runtypes", "npm:6.7.0"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
@@ -2766,7 +2766,7 @@ const RAW_RUNTIME_STATE =
           ["json-schema-to-typescript", "npm:13.1.1"],\
           ["lodash", "npm:4.17.21"],\
           ["prettier", "npm:2.8.8"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
           ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:29.1.1"],\
@@ -2808,7 +2808,7 @@ const RAW_RUNTIME_STATE =
           ["json-schema-to-typescript", "npm:13.1.1"],\
           ["lodash", "npm:4.17.21"],\
           ["prettier", "npm:2.8.8"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
           ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:29.1.1"],\
@@ -2843,7 +2843,7 @@ const RAW_RUNTIME_STATE =
           ["fp-ts", "npm:2.16.9"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
           ["title-case", "npm:3.0.3"],\
@@ -2881,7 +2881,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["lint-staged", "npm:15.1.0"],\
           ["prettier", "npm:2.8.8"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["runtypes", "npm:6.7.0"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
@@ -2911,7 +2911,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:20.10.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["runtypes", "npm:6.7.0"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
@@ -2941,7 +2941,7 @@ const RAW_RUNTIME_STATE =
           ["change-case", "npm:4.1.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["prettier", "npm:2.8.8"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
           ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:29.1.1"],\
@@ -2971,7 +2971,7 @@ const RAW_RUNTIME_STATE =
           ["assert-never", "npm:1.2.1"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["mkdirp", "npm:3.0.1"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["runtypes", "npm:6.5.1"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
@@ -3007,7 +3007,7 @@ const RAW_RUNTIME_STATE =
           ["assert-never", "npm:1.2.1"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["mkdirp", "npm:3.0.1"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["runtypes", "npm:6.5.1"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
@@ -3038,7 +3038,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:20.10.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
           ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:29.1.1"],\
@@ -3067,7 +3067,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:20.10.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
           ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:7.0.5"],\
           ["title-case", "npm:3.0.3"],\
@@ -14509,10 +14509,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:5.0.5", {\
-        "packageLocation": "./.yarn/cache/rimraf-npm-5.0.5-19228633fd-a612c7184f.zip/node_modules/rimraf/",\
+      ["npm:5.0.10", {\
+        "packageLocation": "./.yarn/cache/rimraf-npm-5.0.10-d0c6647697-f3b8ce81ee.zip/node_modules/rimraf/",\
         "packageDependencies": [\
-          ["rimraf", "npm:5.0.5"],\
+          ["rimraf", "npm:5.0.10"],\
           ["glob", "npm:10.3.10"]\
         ],\
         "linkType": "HARD"\
