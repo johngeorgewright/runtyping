@@ -2221,7 +2221,7 @@ __metadata:
     cz-conventional-changelog: "npm:3.3.0"
     fp-ts: "npm:2.16.9"
     husky: "npm:8.0.3"
-    isbinaryfile: "npm:5.0.0"
+    isbinaryfile: "npm:5.0.4"
     jest: "npm:29.7.0"
     lint-staged: "npm:15.1.0"
     prettier: "npm:2.8.8"
@@ -8111,10 +8111,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"isbinaryfile@npm:5.0.0":
-  version: 5.0.0
-  resolution: "isbinaryfile@npm:5.0.0"
-  checksum: 511bb5ce54c903e9881ca46fe7fe06759b29d9d01d6929f3c46cb95a4bf369320d9de858943d5bf4ac446a442b53be095b325b1deebca0e67ccd9f466c53ef74
+"isbinaryfile@npm:5.0.4":
+  version: 5.0.4
+  resolution: "isbinaryfile@npm:5.0.4"
+  checksum: 6162e900b17e6c73da6138667d6b195ed234f9fd9d073e7c8c07ee36657e63b6a69d73da55f522d45a1928f5da4642b5d25d27e24ebd3bb68b83647d594bee79
   languageName: node
   linkType: hard
 
