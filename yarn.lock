@@ -2327,6 +2327,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@runtyping/valibot@workspace:packages/valibot":
+  version: 0.0.0-use.local
+  resolution: "@runtyping/valibot@workspace:packages/valibot"
+  dependencies:
+    "@runtyping/generator": "workspace:*"
+    "@runtyping/test-type-writers": "workspace:*"
+    "@semantic-release/commit-analyzer": "npm:9.0.2"
+    "@semantic-release/git": "npm:10.0.1"
+    "@semantic-release/github": "npm:8.1.0"
+    "@semantic-release/npm": "npm:9.0.2"
+    "@semantic-release/release-notes-generator": "npm:10.0.3"
+    "@types/jest": "npm:29.5.10"
+    "@types/json-schema": "npm:7.0.15"
+    "@types/node": "npm:20.10.2"
+    jest: "npm:29.7.0"
+    rimraf: "npm:5.0.5"
+    semantic-release: "npm:20.1.3"
+    semantic-release-monorepo: "npm:7.0.5"
+    ts-jest: "npm:29.1.1"
+    ts-morph: "npm:20.0.0"
+    ts-node: "npm:10.9.1"
+    tslib: "npm:2.6.2"
+    typescript: "npm:5.2.2"
+    valibot: "npm:1.0.0"
+  peerDependencies:
+    valibot: ^1.0.0-beta.14
+  bin:
+    runtyping: dist/cli.js
+  languageName: unknown
+  linkType: soft
+
 "@runtyping/zod@workspace:packages/zod":
   version: 0.0.0-use.local
   resolution: "@runtyping/zod@workspace:packages/zod"
@@ -14680,6 +14711,18 @@ __metadata:
     "@types/istanbul-lib-coverage": "npm:^2.0.1"
     convert-source-map: "npm:^1.6.0"
   checksum: 0bbaffbb344af7172884a6f9868fa55df96230caf7100fa250b63d95ad0e24848141b35731d16607ae0d0023baa064b75c8e4197f6071f3bd3b09540c98490a1
+  languageName: node
+  linkType: hard
+
+"valibot@npm:1.0.0":
+  version: 1.0.0
+  resolution: "valibot@npm:1.0.0"
+  peerDependencies:
+    typescript: ">=5"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 3a46878a7cfb41e4538d7ae4b3ee255ca27b717f428f46bff00fa242ac6176b91ecb491200bb092ac24cba8bae96d852799b1c504eb566ee9e01987a18c498f7
   languageName: node
   linkType: hard
 

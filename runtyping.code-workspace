@@ -16,6 +16,7 @@
       "name": "📦 @runtyping/test-type-writers",
       "path": "packages/test-type-writers"
     },
+    { "name": "📦 @runtyping/valibot", "path": "packages/valibot" },
     { "name": "📦 @runtyping/zod", "path": "packages/zod" }
   ],
   "settings": {
