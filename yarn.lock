@@ -2182,7 +2182,7 @@ __metadata:
     "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
-    fp-ts: "npm:2.16.1"
+    fp-ts: "npm:2.16.9"
     io-ts: "npm:2.2.20"
     jest: "npm:29.7.0"
     rimraf: "npm:5.0.5"
@@ -2216,10 +2216,10 @@ __metadata:
     "@types/jest": "npm:29.5.14"
     "@types/node": "npm:20.10.2"
     "@types/source-map-support": "npm:0.5.10"
-    commitizen: "npm:4.3.0"
+    commitizen: "npm:4.3.1"
     concurrently: "npm:8.2.2"
     cz-conventional-changelog: "npm:3.3.0"
-    fp-ts: "npm:2.16.1"
+    fp-ts: "npm:2.16.9"
     husky: "npm:8.0.3"
     isbinaryfile: "npm:5.0.0"
     jest: "npm:29.7.0"
@@ -4782,9 +4782,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitizen@npm:4.3.0":
-  version: 4.3.0
-  resolution: "commitizen@npm:4.3.0"
+"commitizen@npm:4.3.1":
+  version: 4.3.1
+  resolution: "commitizen@npm:4.3.1"
   dependencies:
     cachedir: "npm:2.3.0"
     cz-conventional-changelog: "npm:3.3.0"
@@ -4804,7 +4804,7 @@ __metadata:
     commitizen: bin/commitizen
     cz: bin/git-cz
     git-cz: bin/git-cz
-  checksum: 45a82b7fdeb901654b39de37567995ef99c6e33e02406b25dd1059a75f880d9cd593fa4d52a32b2e70baef8754bb32c1bf8e5b9d9336f32087bf7f451cb3f72c
+  checksum: 3feeb9d235a4d433772f9987df7843ba8687d84491502ffbf0e71e33070b5910507f9923278dfbea56afb446b0b474f74117e586e3d3f6c5c5a155f1a64b6066
   languageName: node
   linkType: hard
 
@@ -6417,10 +6417,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fp-ts@npm:2.16.1":
-  version: 2.16.1
-  resolution: "fp-ts@npm:2.16.1"
-  checksum: 31d2fe47ffc1420044fe60322b2e72c05013aa0c3bfd19c68de92a44d793c70f423794a46b53f99f7c6ca489975401235219219e88790e5ba34095198b950c16
+"fp-ts@npm:2.16.9":
+  version: 2.16.9
+  resolution: "fp-ts@npm:2.16.9"
+  checksum: af5c3fa829456da60ed63b5288907868f0df01a7215acfc5697f621a21f76b0a0f7b7c08ac81f2bcf7ecae13a6c6d41047e739a79cf239db19cd49afd7e8e015
   languageName: node
   linkType: hard
 
