@@ -18,7 +18,7 @@ import {
 import { getTypeName } from './util'
 
 export default abstract class TypeWriters {
-  *typeWriter(
+  typeWriter(
     type: Type,
     {
       recursive = false,
@@ -30,118 +30,112 @@ export default abstract class TypeWriters {
       transformer?: InstructionTypeTransformer
     } = {}
   ): TypeWriter {
-    const closeGenericFunction =
-      this.#requiresGenericFunction(type) && (yield* this.withGenerics(type))
+    let typeWriter = ((): TypeWriter => {
+      switch (true) {
+        case circular:
+        case recursive:
+          return this.lazy(type)
 
-    switch (true) {
-      case circular:
-      case recursive:
-        yield* this.lazy(type)
-        break
+        case type.isEnumLiteral():
+          return this.enumLiteral(type)
 
-      case type.isEnumLiteral():
-        yield* this.enumLiteral(type)
-        break
+        case type.isNever():
+          return this.never(type)
 
-      case type.isNever():
-        yield* this.never(type)
-        break
+        case type.isNull():
+          return this.null(type)
 
-      case type.isNull():
-        yield* this.null(type)
-        break
+        case type.isString():
+          return this.string(type)
 
-      case type.isString():
-        yield* this.string(type)
-        break
+        case type.isNumber():
+          return this.number(type)
 
-      case type.isNumber():
-        yield* this.number(type)
-        break
+        case type.isBoolean():
+          return this.boolean(type)
 
-      case type.isBoolean():
-        yield* this.boolean(type)
-        break
+        case isArray(type):
+          return this.array(type, getArrayElementType(type))
 
-      case isArray(type):
-        yield* this.array(type, getArrayElementType(type))
-        break
+        case type.isTuple():
+          return Tuple.isVariadicTuple(type)
+            ? this.variadicTuple(type)
+            : this.tuple(type)
 
-      case type.isTuple():
-        yield* Tuple.isVariadicTuple(type)
-          ? this.variadicTuple(type)
-          : this.tuple(type)
-        break
+        case type.isEnum():
+          return this.enum(type)
 
-      case type.isEnum():
-        yield* this.enum(type)
-        break
+        case type.isIntersection():
+          return this.intersection(type)
 
-      case type.isIntersection():
-        yield* this.intersection(type)
-        break
+        case type.isUnion():
+          return this.union(type)
 
-      case type.isUnion():
-        yield* this.union(type)
-        break
+        case type.isLiteral():
+          return this.literal(type)
 
-      case type.isLiteral():
-        yield* this.literal(type)
-        break
+        case type.isAny():
+          return this.any(type)
 
-      case type.isAny():
-        yield* this.any(type)
-        break
+        case type.isUnknown():
+          return this.unknown(type)
 
-      case type.isUnknown():
-        yield* this.unknown(type)
-        break
+        case type.isUndefined():
+          return this.undefined(type)
 
-      case type.isUndefined():
-        yield* this.undefined(type)
-        break
+        case type.getText() === 'void':
+          return this.void(type)
 
-      case type.getText() === 'void':
-        yield* this.void(type)
-        break
+        case type.getCallSignatures().length > 0:
+          return this.function(type)
 
-      case type.getCallSignatures().length > 0:
-        yield* this.function(type)
-        break
+        case type.isInterface():
+        case type.isObject():
+          switch (true) {
+            case isBuiltInType(type):
+              return this.builtInObject(type)
 
-      case type.isInterface():
-      case type.isObject():
-        switch (true) {
-          case isBuiltInType(type):
-            yield* this.builtInObject(type)
-            break
-          case !!type.getStringIndexType():
-            yield* this.stringIndexedObject(type)
-            break
-          case !!type.getNumberIndexType():
-            yield* this.numberIndexedObject(type)
-            break
-          default:
-            yield* this.object(type as Type<ts.ObjectType>)
-        }
-        break
+            case !!type.getStringIndexType():
+              return this.stringIndexedObject(type)
 
-      default:
-        try {
-          yield [Write, getTypeName(type)]
-        } catch (error) {
-          yield* this.unknown(type)
-        }
-        break
-    }
+            case !!type.getNumberIndexType():
+              return this.numberIndexedObject(type)
+
+            default:
+              return this.object(type as Type<ts.ObjectType>)
+          }
+
+        default:
+          return this.fallback(type)
+      }
+    })()
 
     if (transformer)
-      yield* this.attachTransformer(transformer.file, transformer.export)
+      typeWriter = this.attachTransformer(
+        typeWriter,
+        transformer.file,
+        transformer.export
+      )
 
-    if (closeGenericFunction) yield* closeGenericFunction()
+    if (this.#requiresGenericFunction(type))
+      typeWriter = this.withGenerics(typeWriter, type)
+
+    return typeWriter
   }
 
-  *attachTransformer(_fileName: string, _exportName: string): TypeWriter {}
+  *fallback(type: Type): TypeWriter {
+    try {
+      yield [Write, getTypeName(type)]
+    } catch (error) {
+      yield* this.unknown(type)
+    }
+  }
+
+  abstract attachTransformer(
+    typeWriter: TypeWriter,
+    fileName: string,
+    exportName: string
+  ): TypeWriter<void | (() => TypeWriter)>
 
   #requiresGenericFunction(type: Type) {
     try {
@@ -310,7 +304,7 @@ export default abstract class TypeWriters {
     const types = Tuple.getTupleElements(tupleType)
     let variadicIndex
     for (let i = 0; i < types.length; i++) {
-      if (separator) yield* separator()
+      if (separator && i > 0) yield* separator()
       const { element: elementType, variadic } = types[i]
       if (variadic) {
         variadicIndex = i
@@ -352,6 +346,9 @@ export default abstract class TypeWriters {
   protected abstract stringIndexedObject(type: Type): TypeWriter
   protected abstract numberIndexedObject(type: Type): TypeWriter
   protected abstract object(type: Type<ts.ObjectType>): TypeWriter
-  protected abstract withGenerics(type: Type): TypeWriter<() => TypeWriter>
+  protected abstract withGenerics(
+    typeWriter: TypeWriter,
+    type: Type
+  ): TypeWriter
   protected abstract never(type: Type): TypeWriter
 }
