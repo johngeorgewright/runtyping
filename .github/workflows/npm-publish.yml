@@ -13,14 +13,14 @@ jobs:
         node-version: [18, 20, 21]
     steps:
       - name: Checkout project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: NVM
         id: nvm
         run: echo "version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -34,7 +34,7 @@ jobs:
         run: yarn test
 
       - name: Upload dists
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: matrix.node-version == steps.nvm.outputs.version
         with:
           if-no-files-found: error
@@ -49,12 +49,12 @@ jobs:
     environment: NPM
     steps:
       - name: Checkout project
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.PUSH_TOKEN }}
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
 
@@ -65,7 +65,7 @@ jobs:
           yarn --immutable
 
       - name: Download dists
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dists
           path: ~/dists
