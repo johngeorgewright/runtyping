@@ -2841,7 +2841,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:20.10.2"],\
           ["fp-ts", "npm:2.16.9"],\
-          ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20"],\
+          ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["rimraf", "npm:5.0.5"],\
           ["semantic-release", "npm:20.1.3"],\
@@ -9076,17 +9076,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["io-ts", [\
-      ["npm:2.2.20", {\
-        "packageLocation": "./.yarn/cache/io-ts-npm-2.2.20-734099d523-c4508f666d.zip/node_modules/io-ts/",\
+      ["npm:2.2.22", {\
+        "packageLocation": "./.yarn/cache/io-ts-npm-2.2.22-c6c3edec2d-c5eb8ca848.zip/node_modules/io-ts/",\
         "packageDependencies": [\
-          ["io-ts", "npm:2.2.20"]\
+          ["io-ts", "npm:2.2.22"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20", {\
-        "packageLocation": "./.yarn/__virtual__/io-ts-virtual-4c83407170/0/cache/io-ts-npm-2.2.20-734099d523-c4508f666d.zip/node_modules/io-ts/",\
+      ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22", {\
+        "packageLocation": "./.yarn/__virtual__/io-ts-virtual-354d740927/0/cache/io-ts-npm-2.2.22-c6c3edec2d-c5eb8ca848.zip/node_modules/io-ts/",\
         "packageDependencies": [\
-          ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.20"],\
+          ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["@types/fp-ts", null],\
           ["fp-ts", "npm:2.16.9"]\
         ],\
