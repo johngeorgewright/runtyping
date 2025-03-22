@@ -2352,7 +2352,7 @@ __metadata:
     typescript: "npm:5.2.2"
     valibot: "npm:1.0.0"
   peerDependencies:
-    valibot: ^1.0.0-beta.14
+    valibot: ^1.0.0
   bin:
     runtyping: dist/cli.js
   languageName: unknown
