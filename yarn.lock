@@ -2139,7 +2139,7 @@ __metadata:
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
     "@ts-morph/common": "npm:0.21.0"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/js-yaml": "npm:4.0.9"
     "@types/lodash": "npm:4.14.202"
     "@types/node": "npm:20.10.2"
@@ -2179,7 +2179,7 @@ __metadata:
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
     "@ts-morph/common": "npm:0.21.0"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
     fp-ts: "npm:2.16.1"
@@ -2213,7 +2213,7 @@ __metadata:
     "@semantic-release/git": "npm:10.0.1"
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/node": "npm:20.10.2"
     "@types/source-map-support": "npm:0.5.10"
     commitizen: "npm:4.3.0"
@@ -2249,7 +2249,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
     jest: "npm:29.7.0"
@@ -2277,7 +2277,7 @@ __metadata:
     "@semantic-release/git": "npm:10.0.1"
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/node": "npm:20.10.2"
     "@types/prettier": "npm:2.7.3"
     "@types/rimraf": "npm:4.0.5"
@@ -2305,7 +2305,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/mkdirp": "npm:2.0.0"
     "@types/node": "npm:20.10.2"
@@ -2338,7 +2338,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
     jest: "npm:29.7.0"
@@ -2369,7 +2369,7 @@ __metadata:
     "@semantic-release/github": "npm:8.1.0"
     "@semantic-release/npm": "npm:9.0.2"
     "@semantic-release/release-notes-generator": "npm:10.0.3"
-    "@types/jest": "npm:29.5.10"
+    "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.10.2"
     jest: "npm:29.7.0"
@@ -2907,13 +2907,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:29.5.10":
-  version: 29.5.10
-  resolution: "@types/jest@npm:29.5.10"
+"@types/jest@npm:29.5.14":
+  version: 29.5.14
+  resolution: "@types/jest@npm:29.5.14"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: f31cdc9cf840a3bc2230148bb5cba1e0369e3180ae75d85804038905300dd8cfa1d989a4dbbd909633c04568d0c1a9251b2ee5c4197309ec033403dd2a08ea42
+  checksum: 59ec7a9c4688aae8ee529316c43853468b6034f453d08a2e1064b281af9c81234cec986be796288f1bbb29efe943bc950e70c8fa8faae1e460d50e3cf9760f9b
   languageName: node
   linkType: hard
 
