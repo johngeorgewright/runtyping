@@ -78,7 +78,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
     yield [
       Write,
       `.withConstraint<${staticType}>(data =>
-        data.length >= ${Tuple.getTupleMinSize(type)}`,
+        data.length >= ${Tuple.getTupleMinSize(type)} && `,
     ]
 
     yield* this.variadicTupleElements({
@@ -199,11 +199,14 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   protected override *withGenerics(
+    typeWriter: TypeWriter,
     type: Type<ts.ObjectType>
-  ): TypeWriter<() => TypeWriter> {
+  ): TypeWriter {
     yield [Import, { source: this.#module, name: 'Static' }]
     yield [Import, { source: this.#module, name: 'Runtype' }]
-    return yield* this.openGenericFunction(type, 'Runtype', 'Static')
+    const close = yield* this.openGenericFunction(type, 'Runtype', 'Static')
+    yield* typeWriter
+    yield* close()
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {
@@ -227,6 +230,14 @@ export default class RuntypesTypeWriters extends TypeWriters {
   *#simple(type: SimpleRuntype): TypeWriter {
     yield [Import, { source: this.#module, name: type }]
     yield [Write, type]
+  }
+
+  override attachTransformer(
+    typeWriter: TypeWriter,
+    _fileName: string,
+    _exportName: string
+  ) {
+    return typeWriter
   }
 }
 
