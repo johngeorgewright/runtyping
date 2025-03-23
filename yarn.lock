@@ -2318,7 +2318,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.6.2"
-    type-fest: "npm:4.8.3"
+    type-fest: "npm:4.37.0"
     typescript: "npm:5.2.2"
   peerDependencies:
     "@runtyping/generator": "workspace:*"
@@ -14483,10 +14483,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:4.8.3":
-  version: 4.8.3
-  resolution: "type-fest@npm:4.8.3"
-  checksum: 90e440347c542282b0a92bb181fb30af529be6d6820dd7ec6141309f2ca143855a8fbca18969623b19bc15a3dcce6000af19f97cae81a39fbd2638c15a06d078
+"type-fest@npm:4.37.0":
+  version: 4.37.0
+  resolution: "type-fest@npm:4.37.0"
+  checksum: 882cf05374d7c635cbbbc50cb89863dad3d27a77c426d062144ba32b23a44087193213c5bbd64f3ab8be04215005c950286567be06fecca9d09c66abd290ef01
   languageName: node
   linkType: hard
 
