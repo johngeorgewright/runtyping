@@ -36,7 +36,7 @@
     "semantic-release-monorepo": "7.0.8",
     "ts-jest": "29.2.6",
     "ts-node": "10.9.2",
-    "type-fest": "4.8.3",
+    "type-fest": "4.37.0",
     "typescript": "5.2.2"
   },
   "dependencies": {
