@@ -70,7 +70,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.1.0"],\
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
           ["@types/jest", "npm:29.5.14"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["commitizen", "npm:4.3.1"],\
           ["concurrently", "npm:8.2.2"],\
@@ -2756,7 +2756,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.14"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.16"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/typescript", null],\
           ["@types/yargs", "npm:17.0.33"],\
@@ -2799,7 +2799,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.14"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.16"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/yargs", "npm:17.0.33"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
@@ -2838,7 +2838,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.21.0"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["fp-ts", "npm:2.16.9"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
@@ -2869,7 +2869,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.1.0"],\
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
           ["@types/jest", "npm:29.5.14"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["commitizen", "npm:4.3.1"],\
           ["concurrently", "npm:8.2.2"],\
@@ -2908,7 +2908,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["rimraf", "npm:5.0.10"],\
           ["runtypes", "npm:6.7.0"],\
@@ -2933,7 +2933,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.1.0"],\
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
           ["@types/jest", "npm:29.5.14"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/rimraf", "npm:4.0.5"],\
           ["@types/yeoman-generator", "npm:5.2.14"],\
@@ -2965,7 +2965,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/runtyping__generator", null],\
           ["assert-never", "npm:1.2.1"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
@@ -3002,7 +3002,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["assert-never", "npm:1.2.1"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["mkdirp", "npm:3.0.1"],\
@@ -3035,7 +3035,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
@@ -3064,7 +3064,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.3"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["rimraf", "npm:5.0.10"],\
           ["semantic-release", "npm:20.1.3"],\
@@ -3898,11 +3898,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:20.10.2", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-20.10.2-362c02a091-e88d0e9287.zip/node_modules/@types/node/",\
+      ["npm:20.17.25", {\
+        "packageLocation": "./.yarn/cache/@types-node-npm-20.17.25-1b5d24a71b-aef2151086.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:20.10.2"],\
-          ["undici-types", "npm:5.26.5"]\
+          ["@types/node", "npm:20.17.25"],\
+          ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -16193,7 +16193,7 @@ const RAW_RUNTIME_STATE =
           ["@tsconfig/node12", "npm:1.0.9"],\
           ["@tsconfig/node14", "npm:1.0.1"],\
           ["@tsconfig/node16", "npm:1.0.2"],\
-          ["@types/node", "npm:20.10.2"],\
+          ["@types/node", "npm:20.17.25"],\
           ["@types/swc__core", null],\
           ["@types/swc__wasm", null],\
           ["@types/typescript", null],\
@@ -16520,10 +16520,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["undici-types", [\
-      ["npm:5.26.5", {\
-        "packageLocation": "./.yarn/cache/undici-types-npm-5.26.5-de4f7c7bb9-0097779d94.zip/node_modules/undici-types/",\
+      ["npm:6.19.8", {\
+        "packageLocation": "./.yarn/cache/undici-types-npm-6.19.8-9f12285b7a-cf0b48ed4f.zip/node_modules/undici-types/",\
         "packageDependencies": [\
-          ["undici-types", "npm:5.26.5"]\
+          ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
       }]\
