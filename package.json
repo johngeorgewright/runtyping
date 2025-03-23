@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "devDependencies": {
-    "@commitlint/cli": "18.4.3",
-    "@commitlint/config-conventional": "18.4.3",
+    "@commitlint/cli": "18.6.1",
+    "@commitlint/config-conventional": "18.6.3",
     "@jest/types": "29.6.3",
     "@semantic-release/commit-analyzer": "9.0.2",
     "@semantic-release/exec": "6.0.3",
