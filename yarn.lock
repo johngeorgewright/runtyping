@@ -2157,7 +2157,7 @@ __metadata:
     ts-node: "npm:10.9.2"
     tslib: "npm:2.6.2"
     typescript: "npm:5.2.2"
-    typescript-json-schema: "npm:0.62.0"
+    typescript-json-schema: "npm:0.65.1"
     yargs: "npm:17.7.2"
     zod: "npm:3.22.4"
   peerDependencies:
@@ -3044,10 +3044,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.9.2":
-  version: 16.11.45
-  resolution: "@types/node@npm:16.11.45"
-  checksum: afc2c9ad8104e608c692b0bc984923f3ca93ba1a6715c890f401862ef440c75d38b93ca46703cb2f170c8f0dabf8ed8eeac5144f7c2eb6456cdf36b7bfbc4313
+"@types/node@npm:^18.11.9":
+  version: 18.19.81
+  resolution: "@types/node@npm:18.19.81"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: ba86a6557f0fb926fa0d783aad0904e61a2d3e0e2ec2879e6371c7c6704f8578489c6cdc9f53e338a7a84fee213aa7f743add5739ce7d10f96e0fd1b9efe4b5b
   languageName: node
   linkType: hard
 
@@ -14614,21 +14616,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-json-schema@npm:0.62.0":
-  version: 0.62.0
-  resolution: "typescript-json-schema@npm:0.62.0"
+"typescript-json-schema@npm:0.65.1":
+  version: 0.65.1
+  resolution: "typescript-json-schema@npm:0.65.1"
   dependencies:
     "@types/json-schema": "npm:^7.0.9"
-    "@types/node": "npm:^16.9.2"
+    "@types/node": "npm:^18.11.9"
     glob: "npm:^7.1.7"
     path-equal: "npm:^1.2.5"
     safe-stable-stringify: "npm:^2.2.0"
     ts-node: "npm:^10.9.1"
-    typescript: "npm:~5.1.0"
+    typescript: "npm:~5.5.0"
     yargs: "npm:^17.1.1"
   bin:
     typescript-json-schema: bin/typescript-json-schema
-  checksum: 47eafd47fc25e4cc7f0c8c6c9c2a369287ca320b87693aa1d9d049764cf16af56be70b854096288d744f682eb680745677f7a46859210ec66627f112a1482f7a
+  checksum: 50a1935378639d5d47e452702766a3fdab22e1d06192f26f81b79e0da504e71af987ff21cb13909479a202aad8d1216a654f16ebda2ee2056b5f859584b4c7d2
   languageName: node
   linkType: hard
 
@@ -14652,13 +14654,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.1.0":
-  version: 5.1.6
-  resolution: "typescript@npm:5.1.6"
+"typescript@npm:~5.5.0":
+  version: 5.5.4
+  resolution: "typescript@npm:5.5.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f347cde665cf43dc4c1c7d9821c7d9bbec3c3914f4bdd82ee490e9fb9f6d99036ed8666463b6a192dd005eeef333c5087d5931bdd51ec853436ff9a670a7417e
+  checksum: 1689ccafef894825481fc3d856b4834ba3cc185a9c2878f3c76a9a1ef81af04194849840f3c69e7961e2312771471bb3b460ca92561e1d87599b26c37d0ffb6f
   languageName: node
   linkType: hard
 
@@ -14682,13 +14684,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~5.1.0#optional!builtin<compat/typescript>":
-  version: 5.1.6
-  resolution: "typescript@patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"
+"typescript@patch:typescript@npm%3A~5.5.0#optional!builtin<compat/typescript>":
+  version: 5.5.4
+  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f5481fa3ba0eee8970f46708d13c05650a865ad093b586fc9573f425c64c57ca97e3308e110bb528deb3ccebe83f6fd7b5a8ac90018038da96326a9ccdf8e77c
+  checksum: 2c065f0ef81855eac25c9b658a3c9da65ffc005260c12854c2286f40f3667e1b1ecf8bdbdd37b59aa0397920378ce7900bff8cb32e0f1c7af6fd86efc676718c
   languageName: node
   linkType: hard
 
@@ -14698,6 +14700,13 @@ __metadata:
   bin:
     uglifyjs: bin/uglifyjs
   checksum: 78fe5a32f2e2cd86fd8904a04e11aeaa37ddeee2001bfe35df34b36f7f5a84de527b94b0682b0e647b82dd39ac08610ea30008889c3c9b064150bb4928126528
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.26.4":
+  version: 5.26.5
+  resolution: "undici-types@npm:5.26.5"
+  checksum: 0097779d94bc0fd26f0418b3a05472410408877279141ded2bd449167be1aed7ea5b76f756562cb3586a07f251b90799bab22d9019ceba49c037c76445f7cddd
   languageName: node
   linkType: hard
 
