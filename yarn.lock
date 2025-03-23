@@ -2141,7 +2141,7 @@ __metadata:
     "@ts-morph/common": "npm:0.21.0"
     "@types/jest": "npm:29.5.14"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/lodash": "npm:4.14.202"
+    "@types/lodash": "npm:4.17.16"
     "@types/node": "npm:20.10.2"
     "@types/prettier": "npm:2.7.3"
     "@types/yargs": "npm:17.0.33"
@@ -2954,10 +2954,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.202":
-  version: 4.14.202
-  resolution: "@types/lodash@npm:4.14.202"
-  checksum: 1bb9760a5b1dda120132c4b987330d67979c95dbc22612678682cd61b00302e190f4207228f3728580059cdab5582362262e3819aea59960c1017bd2b9fb26f6
+"@types/lodash@npm:4.17.16":
+  version: 4.17.16
+  resolution: "@types/lodash@npm:4.17.16"
+  checksum: 9a8bb7471a7521bd65d528e1bd14f79819a3eeb6f8a35a8a44649a7d773775c0813e93fd93bd32ccf350bb076c0bf02c6d47877c4625f526f6dd4d283c746aec
   languageName: node
   linkType: hard
 
