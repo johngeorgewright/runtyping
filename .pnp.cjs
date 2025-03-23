@@ -2755,7 +2755,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.21.0"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/lodash", "npm:4.14.202"],\
+          ["@types/lodash", "npm:4.17.16"],\
           ["@types/node", "npm:20.10.2"],\
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/typescript", null],\
@@ -2798,7 +2798,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.21.0"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/lodash", "npm:4.14.202"],\
+          ["@types/lodash", "npm:4.17.16"],\
           ["@types/node", "npm:20.10.2"],\
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/yargs", "npm:17.0.33"],\
@@ -3805,10 +3805,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:4.14.202", {\
-        "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.202-76de3e302b-1bb9760a5b.zip/node_modules/@types/lodash/",\
+      ["npm:4.17.16", {\
+        "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.16-edc964ca5b-9a8bb7471a.zip/node_modules/@types/lodash/",\
         "packageDependencies": [\
-          ["@types/lodash", "npm:4.14.202"]\
+          ["@types/lodash", "npm:4.17.16"]\
         ],\
         "linkType": "HARD"\
       }]\
