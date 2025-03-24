@@ -2968,7 +2968,7 @@ const RAW_RUNTIME_STATE =
           ["@types/mkdirp", "npm:2.0.0"],\
           ["@types/node", "npm:20.17.25"],\
           ["@types/runtyping__generator", null],\
-          ["assert-never", "npm:1.2.1"],\
+          ["assert-never", "npm:1.4.0"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["mkdirp", "npm:3.0.1"],\
           ["rimraf", "npm:5.0.10"],\
@@ -3004,7 +3004,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
           ["@types/node", "npm:20.17.25"],\
-          ["assert-never", "npm:1.2.1"],\
+          ["assert-never", "npm:1.4.0"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["mkdirp", "npm:3.0.1"],\
           ["rimraf", "npm:5.0.10"],\
@@ -4559,10 +4559,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["assert-never", [\
-      ["npm:1.2.1", {\
-        "packageLocation": "./.yarn/cache/assert-never-npm-1.2.1-d423b480cd-ea4f1756d9.zip/node_modules/assert-never/",\
+      ["npm:1.4.0", {\
+        "packageLocation": "./.yarn/cache/assert-never-npm-1.4.0-410769002f-e51e1fc458.zip/node_modules/assert-never/",\
         "packageDependencies": [\
-          ["assert-never", "npm:1.2.1"]\
+          ["assert-never", "npm:1.4.0"]\
         ],\
         "linkType": "HARD"\
       }]\
