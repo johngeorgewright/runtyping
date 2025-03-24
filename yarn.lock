@@ -2308,7 +2308,7 @@ __metadata:
     "@types/json-schema": "npm:7.0.15"
     "@types/mkdirp": "npm:2.0.0"
     "@types/node": "npm:20.17.25"
-    assert-never: "npm:1.2.1"
+    assert-never: "npm:1.4.0"
     jest: "npm:29.7.0"
     mkdirp: "npm:3.0.1"
     rimraf: "npm:5.0.10"
@@ -3640,10 +3640,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"assert-never@npm:1.2.1":
-  version: 1.2.1
-  resolution: "assert-never@npm:1.2.1"
-  checksum: 10/ea4f1756d90f55254c4dc7a20d6c5d5bc169160562aefe3d8756b598c10e695daf568f21b6d6b12245d7f3782d3ff83ef6a01ab75d487adfc6909470a813bf8c
+"assert-never@npm:1.4.0":
+  version: 1.4.0
+  resolution: "assert-never@npm:1.4.0"
+  checksum: 10/e51e1fc4587405b929d07f1b033f7e92b9f59f9a9ced20f2bb2e5218b06a079fdf8c5b0e993366acc2ca25050a437a2df1f4e624959151e60f4893cad4e50d89
   languageName: node
   linkType: hard
 
