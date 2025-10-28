@@ -2181,7 +2181,7 @@ __metadata:
     "@types/jest": "npm:29.5.14"
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:20.17.27"
-    fp-ts: "npm:2.16.9"
+    fp-ts: "npm:2.16.11"
     io-ts: "npm:2.2.22"
     jest: "npm:29.7.0"
     rimraf: "npm:5.0.10"
@@ -2218,7 +2218,7 @@ __metadata:
     commitizen: "npm:4.3.1"
     concurrently: "npm:8.2.2"
     cz-conventional-changelog: "npm:3.3.0"
-    fp-ts: "npm:2.16.9"
+    fp-ts: "npm:2.16.11"
     husky: "npm:8.0.3"
     isbinaryfile: "npm:5.0.4"
     jest: "npm:29.7.0"
@@ -6480,10 +6480,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fp-ts@npm:2.16.9":
-  version: 2.16.9
-  resolution: "fp-ts@npm:2.16.9"
-  checksum: 10/af5c3fa829456da60ed63b5288907868f0df01a7215acfc5697f621a21f76b0a0f7b7c08ac81f2bcf7ecae13a6c6d41047e739a79cf239db19cd49afd7e8e015
+"fp-ts@npm:2.16.11":
+  version: 2.16.11
+  resolution: "fp-ts@npm:2.16.11"
+  checksum: 10/4c034326728c43a28b3a0f3a88c1218bca13c69ee3c420ab7a52636aa0d68cb68990308e72d93b3e5cc952e998019f7e3ba16389bb1ecc0174574536c29d3ab3
   languageName: node
   linkType: hard
 
