@@ -2760,7 +2760,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.17.27"],\
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/typescript", null],\
-          ["@types/yargs", "npm:17.0.33"],\
+          ["@types/yargs", "npm:17.0.34"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["js-yaml", "npm:4.1.0"],\
           ["json-schema-to-typescript", "npm:13.1.2"],\
@@ -2802,7 +2802,7 @@ const RAW_RUNTIME_STATE =
           ["@types/lodash", "npm:4.17.20"],\
           ["@types/node", "npm:20.17.27"],\
           ["@types/prettier", "npm:2.7.3"],\
-          ["@types/yargs", "npm:17.0.33"],\
+          ["@types/yargs", "npm:17.0.34"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["js-yaml", "npm:4.1.0"],\
           ["json-schema-to-typescript", "npm:13.1.2"],\
@@ -4030,10 +4030,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:17.0.33", {\
-        "packageLocation": "./.yarn/cache/@types-yargs-npm-17.0.33-1d6cca6a2e-16f6681bf4.zip/node_modules/@types/yargs/",\
+      ["npm:17.0.34", {\
+        "packageLocation": "./.yarn/cache/@types-yargs-npm-17.0.34-a356bb6b27-8e7907479e.zip/node_modules/@types/yargs/",\
         "packageDependencies": [\
-          ["@types/yargs", "npm:17.0.33"],\
+          ["@types/yargs", "npm:17.0.34"],\
           ["@types/yargs-parser", "npm:20.2.1"]\
         ],\
         "linkType": "HARD"\
