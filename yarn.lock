@@ -2156,7 +2156,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
     typescript-json-schema: "npm:0.65.1"
     yargs: "npm:17.7.2"
     zod: "npm:3.24.2"
@@ -2192,7 +2192,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
   peerDependencies:
     io-ts: ^2.0.0
   bin:
@@ -2232,7 +2232,7 @@ __metadata:
     ts-jest: "npm:29.3.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
     yo: "npm:4.3.1"
   languageName: unknown
   linkType: soft
@@ -2260,7 +2260,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
   peerDependencies:
     runtypes: ^6.5.1
   bin:
@@ -2289,7 +2289,7 @@ __metadata:
     semantic-release-monorepo: "npm:7.0.8"
     ts-jest: "npm:29.3.0"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
     yeoman-generator: "npm:5.10.0"
   languageName: unknown
   linkType: soft
@@ -2319,7 +2319,7 @@ __metadata:
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
     type-fest: "npm:4.38.0"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
   peerDependencies:
     "@runtyping/generator": "workspace:*"
     "@types/json-schema": ^7.0.11
@@ -2348,7 +2348,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
     valibot: "npm:1.0.0"
   peerDependencies:
     valibot: ^1.0.0
@@ -2380,7 +2380,7 @@ __metadata:
     ts-morph: "npm:20.0.0"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:5.2.2"
+    typescript: "npm:5.9.3"
     zod: "npm:3.24.2"
   peerDependencies:
     zod: ^3.17.9
@@ -14642,13 +14642,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.2.2":
-  version: 5.2.2
-  resolution: "typescript@npm:5.2.2"
+"typescript@npm:5.9.3":
+  version: 5.9.3
+  resolution: "typescript@npm:5.9.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/d65e50eb849bd21ff8677e5b9447f9c6e74777e346afd67754934264dcbf4bd59e7d2473f6062d9a015d66bd573311166357e3eb07fea0b52859cf9bb2b58555
+  checksum: 10/c089d9d3da2729fd4ac517f9b0e0485914c4b3c26f80dc0cffcb5de1719a17951e92425d55db59515c1a7ddab65808466debb864d0d56dcf43f27007d0709594
   languageName: node
   linkType: hard
 
@@ -14672,13 +14672,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>":
-  version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"
+"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>":
+  version: 5.9.3
+  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/f79cc2ba802c94c2b78dbb00d767a10adb67368ae764709737dc277273ec148aa4558033a03ce901406b35fddf4eac46dabc94a1e1d12d2587e2b9cfe5707b4a
+  checksum: 10/696e1b017bc2635f4e0c94eb4435357701008e2f272f553d06e35b494b8ddc60aa221145e286c28ace0c89ee32827a28c2040e3a69bdc108b1a5dc8fb40b72e3
   languageName: node
   linkType: hard
 
