@@ -22,7 +22,7 @@
     "@semantic-release/github": "8.1.0",
     "@semantic-release/release-notes-generator": "10.0.3",
     "@types/jest": "29.5.14",
-    "@types/node": "20.17.27",
+    "@types/node": "20.19.24",
     "@types/prettier": "2.7.3",
     "@types/rimraf": "4.0.5",
     "@types/yeoman-generator": "5.2.14",
