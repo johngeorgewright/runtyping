@@ -3067,7 +3067,7 @@ const RAW_RUNTIME_STATE =
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
-          ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.0.0"]\
+          ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.1.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -16959,19 +16959,19 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["valibot", [\
-      ["npm:1.0.0", {\
-        "packageLocation": "./.yarn/cache/valibot-npm-1.0.0-28c28e2d4a-3a46878a7c.zip/node_modules/valibot/",\
+      ["npm:1.1.0", {\
+        "packageLocation": "./.yarn/cache/valibot-npm-1.1.0-b968764611-667c99e3ec.zip/node_modules/valibot/",\
         "packageDependencies": [\
-          ["valibot", "npm:1.0.0"]\
+          ["valibot", "npm:1.1.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.0.0", {\
-        "packageLocation": "./.yarn/__virtual__/valibot-virtual-d21b824f43/0/cache/valibot-npm-1.0.0-28c28e2d4a-3a46878a7c.zip/node_modules/valibot/",\
+      ["virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/valibot-virtual-392b33bcee/0/cache/valibot-npm-1.1.0-b968764611-667c99e3ec.zip/node_modules/valibot/",\
         "packageDependencies": [\
           ["@types/typescript", null],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
-          ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.0.0"]\
+          ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.1.0"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
