@@ -12,9 +12,8 @@ import {
   TypeWriters,
   Write,
 } from '@runtyping/generator'
-import { getFunctionName } from '@runtyping/generator/dist/function'
 import { titleCase } from 'title-case'
-import { Signature, ts, Type } from 'ts-morph'
+import { ts, Type } from 'ts-morph'
 import * as zod from 'zod'
 
 export default class ZodTypeWriters extends TypeWriters {
@@ -76,46 +75,8 @@ export default class ZodTypeWriters extends TypeWriters {
     yield* this.#literal(`_${enumTypeName}.${getTypeName(type)}`)
   }
 
-  override *function(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, alias: 'func', name: 'function' }]
-    const name = getFunctionName(type)
-    if (name && (yield [CanDeclareStatics, type])) {
-      const alias = `_${name}`
-      yield [ImportFromSource, { alias, name }]
-      yield [Write, 'func()']
-      yield [
-        Static,
-        [
-          type,
-          type.isInterface() || type.getAliasSymbol()
-            ? alias
-            : `typeof ${alias}`,
-        ],
-      ]
-    } else {
-      const [firstCallSignature, ...otherCallSignatures] =
-        type.getCallSignatures()
-      yield* this.#callSignature(firstCallSignature)
-      for (const callSignature of otherCallSignatures) {
-        yield [Write, '.or(']
-        yield* this.#callSignature(callSignature)
-        yield [Write, ')']
-      }
-    }
-  }
-
-  *#callSignature(callSignature: Signature): TypeWriter {
-    yield [Write, 'func().args(']
-    for (const parameter of callSignature.getParameters()) {
-      yield* this.generateOrReuseType(
-        parameter.getValueDeclaration()?.getType() ||
-          parameter.getDeclaredType()
-      )
-      yield [Write, ', ']
-    }
-    yield [Write, ').returns(']
-    yield* this.generateOrReuseType(callSignature.getReturnType())
-    yield [Write, ')']
+  override *function(_type: Type): TypeWriter {
+    yield* this.any()
   }
 
   override *intersection(type: Type): TypeWriter {
