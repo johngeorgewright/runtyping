@@ -2365,7 +2365,7 @@ __metadata:
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
     typescript: "npm:5.9.3"
-    valibot: "npm:1.0.0"
+    valibot: "npm:1.1.0"
   peerDependencies:
     valibot: ^1.0.0
   bin:
@@ -14958,15 +14958,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"valibot@npm:1.0.0":
-  version: 1.0.0
-  resolution: "valibot@npm:1.0.0"
+"valibot@npm:1.1.0":
+  version: 1.1.0
+  resolution: "valibot@npm:1.1.0"
   peerDependencies:
     typescript: ">=5"
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/3a46878a7cfb41e4538d7ae4b3ee255ca27b717f428f46bff00fa242ac6176b91ecb491200bb092ac24cba8bae96d852799b1c504eb566ee9e01987a18c498f7
+  checksum: 10/667c99e3ec2825ea97c20f37add7fe7eb9d15fb338c5f49c166ffba13a6f4516c77c060083e1c6bda77a2275c4d37400b711d284bbea03fd4ae160bbca34112c
   languageName: node
   linkType: hard
 
