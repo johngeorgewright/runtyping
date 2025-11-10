@@ -3000,7 +3000,7 @@ const RAW_RUNTIME_STATE =
           ["ts-morph", "npm:27.0.2"],\
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["type-fest", "npm:4.38.0"],\
+          ["type-fest", "npm:4.41.0"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["zod", "npm:3.18.0"]\
         ],\
@@ -3036,7 +3036,7 @@ const RAW_RUNTIME_STATE =
           ["ts-morph", "npm:27.0.2"],\
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["type-fest", "npm:4.38.0"],\
+          ["type-fest", "npm:4.41.0"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["zod", "npm:3.18.0"]\
         ],\
@@ -16674,6 +16674,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/type-fest-npm-4.38.0-09166cbe0a-7e29b678dc.zip/node_modules/type-fest/",\
         "packageDependencies": [\
           ["type-fest", "npm:4.38.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.41.0", {\
+        "packageLocation": "./.yarn/cache/type-fest-npm-4.41.0-31a6ce52d8-617ace794a.zip/node_modules/type-fest/",\
+        "packageDependencies": [\
+          ["type-fest", "npm:4.41.0"]\
         ],\
         "linkType": "HARD"\
       }]\
