@@ -1,4 +1,4 @@
-import * as z from 'zod'
+import { z } from 'zod'
 
 export const InstructionTypeTransformer = z.object({
   file: z.string(),
@@ -9,7 +9,10 @@ export type InstructionTypeTransformer = z.infer<
   typeof InstructionTypeTransformer
 >
 
-export const InstructionTypeTransformers = z.record(InstructionTypeTransformer)
+export const InstructionTypeTransformers = z.record(
+  z.string(),
+  InstructionTypeTransformer
+)
 
 export type InstructionTypeTransformers = z.infer<
   typeof InstructionTypeTransformers
