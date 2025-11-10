@@ -76,7 +76,11 @@ export default class ZodTypeWriters extends TypeWriters {
   }
 
   override *function(_type: Type): TypeWriter {
-    yield* this.any()
+    yield [
+      Import,
+      { source: this.#module, name: 'instanceof', alias: 'InstanceOf' },
+    ]
+    yield [Write, `InstanceOf(Function)`]
   }
 
   override *intersection(type: Type): TypeWriter {
