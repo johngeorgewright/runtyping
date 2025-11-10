@@ -39,14 +39,14 @@
     "semantic-release-monorepo": "7.0.8",
     "ts-jest": "29.3.0",
     "ts-node": "10.9.2",
-    "typescript": "5.2.2"
+    "typescript": "5.9.3"
   },
   "dependencies": {
     "@johngw/array": "3.3.2",
     "@runtyping/generator": "workspace:*",
     "@ts-morph/common": "0.21.0",
     "title-case": "3.0.3",
-    "ts-morph": "20.0.0",
+    "ts-morph": "27.0.2",
     "tslib": "2.8.1"
   }
 }

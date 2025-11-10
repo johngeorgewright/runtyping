@@ -17,7 +17,6 @@ import {
 import { titleCase } from 'title-case'
 import { Symbol as CompilerSymbol, SymbolFlags, Type } from 'ts-morph'
 import { getEnumMembers } from '@runtyping/generator/dist/enum'
-import ts, { EnumType } from '@ts-morph/common/lib/typescript'
 
 export default class IoTsTypeWriters extends TypeWriters {
   #module = 'io-ts';
@@ -156,7 +155,7 @@ export default class IoTsTypeWriters extends TypeWriters {
     })
   }
 
-  protected override *enum(type: Type<EnumType>): TypeWriter {
+  protected override *enum(type: Type): TypeWriter {
     const name = getTypeName(type)
     const members = getEnumMembers(type)
     const alias = `_${name}`
@@ -320,7 +319,7 @@ export default class IoTsTypeWriters extends TypeWriters {
 
   protected override *withGenerics(
     typeWriter: TypeWriter,
-    type: Type<ts.Type>
+    type: Type
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'TypeOf' }]
     yield [Import, { source: this.#module, name: 'Type' }]
