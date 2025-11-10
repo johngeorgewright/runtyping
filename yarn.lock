@@ -2399,7 +2399,7 @@ __metadata:
     typescript: "npm:5.9.3"
     zod: "npm:4.1.12"
   peerDependencies:
-    zod: ^3.17.9
+    zod: ^4.0.0
   bin:
     runtyping: dist/cli.js
   languageName: unknown
