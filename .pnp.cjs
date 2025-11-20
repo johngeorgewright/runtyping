@@ -80,7 +80,7 @@ const RAW_RUNTIME_STATE =
           ["cz-conventional-changelog", "npm:3.3.0"],\
           ["fp-ts", "npm:2.16.11"],\
           ["husky", "npm:8.0.3"],\
-          ["isbinaryfile", "npm:5.0.6"],\
+          ["isbinaryfile", "npm:5.0.7"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["lint-staged", "npm:15.5.2"],\
           ["prettier", "npm:2.8.8"],\
@@ -2898,7 +2898,7 @@ const RAW_RUNTIME_STATE =
           ["cz-conventional-changelog", "npm:3.3.0"],\
           ["fp-ts", "npm:2.16.11"],\
           ["husky", "npm:8.0.3"],\
-          ["isbinaryfile", "npm:5.0.6"],\
+          ["isbinaryfile", "npm:5.0.7"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
           ["lint-staged", "npm:15.5.2"],\
           ["prettier", "npm:2.8.8"],\
@@ -9665,10 +9665,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:5.0.6", {\
-        "packageLocation": "./.yarn/cache/isbinaryfile-npm-5.0.6-f47c7fc37d-d7338c6e07.zip/node_modules/isbinaryfile/",\
+      ["npm:5.0.7", {\
+        "packageLocation": "./.yarn/cache/isbinaryfile-npm-5.0.7-5fdc8a3333-af240b2a80.zip/node_modules/isbinaryfile/",\
         "packageDependencies": [\
-          ["isbinaryfile", "npm:5.0.6"]\
+          ["isbinaryfile", "npm:5.0.7"]\
         ],\
         "linkType": "HARD"\
       }]\
