@@ -2795,7 +2795,7 @@ const RAW_RUNTIME_STATE =
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
-          ["typescript-json-schema", "npm:0.65.1"],\
+          ["typescript-json-schema", "npm:0.66.0"],\
           ["yargs", "npm:17.7.2"],\
           ["zod", "npm:4.1.12"]\
         ],\
@@ -2837,7 +2837,7 @@ const RAW_RUNTIME_STATE =
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
-          ["typescript-json-schema", "npm:0.65.1"],\
+          ["typescript-json-schema", "npm:0.66.0"],\
           ["yargs", "npm:17.7.2"],\
           ["zod", "npm:4.1.12"]\
         ],\
@@ -16400,8 +16400,8 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:fd2d241a2e78a5ef24885ddb58cc15fe1e79b1c7a125944604f23c077b91c6386e6bd5820e8ef27adf41f1deb2de1f723a140e08dfa1ca355b8816598cc61c51#npm:10.9.1", {\
-        "packageLocation": "./.yarn/__virtual__/ts-node-virtual-552335beff/0/cache/ts-node-npm-10.9.1-6c268be7f4-bee56d4dc9.zip/node_modules/ts-node/",\
+      ["virtual:9a625878461d6efd2fd87e21afb5a889b64be0e689e810f15061a8f451f9b48211756cde850261a2943e97e16bf00acdf139657e4530215a95095c59a6d94d24#npm:10.9.1", {\
+        "packageLocation": "./.yarn/__virtual__/ts-node-virtual-57bdcace29/0/cache/ts-node-npm-10.9.1-6c268be7f4-bee56d4dc9.zip/node_modules/ts-node/",\
         "packageDependencies": [\
           ["@cspotcode/source-map-support", "npm:0.8.1"],\
           ["@swc/core", null],\
@@ -16420,7 +16420,7 @@ const RAW_RUNTIME_STATE =
           ["create-require", "npm:1.1.1"],\
           ["diff", "npm:4.0.2"],\
           ["make-error", "npm:1.3.6"],\
-          ["ts-node", "virtual:fd2d241a2e78a5ef24885ddb58cc15fe1e79b1c7a125944604f23c077b91c6386e6bd5820e8ef27adf41f1deb2de1f723a140e08dfa1ca355b8816598cc61c51#npm:10.9.1"],\
+          ["ts-node", "virtual:9a625878461d6efd2fd87e21afb5a889b64be0e689e810f15061a8f451f9b48211756cde850261a2943e97e16bf00acdf139657e4530215a95095c59a6d94d24#npm:10.9.1"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
           ["v8-compile-cache-lib", "npm:3.0.1"],\
           ["yn", "npm:3.1.1"]\
@@ -16690,17 +16690,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["typescript-json-schema", [\
-      ["npm:0.65.1", {\
-        "packageLocation": "./.yarn/cache/typescript-json-schema-npm-0.65.1-fd2d241a2e-50a1935378.zip/node_modules/typescript-json-schema/",\
+      ["npm:0.66.0", {\
+        "packageLocation": "./.yarn/cache/typescript-json-schema-npm-0.66.0-9a62587846-04bf3bfeba.zip/node_modules/typescript-json-schema/",\
         "packageDependencies": [\
           ["@types/json-schema", "npm:7.0.11"],\
           ["@types/node", "npm:18.19.81"],\
           ["glob", "npm:7.2.3"],\
           ["path-equal", "npm:1.2.5"],\
           ["safe-stable-stringify", "npm:2.3.1"],\
-          ["ts-node", "virtual:fd2d241a2e78a5ef24885ddb58cc15fe1e79b1c7a125944604f23c077b91c6386e6bd5820e8ef27adf41f1deb2de1f723a140e08dfa1ca355b8816598cc61c51#npm:10.9.1"],\
+          ["ts-node", "virtual:9a625878461d6efd2fd87e21afb5a889b64be0e689e810f15061a8f451f9b48211756cde850261a2943e97e16bf00acdf139657e4530215a95095c59a6d94d24#npm:10.9.1"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
-          ["typescript-json-schema", "npm:0.65.1"],\
+          ["typescript-json-schema", "npm:0.66.0"],\
           ["yargs", "npm:17.5.1"]\
         ],\
         "linkType": "HARD"\
