@@ -2783,7 +2783,7 @@ const RAW_RUNTIME_STATE =
           ["@types/typescript", null],\
           ["@types/yargs", "npm:17.0.35"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
-          ["js-yaml", "npm:4.1.0"],\
+          ["js-yaml", "npm:4.1.1"],\
           ["json-schema-to-typescript", "npm:13.1.2"],\
           ["lodash", "npm:4.17.21"],\
           ["prettier", "npm:2.8.8"],\
@@ -2825,7 +2825,7 @@ const RAW_RUNTIME_STATE =
           ["@types/prettier", "npm:2.7.3"],\
           ["@types/yargs", "npm:17.0.35"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:29.7.0"],\
-          ["js-yaml", "npm:4.1.0"],\
+          ["js-yaml", "npm:4.1.1"],\
           ["json-schema-to-typescript", "npm:13.1.2"],\
           ["lodash", "npm:4.17.21"],\
           ["prettier", "npm:2.8.8"],\
@@ -10448,6 +10448,14 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["argparse", "npm:2.0.1"],\
           ["js-yaml", "npm:4.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.1.1", {\
+        "packageLocation": "./.yarn/cache/js-yaml-npm-4.1.1-86ec786790-a52d0519f0.zip/node_modules/js-yaml/",\
+        "packageDependencies": [\
+          ["argparse", "npm:2.0.1"],\
+          ["js-yaml", "npm:4.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
