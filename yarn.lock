@@ -2173,7 +2173,7 @@ __metadata:
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
     typescript: "npm:5.9.3"
-    typescript-json-schema: "npm:0.65.1"
+    typescript-json-schema: "npm:0.66.0"
     yargs: "npm:17.7.2"
     zod: "npm:4.1.12"
   peerDependencies:
@@ -14664,9 +14664,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-json-schema@npm:0.65.1":
-  version: 0.65.1
-  resolution: "typescript-json-schema@npm:0.65.1"
+"typescript-json-schema@npm:0.66.0":
+  version: 0.66.0
+  resolution: "typescript-json-schema@npm:0.66.0"
   dependencies:
     "@types/json-schema": "npm:^7.0.9"
     "@types/node": "npm:^18.11.9"
@@ -14678,7 +14678,7 @@ __metadata:
     yargs: "npm:^17.1.1"
   bin:
     typescript-json-schema: bin/typescript-json-schema
-  checksum: 10/50a1935378639d5d47e452702766a3fdab22e1d06192f26f81b79e0da504e71af987ff21cb13909479a202aad8d1216a654f16ebda2ee2056b5f859584b4c7d2
+  checksum: 10/04bf3bfeba0da16fc7ba3352349e56896387332136ca6d95d4bb6fcd208ebc24c58432a8a50c5f3427322d8ac578b306234274ebcb5261c2366e61ee216d2fba
   languageName: node
   linkType: hard
 
