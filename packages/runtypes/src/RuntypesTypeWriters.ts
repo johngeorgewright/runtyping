@@ -29,7 +29,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
     yield [Import, { source: this.#module, name: 'Lazy' }]
     yield [Import, { source: this.#module, name: 'Runtype' }]
     yield [ImportFromSource, { alias, name }]
-    yield [DeclareType, `Runtype<${alias}>`]
+    yield [DeclareType, `Runtype.Core<${alias}>`]
     yield [Write, 'Lazy(() => ']
     yield* this.typeWriter(type)
     yield [Write, ')']
@@ -110,12 +110,10 @@ export default class RuntypesTypeWriters extends TypeWriters {
 
   override *enum(type: Type): TypeWriter {
     const name = getTypeName(type)
-    yield [Import, { source: this.#module, name: 'Guard' }]
+    yield [Import, { source: this.#module, name: 'Literal' }]
+    yield [Import, { source: this.#module, name: 'Union' }]
     yield [ImportFromSource, { name, alias: `_${name}` }]
-    yield [
-      Write,
-      `Guard((x: any): x is _${name} => Object.values(_${name}).includes(x))`,
-    ]
+    yield [Write, `Union(...Object.values(_${name}).map(Literal))`]
   }
 
   override *enumLiteral(type: Type): TypeWriter {
@@ -125,27 +123,27 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *intersection(type: Type): TypeWriter {
-    const [first, ...rest] = type
-      .getIntersectionTypes()
-      .sort(sortUndefinedFirst)
-    if (!first) return yield* this.#simple('Undefined')
-    yield* this.generateOrReuseType(first)
-    for (const item of rest) {
-      yield [Write, '.And(']
+    const elements = type.getIntersectionTypes().sort(sortUndefinedFirst)
+    if (!elements.length) return yield* this.#simple('Undefined')
+    yield [Import, { source: this.#module, name: 'Intersect' }]
+    yield [Write, 'Intersect(']
+    for (const item of elements) {
       yield* this.generateOrReuseType(item)
-      yield [Write, ')']
+      yield [Write, ',']
     }
+    yield [Write, ')']
   }
 
   override *union(type: Type): TypeWriter {
-    const [first, ...rest] = type.getUnionTypes().sort(sortUndefinedFirst)
-    if (!first) return yield* this.#simple('Undefined')
-    yield* this.generateOrReuseType(first)
-    for (const item of rest) {
-      yield [Write, '.Or(']
+    const elements = type.getUnionTypes().sort(sortUndefinedFirst)
+    if (!elements.length) return yield* this.#simple('Undefined')
+    yield [Import, { source: this.#module, name: 'Union' }]
+    yield [Write, 'Union(']
+    for (const item of elements) {
       yield* this.generateOrReuseType(item)
-      yield [Write, ')']
+      yield [Write, ',']
     }
+    yield [Write, ')']
   }
 
   override literal(type: Type) {
@@ -187,12 +185,15 @@ export default class RuntypesTypeWriters extends TypeWriters {
   }
 
   override *object(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Record' }]
-    yield [Write, 'Record({']
+    const module = this.#module
+    yield [Import, { source: module, name: 'Object' }]
+    yield [Write, 'Object({']
     yield* this.objectProperties(type, {
       *whenOptional(propertyWriter) {
+        yield [Import, { source: module, name: 'Optional' }]
+        yield [Write, 'Optional(']
         yield* propertyWriter
-        yield [Write, '.optional()']
+        yield [Write, ')']
       },
     })
     yield [Write, '})']
@@ -204,26 +205,30 @@ export default class RuntypesTypeWriters extends TypeWriters {
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'Static' }]
     yield [Import, { source: this.#module, name: 'Runtype' }]
-    const close = yield* this.openGenericFunction(type, 'Runtype', 'Static')
+    const close = yield* this.openGenericFunction(
+      type,
+      'Runtype.Core',
+      'Static'
+    )
     yield* typeWriter
     yield* close()
   }
 
   override *stringIndexedObject(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Dictionary' }]
-    yield [Write, 'Dictionary(']
-    yield* this.generateOrReuseType(type.getStringIndexType()!)
-    yield [Write, ', ']
+    yield [Import, { source: this.#module, name: 'Record' }]
+    yield [Write, 'Record(']
     yield* this.string()
+    yield [Write, ', ']
+    yield* this.generateOrReuseType(type.getStringIndexType()!)
     yield [Write, ')']
   }
 
   override *numberIndexedObject(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Dictionary' }]
-    yield [Write, 'Dictionary(']
-    yield* this.generateOrReuseType(type.getNumberIndexType()!)
-    yield [Write, ', ']
+    yield [Import, { source: this.#module, name: 'Record' }]
+    yield [Write, 'Record(']
     yield* this.number()
+    yield [Write, ', ']
+    yield* this.generateOrReuseType(type.getNumberIndexType()!)
     yield [Write, ')']
   }
 
@@ -248,4 +253,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
  * For example, `Number` & `String` are simple types, but
  * `Array` and `Record` are not.
  */
-type SimpleRuntype = keyof PickByValue<typeof runtypes, runtypes.Runtype>
+type SimpleRuntype = keyof PickByValue<
+  typeof runtypes,
+  runtypes.Runtype.Base<unknown>
+>
