@@ -3,7 +3,7 @@ import { readdir, writeFile } from 'fs/promises'
 import Generator from 'yeoman-generator'
 import { validateGenerationFromRoot } from '../validation'
 import prettier from 'prettier'
-import rimrafCB from 'rimraf'
+import { rimraf as rimrafCB } from 'rimraf'
 import { promisify } from 'util'
 
 const rimraf = promisify(rimrafCB)
@@ -38,7 +38,7 @@ export = class RemovePackageGenerator extends Generator {
 
   async writing() {
     for (const name of this.#answers.names!) {
-      await rimraf(`${this.#packagesPath}/${name}`)
+      await rimraf(`${this.#packagesPath}/${name}`, {})
     }
 
     await this.#updateVSCodeWS(this.#vsCodeWS)
@@ -55,7 +55,10 @@ export = class RemovePackageGenerator extends Generator {
     const prettierOptions = (await prettier.resolveConfig(file)) || {}
     prettierOptions.parser = 'json'
 
-    writeFile(file, prettier.format(JSON.stringify(vsCodeWS), prettierOptions))
+    writeFile(
+      file,
+      await prettier.format(JSON.stringify(vsCodeWS), prettierOptions)
+    )
   }
 
   async install() {

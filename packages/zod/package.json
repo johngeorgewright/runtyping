@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "start": "tsc --watch --preserveWatchOutput",
     "release": "semantic-release && sleep 3",
-    "test": "jest"
+    "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "license": "MIT",
   "bugs": {
@@ -32,13 +32,13 @@
     "@types/json-schema": "7.0.15",
     "@types/node": "20.19.25",
     "jest": "30.2.0",
-    "rimraf": "5.0.10",
+    "rimraf": "6.1.2",
     "semantic-release": "25.0.2",
     "semantic-release-monorepo": "8.0.2",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "zod": "4.1.12"
+    "zod": "4.1.13"
   },
   "dependencies": {
     "@runtyping/generator": "workspace:*",
