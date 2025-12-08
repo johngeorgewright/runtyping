@@ -1,5 +1,5 @@
 import Generator from 'yeoman-generator'
-import { paramCase, pascalCase } from 'change-case'
+import { kebabCase, pascalCase } from 'change-case'
 import { validateGenerationFromRoot } from '../validation'
 import * as path from 'path'
 import prettier from 'prettier'
@@ -24,7 +24,7 @@ export = class PackageGenerator extends Generator {
   }
 
   get #relativeDestinationRoot() {
-    return `packages/${paramCase(this.#answers.name!)}`
+    return `packages/${kebabCase(this.#answers.name!)}`
   }
 
   async prompting() {
@@ -74,8 +74,8 @@ export = class PackageGenerator extends Generator {
   async writing() {
     const context = {
       description: this.#answers.description || '',
-      name: paramCase(this.#answers.name!),
-      fullName: `${this.#namespace}/${paramCase(this.#answers.name!)}`,
+      name: kebabCase(this.#answers.name!),
+      fullName: `${this.#namespace}/${kebabCase(this.#answers.name!)}`,
       generatorName: `${pascalCase(this.#answers.name!)}Generator`,
       typeWritersName: `${pascalCase(this.#answers.name!)}TypeWriters`,
       public: this.#answers.public,
@@ -263,7 +263,10 @@ export = class PackageGenerator extends Generator {
     const prettierOptions = (await prettier.resolveConfig(file)) || {}
     prettierOptions.parser = 'json'
 
-    writeFile(file, prettier.format(JSON.stringify(vsCodeWS), prettierOptions))
+    writeFile(
+      file,
+      await prettier.format(JSON.stringify(vsCodeWS), prettierOptions)
+    )
   }
 
   async install() {

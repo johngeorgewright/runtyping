@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "release": "semantic-release && sleep 3",
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "jest"
+    "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "license": "MIT",
   "bugs": {
@@ -34,7 +34,7 @@
     "fp-ts": "2.16.11",
     "io-ts": "2.2.22",
     "jest": "30.2.0",
-    "rimraf": "5.0.10",
+    "rimraf": "6.1.2",
     "semantic-release": "25.0.2",
     "semantic-release-monorepo": "8.0.2",
     "ts-jest": "29.4.6",

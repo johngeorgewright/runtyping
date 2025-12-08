@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "peerDependencies": {
-    "runtypes": "^6.5.1"
+    "runtypes": "^7.0.0"
   },
   "devDependencies": {
     "@runtyping/test-type-writers": "workspace:*",
