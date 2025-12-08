@@ -1,11 +1,11 @@
 import testTypeWriters from '@runtyping/test-type-writers'
-import { Number, Record, Runtype, String } from 'runtypes'
+import { Number, Object, Runtype, String } from 'runtypes'
 import RuntypesTypeWriters from '../src/RuntypesTypeWriters'
 
-testTypeWriters<Runtype>({
+testTypeWriters<Runtype.Base<any>>({
   createNumberValidator: () => Number,
   createStringValidator: () => String,
-  createObjectValidator: Record,
+  createObjectValidator: Object,
   ignore: ['transformer'],
   typeWriters: new RuntypesTypeWriters(),
   validate(validator, data) {
