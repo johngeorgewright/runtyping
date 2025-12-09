@@ -16,7 +16,5 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true
-  },
-  "includes": ["src"],
-  "exclude": ["dist", "test", "jest.config.ts"]
+  }
 }

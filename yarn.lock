@@ -2241,8 +2241,8 @@ __metadata:
     "@types/jest": "npm:30.0.0"
     "@types/js-yaml": "npm:4.0.9"
     "@types/lodash": "npm:4.17.21"
-    "@types/node": "npm:20.19.25"
-    "@types/prettier": "npm:2.7.3"
+    "@types/node": "npm:24.10.2"
+    "@types/prettier": "npm:3.0.0"
     "@types/yargs": "npm:17.0.35"
     jest: "npm:30.2.0"
     js-yaml: "npm:4.1.1"
@@ -2280,7 +2280,7 @@ __metadata:
     "@ts-morph/common": "npm:0.28.1"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:20.19.25"
+    "@types/node": "npm:24.10.2"
     fp-ts: "npm:2.16.11"
     io-ts: "npm:2.2.22"
     jest: "npm:30.2.0"
@@ -2314,7 +2314,7 @@ __metadata:
     "@semantic-release/github": "npm:12.0.2"
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
-    "@types/node": "npm:20.19.25"
+    "@types/node": "npm:24.10.2"
     "@types/source-map-support": "npm:0.5.10"
     commitizen: "npm:4.3.1"
     cz-conventional-changelog: "npm:3.3.0"
@@ -2351,7 +2351,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:20.19.25"
+    "@types/node": "npm:24.10.2"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     runtypes: "npm:7.0.4"
@@ -2363,7 +2363,7 @@ __metadata:
     tslib: "npm:2.8.1"
     typescript: "npm:5.9.3"
   peerDependencies:
-    runtypes: ^6.5.1
+    runtypes: ^7.0.0
   bin:
     runtyping: dist/cli.js
   languageName: unknown
@@ -2378,8 +2378,8 @@ __metadata:
     "@semantic-release/github": "npm:12.0.2"
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
-    "@types/node": "npm:20.19.25"
-    "@types/prettier": "npm:2.7.3"
+    "@types/node": "npm:24.10.2"
+    "@types/prettier": "npm:3.0.0"
     "@types/rimraf": "npm:4.0.5"
     "@types/yeoman-generator": "npm:5.2.14"
     change-case: "npm:5.4.4"
@@ -2408,7 +2408,7 @@ __metadata:
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
     "@types/mkdirp": "npm:2.0.0"
-    "@types/node": "npm:20.19.25"
+    "@types/node": "npm:24.10.2"
     assert-never: "npm:1.4.0"
     jest: "npm:30.2.0"
     mkdirp: "npm:3.0.1"
@@ -2440,7 +2440,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:20.19.25"
+    "@types/node": "npm:24.10.2"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     semantic-release: "npm:25.0.2"
@@ -2471,7 +2471,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:20.19.25"
+    "@types/node": "npm:24.10.2"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     semantic-release: "npm:25.0.2"
@@ -3139,12 +3139,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.19.25":
-  version: 20.19.25
-  resolution: "@types/node@npm:20.19.25"
+"@types/node@npm:24.10.2":
+  version: 24.10.2
+  resolution: "@types/node@npm:24.10.2"
   dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10/f0ed863599da289df5838380e211f9e010414dc7df8127b79f6a7eeca80a8d6e3daf3e58ddad1884f8dfafd17c16b02f56cee1689b7ebdf5df6d0e5770165ac1
+    undici-types: "npm:~7.16.0"
+  checksum: 10/75b34e33087dc707aa76723f7269cd66acd2fae4272d127544ad20f295e7537dbd1e4a4405717b3093aeae2ff8ae35283fdec826a4f593273e326bb3deae588d
   languageName: node
   linkType: hard
 
@@ -3185,10 +3185,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:2.7.3":
-  version: 2.7.3
-  resolution: "@types/prettier@npm:2.7.3"
-  checksum: 10/cda84c19acc3bf327545b1ce71114a7d08efbd67b5030b9e8277b347fa57b05178045f70debe1d363ff7efdae62f237260713aafc2d7217e06fc99b048a88497
+"@types/prettier@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@types/prettier@npm:3.0.0"
+  dependencies:
+    prettier: "npm:*"
+  checksum: 10/a2a512d304e5bcf78f38089dc88ad19215e6ab871d435a17aef3ce538a63b07c0e359c18db23989dc1ed9fff96d99eee1f680416080184df5c7e0e3bf767e165
   languageName: node
   linkType: hard
 
@@ -11929,7 +11931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.7.4, prettier@npm:^3.2.5":
+"prettier@npm:*, prettier@npm:3.7.4, prettier@npm:^3.2.5":
   version: 3.7.4
   resolution: "prettier@npm:3.7.4"
   bin:
@@ -14491,10 +14493,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.21.0":
-  version: 6.21.0
-  resolution: "undici-types@npm:6.21.0"
-  checksum: 10/ec8f41aa4359d50f9b59fa61fe3efce3477cc681908c8f84354d8567bb3701fafdddf36ef6bff307024d3feb42c837cf6f670314ba37fc8145e219560e473d14
+"undici-types@npm:~7.16.0":
+  version: 7.16.0
+  resolution: "undici-types@npm:7.16.0"
+  checksum: 10/db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
   languageName: node
   linkType: hard
 
