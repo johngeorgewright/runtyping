@@ -28,7 +28,7 @@ export default abstract class TypeWriters {
       recursive?: boolean
       circular?: boolean
       transformer?: InstructionTypeTransformer
-    } = {}
+    } = {},
   ): TypeWriter {
     let typeWriter = ((): TypeWriter => {
       switch (true) {
@@ -114,7 +114,7 @@ export default abstract class TypeWriters {
       typeWriter = this.attachTransformer(
         typeWriter,
         transformer.file,
-        transformer.export
+        transformer.export,
       )
 
     if (this.#requiresGenericFunction(type))
@@ -134,7 +134,7 @@ export default abstract class TypeWriters {
   abstract attachTransformer(
     typeWriter: TypeWriter,
     fileName: string,
-    exportName: string
+    exportName: string,
   ): TypeWriter<void | (() => TypeWriter)>
 
   #requiresGenericFunction(type: Type) {
@@ -200,10 +200,10 @@ export default abstract class TypeWriters {
     }: {
       whenOptional?(propertyWriter: TypeWriter): TypeWriter
       properties?: CompilerSymbol[]
-    }
+    },
   ): TypeWriter {
     const typeArguments = getGenerics(type).map((typeArgument) =>
-      typeArgument.getText()
+      typeArgument.getText(),
     )
     const typeWriter = this
 
@@ -226,7 +226,7 @@ export default abstract class TypeWriters {
   protected *openGenericFunction(
     type: Type,
     baseType: string,
-    staticHelper: string
+    staticHelper: string,
   ): TypeWriter<() => TypeWriter> {
     const generics = getGenerics(type)
     yield [Write, '<']
@@ -278,7 +278,7 @@ export default abstract class TypeWriters {
         [
           type,
           `${staticHelper}<ReturnType<typeof ${getTypeName(
-            type
+            type,
           )}<${generics.map((generic) => generic.getText())}>>>`,
         ],
       ]
@@ -297,7 +297,7 @@ export default abstract class TypeWriters {
       this: TypeWriters,
       type: Type,
       from: number,
-      to?: number
+      to?: number,
     ): TypeWriter
     separator?(): TypeWriter
   }): TypeWriter {
@@ -312,13 +312,13 @@ export default abstract class TypeWriters {
           this,
           elementType,
           i,
-          i === types.length - 1 ? undefined : i - (types.length - 1)
+          i === types.length - 1 ? undefined : i - (types.length - 1),
         )
       } else
         yield* element.call(
           this,
           elementType,
-          variadicIndex === undefined ? i : i - types.length
+          variadicIndex === undefined ? i : i - types.length,
         )
     }
   }
@@ -348,7 +348,7 @@ export default abstract class TypeWriters {
   protected abstract object(type: Type<ts.ObjectType>): TypeWriter
   protected abstract withGenerics(
     typeWriter: TypeWriter,
-    type: Type
+    type: Type,
   ): TypeWriter
   protected abstract never(type: Type): TypeWriter
 }

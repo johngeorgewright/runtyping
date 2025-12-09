@@ -19,8 +19,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
   #module = 'runtypes';
 
   override *defaultStaticImplementation(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Static' }]
-    yield [Static, [type, 'Static<typeof ${name}>']]
+    yield [Import, { source: this.#module, name: 'Parsed' }]
+    yield [Static, [type, 'Parsed<typeof ${name}>']]
   }
 
   override *lazy(type: Type): TypeWriter {
@@ -201,14 +201,14 @@ export default class RuntypesTypeWriters extends TypeWriters {
 
   protected override *withGenerics(
     typeWriter: TypeWriter,
-    type: Type<ts.ObjectType>
+    type: Type<ts.ObjectType>,
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'Static' }]
     yield [Import, { source: this.#module, name: 'Runtype' }]
     const close = yield* this.openGenericFunction(
       type,
       'Runtype.Core',
-      'Static'
+      'Static',
     )
     yield* typeWriter
     yield* close()
@@ -237,12 +237,15 @@ export default class RuntypesTypeWriters extends TypeWriters {
     yield [Write, type]
   }
 
-  override attachTransformer(
+  override *attachTransformer(
     typeWriter: TypeWriter,
-    _fileName: string,
-    _exportName: string
-  ) {
-    return typeWriter
+    fileName: string,
+    exportName: string,
+  ): TypeWriter {
+    yield* typeWriter
+    const alias = `${exportName}Transformer`
+    yield [Import, { source: fileName, name: exportName, alias }]
+    yield [Write, `.withParser(${alias})`]
   }
 }
 
