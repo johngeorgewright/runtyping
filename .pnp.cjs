@@ -74,7 +74,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:12.0.2"],\
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["commitizen", "npm:4.3.1"],\
           ["cz-conventional-changelog", "npm:3.3.0"],\
@@ -2981,8 +2981,8 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:30.0.0"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.21"],\
-          ["@types/node", "npm:20.19.25"],\
-          ["@types/prettier", "npm:2.7.3"],\
+          ["@types/node", "npm:24.10.2"],\
+          ["@types/prettier", "npm:3.0.0"],\
           ["@types/typescript", null],\
           ["@types/yargs", "npm:17.0.35"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
@@ -3024,8 +3024,8 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:30.0.0"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.21"],\
-          ["@types/node", "npm:20.19.25"],\
-          ["@types/prettier", "npm:2.7.3"],\
+          ["@types/node", "npm:24.10.2"],\
+          ["@types/prettier", "npm:3.0.0"],\
           ["@types/yargs", "npm:17.0.35"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
           ["js-yaml", "npm:4.1.1"],\
@@ -3063,7 +3063,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["fp-ts", "npm:2.16.11"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
@@ -3095,7 +3095,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:12.0.2"],\
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["commitizen", "npm:4.3.1"],\
           ["cz-conventional-changelog", "npm:3.3.0"],\
@@ -3134,7 +3134,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
           ["rimraf", "npm:6.1.2"],\
           ["runtypes", "npm:7.0.4"],\
@@ -3159,8 +3159,8 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/github", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:12.0.2"],\
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
-          ["@types/node", "npm:20.19.25"],\
-          ["@types/prettier", "npm:2.7.3"],\
+          ["@types/node", "npm:24.10.2"],\
+          ["@types/prettier", "npm:3.0.0"],\
           ["@types/rimraf", "npm:4.0.5"],\
           ["@types/yeoman-generator", "npm:5.2.14"],\
           ["change-case", "npm:5.4.4"],\
@@ -3191,7 +3191,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["@types/runtyping__generator", null],\
           ["assert-never", "npm:1.4.0"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
@@ -3228,7 +3228,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["assert-never", "npm:1.4.0"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
           ["mkdirp", "npm:3.0.1"],\
@@ -3261,7 +3261,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
           ["rimraf", "npm:6.1.2"],\
           ["semantic-release", "npm:25.0.2"],\
@@ -3290,7 +3290,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
           ["rimraf", "npm:6.1.2"],\
           ["semantic-release", "npm:25.0.2"],\
@@ -4111,11 +4111,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:20.19.25", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-20.19.25-db2be37769-f0ed863599.zip/node_modules/@types/node/",\
+      ["npm:24.10.2", {\
+        "packageLocation": "./.yarn/cache/@types-node-npm-24.10.2-49efdcfb7b-75b34e3308.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:20.19.25"],\
-          ["undici-types", "npm:6.21.0"]\
+          ["@types/node", "npm:24.10.2"],\
+          ["undici-types", "npm:7.16.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4146,10 +4146,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/prettier", [\
-      ["npm:2.7.3", {\
-        "packageLocation": "./.yarn/cache/@types-prettier-npm-2.7.3-497316f37c-cda84c19ac.zip/node_modules/@types/prettier/",\
+      ["npm:3.0.0", {\
+        "packageLocation": "./.yarn/cache/@types-prettier-npm-3.0.0-6c770110eb-a2a512d304.zip/node_modules/@types/prettier/",\
         "packageDependencies": [\
-          ["@types/prettier", "npm:2.7.3"]\
+          ["@types/prettier", "npm:3.0.0"],\
+          ["prettier", "npm:3.7.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -16171,7 +16172,7 @@ const RAW_RUNTIME_STATE =
           ["@tsconfig/node12", "npm:1.0.9"],\
           ["@tsconfig/node14", "npm:1.0.1"],\
           ["@tsconfig/node16", "npm:1.0.2"],\
-          ["@types/node", "npm:20.19.25"],\
+          ["@types/node", "npm:24.10.2"],\
           ["@types/swc__core", null],\
           ["@types/swc__wasm", null],\
           ["@types/typescript", null],\
@@ -16499,10 +16500,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:6.21.0", {\
-        "packageLocation": "./.yarn/cache/undici-types-npm-6.21.0-eb2b0ed56a-ec8f41aa43.zip/node_modules/undici-types/",\
+      ["npm:7.16.0", {\
+        "packageLocation": "./.yarn/cache/undici-types-npm-7.16.0-0e23b08124-db43439f69.zip/node_modules/undici-types/",\
         "packageDependencies": [\
-          ["undici-types", "npm:6.21.0"]\
+          ["undici-types", "npm:7.16.0"]\
         ],\
         "linkType": "HARD"\
       }]\
