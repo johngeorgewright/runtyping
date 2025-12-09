@@ -2419,7 +2419,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
-    type-fest: "npm:5.3.0"
+    type-fest: "npm:5.3.1"
     typescript: "npm:5.9.3"
   peerDependencies:
     "@runtyping/generator": "workspace:*"
@@ -14304,12 +14304,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:5.3.0, type-fest@npm:^5.2.0":
-  version: 5.3.0
-  resolution: "type-fest@npm:5.3.0"
+"type-fest@npm:5.3.1":
+  version: 5.3.1
+  resolution: "type-fest@npm:5.3.1"
   dependencies:
     tagged-tag: "npm:^1.0.0"
-  checksum: 10/2881a94f7a9a350d49fffd20d09e4e6e42e54b614a2492378299ab5cf4a233f335d7943acf975084293881001877851a58b03a65de46147c82050482da51cffc
+  checksum: 10/1015eeae6ba0961b6d7c010f2ca9ad142891e1d1f5e1ff898ee73ec8c82529100bce63ce57ae657b1dc788f7a5f209e600ebc33241b0de433a8c5e7f2018b331
   languageName: node
   linkType: hard
 
@@ -14380,6 +14380,15 @@ __metadata:
   version: 4.41.0
   resolution: "type-fest@npm:4.41.0"
   checksum: 10/617ace794ac0893c2986912d28b3065ad1afb484cad59297835a0807dc63286c39e8675d65f7de08fafa339afcb8fe06a36e9a188b9857756ae1e92ee8bda212
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^5.2.0":
+  version: 5.3.0
+  resolution: "type-fest@npm:5.3.0"
+  dependencies:
+    tagged-tag: "npm:^1.0.0"
+  checksum: 10/2881a94f7a9a350d49fffd20d09e4e6e42e54b614a2492378299ab5cf4a233f335d7943acf975084293881001877851a58b03a65de46147c82050482da51cffc
   languageName: node
   linkType: hard
 
