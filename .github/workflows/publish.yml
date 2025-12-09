@@ -35,7 +35,7 @@ jobs:
         run: yarn test
 
       - name: Upload dists
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: matrix.node-version == steps.nvm.outputs.version
         with:
           if-no-files-found: error
@@ -66,7 +66,7 @@ jobs:
           yarn --immutable
 
       - name: Download dists
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: dists
           path: ~/dists
