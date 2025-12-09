@@ -36,7 +36,7 @@
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-json-schema": "0.67.0"
+    "typescript-json-schema": "0.67.1"
   },
   "dependencies": {
     "@johngw/array": "3.3.2",
