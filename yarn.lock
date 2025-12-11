@@ -2471,6 +2471,40 @@ __metadata:
     zod: ^4.0.0
   languageName: unknown
   linkType: soft
+
+"@runtyping/zod-mini@workspace:packages/zod-mini":
+  version: 0.0.0-use.local
+  resolution: "@runtyping/zod-mini@workspace:packages/zod-mini"
+  dependencies:
+    "@runtyping/generator": "workspace:*"
+    "@runtyping/test-type-writers": "workspace:*"
+    "@runtyping/zod-core": "workspace:*"
+    "@semantic-release/commit-analyzer": "npm:13.0.1"
+    "@semantic-release/git": "npm:10.0.1"
+    "@semantic-release/github": "npm:12.0.2"
+    "@semantic-release/npm": "npm:13.1.2"
+    "@semantic-release/release-notes-generator": "npm:14.1.0"
+    "@types/jest": "npm:30.0.0"
+    "@types/json-schema": "npm:7.0.15"
+    "@types/node": "npm:24.10.2"
+    jest: "npm:30.2.0"
+    rimraf: "npm:6.1.2"
+    semantic-release: "npm:25.0.2"
+    semantic-release-monorepo: "npm:8.0.2"
+    title-case: "npm:3.0.3"
+    ts-jest: "npm:29.4.6"
+    ts-morph: "npm:27.0.2"
+    ts-node: "npm:10.9.2"
+    tslib: "npm:2.8.1"
+    typescript: "npm:5.9.3"
+    zod: "npm:4.1.13"
+  peerDependencies:
+    zod: ^4.0.0
+  bin:
+    runtyping: dist/cli.js
+  languageName: unknown
+  linkType: soft
+
 "@runtyping/zod@workspace:packages/zod":
   version: 0.0.0-use.local
   resolution: "@runtyping/zod@workspace:packages/zod"

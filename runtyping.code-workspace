@@ -19,6 +19,7 @@
     { "name": "📦 @runtyping/valibot", "path": "packages/valibot" },
     { "name": "📦 @runtyping/zod", "path": "packages/zod" },
     { "name": "📦 @runtyping/zod-core", "path": "packages/zod-core" },
+    { "name": "📦 @runtyping/zod-mini", "path": "packages/zod-mini" }
   ],
   "settings": {
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
