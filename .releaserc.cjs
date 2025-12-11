@@ -11,7 +11,7 @@ const config = {
     [
       '@semantic-release/exec',
       {
-        verifyConditionsCmd: 'yarn npm whoami --publish',
+        verifyConditionsCmd: 'yarn npm whoami --publish --scope runtyping',
         prepareCmd:
           "yarn version ${nextRelease.version} && echo 'version=${nextRelease.version}' >> $GITHUB_OUTPUT",
         publishCmd: 'yarn npm publish --access public',
