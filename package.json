@@ -53,7 +53,7 @@
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "yo": "4.3.1"
+    "yo": "6.0.0"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
