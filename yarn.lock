@@ -2241,7 +2241,7 @@ __metadata:
     "@types/jest": "npm:30.0.0"
     "@types/js-yaml": "npm:4.0.9"
     "@types/lodash": "npm:4.17.21"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     "@types/prettier": "npm:3.0.0"
     "@types/yargs": "npm:17.0.35"
     jest: "npm:30.2.0"
@@ -2280,7 +2280,7 @@ __metadata:
     "@ts-morph/common": "npm:0.28.1"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     fp-ts: "npm:2.16.11"
     io-ts: "npm:2.2.22"
     jest: "npm:30.2.0"
@@ -2314,7 +2314,7 @@ __metadata:
     "@semantic-release/github": "npm:12.0.2"
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     "@types/source-map-support": "npm:0.5.10"
     commitizen: "npm:4.3.1"
     cz-conventional-changelog: "npm:3.3.0"
@@ -2351,7 +2351,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     runtypes: "npm:7.0.4"
@@ -2378,7 +2378,7 @@ __metadata:
     "@semantic-release/github": "npm:12.0.2"
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     "@types/prettier": "npm:3.0.0"
     "@types/rimraf": "npm:4.0.5"
     "@types/yeoman-generator": "npm:5.2.14"
@@ -2408,7 +2408,7 @@ __metadata:
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
     "@types/mkdirp": "npm:2.0.0"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     assert-never: "npm:1.4.0"
     jest: "npm:30.2.0"
     mkdirp: "npm:3.0.1"
@@ -2440,7 +2440,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     semantic-release: "npm:25.0.2"
@@ -2471,7 +2471,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     semantic-release: "npm:25.0.2"
@@ -3139,12 +3139,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.10.2":
-  version: 24.10.2
-  resolution: "@types/node@npm:24.10.2"
+"@types/node@npm:24.10.3":
+  version: 24.10.3
+  resolution: "@types/node@npm:24.10.3"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10/75b34e33087dc707aa76723f7269cd66acd2fae4272d127544ad20f295e7537dbd1e4a4405717b3093aeae2ff8ae35283fdec826a4f593273e326bb3deae588d
+  checksum: 10/b5f3f3431b333d077fe8f656edc2a352597a0c83a21157d7cbf2811d20ba31ecf31182aaf5013f83b72bf94e368ece736e76ff0e578ceee6a30b43a666b5071f
   languageName: node
   linkType: hard
 
