@@ -3301,7 +3301,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
           ["@types/jest", "npm:30.0.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.2"],\
+          ["@types/node", "npm:24.10.3"],\
           ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
           ["rimraf", "npm:6.1.2"],\
           ["semantic-release", "npm:25.0.2"],\

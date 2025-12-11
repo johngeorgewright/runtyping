@@ -2486,7 +2486,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.1.0"
     "@types/jest": "npm:30.0.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.2"
+    "@types/node": "npm:24.10.3"
     jest: "npm:30.2.0"
     rimraf: "npm:6.1.2"
     semantic-release: "npm:25.0.2"
