@@ -15,7 +15,9 @@
     "release": "yarn workspaces foreach --all --no-private --topological-dev run release",
     "start": "yarn build && yarn workspaces foreach --all --no-private --parallel --interlaced run start",
     "test": "yarn workspaces foreach --all run test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "workspaces:list": "yarn workspaces foreach --all --topological --no-private exec 'echo \"$npm_package_name|$(pwd)\"' 2>&1 | grep -v 'Process\\|exit\\|Done' | grep -v '^$'",
+    "workspaces:list:json": "yarn workspaces:list | jq --raw-input --slurp --compact-output 'split(\"\\n\") | map(select(length > 0) | split(\"|\") | {name: .[0], location: .[1]})'"
   },
   "repository": {
     "type": "git",
@@ -33,11 +35,6 @@
     "@commitlint/config-conventional": "20.2.0",
     "@commitlint/types": "20.2.0",
     "@jest/types": "30.2.0",
-    "@semantic-release/commit-analyzer": "13.0.1",
-    "@semantic-release/exec": "7.1.0",
-    "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "12.0.2",
-    "@semantic-release/release-notes-generator": "14.1.0",
     "@types/jest": "30.0.0",
     "@types/node": "24.10.3",
     "@types/source-map-support": "0.5.10",
@@ -52,8 +49,6 @@
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
     "runtypes": "7.0.4",
-    "semantic-release": "25.0.2",
-    "semantic-release-monorepo": "8.0.2",
     "source-map-support": "0.5.21",
     "ts-jest": "29.4.6",
     "ts-node": "10.9.2",

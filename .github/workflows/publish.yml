@@ -12,6 +12,8 @@ jobs:
     strategy:
       matrix:
         node-version: [20, 22, 24, 25]
+    outputs:
+      packages: ${{ steps.paths.outputs.packages }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v6
@@ -35,6 +37,10 @@ jobs:
       - name: Test
         run: yarn test
 
+      - name: Output paths
+        id: paths
+        run: echo "packages=$(yarn workspaces:list:json)" >> $GITHUB_OUTPUT
+
       - name: Upload dists
         uses: actions/upload-artifact@v4
         if: matrix.node-version == steps.nvm.outputs.version
@@ -52,6 +58,9 @@ jobs:
     permissions:
       id-token: write
       contents: write
+    strategy:
+      matrix:
+        location: ${{ fromJson(needs.build.outputs.packages).*.location }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v6
@@ -76,13 +85,18 @@ jobs:
           path: ~/dists
 
       - name: Move dists to project
-        run: |
+        run: | # shell
           for package in ~/dists/*
           do 
             mv "$package/dist" "packages/${package/$HOME\/dists\//}"
           done
 
-      - name: Release
-        run: yarn release
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          extra_plugins: |
+            @semantic-release/git@^10
+            semantic-release-monorepo@^8
+          working_directory: ${{ matrix.location }}

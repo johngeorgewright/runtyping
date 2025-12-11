@@ -8,15 +8,7 @@ const config = {
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
-    [
-      '@semantic-release/exec',
-      {
-        verifyConditionsCmd: 'yarn npm whoami --publish --scope runtyping',
-        prepareCmd:
-          "yarn version ${nextRelease.version} && echo 'version=${nextRelease.version}' >> $GITHUB_OUTPUT",
-        publishCmd: 'yarn npm publish --access public',
-      },
-    ],
+    '@semantic-release/npm',
     [
       '@semantic-release/git',
       {

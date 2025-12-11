@@ -8,6 +8,7 @@
   },
   "folders": [
     { "name": "✨ @runtyping/mono-repo", "path": "." },
+    { "name": "🐙 github", "path": ".github" },
     { "name": "🏗 @runtyping/scaffold", "path": "packages/scaffold" },
     { "name": "📦 @runtyping/generator", "path": "packages/generator" },
     { "name": "📦 @runtyping/io-ts", "path": "packages/io-ts" },
