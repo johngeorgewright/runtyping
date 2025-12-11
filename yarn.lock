@@ -2458,12 +2458,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@runtyping/zod-core@workspace:*, @runtyping/zod-core@workspace:packages/zod-core":
+  version: 0.0.0-use.local
+  resolution: "@runtyping/zod-core@workspace:packages/zod-core"
+  dependencies:
+    "@runtyping/generator": "workspace:*"
+    title-case: "npm:3.0.3"
+    ts-morph: "npm:27.0.2"
+    tslib: "npm:2.8.1"
+    zod: "npm:4.1.13"
+  peerDependencies:
+    zod: ^4.0.0
+  languageName: unknown
+  linkType: soft
 "@runtyping/zod@workspace:packages/zod":
   version: 0.0.0-use.local
   resolution: "@runtyping/zod@workspace:packages/zod"
   dependencies:
     "@runtyping/generator": "workspace:*"
     "@runtyping/test-type-writers": "workspace:*"
+    "@runtyping/zod-core": "workspace:*"
     "@semantic-release/commit-analyzer": "npm:13.0.1"
     "@semantic-release/git": "npm:10.0.1"
     "@semantic-release/github": "npm:12.0.2"

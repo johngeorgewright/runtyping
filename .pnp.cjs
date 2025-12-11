@@ -41,6 +41,10 @@ const RAW_RUNTIME_STATE =
     {\
       "name": "@runtyping/zod",\
       "reference": "workspace:packages/zod"\
+    },\
+    {\
+      "name": "@runtyping/zod-core",\
+      "reference": "workspace:packages/zod-core"\
     }\
   ],\
   "enableTopLevelFallback": true,\
@@ -54,7 +58,8 @@ const RAW_RUNTIME_STATE =
     ["@runtyping/scaffold", ["workspace:packages/scaffold"]],\
     ["@runtyping/test-type-writers", ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers", "workspace:packages/test-type-writers"]],\
     ["@runtyping/valibot", ["workspace:packages/valibot"]],\
-    ["@runtyping/zod", ["workspace:packages/zod"]]\
+    ["@runtyping/zod", ["workspace:packages/zod"]],\
+    ["@runtyping/zod-core", ["virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core", "workspace:packages/zod-core"]],\
   ],\
   "fallbackPool": [\
   ],\
@@ -3283,6 +3288,61 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@runtyping/zod", "workspace:packages/zod"],\
+          ["@runtyping/zod-core", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core"],\
+          ["@semantic-release/commit-analyzer", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:13.0.1"],\
+          ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
+          ["@semantic-release/github", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:12.0.2"],\
+          ["@semantic-release/npm", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:13.1.2"],\
+          ["@semantic-release/release-notes-generator", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:14.1.0"],\
+          ["@types/jest", "npm:30.0.0"],\
+          ["@types/json-schema", "npm:7.0.15"],\
+          ["@types/node", "npm:24.10.2"],\
+          ["jest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:30.2.0"],\
+          ["rimraf", "npm:6.1.2"],\
+          ["semantic-release", "npm:25.0.2"],\
+          ["semantic-release-monorepo", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:8.0.2"],\
+          ["title-case", "npm:3.0.3"],\
+          ["ts-jest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:29.4.6"],\
+          ["ts-morph", "npm:27.0.2"],\
+          ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
+          ["tslib", "npm:2.8.1"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
+          ["zod", "npm:4.1.13"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@runtyping/zod-core", [\
+      ["virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core", {\
+        "packageLocation": "./.yarn/__virtual__/@runtyping-zod-core-virtual-d62c6d5c5c/1/packages/zod-core/",\
+        "packageDependencies": [\
+          ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
+          ["@runtyping/zod-core", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core"],\
+          ["@types/zod", null],\
+          ["title-case", "npm:3.0.3"],\
+          ["ts-morph", "npm:27.0.2"],\
+          ["tslib", "npm:2.8.1"],\
+          ["zod", "npm:4.1.13"]\
+        ],\
+        "packagePeers": [\
+          "@types/zod",\
+          "zod"\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["workspace:packages/zod-core", {\
+        "packageLocation": "./packages/zod-core/",\
+        "packageDependencies": [\
+          ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
+          ["@runtyping/zod-core", "workspace:packages/zod-core"],\
+          ["title-case", "npm:3.0.3"],\
+          ["ts-morph", "npm:27.0.2"],\
+          ["tslib", "npm:2.8.1"],\
+          ["zod", "npm:4.1.13"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
           ["@semantic-release/commit-analyzer", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:13.0.1"],\
           ["@semantic-release/git", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.0.1"],\
           ["@semantic-release/github", "virtual:3deba2186eaa209a95cb0b957002436a2f965daeda9567efa3894ea1bc660825414bb8c0fcaa5993e480c603340b61793889594cc7377584cfd648714418fd12#npm:12.0.2"],\

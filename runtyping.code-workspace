@@ -17,7 +17,8 @@
       "path": "packages/test-type-writers"
     },
     { "name": "📦 @runtyping/valibot", "path": "packages/valibot" },
-    { "name": "📦 @runtyping/zod", "path": "packages/zod" }
+    { "name": "📦 @runtyping/zod", "path": "packages/zod" },
+    { "name": "📦 @runtyping/zod-core", "path": "packages/zod-core" },
   ],
   "settings": {
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
