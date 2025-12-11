@@ -78,6 +78,10 @@ jobs:
           yarn config set --home npmPublishRegistry https://registry.npmjs.org
           yarn --immutable
 
+      - name: Install semantic-release deps
+        working-directory: ${{ matrix.location }}
+        run: yarn add --dev semantic-release-monorepo
+
       - name: Download dists
         uses: actions/download-artifact@v4
         with:
@@ -98,5 +102,4 @@ jobs:
         with:
           extra_plugins: |
             @semantic-release/git@^10
-            semantic-release-monorepo@^8
           working_directory: ${{ matrix.location }}
