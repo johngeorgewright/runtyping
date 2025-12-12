@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/zod-core",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Zod core utilities for runtyping",
   "main": "dist/index.js",
   "scripts": {

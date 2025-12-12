@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/generator",
-  "version": "9.0.3",
+  "version": "9.1.0",
   "description": "The core generator package for runtyping",
   "main": "dist/index.js",
   "scripts": {
