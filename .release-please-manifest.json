@@ -1,10 +1,10 @@
 {
-  "packages/generator": "9.1.0",
-  "packages/io-ts": "3.0.2",
-  "packages/runtypes": "4.1.0",
-  "packages/test-type-writers": "3.1.2",
-  "packages/valibot": "1.0.2",
-  "packages/zod": "4.0.1",
-  "packages/zod-core": "1.0.0",
-  "packages/zod-mini": "1.0.0"
+  "packages/generator": "10.0.0",
+  "packages/io-ts": "4.0.0",
+  "packages/runtypes": "5.0.0",
+  "packages/test-type-writers": "4.0.0",
+  "packages/valibot": "2.0.0",
+  "packages/zod": "5.0.0",
+  "packages/zod-core": "2.0.0",
+  "packages/zod-mini": "2.0.0"
 }
