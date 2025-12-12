@@ -34,7 +34,7 @@
     "@commitlint/types": "20.2.0",
     "@types/node": "24.10.3",
     "@types/source-map-support": "0.5.10",
-    "@vitest/ui": "2.1.8",
+    "@vitest/ui": "2.1.9",
     "commitizen": "4.3.1",
     "cz-conventional-changelog": "3.3.0",
     "fp-ts": "2.16.11",
@@ -47,7 +47,7 @@
     "source-map-support": "0.5.21",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "vitest": "2.1.8"
+    "vitest": "2.1.9"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
