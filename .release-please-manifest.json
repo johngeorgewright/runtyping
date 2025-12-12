@@ -1,5 +1,4 @@
 {
-  ".": "4.7.0",
   "packages/generator": "9.0.3",
   "packages/io-ts": "3.0.1",
   "packages/runtypes": "4.0.0",
