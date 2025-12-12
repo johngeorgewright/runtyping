@@ -777,7 +777,7 @@ __metadata:
     fp-ts: "npm:2.16.11"
     io-ts: "npm:2.2.22"
     rimraf: "npm:6.1.2"
-    title-case: "npm:3.0.3"
+    title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
@@ -889,7 +889,7 @@ __metadata:
   resolution: "@runtyping/zod-core@workspace:packages/zod-core"
   dependencies:
     "@runtyping/generator": "workspace:*"
-    title-case: "npm:3.0.3"
+    title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
     zod: "npm:4.1.13"
@@ -908,7 +908,7 @@ __metadata:
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:24.10.3"
     rimraf: "npm:6.1.2"
-    title-case: "npm:3.0.3"
+    title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
@@ -932,7 +932,7 @@ __metadata:
     "@types/json-schema": "npm:7.0.15"
     "@types/node": "npm:24.10.3"
     rimraf: "npm:6.1.2"
-    title-case: "npm:3.0.3"
+    title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     ts-node: "npm:10.9.2"
     tslib: "npm:2.8.1"
@@ -4604,12 +4604,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"title-case@npm:3.0.3":
-  version: 3.0.3
-  resolution: "title-case@npm:3.0.3"
-  dependencies:
-    tslib: "npm:^2.0.3"
-  checksum: 10/369fe90f650a66205c34ebef63a69c6d1fd411ae3aad23db0aae165ddb881af50e67c6ea6800d605bc2b9e0ab5f22dada58fe97a1a7e7f3131ee0ef176cc65ec
+"title-case@npm:4.3.2":
+  version: 4.3.2
+  resolution: "title-case@npm:4.3.2"
+  checksum: 10/1c6c212e05f3204c53187311ba128a3528c98977a381a3f27917cfc9270536bda4eb3d8ca278800d6c1bca62d165c4a741afa5a19f5a5cdba1651767c7973d81
   languageName: node
   linkType: hard
 
@@ -4759,7 +4757,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.8.1, tslib@npm:^2.0.3":
+"tslib@npm:2.8.1":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7

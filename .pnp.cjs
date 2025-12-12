@@ -1042,7 +1042,7 @@ const RAW_RUNTIME_STATE =
           ["fp-ts", "npm:2.16.11"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["rimraf", "npm:6.1.2"],\
-          ["title-case", "npm:3.0.3"],\
+          ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1184,7 +1184,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.3"],\
           ["rimraf", "npm:6.1.2"],\
-          ["title-case", "npm:3.0.3"],\
+          ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1202,7 +1202,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
           ["@runtyping/zod-core", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core"],\
           ["@types/zod", null],\
-          ["title-case", "npm:3.0.3"],\
+          ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["zod", "npm:4.1.13"]\
@@ -1218,7 +1218,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
           ["@runtyping/zod-core", "workspace:packages/zod-core"],\
-          ["title-case", "npm:3.0.3"],\
+          ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["zod", "npm:4.1.13"]\
@@ -1237,7 +1237,7 @@ const RAW_RUNTIME_STATE =
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.3"],\
           ["rimraf", "npm:6.1.2"],\
-          ["title-case", "npm:3.0.3"],\
+          ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["ts-node", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:10.9.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -5269,11 +5269,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["title-case", [\
-      ["npm:3.0.3", {\
-        "packageLocation": "./.yarn/cache/title-case-npm-3.0.3-101a1194a3-369fe90f65.zip/node_modules/title-case/",\
+      ["npm:4.3.2", {\
+        "packageLocation": "./.yarn/cache/title-case-npm-4.3.2-256059d3bc-1c6c212e05.zip/node_modules/title-case/",\
         "packageDependencies": [\
-          ["title-case", "npm:3.0.3"],\
-          ["tslib", "npm:2.8.1"]\
+          ["title-case", "npm:4.3.2"]\
         ],\
         "linkType": "HARD"\
       }]\
