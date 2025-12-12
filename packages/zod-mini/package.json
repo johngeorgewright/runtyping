@@ -7,7 +7,6 @@
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
     "start": "tsc --watch --preserveWatchOutput",
-    "release": "semantic-release && sleep 3",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
   "license": "MIT",

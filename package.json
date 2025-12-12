@@ -12,7 +12,6 @@
     "clean": "yarn workspaces foreach --all run clean",
     "package:generate": "node --require ts-node/register $(yarn bin yo) ./packages/scaffold/src/package-generate",
     "package:remove": "node --require ts-node/register $(yarn bin yo) ./packages/scaffold/src/package-remove",
-    "release": "yarn workspaces foreach --all --no-private --topological-dev run release",
     "start": "yarn build && yarn workspaces foreach --all --no-private --parallel --interlaced run start",
     "test": "yarn workspaces foreach --all run test",
     "prepare": "husky install",

@@ -6,7 +6,6 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
-    "release": "semantic-release && sleep 3",
     "start": "tsc --watch --preserveWatchOutput",
     "test": "node --experimental-vm-modules $(yarn bin jest)"
   },
