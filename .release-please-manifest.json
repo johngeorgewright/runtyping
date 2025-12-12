@@ -1,0 +1,11 @@
+{
+  ".": "4.7.0",
+  "packages/generator": "4.7.0",
+  "packages/io-ts": "4.7.0",
+  "packages/runtypes": "4.7.0",
+  "packages/test-type-writers": "4.7.0",
+  "packages/valibot": "4.7.0",
+  "packages/zod": "4.7.0",
+  "packages/zod-core": "4.7.0",
+  "packages/zod-mini": "4.7.0"
+}

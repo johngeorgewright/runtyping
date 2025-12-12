@@ -94,7 +94,6 @@ export = class PackageGenerator extends Generator {
     this.packageJson.set('scripts', {
       build: 'yarn clean && tsc',
       clean: 'rimraf dist',
-      release: 'semantic-release && sleep 3',
       start: 'tsc --watch --preserveWatchOutput',
       test: 'jest',
     })
@@ -120,18 +119,6 @@ export = class PackageGenerator extends Generator {
       'ts-jest',
       'typescript',
     ]
-
-    if (this.#answers.public) {
-      devDependencies.push(
-        '@semantic-release/commit-analyzer',
-        '@semantic-release/git',
-        '@semantic-release/github',
-        '@semantic-release/npm',
-        '@semantic-release/release-notes-generator',
-        'semantic-release',
-        'semantic-release-monorepo'
-      )
-    }
 
     const dependencies = ['tslib']
 

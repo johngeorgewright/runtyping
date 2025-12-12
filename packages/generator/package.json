@@ -6,7 +6,6 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
-    "release": "semantic-release && sleep 3",
     "schema": "typescript-json-schema --out ../../runtyping.schema.json src/runtypes.ts Instructions && prettier --write ../../runtyping.schema.json",
     "start": "tsc --watch --preserveWatchOutput",
     "test": "jest test"

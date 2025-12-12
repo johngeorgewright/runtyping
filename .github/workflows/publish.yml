@@ -49,10 +49,27 @@ jobs:
           name: dists
           path: packages/**/dist
 
-  publish-npm:
-    name: GitHub & NPM
+  release-please:
+    name: Create Release PR
     if: github.actor != 'renovate[bot]'
     needs: [build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      releases_created: ${{ steps.release.outputs.releases_created }}
+    steps:
+      - name: Run release-please
+        id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.PUSH_TOKEN }}
+
+  publish-npm:
+    name: Publish to NPM
+    if: needs.release-please.outputs.releases_created == 'true'
+    needs: [release-please]
     runs-on: ubuntu-latest
     environment: NPM
     permissions:
@@ -60,27 +77,20 @@ jobs:
       contents: write
     strategy:
       matrix:
-        location: ${{ fromJson(needs.build.outputs.packages).*.location }}
+        path: ${{ fromJson(needs.release-please.outputs.paths_released) }}
     steps:
       - name: Checkout project
         uses: actions/checkout@v6
-        with:
-          token: ${{ secrets.PUSH_TOKEN }}
 
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
           cache: yarn
           node-version-file: .nvmrc
+          registry-url: "https://registry.npmjs.org"
 
       - name: Setup
-        run: |
-          yarn config set --home npmPublishRegistry https://registry.npmjs.org
-          yarn --immutable
-
-      - name: Install semantic-release deps
-        working-directory: ${{ matrix.location }}
-        run: yarn add --dev semantic-release-monorepo
+        run: yarn --immutable
 
       - name: Download dists
         uses: actions/download-artifact@v4
@@ -95,11 +105,6 @@ jobs:
             mv "$package/dist" "packages/${package/$HOME\/dists\//}"
           done
 
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          extra_plugins: |
-            @semantic-release/git@^10
-          working_directory: ${{ matrix.location }}
+      - name: Publish to NPM
+        working-directory: ${{ matrix.path }}
+        run: yarn npm publish --access public

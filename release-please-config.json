@@ -1,0 +1,101 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "include-component-in-tag": false,
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "package-name": "@runtyping/mono-repo"
+    },
+    "packages/generator": {
+      "release-type": "node",
+      "package-name": "@runtyping/generator"
+    },
+    "packages/io-ts": {
+      "release-type": "node",
+      "package-name": "@runtyping/io-ts"
+    },
+    "packages/runtypes": {
+      "release-type": "node",
+      "package-name": "@runtyping/runtypes"
+    },
+    "packages/test-type-writers": {
+      "release-type": "node",
+      "package-name": "@runtyping/test-type-writers"
+    },
+    "packages/valibot": {
+      "release-type": "node",
+      "package-name": "@runtyping/valibot"
+    },
+    "packages/zod": {
+      "release-type": "node",
+      "package-name": "@runtyping/zod"
+    },
+    "packages/zod-core": {
+      "release-type": "node",
+      "package-name": "@runtyping/zod-core"
+    },
+    "packages/zod-mini": {
+      "release-type": "node",
+      "package-name": "@runtyping/zod-mini"
+    }
+  },
+  "changelog-sections": [
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "perf",
+      "section": "Performance Improvements"
+    },
+    {
+      "type": "revert",
+      "section": "Reverts"
+    },
+    {
+      "type": "docs",
+      "section": "Documentation",
+      "hidden": false
+    },
+    {
+      "type": "style",
+      "section": "Styles",
+      "hidden": true
+    },
+    {
+      "type": "chore",
+      "section": "Miscellaneous Chores",
+      "hidden": true
+    },
+    {
+      "type": "refactor",
+      "section": "Code Refactoring",
+      "hidden": true
+    },
+    {
+      "type": "test",
+      "section": "Tests",
+      "hidden": true
+    },
+    {
+      "type": "build",
+      "section": "Build System",
+      "hidden": true
+    },
+    {
+      "type": "ci",
+      "section": "Continuous Integration",
+      "hidden": true
+    }
+  ],
+  "plugins": [
+    {
+      "type": "node-workspace"
+    }
+  ]
+}
