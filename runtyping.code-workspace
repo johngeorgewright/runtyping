@@ -6,23 +6,58 @@
     ]
   },
   "folders": [
-    { "name": "✨ @runtyping/mono-repo", "path": "." },
-    { "name": "🐙 github", "path": ".github" },
-    { "name": "📦 @runtyping/generator", "path": "packages/generator" },
-    { "name": "📦 @runtyping/io-ts", "path": "packages/io-ts" },
-    { "name": "📦 @runtyping/runtypes", "path": "packages/runtypes" },
+    {
+      "name": "✨ @runtyping/mono-repo",
+      "path": "."
+    },
+    {
+      "name": "🐙 github",
+      "path": ".github"
+    },
+    {
+      "name": "🏗️ scaffold",
+      "path": "scaffold"
+    },
+    {
+      "name": "📦 @runtyping/generator",
+      "path": "packages/generator"
+    },
+    {
+      "name": "📦 @runtyping/io-ts",
+      "path": "packages/io-ts"
+    },
+    {
+      "name": "📦 @runtyping/runtypes",
+      "path": "packages/runtypes"
+    },
     {
       "name": "📦 @runtyping/test-type-writers",
       "path": "packages/test-type-writers"
     },
-    { "name": "📦 @runtyping/valibot", "path": "packages/valibot" },
-    { "name": "📦 @runtyping/zod", "path": "packages/zod" },
-    { "name": "📦 @runtyping/zod-core", "path": "packages/zod-core" },
-    { "name": "📦 @runtyping/zod-mini", "path": "packages/zod-mini" }
+    {
+      "name": "📦 @runtyping/valibot",
+      "path": "packages/valibot"
+    },
+    {
+      "name": "📦 @runtyping/zod",
+      "path": "packages/zod"
+    },
+    {
+      "name": "📦 @runtyping/zod-core",
+      "path": "packages/zod-core"
+    },
+    {
+      "name": "📦 @runtyping/zod-mini",
+      "path": "packages/zod-mini"
+    }
   ],
   "settings": {
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
-    "search.exclude": { "**/dist": true, "**/.yarn": true, "**/.pnp.*": true },
+    "search.exclude": {
+      "**/dist": true,
+      "**/.yarn": true,
+      "**/.pnp.*": true
+    },
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.tsdk": "✨ @runtyping/mono-repo/.yarn/sdks/typescript/lib"
   }
