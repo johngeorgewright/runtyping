@@ -23,10 +23,6 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/io-ts"\
     },\
     {\
-      "name": "@runtyping/mung",\
-      "reference": "workspace:packages/mung"\
-    },\
-    {\
       "name": "@runtyping/runtypes",\
       "reference": "workspace:packages/runtypes"\
     },\
@@ -58,7 +54,6 @@ const RAW_RUNTIME_STATE =
     ["@runtyping/generator", ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator", "workspace:packages/generator"]],\
     ["@runtyping/io-ts", ["workspace:packages/io-ts"]],\
     ["@runtyping/mono-repo", ["workspace:."]],\
-    ["@runtyping/mung", ["workspace:packages/mung"]],\
     ["@runtyping/runtypes", ["workspace:packages/runtypes"]],\
     ["@runtyping/test-type-writers", ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers", "workspace:packages/test-type-writers"]],\
     ["@runtyping/valibot", ["workspace:packages/valibot"]],\
@@ -1141,26 +1136,6 @@ const RAW_RUNTIME_STATE =
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["vite-node", "npm:5.2.0"],\
           ["vitest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:4.0.15"]\
-        ],\
-        "linkType": "SOFT"\
-      }]\
-    ]],\
-    ["@runtyping/mung", [\
-      ["workspace:packages/mung", {\
-        "packageLocation": "./packages/mung/",\
-        "packageDependencies": [\
-          ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
-          ["@runtyping/mung", "workspace:packages/mung"],\
-          ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
-          ["@ts-morph/common", "npm:0.28.1"],\
-          ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.3"],\
-          ["mung", "npm:0.0.5"],\
-          ["rimraf", "npm:6.1.2"],\
-          ["ts-morph", "npm:27.0.2"],\
-          ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
-          ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -4546,15 +4521,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/ms-npm-2.1.3-81ff3cfac1-aa92de6080.zip/node_modules/ms/",\
         "packageDependencies": [\
           ["ms", "npm:2.1.3"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["mung", [\
-      ["npm:0.0.5", {\
-        "packageLocation": "./.yarn/cache/mung-npm-0.0.5-0f1fd0e10d-c64f74591e.zip/node_modules/mung/",\
-        "packageDependencies": [\
-          ["mung", "npm:0.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
