@@ -15,7 +15,7 @@ import { Type, ts } from 'ts-morph'
 
 export default class ValibotTypeWriters extends TypeWriters {
   override *defaultStaticImplementation(type: Type): TypeWriter {
-    yield [Import, { source: 'valibot', name: 'InferOutput' }]
+    yield [Import, { source: 'valibot', name: 'InferOutput', isTypeOnly: true }]
     yield [Static, [type, 'InferOutput<typeof ${name}>']]
   }
 
@@ -25,7 +25,7 @@ export default class ValibotTypeWriters extends TypeWriters {
       alias,
       type,
       typeWriter,
-    }: { alias?: string; type?: Type; typeWriter?: TypeWriter } = {}
+    }: { alias?: string; type?: Type; typeWriter?: TypeWriter } = {},
   ): TypeWriter {
     const importOptions = alias ? { alias } : {}
     yield [Import, { source: 'valibot', name, ...importOptions }]
@@ -148,12 +148,15 @@ export default class ValibotTypeWriters extends TypeWriters {
   }
 
   override *withGenerics(typeWriter: TypeWriter, type: Type): TypeWriter {
-    yield [Import, { source: 'valibot', name: 'InferOutput' }]
-    yield [Import, { source: 'valibot', name: 'GenericSchema' }]
+    yield [Import, { source: 'valibot', name: 'InferOutput', isTypeOnly: true }]
+    yield [
+      Import,
+      { source: 'valibot', name: 'GenericSchema', isTypeOnly: true },
+    ]
     const closeFunction = yield* this.openGenericFunction(
       type,
       'GenericSchema',
-      'InferOutput'
+      'InferOutput',
     )
     yield* typeWriter
     yield* closeFunction()
@@ -206,7 +209,10 @@ export default class ValibotTypeWriters extends TypeWriters {
     const name = getTypeName(type)
     const alias = `_${name}`
     yield [Import, { source: 'valibot', name: 'lazy' }]
-    yield [Import, { source: 'valibot', name: 'GenericSchema' }]
+    yield [
+      Import,
+      { source: 'valibot', name: 'GenericSchema', isTypeOnly: true },
+    ]
     yield [ImportFromSource, { alias, name }]
     yield [DeclareType, `GenericSchema<${alias}>`]
     yield [Write, 'lazy(() => ']
@@ -264,7 +270,7 @@ export default class ValibotTypeWriters extends TypeWriters {
   override *attachTransformer(
     typeWriter: TypeWriter,
     fileName: string,
-    exportName: string
+    exportName: string,
   ): TypeWriter {
     const alias = `${exportName}Transformer`
     yield [Import, { source: 'valibot', name: 'pipe' }]

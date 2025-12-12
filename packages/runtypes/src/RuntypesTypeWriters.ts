@@ -19,7 +19,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
   #module = 'runtypes';
 
   override *defaultStaticImplementation(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Parsed' }]
+    yield [Import, { source: this.#module, name: 'Parsed', isTypeOnly: true }]
     yield [Static, [type, 'Parsed<typeof ${name}>']]
   }
 
@@ -27,7 +27,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
     const name = getTypeName(type)
     const alias = `_${name}`
     yield [Import, { source: this.#module, name: 'Lazy' }]
-    yield [Import, { source: this.#module, name: 'Runtype' }]
+    yield [Import, { source: this.#module, name: 'Runtype', isTypeOnly: true }]
     yield [ImportFromSource, { alias, name }]
     yield [DeclareType, `Runtype.Core<${alias}>`]
     yield [Write, 'Lazy(() => ']
@@ -203,8 +203,8 @@ export default class RuntypesTypeWriters extends TypeWriters {
     typeWriter: TypeWriter,
     type: Type<ts.ObjectType>,
   ): TypeWriter {
-    yield [Import, { source: this.#module, name: 'Static' }]
-    yield [Import, { source: this.#module, name: 'Runtype' }]
+    yield [Import, { source: this.#module, name: 'Static', isTypeOnly: true }]
+    yield [Import, { source: this.#module, name: 'Runtype', isTypeOnly: true }]
     const close = yield* this.openGenericFunction(
       type,
       'Runtype.Core',

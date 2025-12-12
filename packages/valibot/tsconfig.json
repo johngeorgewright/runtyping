@@ -17,5 +17,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "../generator" }, { "path": "../test-type-writers" }]
 }
