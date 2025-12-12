@@ -1,12 +1,20 @@
+import { beforeEach, describe, expect, test } from 'vitest'
 import { Project, SourceFile, SyntaxKind } from 'ts-morph'
 import { getTupleElements, isVariadicTuple } from '../src/tuple'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 let project: Project
 let sourceFile: SourceFile
 
 beforeEach(() => {
   project = new Project()
-  sourceFile = project.addSourceFileAtPath(`${__dirname}/fixtures/tuple.ts`)
+  sourceFile = project.addSourceFileAtPath(
+    join(__dirname, 'fixtures', 'tuple.ts'),
+  )
 })
 
 describe('isTupleVariadic()', () => {

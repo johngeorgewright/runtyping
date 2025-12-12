@@ -2,13 +2,22 @@
   "name": "@runtyping/generator",
   "version": "9.1.0",
   "description": "The core generator package for runtyping",
+  "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./enum": "./dist/enum.js",
+    "./runtypes": "./dist/runtypes.js"
+  },
   "scripts": {
-    "build": "yarn clean && tsc",
-    "clean": "rimraf dist",
+    "build": "tsc",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "schema": "typescript-json-schema --out ../../runtyping.schema.json src/runtypes.ts Instructions && prettier --write ../../runtyping.schema.json",
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "jest test"
+    "test": "vitest run"
   },
   "license": "MIT",
   "bugs": {
@@ -16,19 +25,17 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "devDependencies": {
-    "@types/jest": "30.0.0",
     "@types/js-yaml": "4.0.9",
     "@types/lodash": "4.17.21",
     "@types/node": "24.10.3",
     "@types/prettier": "3.0.0",
     "@types/yargs": "17.0.35",
-    "jest": "30.2.0",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
-    "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "typescript-json-schema": "0.67.1"
+    "typescript-json-schema": "0.67.1",
+    "vitest": "2.1.8"
   },
   "dependencies": {
     "@johngw/array": "3.3.2",

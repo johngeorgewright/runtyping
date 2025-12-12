@@ -37,7 +37,7 @@ interface TestFixtureProps extends TypeWriterTestProps {
 export async function testFixture(testName: string, props: TestFixtureProps) {
   await mkdirp(fixturesDestDir)
   const dataNames = (await getDataNames(testName)).filter(
-    (dataName) => !props.ignore?.includes(`${testName}.${dataName}`)
+    (dataName) => !props.ignore?.includes(`${testName}.${dataName}`),
   )
   const sourceFile = await generate(testName, dataNames, props)
   await validate(testName, dataNames, sourceFile, props)
@@ -51,12 +51,12 @@ async function getDataNames(testName: string): Promise<string[]> {
         ? $getDataNames(data[name])
             .filter((x) => x !== '$namespace')
             .map((x) => `${name}.${x}`)
-        : name
+        : name,
     )
   }
   try {
     return $getDataNames(
-      await import(pathHelper.join(fixturesDataDir, `${testName}.ts`))
+      await import(pathHelper.join(fixturesDataDir, `${testName}.ts`)),
     )
   } catch (error) {
     console.error(error)
@@ -67,7 +67,7 @@ async function getDataNames(testName: string): Promise<string[]> {
 async function generate(
   testName: string,
   dataNames: string[],
-  { exportStaticType, generatorOpts, project, typeWriters }: TestFixtureProps
+  { exportStaticType, generatorOpts, project, typeWriters }: TestFixtureProps,
 ) {
   const generator = new Generator({
     typeWriters,
@@ -75,7 +75,7 @@ async function generate(
     project,
     transformers: {
       TransformStringToNumber: {
-        file: '@runtyping/test-type-writers/dist/transformers/stringToNumber',
+        file: '@runtyping/test-type-writers/transformers/stringToNumber',
         export: 'stringToNumber',
       },
     },
@@ -87,7 +87,7 @@ async function generate(
       exportStaticType,
       file: pathHelper.join(
         fixturesSourceDir,
-        pathHelper.extname(testName) === '.json' ? testName : `${testName}.ts`
+        pathHelper.extname(testName) === '.json' ? testName : `${testName}.ts`,
       ),
       type: dataNames,
     },
@@ -107,7 +107,7 @@ async function validate(
   testName: string,
   dataNames: string[],
   sourceFile: SourceFile,
-  props: TestFixtureProps
+  props: TestFixtureProps,
 ) {
   const data = await import(pathHelper.join(fixturesDataDir, `${testName}.ts`))
 
@@ -139,7 +139,7 @@ async function validate(
 }
 
 function* getSuccess<T>(
-  data: TestData<T> | TestDataNamespace<Record<string, T>>
+  data: TestData<T> | TestDataNamespace<Record<string, T>>,
 ): Iterable<TestDataSuccess<T>> {
   if (zodGuard(TestData<T>())(data)) return yield* data.success
   for (const key in data)
@@ -147,7 +147,7 @@ function* getSuccess<T>(
 }
 
 function* getFailure<T>(
-  data: TestData<T> | TestDataNamespace<Record<string, T>>
+  data: TestData<T> | TestDataNamespace<Record<string, T>>,
 ): Iterable<TestDataFailure> {
   if (zodGuard(TestData<T>())(data)) return yield* data.failure
   for (const key in data)
@@ -168,12 +168,12 @@ function createValidatorArg(props: TestFixtureProps, data: TestDataArg): any {
   return data === TestDataArgNumber
     ? props.createNumberValidator()
     : data === TestDataArgString
-    ? props.createStringValidator()
-    : typeof data === 'object'
-    ? props.createObjectValidator(
-        mapValues(data, (arg) => createValidatorArg(props, arg))
-      )
-    : assertNever(data)
+      ? props.createStringValidator()
+      : typeof data === 'object'
+        ? props.createObjectValidator(
+            mapValues(data, (arg) => createValidatorArg(props, arg)),
+          )
+        : assertNever(data)
 }
 
 const isTestDataFn = zodGuard(TestDataFn())

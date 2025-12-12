@@ -2,12 +2,23 @@
   "name": "@runtyping/test-type-writers",
   "version": "3.1.2",
   "description": "A testing library for runtyping typewriters",
+  "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./transformers/stringToNumber": {
+      "types": "./dist/transformers/stringToNumber.d.ts",
+      "default": "./dist/transformers/stringToNumber.js"
+    }
+  },
   "scripts": {
-    "build": "yarn clean && tsc",
-    "clean": "rimraf dist",
+    "build": "tsc",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "jest --passWithNoTests"
+    "test": "vitest run --passWithNoTests"
   },
   "license": "MIT",
   "bugs": {
@@ -20,16 +31,14 @@
   },
   "devDependencies": {
     "@runtyping/generator": "workspace:*",
-    "@types/jest": "30.0.0",
     "@types/json-schema": "7.0.15",
     "@types/mkdirp": "2.0.0",
     "@types/node": "24.10.3",
-    "jest": "30.2.0",
     "rimraf": "6.1.2",
-    "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "type-fest": "5.3.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "2.1.8"
   },
   "dependencies": {
     "assert-never": "1.4.0",
