@@ -17,8 +17,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
-    "start": "tsc --watch --preserveWatchOutput",
-    "test": "vitest run --passWithNoTests"
+    "start": "tsc --watch --preserveWatchOutput"
   },
   "license": "MIT",
   "bugs": {
@@ -27,7 +26,8 @@
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "peerDependencies": {
     "@runtyping/generator": "workspace:*",
-    "@types/json-schema": "^7.0.11"
+    "@types/json-schema": "^7.0.11",
+    "vitest": "^4.0.15"
   },
   "devDependencies": {
     "@runtyping/generator": "workspace:*",
@@ -38,7 +38,7 @@
     "ts-node": "10.9.2",
     "type-fest": "5.3.1",
     "typescript": "5.9.3",
-    "vitest": "2.1.9"
+    "vitest": "4.0.15"
   },
   "dependencies": {
     "assert-never": "1.4.0",

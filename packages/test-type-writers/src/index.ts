@@ -1,8 +1,7 @@
 import { expect, test } from 'vitest'
 import { Generator } from '@runtyping/generator'
-import * as pathHelper from 'path'
-import { readdirSync } from 'fs'
-import { basename } from 'path'
+import * as pathHelper from 'node:path'
+import { readdirSync } from 'node:fs'
 import {
   fixturesDataDir,
   fixturesDestDir,
@@ -12,7 +11,7 @@ import {
 import { TypeWriterTestProps } from './types'
 
 const testNames = readdirSync(fixturesDataDir).map((filename) =>
-  basename(filename, '.ts'),
+  pathHelper.basename(filename, '.ts'),
 )
 
 export default function testTypeWriters<Validator>(
