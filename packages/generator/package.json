@@ -35,7 +35,7 @@
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
     "typescript-json-schema": "0.67.1",
-    "vitest": "2.1.8"
+    "vitest": "2.1.9"
   },
   "dependencies": {
     "@johngw/array": "3.3.2",
