@@ -1,6 +1,0 @@
-#!/usr/bin/env node
-
-import { cli } from '@runtyping/generator'
-import <%=typeWritersName%> from './<%=typeWritersName%>'
-
-cli('runtyping.yml', new <%=typeWritersName%>()).catch(console.error)
