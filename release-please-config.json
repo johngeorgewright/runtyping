@@ -1,39 +1,47 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "release-type": "node",
-  "include-component-in-tag": false,
+  "include-component-in-tag": true,
   "packages": {
     "packages/generator": {
       "release-type": "node",
-      "package-name": "@runtyping/generator"
+      "package-name": "@runtyping/generator",
+      "component": "@runtyping/generator"
     },
     "packages/io-ts": {
       "release-type": "node",
-      "package-name": "@runtyping/io-ts"
+      "package-name": "@runtyping/io-ts",
+      "component": "@runtyping/io-ts"
     },
     "packages/runtypes": {
       "release-type": "node",
-      "package-name": "@runtyping/runtypes"
+      "package-name": "@runtyping/runtypes",
+      "component": "@runtyping/runtypes"
     },
     "packages/test-type-writers": {
       "release-type": "node",
-      "package-name": "@runtyping/test-type-writers"
+      "package-name": "@runtyping/test-type-writers",
+      "component": "@runtyping/test-type-writers"
     },
     "packages/valibot": {
       "release-type": "node",
-      "package-name": "@runtyping/valibot"
+      "package-name": "@runtyping/valibot",
+      "component": "@runtyping/valibot"
     },
     "packages/zod": {
       "release-type": "node",
-      "package-name": "@runtyping/zod"
+      "package-name": "@runtyping/zod",
+      "component": "@runtyping/zod"
     },
     "packages/zod-core": {
       "release-type": "node",
-      "package-name": "@runtyping/zod-core"
+      "package-name": "@runtyping/zod-core",
+      "component": "@runtyping/zod-core"
     },
     "packages/zod-mini": {
       "release-type": "node",
-      "package-name": "@runtyping/zod-mini"
+      "package-name": "@runtyping/zod-mini",
+      "component": "@runtyping/zod-mini"
     }
   },
   "changelog-sections": [
