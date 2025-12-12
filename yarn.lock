@@ -860,28 +860,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@runtyping/mung@workspace:packages/mung":
-  version: 0.0.0-use.local
-  resolution: "@runtyping/mung@workspace:packages/mung"
-  dependencies:
-    "@runtyping/generator": "workspace:*"
-    "@runtyping/test-type-writers": "workspace:*"
-    "@ts-morph/common": "npm:0.28.1"
-    "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.10.3"
-    mung: "npm:*"
-    rimraf: "npm:6.1.2"
-    ts-morph: "npm:27.0.2"
-    tslib: "npm:2.8.1"
-    typescript: "npm:5.9.3"
-    vitest: "npm:4.0.15"
-  peerDependencies:
-    mung: "*"
-  bin:
-    runtyping: dist/cli.js
-  languageName: unknown
-  linkType: soft
-
 "@runtyping/runtypes@workspace:packages/runtypes":
   version: 0.0.0-use.local
   resolution: "@runtyping/runtypes@workspace:packages/runtypes"
@@ -3909,13 +3887,6 @@ __metadata:
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: 10/aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
-  languageName: node
-  linkType: hard
-
-"mung@npm:*":
-  version: 0.0.5
-  resolution: "mung@npm:0.0.5"
-  checksum: 10/c64f74591ed65957e9fd4dc9da142bc6b04ca9cd8d45d2faa7574aeb969f7a9fba5e43672d36ad4d126027b73a85a5e12aac8cb149214198f2545678162fbf35
   languageName: node
   linkType: hard
 
