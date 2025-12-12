@@ -1,3 +1,0 @@
-import { TypeWriters } from '@runtyping/generator'
-
-export default class <%=typeWritersName%> extends TypeWriters {}
