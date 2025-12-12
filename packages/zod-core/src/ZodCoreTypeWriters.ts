@@ -21,7 +21,10 @@ export abstract class ZodCoreTypeWriters extends TypeWriters {
   protected coreModule = 'zod/v4/core';
 
   override *defaultStaticImplementation(type: Type): TypeWriter {
-    yield [Import, { source: this.parserModule, name: 'output' }]
+    yield [
+      Import,
+      { source: this.parserModule, name: 'output', isTypeOnly: true },
+    ]
     yield [Static, [type, 'output<typeof ${name}>']]
   }
 
@@ -89,7 +92,10 @@ export abstract class ZodCoreTypeWriters extends TypeWriters {
     const name = getTypeName(type)
     const alias = `_${name}`
     yield [Import, { source: this.parserModule, name: 'lazy' }]
-    yield [Import, { source: this.coreModule, name: '$ZodType' }]
+    yield [
+      Import,
+      { source: this.coreModule, name: '$ZodType', isTypeOnly: true },
+    ]
     yield [ImportFromSource, { alias, name }]
     yield [DeclareType, `$ZodType<${alias}>`]
     yield [Write, 'lazy(() => ']
@@ -243,8 +249,14 @@ export abstract class ZodCoreTypeWriters extends TypeWriters {
     typeWriter: TypeWriter,
     type: Type<ts.Type>,
   ): TypeWriter {
-    yield [Import, { source: this.parserModule, name: 'output' }]
-    yield [Import, { source: this.coreModule, name: '$ZodType' }]
+    yield [
+      Import,
+      { source: this.parserModule, name: 'output', isTypeOnly: true },
+    ]
+    yield [
+      Import,
+      { source: this.coreModule, name: '$ZodType', isTypeOnly: true },
+    ]
     const close = yield* this.openGenericFunction(type, '$ZodType', 'output')
     yield* typeWriter
     yield* close()

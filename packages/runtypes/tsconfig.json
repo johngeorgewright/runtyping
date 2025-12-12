@@ -18,5 +18,5 @@
     "resolveJsonModule": true
   },
   "include": ["src"],
-  "exclude": ["dist", "test", "jest.config.ts"]
+  "references": [{ "path": "../generator" }, { "path": "../test-type-writers" }]
 }

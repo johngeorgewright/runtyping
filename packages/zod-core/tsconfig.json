@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "target": "es6",
     "module": "commonjs",
     "lib": ["es2018"],
@@ -18,5 +19,5 @@
     "resolveJsonModule": true
   },
   "include": ["src"],
-  "exclude": ["dist", "test", "jest.config.ts"]
+  "references": [{ "path": "../generator" }]
 }

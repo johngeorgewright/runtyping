@@ -22,7 +22,7 @@ export default class IoTsTypeWriters extends TypeWriters {
   #module = 'io-ts';
 
   override *defaultStaticImplementation(type: Type): TypeWriter {
-    yield [Import, { source: this.#module, name: 'TypeOf' }]
+    yield [Import, { source: this.#module, name: 'TypeOf', isTypeOnly: true }]
     yield [Static, [type, 'TypeOf<typeof ${name}>']]
   }
 
@@ -269,14 +269,14 @@ export default class IoTsTypeWriters extends TypeWriters {
   protected override *object(type: Type): TypeWriter {
     const [requiredProps, optionalProps] = separate(
       type.getProperties(),
-      (item): item is CompilerSymbol => item.hasFlags(SymbolFlags.Optional)
+      (item): item is CompilerSymbol => item.hasFlags(SymbolFlags.Optional),
     )
 
     if (optionalProps.length && requiredProps.length)
       yield* this.#writeRequiredAndOptionalObjectProperties(
         type,
         requiredProps,
-        optionalProps
+        optionalProps,
       )
     else if (requiredProps.length)
       yield* this.#writeRequiredObjectProperties(type, requiredProps)
@@ -286,7 +286,7 @@ export default class IoTsTypeWriters extends TypeWriters {
 
   *#writeRequiredObjectProperties(
     type: Type,
-    properties: CompilerSymbol[]
+    properties: CompilerSymbol[],
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'type' }]
     yield [Write, 'type({']
@@ -296,7 +296,7 @@ export default class IoTsTypeWriters extends TypeWriters {
 
   *#writerOptionalObjectProperties(
     type: Type,
-    properties: CompilerSymbol[]
+    properties: CompilerSymbol[],
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'partial' }]
     yield [Write, 'partial({']
@@ -307,7 +307,7 @@ export default class IoTsTypeWriters extends TypeWriters {
   *#writeRequiredAndOptionalObjectProperties(
     type: Type,
     requiredProperties: CompilerSymbol[],
-    optionalProperties: CompilerSymbol[]
+    optionalProperties: CompilerSymbol[],
   ): TypeWriter {
     yield [Import, { source: this.#module, name: 'intersection' }]
     yield [Write, 'intersection([']
@@ -319,10 +319,10 @@ export default class IoTsTypeWriters extends TypeWriters {
 
   protected override *withGenerics(
     typeWriter: TypeWriter,
-    type: Type
+    type: Type,
   ): TypeWriter {
-    yield [Import, { source: this.#module, name: 'TypeOf' }]
-    yield [Import, { source: this.#module, name: 'Type' }]
+    yield [Import, { source: this.#module, name: 'TypeOf', isTypeOnly: true }]
+    yield [Import, { source: this.#module, name: 'Type', isTypeOnly: true }]
     const close = yield* this.openGenericFunction(type, 'Type', 'TypeOf')
     yield* typeWriter
     yield* close()
@@ -342,7 +342,7 @@ export default class IoTsTypeWriters extends TypeWriters {
   override attachTransformer(
     typeWriter: TypeWriter,
     _fileName: string,
-    _exportName: string
+    _exportName: string,
   ): TypeWriter {
     return typeWriter
   }
