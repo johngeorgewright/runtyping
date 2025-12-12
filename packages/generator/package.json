@@ -32,7 +32,6 @@
     "@types/yargs": "17.0.35",
     "prettier": "3.7.4",
     "rimraf": "6.1.2",
-    "ts-node": "10.9.2",
     "typescript": "5.9.3",
     "typescript-json-schema": "0.67.1",
     "vitest": "4.0.15"
