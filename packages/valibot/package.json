@@ -2,35 +2,35 @@
   "name": "@runtyping/valibot",
   "version": "1.0.2",
   "description": "Generate valibot from static types & JSON schema.",
+  "type": "module",
   "main": "dist/index.js",
-  "scripts": {
-    "build": "yarn clean && tsc",
-    "clean": "rimraf dist",
-    "start": "tsc --watch --preserveWatchOutput",
-    "test": "node --experimental-vm-modules $(yarn bin jest)"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/johngeorgewright/runtyping/issues"
-  },
-  "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "bin": {
     "runtyping": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "start": "tsc --watch --preserveWatchOutput",
+    "test": "vitest run"
   },
   "peerDependencies": {
     "valibot": "^1.0.0"
   },
   "devDependencies": {
     "@runtyping/test-type-writers": "workspace:*",
-    "@types/jest": "30.0.0",
     "@types/json-schema": "7.0.15",
     "@types/node": "24.10.3",
-    "jest": "30.2.0",
     "rimraf": "6.1.2",
-    "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
-    "valibot": "1.2.0"
+    "valibot": "1.2.0",
+    "vitest": "2.1.8"
   },
   "dependencies": {
     "@runtyping/generator": "workspace:*",

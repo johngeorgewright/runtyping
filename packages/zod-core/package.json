@@ -2,10 +2,17 @@
   "name": "@runtyping/zod-core",
   "version": "1.0.0",
   "description": "Zod core utilities for runtyping",
+  "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "build": "yarn clean && tsc",
-    "clean": "rimraf dist",
+    "build": "tsc",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
     "start": "tsc --watch --preserveWatchOutput"
   },
   "license": "MIT",

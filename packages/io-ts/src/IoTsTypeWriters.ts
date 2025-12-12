@@ -16,7 +16,7 @@ import {
 } from '@runtyping/generator'
 import { titleCase } from 'title-case'
 import { Symbol as CompilerSymbol, SymbolFlags, Type } from 'ts-morph'
-import { getEnumMembers } from '@runtyping/generator/dist/enum'
+import { getEnumMembers } from '@runtyping/generator/enum'
 
 export default class IoTsTypeWriters extends TypeWriters {
   #module = 'io-ts';

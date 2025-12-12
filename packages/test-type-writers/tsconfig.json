@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "composite": true,
-    "target": "es6",
-    "module": "commonjs",
-    "lib": ["es2018"],
+    "target": "es2020",
+    "module": "es2020",
+    "lib": ["es2018", "WebWorker"],
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
@@ -14,11 +14,12 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitOverride": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "rootDir": "src"
   },
   "include": ["src"],
-  "exclude": ["dist", "temp", "test", "jest.config.ts"],
+  "exclude": ["dist", "temp", "test", "vitest.config.ts"],
   "references": [{ "path": "../generator" }]
 }

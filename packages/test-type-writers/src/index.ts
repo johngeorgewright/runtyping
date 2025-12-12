@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest'
 import { Generator } from '@runtyping/generator'
 import * as pathHelper from 'path'
 import { readdirSync } from 'fs'
@@ -11,11 +12,11 @@ import {
 import { TypeWriterTestProps } from './types'
 
 const testNames = readdirSync(fixturesDataDir).map((filename) =>
-  basename(filename, '.ts')
+  basename(filename, '.ts'),
 )
 
 export default function testTypeWriters<Validator>(
-  props: TypeWriterTestProps<Validator>
+  props: TypeWriterTestProps<Validator>,
 ) {
   for (const testName of testNames)
     test(testName, () => testFixture(testName, props))
@@ -26,7 +27,7 @@ export default function testTypeWriters<Validator>(
       targetFile: pathHelper.join(fixturesDestDir, 'without-static-types.ts'),
       transformers: {
         TransformStringToNumber: {
-          file: '@runtyping/test-type-writers/dist/transformers/stringToNumber',
+          file: '@runtyping/test-type-writers/transformers/stringToNumber',
           export: 'stringToNumber',
         },
       },
