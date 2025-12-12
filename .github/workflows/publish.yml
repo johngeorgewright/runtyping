@@ -58,6 +58,7 @@ jobs:
       contents: write
       pull-requests: write
     outputs:
+      paths_released: ${{ steps.release.outputs.paths_released }}
       releases_created: ${{ steps.release.outputs.releases_created }}
     steps:
       - name: Run release-please
