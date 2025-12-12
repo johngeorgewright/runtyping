@@ -3,10 +3,6 @@
   "release-type": "node",
   "include-component-in-tag": false,
   "packages": {
-    ".": {
-      "release-type": "node",
-      "package-name": "@runtyping/mono-repo"
-    },
     "packages/generator": {
       "release-type": "node",
       "package-name": "@runtyping/generator"
