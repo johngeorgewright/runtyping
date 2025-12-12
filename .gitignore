@@ -2,6 +2,7 @@ dist
 *.log
 node_modules
 temp
+tsconfig.tsbuildinfo
 .yarn/*
 !.yarn/cache
 !.yarn/patches
