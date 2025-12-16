@@ -72,7 +72,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/config-conventional", "npm:20.2.0"],\
           ["@commitlint/types", "npm:20.2.0"],\
           ["@runtyping/mono-repo", "workspace:."],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["@vitest/ui", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:4.0.15"],\
           ["commitizen", "npm:4.3.1"],\
@@ -1034,7 +1034,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.21"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@types/typescript", null],\
           ["@types/yargs", "npm:17.0.35"],\
@@ -1049,7 +1049,7 @@ const RAW_RUNTIME_STATE =
           ["typescript-json-schema", "npm:0.67.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
           ["yargs", "npm:18.0.0"],\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -1067,7 +1067,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.21"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@types/yargs", "npm:17.0.35"],\
           ["js-yaml", "npm:4.1.1"],\
@@ -1081,7 +1081,7 @@ const RAW_RUNTIME_STATE =
           ["typescript-json-schema", "npm:0.67.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
           ["yargs", "npm:18.0.0"],\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1096,7 +1096,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["fp-ts", "npm:2.16.11"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
           ["rimraf", "npm:6.1.2"],\
@@ -1117,7 +1117,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/config-conventional", "npm:20.2.0"],\
           ["@commitlint/types", "npm:20.2.0"],\
           ["@runtyping/mono-repo", "workspace:."],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["@vitest/ui", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:4.0.15"],\
           ["commitizen", "npm:4.3.1"],\
@@ -1148,7 +1148,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/runtypes", "workspace:packages/runtypes"],\
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["rimraf", "npm:6.1.2"],\
           ["runtypes", "npm:7.0.4"],\
           ["ts-morph", "npm:27.0.2"],\
@@ -1167,7 +1167,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/runtyping__generator", null],\
           ["@types/vitest", null],\
           ["assert-never", "npm:1.4.0"],\
@@ -1197,7 +1197,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/test-type-writers", "workspace:packages/test-type-writers"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mkdirp", "npm:2.0.0"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["assert-never", "npm:1.4.0"],\
           ["mkdirp", "npm:3.0.1"],\
           ["rimraf", "npm:6.1.2"],\
@@ -1220,7 +1220,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@runtyping/valibot", "workspace:packages/valibot"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["rimraf", "npm:6.1.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1240,14 +1240,14 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/zod", "workspace:packages/zod"],\
           ["@runtyping/zod-core", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["rimraf", "npm:6.1.2"],\
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1262,7 +1262,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "packagePeers": [\
           "@types/zod",\
@@ -1278,7 +1278,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1292,14 +1292,14 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/zod-core", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core"],\
           ["@runtyping/zod-mini", "workspace:packages/zod-mini"],\
           ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["rimraf", "npm:6.1.2"],\
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1500,10 +1500,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:24.10.3", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-24.10.3-25b6ad2bde-b5f3f3431b.zip/node_modules/@types/node/",\
+      ["npm:24.10.4", {\
+        "packageLocation": "./.yarn/cache/@types-node-npm-24.10.4-7db9e6df3a-a0b318b99a.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["undici-types", "npm:7.16.0"]\
         ],\
         "linkType": "HARD"\
@@ -6142,7 +6142,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jiti", null],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/sass", null],\
           ["@types/sass-embedded", null],\
           ["@types/stylus", null],\
@@ -6283,7 +6283,7 @@ const RAW_RUNTIME_STATE =
           ["@types/edge-runtime__vm", null],\
           ["@types/happy-dom", null],\
           ["@types/jsdom", null],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/opentelemetry__api", null],\
           ["@types/vitest__browser-playwright", null],\
           ["@types/vitest__browser-preview", null],\
@@ -6346,7 +6346,7 @@ const RAW_RUNTIME_STATE =
           ["@types/edge-runtime__vm", null],\
           ["@types/happy-dom", null],\
           ["@types/jsdom", null],\
-          ["@types/node", "npm:24.10.3"],\
+          ["@types/node", "npm:24.10.4"],\
           ["@types/opentelemetry__api", null],\
           ["@types/vitest__browser-playwright", null],\
           ["@types/vitest__browser-preview", null],\
@@ -6656,10 +6656,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:4.1.13", {\
-        "packageLocation": "./.yarn/cache/zod-npm-4.1.13-21040ff0ef-0679190318.zip/node_modules/zod/",\
+      ["npm:4.2.1", {\
+        "packageLocation": "./.yarn/cache/zod-npm-4.2.1-517219402d-f21d106ce3.zip/node_modules/zod/",\
         "packageDependencies": [\
-          ["zod", "npm:4.1.13"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
