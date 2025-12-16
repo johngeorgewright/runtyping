@@ -39,6 +39,10 @@
       "path": "packages/valibot"
     },
     {
+      "name": "📦 @runtyping/yup",
+      "path": "packages/yup"
+    },
+    {
       "name": "📦 @runtyping/zod",
       "path": "packages/zod"
     },
@@ -50,10 +54,6 @@
       "name": "📦 @runtyping/zod-mini",
       "path": "packages/zod-mini"
     },
-    {
-      "name": "📦 @runtyping/yup",
-      "path": "packages/yup"
-    }
   ],
   "settings": {
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
