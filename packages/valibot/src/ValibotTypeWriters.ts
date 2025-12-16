@@ -213,7 +213,7 @@ export default class ValibotTypeWriters extends TypeWriters {
       Import,
       { source: 'valibot', name: 'GenericSchema', isTypeOnly: true },
     ]
-    yield [ImportFromSource, { alias, name }]
+    yield [ImportFromSource, { alias, name, isTypeOnly: true }]
     yield [DeclareType, `GenericSchema<${alias}>`]
     yield [Write, 'lazy(() => ']
     yield* this.typeWriter(type)

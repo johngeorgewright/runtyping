@@ -28,7 +28,7 @@ export default class RuntypesTypeWriters extends TypeWriters {
     const alias = `_${name}`
     yield [Import, { source: this.#module, name: 'Lazy' }]
     yield [Import, { source: this.#module, name: 'Runtype', isTypeOnly: true }]
-    yield [ImportFromSource, { alias, name }]
+    yield [ImportFromSource, { alias, name, isTypeOnly: true }]
     yield [DeclareType, `Runtype.Core<${alias}>`]
     yield [Write, 'Lazy(() => ']
     yield* this.typeWriter(type)
