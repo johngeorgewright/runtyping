@@ -35,6 +35,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/valibot"\
     },\
     {\
+      "name": "@runtyping/yup",\
+      "reference": "workspace:packages/yup"\
+    },\
+    {\
       "name": "@runtyping/zod",\
       "reference": "workspace:packages/zod"\
     },\
@@ -57,6 +61,7 @@ const RAW_RUNTIME_STATE =
     ["@runtyping/runtypes", ["workspace:packages/runtypes"]],\
     ["@runtyping/test-type-writers", ["virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers", "workspace:packages/test-type-writers"]],\
     ["@runtyping/valibot", ["workspace:packages/valibot"]],\
+    ["@runtyping/yup", ["workspace:packages/yup"]],\
     ["@runtyping/zod", ["workspace:packages/zod"]],\
     ["@runtyping/zod-core", ["virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core", "workspace:packages/zod-core"]],\
     ["@runtyping/zod-mini", ["workspace:packages/zod-mini"]]\
@@ -1227,6 +1232,28 @@ const RAW_RUNTIME_STATE =
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.2.0"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@runtyping/yup", [\
+      ["workspace:packages/yup", {\
+        "packageLocation": "./packages/yup/",\
+        "packageDependencies": [\
+          ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
+          ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
+          ["@runtyping/yup", "workspace:packages/yup"],\
+          ["@ts-morph/common", "npm:0.28.1"],\
+          ["@types/json-schema", "npm:7.0.15"],\
+          ["@types/node", "npm:24.10.3"],\
+          ["rimraf", "npm:6.1.2"],\
+          ["ts-morph", "npm:27.0.2"],\
+          ["ts-toolbelt", "npm:9.6.0"],\
+          ["tslib", "npm:2.8.1"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
+          ["vite-node", "npm:5.2.0"],\
+          ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
+          ["yup", "npm:1.7.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -5038,6 +5065,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["property-expr", [\
+      ["npm:2.0.6", {\
+        "packageLocation": "./.yarn/cache/property-expr-npm-2.0.6-2a0857ed05-89977f4bb2.zip/node_modules/property-expr/",\
+        "packageDependencies": [\
+          ["property-expr", "npm:2.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["punycode", [\
       ["npm:2.1.1", {\
         "packageLocation": "./.yarn/cache/punycode-npm-2.1.1-26eb3e15cf-939daa010c.zip/node_modules/punycode/",\
@@ -5735,6 +5771,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["tiny-case", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "./.yarn/cache/tiny-case-npm-1.0.3-8c9747c74e-3f7a30c39d.zip/node_modules/tiny-case/",\
+        "packageDependencies": [\
+          ["tiny-case", "npm:1.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["tinybench", [\
       ["npm:2.9.0", {\
         "packageLocation": "./.yarn/cache/tinybench-npm-2.9.0-2861a048db-cfa1e1418e.zip/node_modules/tinybench/",\
@@ -5798,6 +5843,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["is-number", "npm:7.0.0"],\
           ["to-regex-range", "npm:5.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["toposort", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "./.yarn/cache/toposort-npm-2.0.2-d472329c7d-6f128353e4.zip/node_modules/toposort/",\
+        "packageDependencies": [\
+          ["toposort", "npm:2.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5937,6 +5991,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/type-fest-npm-0.21.3-5ff2a9c6fd-f4254070d9.zip/node_modules/type-fest/",\
         "packageDependencies": [\
           ["type-fest", "npm:0.21.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:2.19.0", {\
+        "packageLocation": "./.yarn/cache/type-fest-npm-2.19.0-918b953248-7bf9e8fdf3.zip/node_modules/type-fest/",\
+        "packageDependencies": [\
+          ["type-fest", "npm:2.19.0"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -6644,6 +6705,19 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/yoctocolors-cjs-npm-2.1.3-968713fbd8-b2144b3880.zip/node_modules/yoctocolors-cjs/",\
         "packageDependencies": [\
           ["yoctocolors-cjs", "npm:2.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["yup", [\
+      ["npm:1.7.1", {\
+        "packageLocation": "./.yarn/cache/yup-npm-1.7.1-ba72b33527-90cef0ebe3.zip/node_modules/yup/",\
+        "packageDependencies": [\
+          ["property-expr", "npm:2.0.6"],\
+          ["tiny-case", "npm:1.0.3"],\
+          ["toposort", "npm:2.0.2"],\
+          ["type-fest", "npm:2.19.0"],\
+          ["yup", "npm:1.7.1"]\
         ],\
         "linkType": "HARD"\
       }]\
