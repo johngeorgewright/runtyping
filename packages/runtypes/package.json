@@ -30,7 +30,7 @@
   "devDependencies": {
     "@runtyping/test-type-writers": "workspace:*",
     "@types/json-schema": "7.0.15",
-    "@types/node": "24.10.3",
+    "@types/node": "24.10.4",
     "rimraf": "6.1.2",
     "runtypes": "7.0.4",
     "typescript": "5.9.3",

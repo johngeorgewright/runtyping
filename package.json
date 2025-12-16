@@ -33,7 +33,7 @@
     "@commitlint/cli": "20.2.0",
     "@commitlint/config-conventional": "20.2.0",
     "@commitlint/types": "20.2.0",
-    "@types/node": "24.10.3",
+    "@types/node": "24.10.4",
     "@types/source-map-support": "0.5.10",
     "@vitest/ui": "4.0.15",
     "commitizen": "4.3.1",

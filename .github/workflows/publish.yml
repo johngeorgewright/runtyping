@@ -42,7 +42,7 @@ jobs:
         run: echo "packages=$(yarn workspaces:list:json)" >> $GITHUB_OUTPUT
 
       - name: Upload dists
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: matrix.node-version == steps.nvm.outputs.version
         with:
           if-no-files-found: error
@@ -88,13 +88,13 @@ jobs:
         with:
           cache: yarn
           node-version-file: .nvmrc
-          registry-url: "https://registry.npmjs.org"
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Setup
         run: yarn --immutable
 
       - name: Download dists
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: dists
           path: ~/dists
