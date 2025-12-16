@@ -29,7 +29,7 @@
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
     "vitest": "4.0.15",
-    "zod": "4.2.0"
+    "zod": "4.2.1"
   },
   "dependencies": {
     "@runtyping/generator": "workspace:*",
