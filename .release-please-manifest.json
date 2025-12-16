@@ -6,5 +6,6 @@
   "packages/valibot": "2.0.0",
   "packages/zod": "5.0.0",
   "packages/zod-core": "2.0.0",
-  "packages/zod-mini": "2.0.0"
+  "packages/zod-mini": "2.0.0",
+  "packages/yup": "0.0.0"
 }

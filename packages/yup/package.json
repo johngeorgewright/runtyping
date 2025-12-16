@@ -1,0 +1,42 @@
+{
+  "name": "@runtyping/yup",
+  "version": "0.0.0",
+  "description": "Generate yup from static types & JSON schema.",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "runtyping": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "start": "tsc --watch --preserveWatchOutput",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "yup": "*"
+  },
+  "devDependencies": {
+    "@runtyping/test-type-writers": "workspace:*",
+    "@types/json-schema": "7.0.15",
+    "@types/node": "24.10.3",
+    "rimraf": "6.1.2",
+    "typescript": "5.9.3",
+    "vite-node": "5.2.0",
+    "vitest": "4.0.15",
+    "yup": "*"
+  },
+  "dependencies": {
+    "@runtyping/generator": "workspace:*",
+    "@ts-morph/common": "0.28.1",
+    "ts-morph": "27.0.2",
+    "ts-toolbelt": "9.6.0",
+    "tslib": "2.8.1"
+  }
+}

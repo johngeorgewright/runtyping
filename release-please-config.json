@@ -42,6 +42,11 @@
       "release-type": "node",
       "package-name": "@runtyping/zod-mini",
       "component": "@runtyping/zod-mini"
+    },
+    "packages/yup": {
+      "release-type": "node",
+      "package-name": "yup",
+      "component": "yup"
     }
   },
   "changelog-sections": [

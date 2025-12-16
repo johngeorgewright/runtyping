@@ -49,6 +49,10 @@
     {
       "name": "📦 @runtyping/zod-mini",
       "path": "packages/zod-mini"
+    },
+    {
+      "name": "📦 @runtyping/yup",
+      "path": "packages/yup"
     }
   ],
   "settings": {

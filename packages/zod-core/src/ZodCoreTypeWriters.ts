@@ -96,7 +96,7 @@ export abstract class ZodCoreTypeWriters extends TypeWriters {
       Import,
       { source: this.coreModule, name: '$ZodType', isTypeOnly: true },
     ]
-    yield [ImportFromSource, { alias, name }]
+    yield [ImportFromSource, { alias, name, isTypeOnly: true }]
     yield [DeclareType, `$ZodType<${alias}>`]
     yield [Write, 'lazy(() => ']
     yield* this.typeWriter(type)

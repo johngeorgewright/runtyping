@@ -88,7 +88,7 @@ jobs:
         with:
           cache: yarn
           node-version-file: .nvmrc
-          registry-url: "https://registry.npmjs.org"
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Setup
         run: yarn --immutable

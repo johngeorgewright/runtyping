@@ -12,27 +12,27 @@ import {
 import { find } from './util'
 
 export function doInModule<
-  T extends (node: StatementedNode, name: string) => any
+  T extends (node: StatementedNode, name: string) => any,
 >(root: StatementedNode, name: string, fn: T): ReturnType<T> {
   const nameParts = name.split('.')
   const targetNode = nameParts
     .slice(0, -1)
     .reduce(
       (a, x) => a.getModule(x) ?? a.addModule({ name: x, isExported: true }),
-      root
+      root,
     )
   return fn(
     targetNode,
-    nameParts.reduceRight((x) => x)
+    nameParts.reduceRight((x) => x),
   )
 }
 
 export function findInModule<
-  T extends (node: StatementedNode, name: string) => any
+  T extends (node: StatementedNode, name: string) => any,
 >(root: StatementedNode, name: string, fn: T): ReturnType<T> | undefined {
   const findInModuleInner = (
     node: StatementedNode,
-    nameParts: string[]
+    nameParts: string[],
   ): ReturnType<T> | undefined => {
     if (nameParts.length === 0) return undefined
     if (nameParts.length === 1) return fn(node, nameParts[0])
@@ -53,7 +53,7 @@ export function isRecursive(typeDeclaration: ConsideredTypeDeclaration) {
 }
 
 export function isConsideredType(
-  node: Node
+  node: Node,
 ): node is ConsideredTypeDeclaration {
   return ConsideredTypeDeclarationSyntaxKinds.some((kind) => node.isKind(kind))
 }
@@ -66,10 +66,10 @@ export function validateConsideredType(node: Node): ConsideredTypeDeclaration {
 
 function findReferenceWithinDeclaration(
   name: string,
-  typeDeclaration: ConsideredTypeDeclaration
+  typeDeclaration: ConsideredTypeDeclaration,
 ) {
   for (const node of typeDeclaration.getDescendantsOfKind(
-    SyntaxKind.TypeReference
+    SyntaxKind.TypeReference,
   ))
     if (node.getText() === name) return true
   return false
@@ -89,7 +89,7 @@ export function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
           declarationName !== name &&
           findReferenceWithinDeclaration(
             name,
-            declarationNode as ConsideredTypeDeclaration
+            declarationNode as ConsideredTypeDeclaration,
           ) &&
           findReferenceWithinDeclaration(declarationName, typeDeclaration)
         ) {
@@ -105,7 +105,7 @@ export function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
 function getNodeDeclaration(node: Node<ts.Node>) {
   return find(
     ConsideredTypeDeclarationSyntaxKinds,
-    (syntaxKind) => node.getFirstAncestorByKind(syntaxKind) || false
+    (syntaxKind) => node.getFirstAncestorByKind(syntaxKind) || false,
   )
 }
 

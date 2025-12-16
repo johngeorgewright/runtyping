@@ -98,7 +98,7 @@ export default class Generator {
       // Manual changes might be lost - proceed with caution!`,
       {
         overwrite: true,
-      }
+      },
     )
 
     this.#formatRuntypeName = typeNameFormatter(options.runtypeFormat)
@@ -138,7 +138,7 @@ export default class Generator {
     for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
       this.#targetFile.addImportDeclaration({
         namedImports: imports.sort(({ name: nameA }, { name: nameB }) =>
-          nameA.localeCompare(nameB)
+          nameA.localeCompare(nameB),
         ),
         moduleSpecifier: sourceFilePath,
       })
@@ -148,7 +148,7 @@ export default class Generator {
     const schema = await compileFromFile(sourceType.file)
     const sourceFile = this.#project.createSourceFile(
       `__temp__${sourceType.file}.ts`,
-      schema
+      schema,
     )
     this.#generateRuntype({
       ...sourceType,
@@ -161,7 +161,7 @@ export default class Generator {
     const sourceFile = this.#project.addSourceFileAtPath(
       isAbsolute(sourceType.file) || isRelative(sourceType.file)
         ? sourceType.file
-        : require.resolve(sourceType.file)
+        : require.resolve(sourceType.file),
     )
     for (const typeName of castArray(sourceType.type))
       if (!this.#exports.has(typeName))
@@ -171,11 +171,11 @@ export default class Generator {
   #writeRuntype(
     startingSourceFile: SourceCodeFile,
     sourceType: string,
-    instructionSourceType: InstructionSourceType
+    instructionSourceType: InstructionSourceType,
   ) {
     const typeDeclaration = this.#getTypeDeclaration(
       startingSourceFile,
-      sourceType
+      sourceType,
     )
     const sourceFile = typeDeclaration.getSourceFile()
     const recursive = isRecursive(typeDeclaration)
@@ -199,8 +199,8 @@ export default class Generator {
       this.#circularReferences.add(typeName)
       console.warn(
         `Spotted a circular reference between \`${circular.join(
-          '` and `'
-        )}\`. This may cause infinite loops at runtime.`
+          '` and `',
+        )}\`. This may cause infinite loops at runtime.`,
       )
     }
 
@@ -254,12 +254,14 @@ export default class Generator {
         transformer: typeDeclaration.getName()
           ? this.#transformers[typeDeclaration.getName()!]
           : undefined,
-      })
+      }),
     )
 
     if (exportStaticType && !staticImplementation)
       runTypeWriter(
-        this.#typeWriters.defaultStaticImplementation(typeDeclaration.getType())
+        this.#typeWriters.defaultStaticImplementation(
+          typeDeclaration.getType(),
+        ),
       )
 
     doInModule(this.#targetFile, runTypeName, (node, name) => {
@@ -298,7 +300,7 @@ export default class Generator {
         source === importSpec.source &&
         ('alias' in importSpec
           ? alias === importSpec.alias
-          : name === importSpec.name)
+          : name === importSpec.name),
     )
 
     if (!hasImport) this.#imports.push(importSpec)
@@ -306,13 +308,13 @@ export default class Generator {
 
   #importFromSource(
     sourceFilePath: string,
-    importSpec: Omit<ImportSpec, 'source'>
+    importSpec: Omit<ImportSpec, 'source'>,
   ) {
     this.#import({
       ...importSpec,
       source: getRelativeImportPath(
         this.#targetFile.getFilePath(),
-        sourceFilePath
+        sourceFilePath,
       ),
     })
   }
@@ -322,7 +324,7 @@ export default class Generator {
    */
   #getTypeDeclaration(
     sourceFile: SourceCodeFile,
-    typeName?: string
+    typeName?: string,
   ): ConsideredTypeDeclaration {
     if (!typeName) {
       const declaration = sourceFile
@@ -330,14 +332,14 @@ export default class Generator {
         .getValueDeclarationOrThrow()
       if (!isConsideredType(declaration))
         throw new Error(
-          `Default export of ${sourceFile.getFilePath()} is an interface, type or enum`
+          `Default export of ${sourceFile.getFilePath()} is an interface, type or enum`,
         )
       return declaration
     }
 
     const importTypeDeclaration = this.#getImportedTypeDeclaration(
       sourceFile,
-      typeName
+      typeName,
     )
 
     if (importTypeDeclaration) return importTypeDeclaration
@@ -350,13 +352,13 @@ export default class Generator {
         node.getTypeAlias(name) ||
         node.getEnum(name) ||
         node.getFunction(name) ||
-        node.getVariableDeclaration(name)
+        node.getVariableDeclaration(name),
     )
 
     if (declaration) return declaration
     else
       throw new Error(
-        `Cannot find any interface, type or enum called "${typeName}" in ${sourceFile.getFilePath()}.`
+        `Cannot find any interface, type or enum called "${typeName}" in ${sourceFile.getFilePath()}.`,
       )
   }
 
@@ -388,7 +390,7 @@ export default class Generator {
                     }) ||
                     false
                   )
-                }
+                },
               )
 
         return (
@@ -397,7 +399,7 @@ export default class Generator {
             remoteIdentifier: importSpecifier.remoteIdentifier,
           }
         )
-      }
+      },
     )
 
     if (!importInfo) return
@@ -406,18 +408,18 @@ export default class Generator {
       importInfo.path,
       sourceFile.getFilePath(),
       this.#project.compilerOptions.get(),
-      this.#project.getModuleResolutionHost()
+      this.#project.getModuleResolutionHost(),
     ).resolvedModule?.resolvedFileName
 
     if (!importPath)
       throw new Error(
-        `Cannot find module ${importInfo.path} from ${sourceFile.getFilePath()}`
+        `Cannot find module ${importInfo.path} from ${sourceFile.getFilePath()}`,
       )
 
     const sourceCodeFile = this.#project.addSourceFileAtPath(importPath)
     const typeDeclaration = this.#getTypeDeclaration(
       sourceCodeFile,
-      importInfo.remoteIdentifier
+      importInfo.remoteIdentifier,
     )
 
     return typeDeclaration

@@ -31,7 +31,7 @@ export default class IoTsTypeWriters extends TypeWriters {
     const alias = `_${name}`
     yield [Import, { source: this.#module, name: 'recursion' }]
     yield [Import, { source: this.#module, name: 'Type' }]
-    yield [ImportFromSource, { alias, name }]
+    yield [ImportFromSource, { alias, name, isTypeOnly: true }]
     yield [DeclareType, `Type<${alias}>`]
     yield [Write, `recursion('${getTypeName(type)}', () => `]
     yield* this.typeWriter(type)
