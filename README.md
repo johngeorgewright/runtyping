@@ -9,13 +9,6 @@ Generate runtime validation from static types & JSON schema using:
 - [@runtyping/zod](https://github.com/johngeorgewright/runtyping/tree/master/packages/zod) to generate [zod](https://github.com/colinhacks/zod)
 - [@runtyping/zod-mini](https://github.com/johngeorgewright/runtyping/tree/master/packages/zod-mini) to generate [zod/mini](https://github.com/colinhacks/zod)
 
-## Contributing
-
-1. Install [Yarn](https://yarnpkg.com/)
-1. Link your workspace `yarn`
-1. If using VSCode, be sure to accept the workspace TypeScript version
-1. If using another editor, install the [Yarn SDK](https://yarnpkg.com/getting-started/editor-sdks) for it (and commit with your PR)
-
 ## Thanks
 
 Inspired by a [gist](https://gist.github.com/skurfuerst/a07ab23c3e40a45f2268f7700ceeceaf) by [skurfuerst](https://gist.github.com/skurfuerst).
