@@ -63,6 +63,6 @@
       "**/.pnp.*": true
     },
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "typescript.tsdk": "✨ @runtyping/mono-repo/.yarn/sdks/typescript/lib"
+    "typescript.tsdk": "✨ runtyping/.yarn/sdks/typescript/lib"
   }
 }
