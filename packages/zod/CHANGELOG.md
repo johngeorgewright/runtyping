@@ -1,5 +1,24 @@
 # Changelog
 
+## [5.0.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/zod-v5.0.0...@runtyping/zod-v5.0.1) (2025-12-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v4.2.0 ([#739](https://github.com/johngeorgewright/runtyping/issues/739)) ([5887ad5](https://github.com/johngeorgewright/runtyping/commit/5887ad5201eb00b73ab6241fa080ffcc76abfe68))
+* **deps:** update dependency zod to v4.2.1 ([#740](https://github.com/johngeorgewright/runtyping/issues/740)) ([96d3a1e](https://github.com/johngeorgewright/runtyping/commit/96d3a1e5394b3eed42f61822960bb9f083a4b2e8))
+* more imports with type only references ([8148f68](https://github.com/johngeorgewright/runtyping/commit/8148f68b9ddbd385ee9691e7b8bb3d2b020ad380))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @runtyping/generator bumped to 10.1.0
+    * @runtyping/zod-core bumped to 2.0.1
+  * devDependencies
+    * @runtyping/test-type-writers bumped to 4.0.1
+
 ## [5.0.0](https://github.com/johngeorgewright/runtyping/compare/@runtyping/zod-v4.0.1...@runtyping/zod-v5.0.0) (2025-12-12)
 
 
