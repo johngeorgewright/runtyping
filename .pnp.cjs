@@ -1049,7 +1049,7 @@ const RAW_RUNTIME_STATE =
           ["typescript-json-schema", "npm:0.67.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
           ["yargs", "npm:18.0.0"],\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -1081,7 +1081,7 @@ const RAW_RUNTIME_STATE =
           ["typescript-json-schema", "npm:0.67.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
           ["yargs", "npm:18.0.0"],\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1247,7 +1247,7 @@ const RAW_RUNTIME_STATE =
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1262,7 +1262,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "packagePeers": [\
           "@types/zod",\
@@ -1278,7 +1278,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1299,7 +1299,7 @@ const RAW_RUNTIME_STATE =
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.0.15"],\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -6656,10 +6656,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:4.2.0", {\
-        "packageLocation": "./.yarn/cache/zod-npm-4.2.0-f8ac7dfdbb-ab042fae87.zip/node_modules/zod/",\
+      ["npm:4.2.1", {\
+        "packageLocation": "./.yarn/cache/zod-npm-4.2.1-517219402d-f21d106ce3.zip/node_modules/zod/",\
         "packageDependencies": [\
-          ["zod", "npm:4.2.0"]\
+          ["zod", "npm:4.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
