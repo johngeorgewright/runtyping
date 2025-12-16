@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/test-type-writers-v4.0.0...@runtyping/test-type-writers-v4.0.1) (2025-12-16)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @runtyping/generator bumped to 10.1.0
+  * peerDependencies
+    * @runtyping/generator bumped to 10.1.0
+
 ## [4.0.0](https://github.com/johngeorgewright/runtyping/compare/@runtyping/test-type-writers-v3.1.2...@runtyping/test-type-writers-v4.0.0) (2025-12-12)
 
 

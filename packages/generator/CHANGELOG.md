@@ -1,5 +1,19 @@
 # Changelog
 
+## [10.1.0](https://github.com/johngeorgewright/runtyping/compare/@runtyping/generator-v10.0.0...@runtyping/generator-v10.1.0) (2025-12-16)
+
+
+### Features
+
+* **generator:** importfromsource full import spec ([78af5b5](https://github.com/johngeorgewright/runtyping/commit/78af5b577d9ab5c4f3eb188ee5828886e9f37ac2))
+* **generator:** objectproperties when required ([5e3b6ed](https://github.com/johngeorgewright/runtyping/commit/5e3b6ed784577c9dbd400a4e7054b9bf74f92183))
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v4.2.0 ([#739](https://github.com/johngeorgewright/runtyping/issues/739)) ([5887ad5](https://github.com/johngeorgewright/runtyping/commit/5887ad5201eb00b73ab6241fa080ffcc76abfe68))
+* **deps:** update dependency zod to v4.2.1 ([#740](https://github.com/johngeorgewright/runtyping/issues/740)) ([96d3a1e](https://github.com/johngeorgewright/runtyping/commit/96d3a1e5394b3eed42f61822960bb9f083a4b2e8))
+
 ## [10.0.0](https://github.com/johngeorgewright/runtyping/compare/@runtyping/generator-v9.1.0...@runtyping/generator-v10.0.0) (2025-12-12)
 
 

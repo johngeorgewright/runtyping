@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/io-ts-v4.0.0...@runtyping/io-ts-v4.0.1) (2025-12-16)
+
+
+### Bug Fixes
+
+* more imports with type only references ([8148f68](https://github.com/johngeorgewright/runtyping/commit/8148f68b9ddbd385ee9691e7b8bb3d2b020ad380))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @runtyping/generator bumped to 10.1.0
+  * devDependencies
+    * @runtyping/test-type-writers bumped to 4.0.1
+
 ## [4.0.0](https://github.com/johngeorgewright/runtyping/compare/@runtyping/io-ts-v3.0.2...@runtyping/io-ts-v4.0.0) (2025-12-12)
 
 
