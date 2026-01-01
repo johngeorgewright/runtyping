@@ -37,7 +37,7 @@
     "rimraf": "6.1.2",
     "type-fest": "5.3.1",
     "typescript": "5.9.3",
-    "vitest": "4.0.15"
+    "vitest": "4.0.16"
   },
   "dependencies": {
     "assert-never": "1.4.0",
