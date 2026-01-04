@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/valibot",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Generate valibot from static types & JSON schema.",
   "type": "module",
   "main": "dist/index.js",

@@ -1,11 +1,11 @@
 {
-  "packages/generator": "10.1.0",
-  "packages/io-ts": "4.0.1",
-  "packages/runtypes": "5.0.1",
-  "packages/test-type-writers": "4.0.1",
-  "packages/valibot": "2.0.1",
-  "packages/zod": "5.0.1",
-  "packages/zod-core": "2.0.1",
-  "packages/zod-mini": "2.0.1",
-  "packages/yup": "1.0.0"
+  "packages/generator": "10.1.1",
+  "packages/io-ts": "4.0.2",
+  "packages/runtypes": "5.0.2",
+  "packages/test-type-writers": "4.0.2",
+  "packages/valibot": "2.0.2",
+  "packages/zod": "5.0.2",
+  "packages/zod-core": "2.0.2",
+  "packages/zod-mini": "2.0.2",
+  "packages/yup": "1.1.0"
 }

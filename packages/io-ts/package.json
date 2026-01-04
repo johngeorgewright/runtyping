@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/io-ts",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Generate io-ts from static types & JSON schema.",
   "type": "module",
   "main": "dist/index.js",

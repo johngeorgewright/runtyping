@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.2](https://github.com/johngeorgewright/runtyping/compare/@runtyping/valibot-v2.0.1...@runtyping/valibot-v2.0.2) (2026-01-04)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @runtyping/generator bumped to 10.1.1
+  * devDependencies
+    * @runtyping/test-type-writers bumped to 4.0.2
+
 ## [2.0.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/valibot-v2.0.0...@runtyping/valibot-v2.0.1) (2025-12-16)
 
 
