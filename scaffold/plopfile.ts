@@ -74,8 +74,8 @@ export default async function scaffold(plop: NodePlopAPI) {
             path: `/packages/packages~1${answers!.lib}`,
             value: {
               'release-type': 'node',
-              'package-name': answers!.lib,
-              component: answers!.lib,
+              'package-name': `@runtyping/${answers!.lib}`,
+              component: `@runtyping/${answers!.lib}`,
             },
           },
         ],

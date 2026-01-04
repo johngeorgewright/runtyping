@@ -45,8 +45,8 @@
     },
     "packages/yup": {
       "release-type": "node",
-      "package-name": "yup",
-      "component": "yup"
+      "package-name": "@runtyping/yup",
+      "component": "@runtyping/yup"
     }
   },
   "changelog-sections": [
