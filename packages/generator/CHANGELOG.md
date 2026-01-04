@@ -1,5 +1,15 @@
 # Changelog
 
+## [10.1.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/generator-v10.1.0...@runtyping/generator-v10.1.1) (2026-01-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zod to v4.3.2 ([#745](https://github.com/johngeorgewright/runtyping/issues/745)) ([4fde4ae](https://github.com/johngeorgewright/runtyping/commit/4fde4ae7b93eab8a0020e3e5a5102b6ff646a378))
+* **deps:** update dependency zod to v4.3.3 ([#746](https://github.com/johngeorgewright/runtyping/issues/746)) ([0ec593f](https://github.com/johngeorgewright/runtyping/commit/0ec593f98f1405c204d6451ba033f707606ea809))
+* **deps:** update dependency zod to v4.3.4 ([#747](https://github.com/johngeorgewright/runtyping/issues/747)) ([52243ea](https://github.com/johngeorgewright/runtyping/commit/52243ea2415507a89ac9e03384f4435f36d593ce))
+* **deps:** update dependency zod to v4.3.5 ([#749](https://github.com/johngeorgewright/runtyping/issues/749)) ([3646466](https://github.com/johngeorgewright/runtyping/commit/364646625fc4ab7b30dbebd98499309694db735a))
+
 ## [10.1.0](https://github.com/johngeorgewright/runtyping/compare/@runtyping/generator-v10.0.0...@runtyping/generator-v10.1.0) (2025-12-16)
 
 
