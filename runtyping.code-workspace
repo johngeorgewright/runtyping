@@ -53,7 +53,7 @@
     {
       "name": "📦 @runtyping/zod-mini",
       "path": "packages/zod-mini"
-    },
+    }
   ],
   "settings": {
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
