@@ -1610,6 +1610,7 @@ const RAW_RUNTIME_STATE =
           ["@standard-schema/spec", "npm:1.0.0"],\
           ["@types/chai", "npm:5.2.3"],\
           ["@vitest/expect", "npm:4.0.16"],\
+          ["@vitest/runner", "npm:4.0.16"],\
           ["@vitest/spy", "npm:4.0.16"],\
           ["@vitest/utils", "npm:4.0.16"],\
           ["chai", "npm:6.2.1"],\

@@ -1283,7 +1283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/runner@npm:4.0.16":
+"@vitest/runner@npm:4.0.16, @vitest/runner@npm:@vitest/runner@4.0.16":
   version: 4.0.16
   resolution: "@vitest/runner@npm:4.0.16"
   dependencies:
