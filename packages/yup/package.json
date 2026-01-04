@@ -29,8 +29,8 @@
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
     "vite-node": "5.2.0",
-    "vitest": "4.0.15",
-    "yup": "*"
+    "vitest": "4.0.16",
+    "yup": "1.7.1"
   },
   "dependencies": {
     "@runtyping/generator": "workspace:*",
