@@ -3,8 +3,8 @@ import { ZodCoreTypeWriters } from '@runtyping/zod-core'
 import { Type } from 'ts-morph'
 
 export default class ZodMiniTypeWriters extends ZodCoreTypeWriters {
-  protected parserModule = 'zod/mini'
-  protected thisModule = '@runtyping/zod-mini';
+  protected override parserModule = 'zod/mini'
+  protected override thisModule = '@runtyping/zod-mini';
 
   override *attachTransformer(
     typeWriter: TypeWriter,
