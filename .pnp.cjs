@@ -256,6 +256,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/resolve-extends", "npm:15.0.0"],\
           ["@commitlint/types", "npm:15.0.0"],\
           ["@endemolshinegroup/cosmiconfig-typescript-loader", "virtual:c621136fa1ee1799dd6e48f88cdc7aaeeba836c7cbbd67bcb4d8b65cb9d4d9755217cb88951bca41f171bd5bc104cd11e988c094303d90abfb31e9d0d0798cb8#npm:3.0.2"],\
+          ["@types/node", "npm:16.11.7"],\
           ["chalk", "npm:4.1.2"],\
           ["cosmiconfig", "npm:7.0.1"],\
           ["lodash", "npm:4.17.21"],\
@@ -272,12 +273,14 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/load", "npm:20.3.0"],\
           ["@commitlint/resolve-extends", "npm:20.2.0"],\
           ["@commitlint/types", "npm:20.2.0"],\
+          ["@types/node", "npm:16.11.7"],\
           ["chalk", "npm:5.6.2"],\
           ["cosmiconfig", "virtual:bbf7a2ca4888af5502263c39b4e09af28654e9b6aaeb2b43f915234615e0dbbb02ee61df2a8f7c9db69f4963465201d3d654cd765b374c852bb35b45320268c7#npm:9.0.0"],\
           ["cosmiconfig-typescript-loader", "virtual:bbf7a2ca4888af5502263c39b4e09af28654e9b6aaeb2b43f915234615e0dbbb02ee61df2a8f7c9db69f4963465201d3d654cd765b374c852bb35b45320268c7#npm:6.2.0"],\
           ["lodash.isplainobject", "npm:4.0.6"],\
           ["lodash.merge", "npm:4.6.2"],\
-          ["lodash.uniq", "npm:4.5.0"]\
+          ["lodash.uniq", "npm:4.5.0"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -421,7 +424,8 @@ const RAW_RUNTIME_STATE =
           ["lodash.get", "npm:4.4.2"],\
           ["make-error", "npm:1.3.6"],\
           ["ts-node", "virtual:253da7984942e1709c47a9881688474cbf8e8ff6bc7cf891c04df69e1b3eb2f1685871f2bbb5c9fd5656124fe7b25365753daf9f71b033a4c09a01c821b4468a#npm:9.1.1"],\
-          ["tslib", "npm:2.3.1"]\
+          ["tslib", "npm:2.3.1"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "packagePeers": [\
           "@types/cosmiconfig",\
@@ -1289,6 +1293,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["zod", "npm:4.3.5"]\
         ],\
         "packagePeers": [\
@@ -1305,6 +1310,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["zod", "npm:4.3.5"]\
         ],\
         "linkType": "SOFT"\
@@ -2551,7 +2557,7 @@ const RAW_RUNTIME_STATE =
           ["import-fresh", "npm:3.3.0"],\
           ["js-yaml", "npm:4.1.0"],\
           ["parse-json", "npm:5.2.0"],\
-          ["typescript", null]\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -2572,12 +2578,12 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/cosmiconfig-typescript-loader-virtual-c84dd329ef/0/cache/cosmiconfig-typescript-loader-npm-6.2.0-a314118ca7-f905077c72.zip/node_modules/cosmiconfig-typescript-loader/",\
         "packageDependencies": [\
           ["@types/cosmiconfig", null],\
-          ["@types/node", null],\
+          ["@types/node", "npm:16.11.7"],\
           ["@types/typescript", null],\
           ["cosmiconfig", "virtual:bbf7a2ca4888af5502263c39b4e09af28654e9b6aaeb2b43f915234615e0dbbb02ee61df2a8f7c9db69f4963465201d3d654cd765b374c852bb35b45320268c7#npm:9.0.0"],\
           ["cosmiconfig-typescript-loader", "virtual:bbf7a2ca4888af5502263c39b4e09af28654e9b6aaeb2b43f915234615e0dbbb02ee61df2a8f7c9db69f4963465201d3d654cd765b374c852bb35b45320268c7#npm:6.2.0"],\
           ["jiti", "npm:2.6.1"],\
-          ["typescript", null]\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
         ],\
         "packagePeers": [\
           "@types/cosmiconfig",\
@@ -5901,7 +5907,7 @@ const RAW_RUNTIME_STATE =
           ["make-error", "npm:1.3.6"],\
           ["source-map-support", "npm:0.5.20"],\
           ["ts-node", "virtual:253da7984942e1709c47a9881688474cbf8e8ff6bc7cf891c04df69e1b3eb2f1685871f2bbb5c9fd5656124fe7b25365753daf9f71b033a4c09a01c821b4468a#npm:9.1.1"],\
-          ["typescript", null],\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
           ["yn", "npm:3.1.1"]\
         ],\
         "packagePeers": [\

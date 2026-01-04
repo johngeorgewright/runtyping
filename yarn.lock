@@ -957,6 +957,7 @@ __metadata:
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
+    typescript: "npm:5.9.3"
     zod: "npm:4.3.5"
   peerDependencies:
     zod: ^4.0.0
@@ -1159,7 +1160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:@types/node@*":
   version: 16.11.7
   resolution: "@types/node@npm:16.11.7"
   checksum: 10/91a18b990ef701d166a837d0799925c1ac1b20c424d28374bdfceb2c9a489c0cc0e6913f2913631ea5aba095a6578981aef3ccb2a475a8ed460cbdeca5332d54
@@ -5298,7 +5299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.9.3":
+"typescript@npm:5.9.3, typescript@npm:typescript@*":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -5328,7 +5329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3Atypescript@*#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
