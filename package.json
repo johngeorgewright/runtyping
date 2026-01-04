@@ -9,10 +9,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --all --topological-dev run build",
-    "clean": "yarn workspaces foreach --all run clean",
+    "build": "yarn workspaces foreach --all --parallel --topological-dev run build",
+    "clean": "yarn workspaces foreach --all --parallel run clean",
     "scaffold": "vite-node $(yarn bin plop) --plopfile=scaffold/plopfile.ts",
-    "start": "yarn build && yarn workspaces foreach --all --no-private --parallel --interlaced run start",
+    "start": "yarn workspaces foreach --all --no-private --parallel --jobs unlimited --interlaced run start",
     "test": "yarn workspaces foreach --all run test",
     "prepare": "husky",
     "workspaces:list": "yarn workspaces foreach --all --topological --no-private exec 'echo \"$npm_package_name|$(pwd)\"' 2>&1 | grep -v 'Process\\|exit\\|Done' | grep -v '^$'",
