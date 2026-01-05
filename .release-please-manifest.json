@@ -7,5 +7,6 @@
   "packages/zod": "5.0.1",
   "packages/zod-core": "2.0.1",
   "packages/zod-mini": "2.0.1",
-  "packages/yup": "1.0.0"
+  "packages/yup": "1.0.0",
+  "packages/joi": "0.0.0"
 }

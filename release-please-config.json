@@ -47,6 +47,11 @@
       "release-type": "node",
       "package-name": "yup",
       "component": "yup"
+    },
+    "packages/joi": {
+      "release-type": "node",
+      "package-name": "joi",
+      "component": "joi"
     }
   },
   "changelog-sections": [

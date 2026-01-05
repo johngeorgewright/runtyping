@@ -1,4 +1,65 @@
-import { TypeWriters as $TypeWriters } from '@runtyping/generator'
+import { TypeWriter, TypeWriters } from '@runtyping/generator'
+import { ts, Type } from 'ts-morph'
 
-export default class TypeWriters extends $TypeWriters {
+export default class {{properCase lib}}TypeWriters extends TypeWriters {
+  protected override *any(): TypeWriter {}
+
+  protected override *array(_type: Type, _elementType: Type): TypeWriter {}
+
+  override attachTransformer(
+    typeWriter: TypeWriter,
+    _fileName: string,
+    _exportName: string,
+  ): TypeWriter {
+    return typeWriter
+  }
+
+  protected override *boolean(): TypeWriter {}
+
+  protected override *builtInObject(_type: Type): TypeWriter {}
+
+  override *defaultStaticImplementation(_type: Type): TypeWriter {}
+
+  protected override *enum(_type: Type): TypeWriter {}
+
+  protected override *enumLiteral(_type: Type): TypeWriter {}
+
+  protected override *function(_type: Type): TypeWriter {}
+
+  protected override *intersection(_type: Type): TypeWriter {}
+
+  protected override *lazy(_type: Type): TypeWriter {}
+
+  protected override *literal(_type: Type): TypeWriter {}
+
+  protected override *never(): TypeWriter {}
+
+  protected override *null(): TypeWriter {}
+
+  protected override *number(): TypeWriter {}
+
+  protected override *numberIndexedObject(_type: Type): TypeWriter {}
+
+  protected override *object(_type: Type<ts.ObjectType>): TypeWriter {}
+
+  protected override *withGenerics(
+    _typeWriter: TypeWriter,
+    _type: Type<ts.Type>,
+  ): TypeWriter {}
+
+  protected override *string(): TypeWriter {}
+
+  protected override *stringIndexedObject(_type: Type): TypeWriter {}
+
+  protected override *tuple(_type: Type): TypeWriter {}
+
+  protected override *undefined(): TypeWriter {}
+
+  protected override *union(_type: Type): TypeWriter {}
+
+  protected override *unknown(): TypeWriter {}
+
+  protected override *variadicTuple(_type: Type): TypeWriter {}
+
+  protected override *void(): TypeWriter {}
 }

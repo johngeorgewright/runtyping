@@ -1,0 +1,41 @@
+{
+  "name": "@runtyping/joi",
+  "version": "0.0.0",
+  "description": "Generate joi from static types & JSON schema.",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "runtyping": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "start": "tsc --watch --preserveWatchOutput",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "joi": "^18.0.2"
+  },
+  "devDependencies": {
+    "@runtyping/test-type-writers": "workspace:*",
+    "@types/json-schema": "7.0.15",
+    "@types/node": "24.10.3",
+    "joi": "18.0.2",
+    "rimraf": "6.1.2",
+    "typescript": "5.9.3",
+    "vite-node": "5.2.0",
+    "vitest": "4.0.15"
+  },
+  "dependencies": {
+    "@runtyping/generator": "workspace:*",
+    "@ts-morph/common": "^0.28.1",
+    "ts-morph": "^27.0.2",
+    "tslib": "^2.8.1"
+  }
+}

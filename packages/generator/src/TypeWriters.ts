@@ -18,6 +18,15 @@ import {
 import { getTypeName } from './util'
 
 export default abstract class TypeWriters {
+  #typeHandlers: Record<
+    string,
+    Set<(type: Type, typeWriter: TypeWriter) => TypeWriter>
+  > = {}
+
+  onOpenFile() {}
+
+  onCloseFile() {}
+
   typeWriter(
     type: Type,
     {
@@ -120,7 +129,17 @@ export default abstract class TypeWriters {
     if (this.#requiresGenericFunction(type))
       typeWriter = this.withGenerics(typeWriter, type)
 
+    if (type.getText() in this.#typeHandlers)
+      typeWriter = [...this.#typeHandlers[type.getText()]].reduce(
+        (typeWriter, handler) => handler.call(this, type, typeWriter),
+        typeWriter,
+      )
+
     return typeWriter
+  }
+
+  *redeclare(name: string): TypeWriter {
+    yield [Write, name]
   }
 
   *fallback(type: Type): TypeWriter {
@@ -129,6 +148,15 @@ export default abstract class TypeWriters {
     } catch (error) {
       yield* this.unknown(type)
     }
+  }
+
+  protected on<This extends TypeWriters>(
+    name: string,
+    handler: (this: This, type: Type, typeWriter: TypeWriter) => TypeWriter,
+  ) {
+    this.#typeHandlers[name] ??= new Set()
+    this.#typeHandlers[name].add(handler)
+    return () => this.#typeHandlers[name].delete(handler)
   }
 
   abstract attachTransformer(
@@ -206,7 +234,7 @@ export default abstract class TypeWriters {
       whenOptional?(this: TypeWriters, propertyWriter: TypeWriter): TypeWriter
       whenRequired?(this: TypeWriters, propertyWriter: TypeWriter): TypeWriter
       properties?: CompilerSymbol[]
-    },
+    } = {},
   ): TypeWriter {
     const typeArguments = getGenerics(type).map((typeArgument) =>
       typeArgument.getText(),

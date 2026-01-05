@@ -27,6 +27,10 @@
       "path": "packages/io-ts"
     },
     {
+      "name": "📦 @runtyping/joi",
+      "path": "packages/joi"
+    },
+    {
       "name": "📦 @runtyping/runtypes",
       "path": "packages/runtypes"
     },

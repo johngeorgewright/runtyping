@@ -135,13 +135,24 @@ export default class Generator {
 
   #addImports(imports: ImportSpec[]) {
     const sourceImportMap = groupBy(imports, 'source')
-    for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
+    for (let [sourceFilePath, imports] of Object.entries(sourceImportMap)) {
+      const defaultIndex = imports.findIndex(({ name }) => name === 'default')
+      let defaultImport: ImportSpec | undefined
+      if (defaultIndex > -1) {
+        defaultImport = imports[defaultIndex]
+        imports = [
+          ...imports.slice(0, defaultIndex),
+          ...imports.slice(defaultIndex + 1),
+        ]
+      }
       this.#targetFile.addImportDeclaration({
+        defaultImport: defaultImport?.alias,
         namedImports: imports.sort(({ name: nameA }, { name: nameB }) =>
           nameA.localeCompare(nameB),
         ),
         moduleSpecifier: sourceFilePath,
       })
+    }
   }
 
   async #generateRuntypeFromJSON(sourceType: InstructionSourceType) {
@@ -163,9 +174,11 @@ export default class Generator {
         ? sourceType.file
         : require.resolve(sourceType.file),
     )
+    this.#typeWriters.onOpenFile()
     for (const typeName of castArray(sourceType.type))
       if (!this.#exports.has(typeName))
         this.#writeRuntype(sourceFile, typeName, sourceType)
+    this.#typeWriters.onCloseFile()
   }
 
   #writeRuntype(
@@ -230,7 +243,9 @@ export default class Generator {
             this.#exports.has(name) ||
             this.#hasTypeDeclaration(sourceFile, name)
           ) {
-            writer = writer.write(this.#formatRuntypeName(name))
+            runTypeWriter(
+              this.#typeWriters.redeclare(this.#formatRuntypeName(name)),
+            )
             if (
               !recursiveValue &&
               !this.#exports.has(name) &&

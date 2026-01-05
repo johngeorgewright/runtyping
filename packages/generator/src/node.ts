@@ -49,7 +49,7 @@ export function findInModule<
 
 export function isRecursive(typeDeclaration: ConsideredTypeDeclaration) {
   const name = typeDeclaration.getName()
-  return !!name && findReferenceWithinDeclaration(name, typeDeclaration)
+  return !!name && hasReferenceWithinDeclaration(name, typeDeclaration)
 }
 
 export function isConsideredType(
@@ -64,7 +64,7 @@ export function validateConsideredType(node: Node): ConsideredTypeDeclaration {
   return node
 }
 
-function findReferenceWithinDeclaration(
+function hasReferenceWithinDeclaration(
   name: string,
   typeDeclaration: ConsideredTypeDeclaration,
 ) {
@@ -87,11 +87,11 @@ export function isCircular(typeDeclaration: ConsideredTypeDeclaration) {
         if (
           declarationName &&
           declarationName !== name &&
-          findReferenceWithinDeclaration(
+          hasReferenceWithinDeclaration(
             name,
             declarationNode as ConsideredTypeDeclaration,
           ) &&
-          findReferenceWithinDeclaration(declarationName, typeDeclaration)
+          hasReferenceWithinDeclaration(declarationName, typeDeclaration)
         ) {
           return [declarationName, name]
         }
