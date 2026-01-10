@@ -1042,7 +1042,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/lodash", "npm:4.17.22"],\
+          ["@types/lodash", "npm:4.17.23"],\
           ["@types/node", "npm:24.10.6"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@types/typescript", null],\
@@ -1075,7 +1075,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/generator", "workspace:packages/generator"],\
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/lodash", "npm:4.17.22"],\
+          ["@types/lodash", "npm:4.17.23"],\
           ["@types/node", "npm:24.10.6"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@types/yargs", "npm:17.0.35"],\
@@ -1506,10 +1506,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:4.17.22", {\
-        "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.22-5b8a07e929-70a5d0c718.zip/node_modules/@types/lodash/",\
+      ["npm:4.17.23", {\
+        "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.23-cc83cf40c9-05935534a4.zip/node_modules/@types/lodash/",\
         "packageDependencies": [\
-          ["@types/lodash", "npm:4.17.22"]\
+          ["@types/lodash", "npm:4.17.23"]\
         ],\
         "linkType": "HARD"\
       }]\
