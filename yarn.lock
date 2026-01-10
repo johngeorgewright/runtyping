@@ -785,7 +785,7 @@ __metadata:
     "@johngw/iterator": "npm:1.2.2"
     "@ts-morph/common": "npm:0.28.1"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/lodash": "npm:4.17.21"
+    "@types/lodash": "npm:4.17.22"
     "@types/node": "npm:24.10.6"
     "@types/prettier": "npm:3.0.0"
     "@types/yargs": "npm:17.0.35"
@@ -1144,7 +1144,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.21, @types/lodash@npm:^4.17.7":
+"@types/lodash@npm:4.17.22":
+  version: 4.17.22
+  resolution: "@types/lodash@npm:4.17.22"
+  checksum: 10/70a5d0c7184f95661fe3c9f0b7a4cfbb2141f9769c71237444a5ba0d1999bd3cef6901a12708abb0c60cba1de96db0160a7cddbf8574b25815edc839e6f39594
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.17.7":
   version: 4.17.21
   resolution: "@types/lodash@npm:4.17.21"
   checksum: 10/34920830a3bc82ba619cda05e606fef00c148a69b4f19f770645d2587ccdb8e42ef3ddfc174b7884c0c709fc0a1aeb48f7326da969bad12a1464a03efbbe414c
