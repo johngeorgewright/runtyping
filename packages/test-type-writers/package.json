@@ -33,7 +33,7 @@
     "@runtyping/generator": "workspace:*",
     "@types/json-schema": "7.0.15",
     "@types/mkdirp": "2.0.0",
-    "@types/node": "24.10.7",
+    "@types/node": "24.10.8",
     "rimraf": "6.1.2",
     "type-fest": "5.4.0",
     "typescript": "5.9.3",
