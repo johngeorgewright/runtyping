@@ -44,7 +44,7 @@
     "isbinaryfile": "6.0.0",
     "lint-staged": "16.2.7",
     "plop": "4.0.4",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "rimraf": "6.1.2",
     "runtypes": "7.0.4",
     "source-map-support": "0.5.21",
