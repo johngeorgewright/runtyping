@@ -88,7 +88,7 @@ const RAW_RUNTIME_STATE =
           ["isbinaryfile", "npm:6.0.0"],\
           ["lint-staged", "npm:16.2.7"],\
           ["plop", "npm:4.0.4"],\
-          ["prettier", "npm:3.8.0"],\
+          ["prettier", "npm:3.8.1"],\
           ["rimraf", "npm:6.1.2"],\
           ["runtypes", "npm:7.0.4"],\
           ["source-map-support", "npm:0.5.21"],\
@@ -1232,7 +1232,7 @@ const RAW_RUNTIME_STATE =
           ["js-yaml", "npm:4.1.1"],\
           ["json-schema-to-typescript", "npm:15.0.4"],\
           ["lodash", "npm:4.17.21"],\
-          ["prettier", "npm:3.8.0"],\
+          ["prettier", "npm:3.8.1"],\
           ["rimraf", "npm:6.1.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1264,7 +1264,7 @@ const RAW_RUNTIME_STATE =
           ["js-yaml", "npm:4.1.1"],\
           ["json-schema-to-typescript", "npm:15.0.4"],\
           ["lodash", "npm:4.17.21"],\
-          ["prettier", "npm:3.8.0"],\
+          ["prettier", "npm:3.8.1"],\
           ["rimraf", "npm:6.1.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1319,7 +1319,7 @@ const RAW_RUNTIME_STATE =
           ["isbinaryfile", "npm:6.0.0"],\
           ["lint-staged", "npm:16.2.7"],\
           ["plop", "npm:4.0.4"],\
-          ["prettier", "npm:3.8.0"],\
+          ["prettier", "npm:3.8.1"],\
           ["rimraf", "npm:6.1.2"],\
           ["runtypes", "npm:7.0.4"],\
           ["source-map-support", "npm:0.5.21"],\
@@ -5257,10 +5257,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.8.0", {\
-        "packageLocation": "./.yarn/unplugged/prettier-npm-3.8.0-7cbf267d2c/node_modules/prettier/",\
+      ["npm:3.8.1", {\
+        "packageLocation": "./.yarn/unplugged/prettier-npm-3.8.1-04022a855f/node_modules/prettier/",\
         "packageDependencies": [\
-          ["prettier", "npm:3.8.0"]\
+          ["prettier", "npm:3.8.1"]\
         ],\
         "linkType": "HARD"\
       }]\
