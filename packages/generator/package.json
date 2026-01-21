@@ -30,7 +30,7 @@
     "@types/node": "24.10.9",
     "@types/prettier": "3.0.0",
     "@types/yargs": "17.0.35",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "rimraf": "6.1.2",
     "typescript": "5.9.3",
     "typescript-json-schema": "0.67.1",
