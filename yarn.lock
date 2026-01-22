@@ -1030,7 +1030,7 @@ __metadata:
     husky: "npm:9.1.7"
     isbinaryfile: "npm:6.0.0"
     lint-staged: "npm:16.2.7"
-    plop: "npm:4.0.4"
+    plop: "npm:4.0.5"
     prettier: "npm:3.8.1"
     rimraf: "npm:6.1.2"
     runtypes: "npm:7.0.4"
@@ -4581,21 +4581,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"plop@npm:4.0.4":
-  version: 4.0.4
-  resolution: "plop@npm:4.0.4"
+"plop@npm:4.0.5":
+  version: 4.0.5
+  resolution: "plop@npm:4.0.5"
   dependencies:
     "@types/liftoff": "npm:^4.0.3"
     interpret: "npm:^3.1.1"
     liftoff: "npm:^5.0.1"
-    minimist: "npm:^1.2.8"
     nanospinner: "npm:^1.2.2"
     node-plop: "npm:^0.32.3"
     picocolors: "npm:^1.1.1"
     v8flags: "npm:^4.0.1"
   bin:
     plop: bin/plop.js
-  checksum: 10/7c5fe36a46c1360d105af7276b9691bdc3561e96e6272874b25e2bbc107fc03b6c7a8ef8059a0528cf1fd2a2d8bfa7bddcec7edd7671c11786e4fdbf480187b6
+  checksum: 10/28d63ceca9ba42add4078c1e6a4fd69fc3a59be1517ce9d1dc0a681a7709e016b63eb338acc1c85c12a5383bb83be197ffe5b0d2f23f94912d07166be3a38cc5
   languageName: node
   linkType: hard
 
