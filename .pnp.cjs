@@ -87,7 +87,7 @@ const RAW_RUNTIME_STATE =
           ["husky", "npm:9.1.7"],\
           ["isbinaryfile", "npm:6.0.0"],\
           ["lint-staged", "npm:16.2.7"],\
-          ["plop", "npm:4.0.4"],\
+          ["plop", "npm:4.0.5"],\
           ["prettier", "npm:3.8.1"],\
           ["rimraf", "npm:6.1.2"],\
           ["runtypes", "npm:7.0.4"],\
@@ -1318,7 +1318,7 @@ const RAW_RUNTIME_STATE =
           ["husky", "npm:9.1.7"],\
           ["isbinaryfile", "npm:6.0.0"],\
           ["lint-staged", "npm:16.2.7"],\
-          ["plop", "npm:4.0.4"],\
+          ["plop", "npm:4.0.5"],\
           ["prettier", "npm:3.8.1"],\
           ["rimraf", "npm:6.1.2"],\
           ["runtypes", "npm:7.0.4"],\
@@ -5221,17 +5221,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["plop", [\
-      ["npm:4.0.4", {\
-        "packageLocation": "./.yarn/cache/plop-npm-4.0.4-9fe4a57db2-7c5fe36a46.zip/node_modules/plop/",\
+      ["npm:4.0.5", {\
+        "packageLocation": "./.yarn/cache/plop-npm-4.0.5-6d23e89723-28d63ceca9.zip/node_modules/plop/",\
         "packageDependencies": [\
           ["@types/liftoff", "npm:4.0.3"],\
           ["interpret", "npm:3.1.1"],\
           ["liftoff", "npm:5.0.1"],\
-          ["minimist", "npm:1.2.8"],\
           ["nanospinner", "npm:1.2.2"],\
           ["node-plop", "npm:0.32.3"],\
           ["picocolors", "npm:1.1.1"],\
-          ["plop", "npm:4.0.4"],\
+          ["plop", "npm:4.0.5"],\
           ["v8flags", "npm:4.0.1"]\
         ],\
         "linkType": "HARD"\
