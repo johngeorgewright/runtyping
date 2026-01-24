@@ -982,7 +982,7 @@ __metadata:
     typescript-json-schema: "npm:0.67.1"
     vitest: "npm:4.0.16"
     yargs: "npm:18.0.0"
-    zod: "npm:4.3.5"
+    zod: "npm:4.3.6"
   peerDependencies:
     typescript: ">= 4.7.4"
   languageName: unknown
@@ -1140,7 +1140,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
     typescript: "npm:5.9.3"
-    zod: "npm:4.3.5"
+    zod: "npm:4.3.6"
   peerDependencies:
     zod: ^4.0.0
   languageName: unknown
@@ -1161,7 +1161,7 @@ __metadata:
     tslib: "npm:2.8.1"
     typescript: "npm:5.9.3"
     vitest: "npm:4.0.16"
-    zod: "npm:4.3.5"
+    zod: "npm:4.3.6"
   peerDependencies:
     zod: ^4.0.0
   bin:
@@ -1184,7 +1184,7 @@ __metadata:
     tslib: "npm:2.8.1"
     typescript: "npm:5.9.3"
     vitest: "npm:4.0.16"
-    zod: "npm:4.3.5"
+    zod: "npm:4.3.6"
   peerDependencies:
     zod: ^4.0.0
   bin:
@@ -6200,10 +6200,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:4.3.5":
-  version: 4.3.5
-  resolution: "zod@npm:4.3.5"
-  checksum: 10/3148bd52e56ab7c1641ec397e6be6eddbb1d8f5db71e95baab9bb9622a0ea49d8a385885fc1c22b90fa6d8c5234e051f4ef5d469cfe3fb90198d5a91402fd89c
+"zod@npm:4.3.6":
+  version: 4.3.6
+  resolution: "zod@npm:4.3.6"
+  checksum: 10/25fc0f62e01b557b4644bf0b393bbaf47542ab30877c37837ea8caf314a8713d220c7d7fe51f68ffa72f0e1018ddfa34d96f1973d23033f5a2a5a9b6b9d9da01
   languageName: node
   linkType: hard
 
