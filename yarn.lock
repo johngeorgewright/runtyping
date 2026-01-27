@@ -1076,7 +1076,7 @@ __metadata:
     rimraf: "npm:6.1.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    type-fest: "npm:5.4.1"
+    type-fest: "npm:5.4.2"
     typescript: "npm:5.9.3"
     vitest: "npm:4.0.16"
   peerDependencies:
@@ -5557,12 +5557,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:5.4.1":
-  version: 5.4.1
-  resolution: "type-fest@npm:5.4.1"
+"type-fest@npm:5.4.2":
+  version: 5.4.2
+  resolution: "type-fest@npm:5.4.2"
   dependencies:
     tagged-tag: "npm:^1.0.0"
-  checksum: 10/be7d4749e1e5cf2e2c9904fa1aaf9da5eef6c47c130881bf93bfd5a670b2ab59c5502466768e42c521281056a2375b1617176a75cf6c52b575f4bbabbd450b21
+  checksum: 10/6fdd99fcc66f9edf3dc019e3c33e01207c8a02269c0457ebecc76a26f303e420928d7aa39f34cdec42344af2129ad5d7c3a3d8d0407c7afc62711b972340c1fb
   languageName: node
   linkType: hard
 
