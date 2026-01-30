@@ -30,9 +30,9 @@
   },
   "homepage": "https://github.com/johngeorgewright/runtyping#readme",
   "devDependencies": {
-    "@commitlint/cli": "20.3.1",
-    "@commitlint/config-conventional": "20.3.1",
-    "@commitlint/types": "20.3.1",
+    "@commitlint/cli": "20.4.0",
+    "@commitlint/config-conventional": "20.4.0",
+    "@commitlint/types": "20.4.0",
     "@types/node": "24.10.9",
     "@types/source-map-support": "0.5.10",
     "@vitest/ui": "4.0.16",
