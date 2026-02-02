@@ -73,8 +73,8 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@commitlint/cli", "npm:20.4.0"],\
-          ["@commitlint/config-conventional", "npm:20.4.0"],\
+          ["@commitlint/cli", "npm:20.4.1"],\
+          ["@commitlint/config-conventional", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"],\
           ["@runtyping/mono-repo", "workspace:."],\
           ["@types/node", "npm:24.10.9"],\
@@ -144,12 +144,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/cli", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-cli-npm-20.4.0-7209501181-2269ab6a7a.zip/node_modules/@commitlint/cli/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-cli-npm-20.4.1-f7cadc47aa-1779ec9f7e.zip/node_modules/@commitlint/cli/",\
         "packageDependencies": [\
-          ["@commitlint/cli", "npm:20.4.0"],\
+          ["@commitlint/cli", "npm:20.4.1"],\
           ["@commitlint/format", "npm:20.4.0"],\
-          ["@commitlint/lint", "npm:20.4.0"],\
+          ["@commitlint/lint", "npm:20.4.1"],\
           ["@commitlint/load", "npm:20.4.0"],\
           ["@commitlint/read", "npm:20.4.0"],\
           ["@commitlint/types", "npm:20.4.0"],\
@@ -160,10 +160,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/config-conventional", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-20.4.0-dcc90c78cd-5e32209f78.zip/node_modules/@commitlint/config-conventional/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-20.4.1-9a23a4d3c8-fbef5f0858.zip/node_modules/@commitlint/config-conventional/",\
         "packageDependencies": [\
-          ["@commitlint/config-conventional", "npm:20.4.0"],\
+          ["@commitlint/config-conventional", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"],\
           ["conventional-changelog-conventionalcommits", "npm:9.1.0"]\
         ],\
@@ -182,12 +182,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/ensure", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-ensure-npm-20.4.0-b17d41e705-cd6fa5ce30.zip/node_modules/@commitlint/ensure/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-ensure-npm-20.4.1-1a62170c2d-6790e15889.zip/node_modules/@commitlint/ensure/",\
         "packageDependencies": [\
-          ["@commitlint/ensure", "npm:20.4.0"],\
+          ["@commitlint/ensure", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"],\
-          ["kasi", "npm:2.0.1"]\
+          ["lodash.camelcase", "npm:4.3.0"],\
+          ["lodash.kebabcase", "npm:4.1.1"],\
+          ["lodash.snakecase", "npm:4.1.1"],\
+          ["lodash.startcase", "npm:4.4.0"],\
+          ["lodash.upperfirst", "npm:4.3.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -220,10 +224,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/is-ignored", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-is-ignored-npm-20.4.0-5d3011f88b-8d235fcdac.zip/node_modules/@commitlint/is-ignored/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-is-ignored-npm-20.4.1-41b05ac2bd-f6c9dbbed7.zip/node_modules/@commitlint/is-ignored/",\
         "packageDependencies": [\
-          ["@commitlint/is-ignored", "npm:20.4.0"],\
+          ["@commitlint/is-ignored", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"],\
           ["semver", "npm:7.7.3"]\
         ],\
@@ -231,13 +235,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/lint", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-lint-npm-20.4.0-f4a1282c89-7fb9adc080.zip/node_modules/@commitlint/lint/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-lint-npm-20.4.1-4d7472b8fa-cad34b7d90.zip/node_modules/@commitlint/lint/",\
         "packageDependencies": [\
-          ["@commitlint/is-ignored", "npm:20.4.0"],\
-          ["@commitlint/lint", "npm:20.4.0"],\
-          ["@commitlint/parse", "npm:20.4.0"],\
-          ["@commitlint/rules", "npm:20.4.0"],\
+          ["@commitlint/is-ignored", "npm:20.4.1"],\
+          ["@commitlint/lint", "npm:20.4.1"],\
+          ["@commitlint/parse", "npm:20.4.1"],\
+          ["@commitlint/rules", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"]\
         ],\
         "linkType": "HARD"\
@@ -290,10 +294,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/parse", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-parse-npm-20.4.0-267d93d71d-d37b45aa68.zip/node_modules/@commitlint/parse/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-parse-npm-20.4.1-91e533c367-c38c396437.zip/node_modules/@commitlint/parse/",\
         "packageDependencies": [\
-          ["@commitlint/parse", "npm:20.4.0"],\
+          ["@commitlint/parse", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"],\
           ["conventional-changelog-angular", "npm:8.1.0"],\
           ["conventional-commits-parser", "npm:6.2.1"]\
@@ -342,12 +346,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@commitlint/rules", [\
-      ["npm:20.4.0", {\
-        "packageLocation": "./.yarn/cache/@commitlint-rules-npm-20.4.0-abf672cbb6-cc76628883.zip/node_modules/@commitlint/rules/",\
+      ["npm:20.4.1", {\
+        "packageLocation": "./.yarn/cache/@commitlint-rules-npm-20.4.1-53d6ecdb78-e383cc925a.zip/node_modules/@commitlint/rules/",\
         "packageDependencies": [\
-          ["@commitlint/ensure", "npm:20.4.0"],\
+          ["@commitlint/ensure", "npm:20.4.1"],\
           ["@commitlint/message", "npm:20.4.0"],\
-          ["@commitlint/rules", "npm:20.4.0"],\
+          ["@commitlint/rules", "npm:20.4.1"],\
           ["@commitlint/to-lines", "npm:20.0.0"],\
           ["@commitlint/types", "npm:20.4.0"]\
         ],\
@@ -1299,8 +1303,8 @@ const RAW_RUNTIME_STATE =
       ["workspace:.", {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@commitlint/cli", "npm:20.4.0"],\
-          ["@commitlint/config-conventional", "npm:20.4.0"],\
+          ["@commitlint/cli", "npm:20.4.1"],\
+          ["@commitlint/config-conventional", "npm:20.4.1"],\
           ["@commitlint/types", "npm:20.4.0"],\
           ["@runtyping/mono-repo", "workspace:."],\
           ["@types/node", "npm:24.10.9"],\
@@ -4197,15 +4201,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["kasi", [\
-      ["npm:2.0.1", {\
-        "packageLocation": "./.yarn/cache/kasi-npm-2.0.1-65ab30ac17-011e7451c0.zip/node_modules/kasi/",\
-        "packageDependencies": [\
-          ["kasi", "npm:2.0.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["liftoff", [\
       ["npm:5.0.1", {\
         "packageLocation": "./.yarn/cache/liftoff-npm-5.0.1-631cc964d6-52b3fb62bb.zip/node_modules/liftoff/",\
@@ -4278,11 +4273,29 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lodash.camelcase", [\
+      ["npm:4.3.0", {\
+        "packageLocation": "./.yarn/cache/lodash.camelcase-npm-4.3.0-bf268e3bf0-c301cc3793.zip/node_modules/lodash.camelcase/",\
+        "packageDependencies": [\
+          ["lodash.camelcase", "npm:4.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lodash.get", [\
       ["npm:4.4.2", {\
         "packageLocation": "./.yarn/cache/lodash.get-npm-4.4.2-7bda64ed87-2a4925f6e8.zip/node_modules/lodash.get/",\
         "packageDependencies": [\
           ["lodash.get", "npm:4.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash.kebabcase", [\
+      ["npm:4.1.1", {\
+        "packageLocation": "./.yarn/cache/lodash.kebabcase-npm-4.1.1-89ffca7e1f-d84ec5441e.zip/node_modules/lodash.kebabcase/",\
+        "packageDependencies": [\
+          ["lodash.kebabcase", "npm:4.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4301,6 +4314,33 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/lodash.mergewith-npm-4.6.2-7d2d4201ec-aea75a4492.zip/node_modules/lodash.mergewith/",\
         "packageDependencies": [\
           ["lodash.mergewith", "npm:4.6.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash.snakecase", [\
+      ["npm:4.1.1", {\
+        "packageLocation": "./.yarn/cache/lodash.snakecase-npm-4.1.1-b12cdbecb4-82ed40935d.zip/node_modules/lodash.snakecase/",\
+        "packageDependencies": [\
+          ["lodash.snakecase", "npm:4.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash.startcase", [\
+      ["npm:4.4.0", {\
+        "packageLocation": "./.yarn/cache/lodash.startcase-npm-4.4.0-637aa8cc15-3091048a54.zip/node_modules/lodash.startcase/",\
+        "packageDependencies": [\
+          ["lodash.startcase", "npm:4.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lodash.upperfirst", [\
+      ["npm:4.3.1", {\
+        "packageLocation": "./.yarn/cache/lodash.upperfirst-npm-4.3.1-e3b7c364ba-3e849d4eb4.zip/node_modules/lodash.upperfirst/",\
+        "packageDependencies": [\
+          ["lodash.upperfirst", "npm:4.3.1"]\
         ],\
         "linkType": "HARD"\
       }]\
