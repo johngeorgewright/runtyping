@@ -35,7 +35,7 @@
     "@types/mkdirp": "2.0.0",
     "@types/node": "24.10.12",
     "rimraf": "6.1.2",
-    "type-fest": "5.4.3",
+    "type-fest": "5.4.4",
     "typescript": "5.9.3",
     "vitest": "4.0.16"
   },
