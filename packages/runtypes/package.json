@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/runtypes",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Generate runtypes from static types & JSON schema.",
   "type": "module",
   "main": "dist/index.js",
