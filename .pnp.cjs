@@ -89,7 +89,7 @@ const RAW_RUNTIME_STATE =
           ["lint-staged", "npm:16.2.7"],\
           ["plop", "npm:4.0.5"],\
           ["prettier", "npm:3.8.1"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["runtypes", "npm:7.0.4"],\
           ["source-map-support", "npm:0.5.21"],\
           ["tslib", "npm:2.8.1"],\
@@ -908,6 +908,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@isaacs/cliui", [\
+      ["npm:9.0.0", {\
+        "packageLocation": "./.yarn/cache/@isaacs-cliui-npm-9.0.0-f5b610cfb2-8ea3d1009f.zip/node_modules/@isaacs/cliui/",\
+        "packageDependencies": [\
+          ["@isaacs/cliui", "npm:9.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@johngw/array", [\
       ["npm:3.3.2", {\
         "packageLocation": "./.yarn/cache/@johngw-array-npm-3.3.2-5d9b421975-e6c49a593b.zip/node_modules/@johngw/array/",\
@@ -1232,7 +1241,7 @@ const RAW_RUNTIME_STATE =
           ["json-schema-to-typescript", "npm:15.0.4"],\
           ["lodash", "npm:4.17.23"],\
           ["prettier", "npm:3.8.1"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
@@ -1264,7 +1273,7 @@ const RAW_RUNTIME_STATE =
           ["json-schema-to-typescript", "npm:15.0.4"],\
           ["lodash", "npm:4.17.23"],\
           ["prettier", "npm:3.8.1"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
@@ -1289,7 +1298,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:24.10.13"],\
           ["fp-ts", "npm:2.16.11"],\
           ["io-ts", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#npm:2.2.22"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1319,7 +1328,7 @@ const RAW_RUNTIME_STATE =
           ["lint-staged", "npm:16.2.7"],\
           ["plop", "npm:4.0.5"],\
           ["prettier", "npm:3.8.1"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["runtypes", "npm:7.0.4"],\
           ["source-map-support", "npm:0.5.21"],\
           ["tslib", "npm:2.8.1"],\
@@ -1339,7 +1348,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.13"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["runtypes", "npm:7.0.4"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1362,7 +1371,7 @@ const RAW_RUNTIME_STATE =
           ["@types/vitest", null],\
           ["assert-never", "npm:1.4.0"],\
           ["mkdirp", "npm:3.0.1"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["runtypes", "npm:6.5.1"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1390,7 +1399,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:24.10.13"],\
           ["assert-never", "npm:1.4.0"],\
           ["mkdirp", "npm:3.0.1"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["runtypes", "npm:6.5.1"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1411,7 +1420,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/valibot", "workspace:packages/valibot"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.13"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
@@ -1431,7 +1440,7 @@ const RAW_RUNTIME_STATE =
           ["@ts-morph/common", "npm:0.28.1"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.13"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["ts-toolbelt", "npm:9.6.0"],\
           ["tslib", "npm:2.8.1"],\
@@ -1453,7 +1462,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/zod-core", "virtual:d80ef0e0092f984209dfea304929b09c3b532763a3105568a151353f56d31e1d3f423712461a4bc5c42f6d5d0f71c15f39f248129565c51d1f526f03a46755e5#workspace:packages/zod-core"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.13"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -1507,7 +1516,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/zod-mini", "workspace:packages/zod-mini"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.10.13"],\
-          ["rimraf", "npm:6.1.2"],\
+          ["rimraf", "npm:6.1.3"],\
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
@@ -2188,6 +2197,14 @@ const RAW_RUNTIME_STATE =
           ["balanced-match", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:4.0.2", {\
+        "packageLocation": "./.yarn/cache/balanced-match-npm-4.0.2-8236a65990-862d6e1483.zip/node_modules/balanced-match/",\
+        "packageDependencies": [\
+          ["balanced-match", "npm:4.0.2"],\
+          ["jackspeak", "npm:4.2.3"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["base64-js", [\
@@ -2218,6 +2235,14 @@ const RAW_RUNTIME_STATE =
           ["balanced-match", "npm:1.0.2"],\
           ["brace-expansion", "npm:1.1.11"],\
           ["concat-map", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:5.0.2", {\
+        "packageLocation": "./.yarn/cache/brace-expansion-npm-5.0.2-9598014784-18d382c091.zip/node_modules/brace-expansion/",\
+        "packageDependencies": [\
+          ["balanced-match", "npm:4.0.2"],\
+          ["brace-expansion", "npm:5.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3449,11 +3474,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["glob", [\
-      ["npm:13.0.0", {\
-        "packageLocation": "./.yarn/cache/glob-npm-13.0.0-8e50143ca8-de390721d2.zip/node_modules/glob/",\
+      ["npm:13.0.3", {\
+        "packageLocation": "./.yarn/cache/glob-npm-13.0.3-f06360294f-38a9c78de0.zip/node_modules/glob/",\
         "packageDependencies": [\
-          ["glob", "npm:13.0.0"],\
-          ["minimatch", "npm:10.1.1"],\
+          ["glob", "npm:13.0.3"],\
+          ["minimatch", "npm:10.2.0"],\
           ["minipass", "npm:7.1.2"],\
           ["path-scurry", "npm:2.0.1"]\
         ],\
@@ -4110,6 +4135,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["jackspeak", [\
+      ["npm:4.2.3", {\
+        "packageLocation": "./.yarn/cache/jackspeak-npm-4.2.3-f109d7d54c-b88e3fe5fa.zip/node_modules/jackspeak/",\
+        "packageDependencies": [\
+          ["@isaacs/cliui", "npm:9.0.0"],\
+          ["jackspeak", "npm:4.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["jiti", [\
       ["npm:2.6.1", {\
         "packageLocation": "./.yarn/cache/jiti-npm-2.6.1-597ab7fb84-8cd72c5fd0.zip/node_modules/jiti/",\
@@ -4525,6 +4560,14 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@isaacs/brace-expansion", "npm:5.0.0"],\
           ["minimatch", "npm:10.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:10.2.0", {\
+        "packageLocation": "./.yarn/cache/minimatch-npm-10.2.0-63c4781adf-3ceceac1c6.zip/node_modules/minimatch/",\
+        "packageDependencies": [\
+          ["brace-expansion", "npm:5.0.2"],\
+          ["minimatch", "npm:10.2.0"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -5384,12 +5427,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:6.1.2", {\
-        "packageLocation": "./.yarn/cache/rimraf-npm-6.1.2-ff31ae67d7-add8e566fe.zip/node_modules/rimraf/",\
+      ["npm:6.1.3", {\
+        "packageLocation": "./.yarn/cache/rimraf-npm-6.1.3-409ea7254f-dd98ec2ad7.zip/node_modules/rimraf/",\
         "packageDependencies": [\
-          ["glob", "npm:13.0.0"],\
+          ["glob", "npm:13.0.3"],\
           ["package-json-from-dist", "npm:1.0.1"],\
-          ["rimraf", "npm:6.1.2"]\
+          ["rimraf", "npm:6.1.3"]\
         ],\
         "linkType": "HARD"\
       }]\
