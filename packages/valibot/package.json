@@ -26,7 +26,7 @@
     "@runtyping/test-type-writers": "workspace:*",
     "@types/json-schema": "7.0.15",
     "@types/node": "24.10.13",
-    "rimraf": "6.1.2",
+    "rimraf": "6.1.3",
     "typescript": "5.9.3",
     "valibot": "1.2.0",
     "vitest": "4.0.16"
