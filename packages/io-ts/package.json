@@ -30,7 +30,7 @@
     "io-ts": "2.2.22",
     "rimraf": "6.1.3",
     "typescript": "5.9.3",
-    "vitest": "4.0.16"
+    "vitest": "4.0.18"
   },
   "dependencies": {
     "@johngw/array": "3.3.2",
