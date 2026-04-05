@@ -10,13 +10,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v6
-    - uses: actions/setup-node@v6
-      with:
-        cache: yarn
-        node-version: ${{ matrix.node-version }}
-    - shell: bash
-      run: yarn --immutable
     - shell: bash
       run: yarn build
     - shell: bash
