@@ -8,7 +8,6 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "downlevelIteration": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -17,7 +16,8 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "types": ["json-schema", "mkdirp", "node"]
   },
   "include": ["src"],
   "exclude": ["dist", "temp", "test", "vitest.config.ts"],
