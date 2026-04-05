@@ -6,8 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
+  publish-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,62 +14,43 @@ jobs:
     outputs:
       packages: ${{ steps.paths.outputs.packages }}
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v6
-
-      - name: NVM
-        id: nvm
-        run: echo "version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+      - uses: ./.github/actions/test
         with:
-          cache: yarn
           node-version: ${{ matrix.node-version }}
-
-      - name: Setup
-        run: yarn --immutable
-
-      - name: Build
-        run: yarn build
-
-      - name: Test
-        run: yarn test
-
-      - name: Output paths
-        id: paths
+      - id: nvm
+        run: echo "version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+      - id: paths
         run: echo "packages=$(yarn workspaces:list:json)" >> $GITHUB_OUTPUT
-
-      - name: Upload dists
-        uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v6
         if: matrix.node-version == steps.nvm.outputs.version
         with:
           if-no-files-found: error
           name: dists
           path: packages/**/dist
 
-  release-please:
-    name: Create Release PR
+  publish-release:
     if: github.actor != 'renovate[bot]'
-    needs: [build]
+    needs: [publish-build]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     outputs:
       paths_released: ${{ steps.release.outputs.paths_released }}
       releases_created: ${{ steps.release.outputs.releases_created }}
     steps:
-      - name: Run release-please
-        id: release
+      - uses: actions/create-github-app-token@v3
+        id: auth
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PEM }}
+          permission-contents: write
+          permission-pull-requests: write
+      - id: release
         uses: googleapis/release-please-action@v4
         with:
-          token: ${{ secrets.PUSH_TOKEN }}
+          token: ${{ steps.auth.outputs.token }}
 
   publish-npm:
-    name: Publish to NPM
-    if: needs.release-please.outputs.releases_created == 'true'
-    needs: [release-please]
+    if: needs.publish-release.outputs.releases_created == 'true'
+    needs: [publish-release]
     runs-on: ubuntu-latest
     environment: NPM
     permissions:
@@ -79,34 +59,24 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        path: ${{ fromJson(needs.release-please.outputs.paths_released) }}
+        path: ${{ fromJson(needs.publish-release.outputs.paths_released) }}
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v6
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           cache: yarn
           node-version-file: .nvmrc
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Setup
-        run: yarn --immutable
-
-      - name: Download dists
-        uses: actions/download-artifact@v7
+      - run: yarn --immutable
+      - uses: actions/download-artifact@v7
         with:
           name: dists
           path: ~/dists
-
       - name: Move dists to project
         run: | # shell
           for package in ~/dists/*
           do 
             mv "$package/dist" "packages/${package/$HOME\/dists\//}"
           done
-
-      - name: Publish to NPM
-        working-directory: ${{ matrix.path }}
+      - working-directory: ${{ matrix.path }}
         run: yarn npm publish --access public

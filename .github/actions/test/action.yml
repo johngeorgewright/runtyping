@@ -1,0 +1,23 @@
+name: Test
+
+description: Build & Test
+
+inputs:
+  node-version:
+    description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        cache: yarn
+        node-version: ${{ matrix.node-version }}
+    - shell: bash
+      run: yarn --immutable
+    - shell: bash
+      run: yarn build
+    - shell: bash
+      run: yarn test

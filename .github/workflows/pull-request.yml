@@ -16,16 +16,6 @@ jobs:
       matrix:
         node-version: [20, 22, 24, 25]
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v6
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+      - uses: ./.github/actions/test
         with:
-          cache: yarn
           node-version: ${{ matrix.node-version }}
-      - name: Install
-        run: yarn --immutable
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
