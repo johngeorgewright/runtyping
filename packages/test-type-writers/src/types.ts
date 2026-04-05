@@ -44,10 +44,10 @@ export const TestDataArgString = 'String'
 
 export const TestDataArg: z.ZodType<TestDataArg> = z.lazy(() =>
   z.union([
-    z.record(TestDataArg),
+    z.record(z.string(), TestDataArg),
     z.literal(TestDataArgNumber),
     z.literal(TestDataArgString),
-  ])
+  ]),
 )
 
 export type TestDataArg =

@@ -1,0 +1,13 @@
+name: Install
+
+description: Installs node and dependencies
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v6
+      with:
+        cache: yarn
+        node-version: ${{ inputs.node-version }}
+    - shell: bash
+      run: yarn --immutable
