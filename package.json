@@ -42,7 +42,7 @@
     "fp-ts": "2.16.11",
     "husky": "9.1.7",
     "isbinaryfile": "6.0.0",
-    "lint-staged": "16.2.7",
+    "lint-staged": "16.4.0",
     "plop": "4.0.5",
     "prettier": "3.8.1",
     "rimraf": "6.1.3",
