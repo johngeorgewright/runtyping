@@ -11,8 +11,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20, 22, 24, 25]
-    outputs:
-      packages: ${{ steps.paths.outputs.packages }}
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/install
@@ -21,8 +19,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - id: nvm
         run: echo "version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
-      - id: paths
-        run: echo "packages=$(yarn workspaces:list:json)" >> $GITHUB_OUTPUT
       - uses: actions/upload-artifact@v6
         if: matrix.node-version == steps.nvm.outputs.version
         with:
