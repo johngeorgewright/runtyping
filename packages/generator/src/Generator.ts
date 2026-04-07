@@ -1,5 +1,5 @@
 import { cast as castArray } from '@johngw/array'
-import { IteratorHandler } from '@johngw/iterator'
+import jgwIterator from '@johngw/iterator'
 import { compileFromFile } from 'json-schema-to-typescript'
 import { extname, isAbsolute } from 'path'
 import ts from 'typescript'
@@ -40,6 +40,8 @@ import {
   isRecursive,
 } from './node'
 import { getLocalName, SourceCodeFile } from './sourceFile'
+
+const { IteratorHandler } = jgwIterator
 
 type GeneratorOptionsBase =
   | {
