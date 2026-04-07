@@ -1,5 +1,5 @@
 import { Generator, GeneratorOptions } from '@runtyping/generator'
-import RuntypesTypeWriters from './RuntypesTypeWriters'
+import RuntypesTypeWriters from './RuntypesTypeWriters.js'
 
 type RuntypeGeneratorOptions = Omit<GeneratorOptions, 'typeWriters'>
 

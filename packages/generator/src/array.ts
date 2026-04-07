@@ -1,12 +1,15 @@
 import { Node, SyntaxKind, Type } from 'ts-morph'
-import { getTypeName } from './util'
+import { getTypeName } from './util.js'
 
 export function isArray(type: Type): boolean {
   return type.isArray()
     ? true
     : type.isObject() || type.isInterface()
-    ? !!type.getSymbol()?.getDeclarations().some(getArrayInhertianceElementType)
-    : false
+      ? !!type
+          .getSymbol()
+          ?.getDeclarations()
+          .some(getArrayInhertianceElementType)
+      : false
 }
 
 export function getArrayElementType(type: Type) {

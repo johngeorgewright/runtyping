@@ -1,6 +1,6 @@
 import testTypeWriter from '@runtyping/test-type-writers'
 import { number, object, parse, string } from 'valibot'
-import ValibotTypeWriters from '../src/ValibotTypeWriters'
+import ValibotTypeWriters from '../src/ValibotTypeWriters.js'
 
 testTypeWriter({
   createNumberValidator: number,

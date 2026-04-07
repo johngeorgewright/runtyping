@@ -79,9 +79,10 @@ export function getRelativeImportPath(localPath: string, remotePath: string) {
     const nodeModulePath = remotePath
       .slice(remotePath.lastIndexOf('/node_modules/') + '/node_modules/'.length)
       .replace(/(\.d)?\.ts$/, '')
-    return nodeModulePath.startsWith('@types/')
+    const result = nodeModulePath.startsWith('@types/')
       ? nodeModulePath.replace('@types/', '').replace('__', '/')
       : nodeModulePath
+    return result.replace(/\/index$/, '')
   }
   if (!/^(\/|\.|[A-Z]:)/.test(remotePath)) return remotePath
   const localDir = dirname(localPath)

@@ -1,4 +1,4 @@
-import { HeadMaster } from './circular-references-2'
+import { HeadMaster } from './circular-references-2.js'
 
 export type Student = {
   type: 'student'

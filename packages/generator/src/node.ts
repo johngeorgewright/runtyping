@@ -9,7 +9,7 @@ import {
   TypeAliasDeclaration,
   VariableDeclaration,
 } from 'ts-morph'
-import { find } from './util'
+import { find } from './util.js'
 
 export function doInModule<
   T extends (node: StatementedNode, name: string) => any,

@@ -1,6 +1,6 @@
 import testTypeWriters from '@runtyping/test-type-writers'
 import { z } from 'zod'
-import ZodMiniTypeWriters from '../src/ZodMiniTypeWriters'
+import ZodMiniTypeWriters from '../src/ZodMiniTypeWriters.js'
 
 testTypeWriters<z.ZodTypeAny>({
   createNumberValidator: z.number,

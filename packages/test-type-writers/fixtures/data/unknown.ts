@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/unknown'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/unknown.js'
 
 export const A: TestData<T.A> = {
   success: [undefined, 1, 'one', null, true, false, [], {}],

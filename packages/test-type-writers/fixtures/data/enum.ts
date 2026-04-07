@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/enum'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/enum.js'
 
 export const A: TestData<T.A> = {
   success: [T.A.A1, T.A.B1, T.A.C1],

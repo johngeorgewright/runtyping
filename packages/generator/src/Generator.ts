@@ -15,7 +15,10 @@ import {
   TypeParameterDeclarationStructure,
   VariableDeclarationKind,
 } from 'ts-morph'
-import { InstructionSourceType, InstructionTypeTransformers } from './runtypes'
+import {
+  InstructionSourceType,
+  InstructionTypeTransformers,
+} from './runtypes.js'
 import {
   CanDeclareStatics,
   DeclareAndUse,
@@ -26,11 +29,11 @@ import {
   StaticParameters,
   TypeWriter,
   Write,
-} from './TypeWriter'
-import TypeWriters from './TypeWriters'
-import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter'
-import { find, getRelativeImportPath, isRelative } from './util'
-import { groupBy } from 'lodash'
+} from './TypeWriter.js'
+import TypeWriters from './TypeWriters.js'
+import typeNameFormatter, { TypeNameFormatter } from './typeNameFormatter.js'
+import { find, getRelativeImportPath, isRelative } from './util.js'
+import _ from 'lodash'
 import {
   ConsideredTypeDeclaration,
   doInModule,
@@ -38,8 +41,8 @@ import {
   isCircular,
   isConsideredType,
   isRecursive,
-} from './node'
-import { getLocalName, SourceCodeFile } from './sourceFile'
+} from './node.js'
+import { getLocalName, SourceCodeFile } from './sourceFile.js'
 
 const { IteratorHandler } = jgwIterator
 
@@ -136,7 +139,7 @@ export default class Generator {
   }
 
   #addImports(imports: ImportSpec[]) {
-    const sourceImportMap = groupBy(imports, 'source')
+    const sourceImportMap = _.groupBy(imports, 'source')
     for (const [sourceFilePath, imports] of Object.entries(sourceImportMap))
       this.#targetFile.addImportDeclaration({
         namedImports: imports.sort(({ name: nameA }, { name: nameB }) =>

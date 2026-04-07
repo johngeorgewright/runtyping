@@ -1,12 +1,12 @@
 import { Symbol as CompilerSymbol, SymbolFlags, ts, Type } from 'ts-morph'
-import { InstructionTypeTransformer, Tuple } from '.'
-import { getArrayElementType, isArray } from './array'
+import { InstructionTypeTransformer, Tuple } from './index.js'
+import { getArrayElementType, isArray } from './array.js'
 import {
   escapeQuottedPropName,
   getGenerics,
   isBuiltInType,
   propNameRequiresQuotes,
-} from './object'
+} from './object.js'
 import {
   DeclareAndUse,
   ImportFromSource,
@@ -14,8 +14,8 @@ import {
   StaticParameters,
   TypeWriter,
   Write,
-} from './TypeWriter'
-import { getTypeName } from './util'
+} from './TypeWriter.js'
+import { getTypeName } from './util.js'
 
 export default abstract class TypeWriters {
   typeWriter(

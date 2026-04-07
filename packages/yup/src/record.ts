@@ -1,5 +1,5 @@
 import { type InferType, object, type Schema, ValidationError } from 'yup'
-import type { Validatable } from './Validatable'
+import type { Validatable } from './Validatable.js'
 
 export function record<K extends Validatable<any>, V extends Validatable<any>>(
   keySchema: K,

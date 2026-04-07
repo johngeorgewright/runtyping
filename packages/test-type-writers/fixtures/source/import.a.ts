@@ -1,3 +1,3 @@
-import { A } from './import.b'
+import { A } from './import.b.js'
 
 export { A }

@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/import.a'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/import.a.js'
 
 export const A: TestData<T.A> = {
   success: [{ foo: 'bar', schema: {} }],

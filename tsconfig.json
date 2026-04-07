@@ -6,8 +6,8 @@
     "importHelpers": true,
     "incremental": true,
     "lib": ["es2020"],
-    "module": "es2020",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "noEmit": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -20,6 +20,7 @@
     "target": "es2020"
   },
   "include": ["."],
+  "exclude": ["**/test", "**/fixtures", "**/dist"],
   "references": [
     { "path": "packages/generator/tsconfig.json" },
     { "path": "packages/io-ts/tsconfig.json" },

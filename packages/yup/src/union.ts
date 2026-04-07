@@ -6,7 +6,7 @@ import {
   type Schema,
   ValidationError,
 } from 'yup'
-import type { Validatable } from './Validatable'
+import type { Validatable } from './Validatable.js'
 
 export function union<Schemas extends readonly Validatable<any>[]>(
   schemas: Schemas,

@@ -1,2 +1,2 @@
-export * from './ZodCoreTypeWriters'
-export * from './validators'
+export * from './ZodCoreTypeWriters.js'
+export * from './validators.js'

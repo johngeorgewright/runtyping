@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/intersection'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/intersection.js'
 
 export const C: TestData<T.C> = {
   success: [{ foo: 'mung', bar: 'face' }],

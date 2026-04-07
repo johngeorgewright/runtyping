@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/recursive'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/recursive.js'
 
 export const A: TestData<T.A> = {
   success: [{ recurse: 'foo' }, { recurse: { recurse: 'foo' } }],

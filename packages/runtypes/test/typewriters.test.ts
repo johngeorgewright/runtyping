@@ -1,6 +1,6 @@
 import testTypeWriters from '@runtyping/test-type-writers'
 import { Number, Object, Runtype, String } from 'runtypes'
-import RuntypesTypeWriters from '../src/RuntypesTypeWriters'
+import RuntypesTypeWriters from '../src/RuntypesTypeWriters.js'
 
 testTypeWriters<Runtype.Base<any>>({
   createNumberValidator: () => Number,

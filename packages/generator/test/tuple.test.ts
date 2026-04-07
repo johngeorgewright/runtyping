@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test } from 'vitest'
 import { Project, SourceFile, SyntaxKind } from 'ts-morph'
-import { getTupleElements, isVariadicTuple } from '../src/tuple'
+import { getTupleElements, isVariadicTuple } from '../src/tuple.js'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 

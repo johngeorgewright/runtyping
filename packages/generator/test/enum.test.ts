@@ -1,6 +1,6 @@
 import { beforeEach, expect, test } from 'vitest'
 import { Project } from 'ts-morph'
-import { getEnumIdentifierNameFromEnumLiteral } from '../src/enum'
+import { getEnumIdentifierNameFromEnumLiteral } from '../src/enum.js'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 

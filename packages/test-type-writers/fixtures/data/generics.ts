@@ -3,8 +3,8 @@ import {
   TestDataArgNumber,
   TestDataArgString,
   TestDataCall,
-} from '../../src/types'
-import * as T from '../source/generics'
+} from '../../src/types.js'
+import * as T from '../source/generics.js'
 
 export const A: TestData<T.A<any>> = {
   success: [

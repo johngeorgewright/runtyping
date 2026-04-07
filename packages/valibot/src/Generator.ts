@@ -1,5 +1,5 @@
 import { Generator, GeneratorOptions } from '@runtyping/generator'
-import ValibotTypeWriters from './ValibotTypeWriters'
+import ValibotTypeWriters from './ValibotTypeWriters.js'
 
 type ValibotGeneratorOptions = Omit<GeneratorOptions, 'typeWriters'>
 

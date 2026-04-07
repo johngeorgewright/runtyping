@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/variadicTuples'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/variadicTuples.js'
 
 export const A: TestData<T.A> = {
   success: [['foo'], ['foo', 'bar'], ['foo', 'bar', 'baz']],

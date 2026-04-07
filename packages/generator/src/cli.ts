@@ -3,13 +3,13 @@ import { constants } from 'fs'
 import { access, readFile } from 'fs/promises'
 import yaml from 'js-yaml'
 import yargs from 'yargs/yargs'
-import Generator from './Generator'
-import { Instructions } from './runtypes'
-import TypeWriters from './TypeWriters'
+import Generator from './Generator.js'
+import { Instructions } from './runtypes.js'
+import TypeWriters from './TypeWriters.js'
 
 export default async function cli(
   defaultConfigPath: string,
-  typeWriters: TypeWriters
+  typeWriters: TypeWriters,
 ) {
   const argv = await yargs(process.argv.slice(2))
     .option('config', {
@@ -27,7 +27,7 @@ export default async function cli(
 
   const configFile = await getConfigFile(argv.config)
   const buildInstructions = Instructions.parse(
-    yaml.load(await readFile(configFile, 'utf8'))
+    yaml.load(await readFile(configFile, 'utf8')),
   )
 
   for (const {

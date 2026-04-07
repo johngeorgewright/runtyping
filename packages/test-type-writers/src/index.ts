@@ -7,8 +7,8 @@ import {
   fixturesDestDir,
   fixturesSourceDir,
   testFixture,
-} from './fixture'
-import { TypeWriterTestProps } from './types'
+} from './fixture.js'
+import { TypeWriterTestProps } from './types.js'
 
 const testNames = readdirSync(fixturesDataDir).map((filename) =>
   pathHelper.basename(filename, '.ts'),

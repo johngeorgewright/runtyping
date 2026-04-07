@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/namespace'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/namespace.js'
 
 export namespace A {
   export const $namespace = true

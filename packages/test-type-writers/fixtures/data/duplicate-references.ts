@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/duplicate-references'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/duplicate-references.js'
 
 export const HorseType: TestData<T.HorseType> = {
   success: [

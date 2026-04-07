@@ -3,7 +3,6 @@
   "version": "4.0.1",
   "description": "Generate io-ts from static types & JSON schema.",
   "type": "module",
-  "main": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

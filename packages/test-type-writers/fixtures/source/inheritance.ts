@@ -1,4 +1,4 @@
-import { A as F } from './inheritance.import'
+import { A as F } from './inheritance.import.js'
 
 export interface A {
   foo: number

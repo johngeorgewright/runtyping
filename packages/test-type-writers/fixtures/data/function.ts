@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/function'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/function.js'
 
 export const A: TestData<T.A> = {
   success: [(_foo: string, _bar: number) => {}],

@@ -1,5 +1,5 @@
 import { Generator, GeneratorOptions } from '@runtyping/generator'
-import ZodTypeWriters from './ZodTypeWriters'
+import ZodTypeWriters from './ZodTypeWriters.js'
 
 type ZodGeneratorOptions = Omit<GeneratorOptions, 'typeWriters'>
 

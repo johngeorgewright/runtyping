@@ -1,4 +1,4 @@
-import { TestData } from '../../src/types'
+import { TestData } from '../../src/types.js'
 
 export const ExampleSchema: TestData<{ testArray: Array<object> }> = {
   success: [

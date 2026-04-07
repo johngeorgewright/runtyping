@@ -1,4 +1,4 @@
-import assertNever from 'assert-never'
+import { assertNever } from 'assert-never'
 import { mkdirp } from 'mkdirp'
 import * as pathHelper from 'path'
 import { Project, SourceFile } from 'ts-morph'
@@ -15,11 +15,11 @@ import {
   TestDataNamespace,
   TestDataSuccess,
   TypeWriterTestProps,
-} from './types'
-import { ExpectedFailure, ExpectedSuccess } from './error'
+} from './types.js'
+import { ExpectedFailure, ExpectedSuccess } from './error.js'
 import { writeFile } from 'fs/promises'
-import { zodGuard } from './zod'
-import { mapValues } from './util'
+import { zodGuard } from './zod.js'
+import { mapValues } from './util.js'
 
 export const fixturesDir = pathHelper.resolve(__dirname, '..', 'fixtures')
 

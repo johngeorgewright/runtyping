@@ -2,7 +2,7 @@ import {
   Generator as $Generator,
   GeneratorOptions as $GeneratorOptions,
 } from '@runtyping/generator'
-import TypeWriters from './TypeWriters'
+import TypeWriters from './TypeWriters.js'
 
 type GeneratorOptions = Omit<$GeneratorOptions, 'typeWriters'>
 

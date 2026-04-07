@@ -1,5 +1,5 @@
-import { TestData } from '../../src/types'
-import * as T from '../source/circular-references'
+import { TestData } from '../../src/types.js'
+import * as T from '../source/circular-references.js'
 
 export const User: TestData<T.User> = {
   success: [

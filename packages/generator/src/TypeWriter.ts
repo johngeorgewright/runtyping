@@ -1,5 +1,5 @@
 import { OptionalKind, Type, TypeParameterDeclarationStructure } from 'ts-morph'
-import { ImportSpec } from './Generator'
+import { ImportSpec } from './Generator.js'
 
 export const CanDeclareStatics = Symbol.for(
   '@runtypes/generator/TypeWriter/CanDeclareStatics',

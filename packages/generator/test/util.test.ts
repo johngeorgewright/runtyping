@@ -5,7 +5,7 @@ import {
   last,
   resolveVirtualPath,
   setHas,
-} from '../src/util'
+} from '../src/util.js'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
