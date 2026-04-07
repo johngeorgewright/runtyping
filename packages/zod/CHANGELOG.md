@@ -1,5 +1,28 @@
 # Changelog
 
+## [5.0.2](https://github.com/johngeorgewright/runtyping/compare/@runtyping/zod-v5.0.1...@runtyping/zod-v5.0.2) (2026-04-07)
+
+
+### Bug Fixes
+
+* add extensions to imports ([58417fe](https://github.com/johngeorgewright/runtyping/commit/58417fe066a338dc068835005e9885b657398c45)), closes [#752](https://github.com/johngeorgewright/runtyping/issues/752)
+* **deps:** update dependency zod to v4.3.2 ([#745](https://github.com/johngeorgewright/runtyping/issues/745)) ([4fde4ae](https://github.com/johngeorgewright/runtyping/commit/4fde4ae7b93eab8a0020e3e5a5102b6ff646a378))
+* **deps:** update dependency zod to v4.3.3 ([#746](https://github.com/johngeorgewright/runtyping/issues/746)) ([0ec593f](https://github.com/johngeorgewright/runtyping/commit/0ec593f98f1405c204d6451ba033f707606ea809))
+* **deps:** update dependency zod to v4.3.4 ([#747](https://github.com/johngeorgewright/runtyping/issues/747)) ([52243ea](https://github.com/johngeorgewright/runtyping/commit/52243ea2415507a89ac9e03384f4435f36d593ce))
+* **deps:** update dependency zod to v4.3.5 ([#749](https://github.com/johngeorgewright/runtyping/issues/749)) ([3646466](https://github.com/johngeorgewright/runtyping/commit/364646625fc4ab7b30dbebd98499309694db735a))
+* **deps:** update dependency zod to v4.3.6 ([#767](https://github.com/johngeorgewright/runtyping/issues/767)) ([6057fbb](https://github.com/johngeorgewright/runtyping/commit/6057fbbd94149d5872e5d6f023735c97f8deb96f))
+* yarn path import ([1298aa2](https://github.com/johngeorgewright/runtyping/commit/1298aa2f865db12c259efb1304d635d2002de30f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @runtyping/generator bumped to 10.1.1
+    * @runtyping/zod-core bumped to 2.0.2
+  * devDependencies
+    * @runtyping/test-type-writers bumped to 4.0.2
+
 ## [5.0.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/zod-v5.0.0...@runtyping/zod-v5.0.1) (2025-12-16)
 
 

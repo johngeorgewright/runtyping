@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.2](https://github.com/johngeorgewright/runtyping/compare/@runtyping/test-type-writers-v4.0.1...@runtyping/test-type-writers-v4.0.2) (2026-04-07)
+
+
+### Bug Fixes
+
+* add extensions to imports ([58417fe](https://github.com/johngeorgewright/runtyping/commit/58417fe066a338dc068835005e9885b657398c45)), closes [#752](https://github.com/johngeorgewright/runtyping/issues/752)
+* yarn path import ([1298aa2](https://github.com/johngeorgewright/runtyping/commit/1298aa2f865db12c259efb1304d635d2002de30f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @runtyping/generator bumped to 10.1.1
+  * peerDependencies
+    * @runtyping/generator bumped to 10.1.1
+
 ## [4.0.1](https://github.com/johngeorgewright/runtyping/compare/@runtyping/test-type-writers-v4.0.0...@runtyping/test-type-writers-v4.0.1) (2025-12-16)
 
 
