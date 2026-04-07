@@ -1372,6 +1372,13 @@ const RAW_RUNTIME_STATE =
           ["@types/picomatch", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:4.0.3", {\
+        "packageLocation": "./.yarn/cache/@types-picomatch-npm-4.0.3-67bb3f0836-6aa8d30d0c.zip/node_modules/@types/picomatch/",\
+        "packageDependencies": [\
+          ["@types/picomatch", "npm:4.0.3"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/prettier", [\
@@ -2762,12 +2769,11 @@ const RAW_RUNTIME_STATE =
       ["virtual:0e783aadbd2b4b8e6f6056033c0b290501892d23bc7c5dad5477e00e48ad8bd3e4434c3962a52dd75a58e06dbb7218094a494bac954ef2f7f6fdb65d9717e5f4#npm:6.5.0", {\
         "packageLocation": "./.yarn/__virtual__/fdir-virtual-abd4ab2082/0/cache/fdir-npm-6.5.0-8814a0dec7-14ca1c9f0a.zip/node_modules/fdir/",\
         "packageDependencies": [\
-          ["@types/picomatch", null],\
+          ["@types/picomatch", "npm:4.0.3"],\
           ["fdir", "virtual:0e783aadbd2b4b8e6f6056033c0b290501892d23bc7c5dad5477e00e48ad8bd3e4434c3962a52dd75a58e06dbb7218094a494bac954ef2f7f6fdb65d9717e5f4#npm:6.5.0"],\
           ["picomatch", "npm:4.0.3"]\
         ],\
         "packagePeers": [\
-          "@types/picomatch",\
           "picomatch"\
         ],\
         "linkType": "HARD"\

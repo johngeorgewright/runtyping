@@ -1,23 +1,11 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "composite": true,
-    "target": "es2020",
-    "module": "es2020",
-    "lib": ["es2020"],
-    "importHelpers": true,
-    "declaration": true,
-    "sourceMap": true,
+    "noEmit": false,
     "outDir": "./dist",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "moduleResolution": "bundler",
     "rootDir": "src",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
     "types": ["js-yaml", "lodash", "node", "prettier", "yargs"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": []
 }

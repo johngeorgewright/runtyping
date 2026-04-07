@@ -178,9 +178,11 @@ export default class TypeWriters extends $TypeWriters {
   }
 
   protected override *tuple(type: Type): TypeWriter {
+    const elements = type.getTupleElements()
+    if (!elements.length) return yield* this.#array(this.never())
     yield [Import, { source: this.#parserModule, name: 'tuple' }]
     yield [Write, 'tuple([']
-    for (const element of type.getTupleElements()) {
+    for (const element of elements) {
       yield* this.generateOrReuseType(element)
       yield [Write, ',']
     }

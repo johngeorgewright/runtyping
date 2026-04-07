@@ -1,20 +1,34 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "target": "es2020",
-    "module": "es2020",
-    "lib": ["es2020"],
-    "importHelpers": true,
+    "composite": true,
     "declaration": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "strict": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "incremental": true,
+    "lib": ["es2020"],
+    "module": "es2020",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "moduleResolution": "bundler",
-    "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2020"
+  },
+  "include": ["."],
+  "references": [
+    { "path": "packages/generator/tsconfig.json" },
+    { "path": "packages/io-ts/tsconfig.json" },
+    { "path": "packages/runtypes/tsconfig.json" },
+    { "path": "packages/test-type-writers/tsconfig.json" },
+    { "path": "packages/valibot/tsconfig.json" },
+    { "path": "packages/yup/tsconfig.json" },
+    { "path": "packages/zod/tsconfig.json" },
+    { "path": "packages/zod-core/tsconfig.json" },
+    { "path": "packages/zod-mini/tsconfig.json" }
+  ]
 }

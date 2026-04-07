@@ -1,5 +1,11 @@
 import { expect, test } from 'vitest'
-import { find, getRelativeImportPath, last, setHas } from '../src/util'
+import {
+  find,
+  getRelativeImportPath,
+  last,
+  resolveVirtualPath,
+  setHas,
+} from '../src/util'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
@@ -44,6 +50,37 @@ test('getRelativeImportPath', () => {
       'C:/Users/jonah/WebstormProjects/test/test.ts',
     ),
   ).toBe('./test')
+})
+
+test('resolveVirtualPath', () => {
+  expect(
+    resolveVirtualPath(
+      '/project/.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/variadicTuples.ts',
+    ),
+  ).toBe(
+    '/project/packages/test-type-writers/fixtures/source/variadicTuples.ts',
+  )
+  expect(
+    resolveVirtualPath(
+      '/project/foo/bar/__virtual__/pkg-virtual-abc123/2/some/file.ts',
+    ),
+  ).toBe('/project/some/file.ts')
+  expect(resolveVirtualPath('/project/src/file.ts')).toBe(
+    '/project/src/file.ts',
+  )
+})
+
+test('getRelativeImportPath resolves __virtual__ to package specifier', () => {
+  const projectRoot = path.resolve(__dirname, '../../..')
+  expect(
+    getRelativeImportPath(
+      path.join(projectRoot, 'packages/yup/fixtures/variadicTuples.ts'),
+      path.join(
+        projectRoot,
+        '.yarn/__virtual__/@runtyping-test-type-writers-virtual-f1a80c3a62/1/packages/test-type-writers/fixtures/source/variadicTuples.ts',
+      ),
+    ),
+  ).toBe('@runtyping/test-type-writers/fixtures/source/variadicTuples')
 })
 
 test('setHas', () => {

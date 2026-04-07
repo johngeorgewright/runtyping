@@ -1,4 +1,5 @@
-import { basename, dirname, extname, relative } from 'path'
+import { existsSync, readFileSync } from 'fs'
+import { basename, dirname, extname, join, relative } from 'path'
 import { Type } from 'ts-morph'
 
 export function last<T>(array: T[]): T {
@@ -7,7 +8,7 @@ export function last<T>(array: T[]): T {
 
 export function find<T, O>(
   array: T[],
-  fn: (item: T) => O | false
+  fn: (item: T) => O | false,
 ): O | undefined {
   for (const item of array) {
     const result = fn(item)
@@ -23,7 +24,57 @@ export function setHas<T>(set: Set<T>, predicate: (item: T) => boolean) {
   return false
 }
 
+export function resolveVirtualPath(virtualPath: string): string {
+  const match = /^(.*?)\/__virtual__\/[^/]+\/(\d+)\/(.*)$/.exec(virtualPath)
+  if (!match) return virtualPath
+  const [, prefix, depthStr, rest] = match
+  const depth = parseInt(depthStr, 10)
+  let base = prefix
+  for (let i = 0; i < depth; i++) {
+    base = dirname(base)
+  }
+  return join(base, rest)
+}
+
+export function findPackageRoot(
+  filePath: string,
+): { name: string; dir: string } | undefined {
+  let dir = dirname(filePath)
+  while (dir !== dirname(dir)) {
+    const pkgJsonPath = join(dir, 'package.json')
+    if (existsSync(pkgJsonPath)) {
+      try {
+        const pkg = JSON.parse(readFileSync(pkgJsonPath, 'utf-8'))
+        if (pkg.name) return { name: pkg.name, dir }
+      } catch {
+        // invalid package.json, skip
+      }
+      break
+    }
+    dir = dirname(dir)
+  }
+  return undefined
+}
+
 export function getRelativeImportPath(localPath: string, remotePath: string) {
+  if (remotePath.includes('/__virtual__/')) {
+    const realPath = resolveVirtualPath(remotePath)
+    const remotePkg = findPackageRoot(realPath)
+    if (remotePkg) {
+      const localPkg = findPackageRoot(localPath)
+      if (localPkg?.dir !== remotePkg.dir) {
+        const relPath = relative(remotePkg.dir, realPath).replace(
+          /(\.d)?\.ts$/,
+          '',
+        )
+        return relPath ? `${remotePkg.name}/${relPath}` : remotePkg.name
+      }
+      remotePath = realPath
+    } else {
+      remotePath = realPath
+    }
+  }
+
   if (remotePath.includes('/node_modules/')) {
     const nodeModulePath = remotePath
       .slice(remotePath.lastIndexOf('/node_modules/') + '/node_modules/'.length)

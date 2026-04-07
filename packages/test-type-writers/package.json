@@ -3,12 +3,13 @@
   "version": "4.0.1",
   "description": "A testing library for runtyping typewriters",
   "type": "module",
-  "main": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./fixtures/source/*": "./fixtures/source/*.ts",
+    "./fixtures/data/*": "./fixtures/data/*.ts",
     "./transformers/stringToNumber": {
       "types": "./dist/transformers/stringToNumber.d.ts",
       "default": "./dist/transformers/stringToNumber.js"

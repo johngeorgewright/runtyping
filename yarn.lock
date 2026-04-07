@@ -1038,6 +1038,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/picomatch@npm:@types/picomatch@4.0.3":
+  version: 4.0.3
+  resolution: "@types/picomatch@npm:4.0.3"
+  checksum: 10/6aa8d30d0c868ad1b09f695ecf9a40025277a2f862cb7e9814c4ea3c36295ec546450726d9862667eb326d927815c90c1168af51b9c0e830e9e5e014c12a45a6
+  languageName: node
+  linkType: hard
+
 "@types/picomatch@npm:^4.0.2":
   version: 4.0.2
   resolution: "@types/picomatch@npm:4.0.2"

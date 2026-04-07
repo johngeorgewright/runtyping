@@ -1,20 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "lib": ["es2020"],
-    "importHelpers": true,
-    "declaration": true,
-    "sourceMap": true,
+    "noEmit": false,
     "outDir": "./dist",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "moduleResolution": "bundler",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
     "rootDir": "src",
     "types": ["json-schema", "node"]
   },
