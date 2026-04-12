@@ -826,7 +826,7 @@ const RAW_RUNTIME_STATE =
           ["@johngw/error", "npm:2.2.2"],\
           ["@johngw/iterator", "npm:1.2.2"],\
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
-          ["@ts-morph/common", "npm:0.28.1"],\
+          ["@ts-morph/common", "npm:0.29.0"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.24"],\
           ["@types/node", "npm:24.12.2"],\
@@ -859,7 +859,7 @@ const RAW_RUNTIME_STATE =
           ["@johngw/error", "npm:2.2.2"],\
           ["@johngw/iterator", "npm:1.2.2"],\
           ["@runtyping/generator", "workspace:packages/generator"],\
-          ["@ts-morph/common", "npm:0.28.1"],\
+          ["@ts-morph/common", "npm:0.29.0"],\
           ["@types/js-yaml", "npm:4.0.9"],\
           ["@types/lodash", "npm:4.17.24"],\
           ["@types/node", "npm:24.12.2"],\
@@ -889,7 +889,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
           ["@runtyping/io-ts", "workspace:packages/io-ts"],\
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
-          ["@ts-morph/common", "npm:0.28.1"],\
+          ["@ts-morph/common", "npm:0.29.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.12.2"],\
           ["fp-ts", "npm:2.16.11"],\
@@ -1035,7 +1035,7 @@ const RAW_RUNTIME_STATE =
           ["@runtyping/generator", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/generator"],\
           ["@runtyping/test-type-writers", "virtual:c002b73213eac6876e4c7e8f1127022782443aa320c59f94c9da4dba1061f563e8f79297a86e377447e442af2f7b8a81ae3d0fb9d1954c7b72bb472f07eede19#workspace:packages/test-type-writers"],\
           ["@runtyping/yup", "workspace:packages/yup"],\
-          ["@ts-morph/common", "npm:0.28.1"],\
+          ["@ts-morph/common", "npm:0.29.0"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:24.12.2"],\
           ["rimraf", "npm:6.1.3"],\
@@ -1167,6 +1167,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.28.1-48cadd11c4-d5c6ed11cf.zip/node_modules/@ts-morph/common/",\
         "packageDependencies": [\
           ["@ts-morph/common", "npm:0.28.1"],\
+          ["minimatch", "npm:10.1.1"],\
+          ["path-browserify", "npm:1.0.1"],\
+          ["tinyglobby", "npm:0.2.15"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:0.29.0", {\
+        "packageLocation": "./.yarn/cache/@ts-morph-common-npm-0.29.0-7860c29a60-d23cfb6c81.zip/node_modules/@ts-morph/common/",\
+        "packageDependencies": [\
+          ["@ts-morph/common", "npm:0.29.0"],\
           ["minimatch", "npm:10.1.1"],\
           ["path-browserify", "npm:1.0.1"],\
           ["tinyglobby", "npm:0.2.15"]\

@@ -39,7 +39,7 @@
     "@johngw/array": "3.3.2",
     "@johngw/error": "2.2.2",
     "@johngw/iterator": "1.2.2",
-    "@ts-morph/common": "0.28.1",
+    "@ts-morph/common": "0.29.0",
     "js-yaml": "4.1.1",
     "json-schema-to-typescript": "15.0.4",
     "lodash": "4.18.1",
