@@ -93,7 +93,7 @@ const RAW_RUNTIME_STATE =
           ["runtypes", "npm:7.0.4"],\
           ["source-map-support", "npm:0.5.21"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vite-node", "npm:6.0.0"],\
           ["vitest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:4.1.4"]\
         ],\
@@ -840,7 +840,7 @@ const RAW_RUNTIME_STATE =
           ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["typescript-json-schema", "npm:0.67.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["yargs", "npm:18.0.0"],\
@@ -872,7 +872,7 @@ const RAW_RUNTIME_STATE =
           ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["typescript-json-schema", "npm:0.67.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["yargs", "npm:18.0.0"],\
@@ -898,7 +898,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"]\
         ],\
         "linkType": "SOFT"\
@@ -928,7 +928,7 @@ const RAW_RUNTIME_STATE =
           ["runtypes", "npm:7.0.4"],\
           ["source-map-support", "npm:0.5.21"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vite-node", "npm:6.0.0"],\
           ["vitest", "virtual:571a053ee915ce800ce21576c7e58528b114653726c343e146e32b8462437bf9e467d47f17bd4a02cabbaf6987d09656d8f95cf9b5ea080fa6dbbf41f3d0426b#npm:4.1.4"]\
         ],\
@@ -948,7 +948,7 @@ const RAW_RUNTIME_STATE =
           ["runtypes", "npm:7.0.4"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"]\
         ],\
         "linkType": "SOFT"\
@@ -973,7 +973,7 @@ const RAW_RUNTIME_STATE =
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["type-fest", "npm:5.5.0"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["zod", "npm:4.3.6"]\
         ],\
@@ -1002,7 +1002,7 @@ const RAW_RUNTIME_STATE =
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
           ["type-fest", "npm:5.5.0"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["zod", "npm:4.3.6"]\
         ],\
@@ -1021,7 +1021,7 @@ const RAW_RUNTIME_STATE =
           ["rimraf", "npm:6.1.3"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.3.1"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"]\
         ],\
@@ -1042,7 +1042,7 @@ const RAW_RUNTIME_STATE =
           ["ts-morph", "npm:27.0.2"],\
           ["ts-toolbelt", "npm:9.6.0"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vite-node", "npm:6.0.0"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["yup", "npm:1.7.1"]\
@@ -1064,7 +1064,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["zod", "npm:4.3.6"]\
         ],\
@@ -1081,7 +1081,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["zod", "npm:4.3.6"]\
         ],\
         "packagePeers": [\
@@ -1098,7 +1098,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["zod", "npm:4.3.6"]\
         ],\
         "linkType": "SOFT"\
@@ -1118,7 +1118,7 @@ const RAW_RUNTIME_STATE =
           ["title-case", "npm:4.3.2"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["zod", "npm:4.3.6"]\
         ],\
@@ -5885,10 +5885,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5", {\
-        "packageLocation": "./.yarn/cache/typescript-patch-a9c0baa67b-e5501dfcf8.zip/node_modules/typescript/",\
+      ["patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5", {\
+        "packageLocation": "./.yarn/cache/typescript-patch-bfb0cdd3b9-22b67a18da.zip/node_modules/typescript/",\
         "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6030,7 +6030,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/__virtual__/valibot-virtual-744cc84ab2/0/cache/valibot-npm-1.3.1-97ecea86d3-e14d085fa8.zip/node_modules/valibot/",\
         "packageDependencies": [\
           ["@types/typescript", null],\
-          ["typescript", "patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"],\
+          ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["valibot", "virtual:9949236162c857fc51b2d966c0785246f08d1aa936472152350088a23a318cafbc25a0b7dda4767a4ca4828c76e5b04fd64538f943161eb110a8e062d4003a0f#npm:1.3.1"]\
         ],\
         "packagePeers": [\
