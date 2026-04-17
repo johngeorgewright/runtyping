@@ -972,7 +972,7 @@ const RAW_RUNTIME_STATE =
           ["runtypes", "npm:6.5.1"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["type-fest", "npm:5.5.0"],\
+          ["type-fest", "npm:5.6.0"],\
           ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["zod", "npm:4.3.6"]\
@@ -1001,7 +1001,7 @@ const RAW_RUNTIME_STATE =
           ["runtypes", "npm:6.5.1"],\
           ["ts-morph", "npm:27.0.2"],\
           ["tslib", "npm:2.8.1"],\
-          ["type-fest", "npm:5.5.0"],\
+          ["type-fest", "npm:5.6.0"],\
           ["typescript", "patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"],\
           ["vitest", "virtual:9af6ad551183488fdcf67ab4d2a6b7db121574c52b81e5e9dd82d71c2425158bec35fb2f6cfd71372398534f37f2c1a824c5b4b40797053c0402f99390a749ec#npm:4.1.4"],\
           ["zod", "npm:4.3.6"]\
@@ -5854,11 +5854,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:5.5.0", {\
-        "packageLocation": "./.yarn/cache/type-fest-npm-5.5.0-324f1e892e-b5423e991f.zip/node_modules/type-fest/",\
+      ["npm:5.6.0", {\
+        "packageLocation": "./.yarn/cache/type-fest-npm-5.6.0-daf055db8b-2cc7a510f4.zip/node_modules/type-fest/",\
         "packageDependencies": [\
           ["tagged-tag", "npm:1.0.0"],\
-          ["type-fest", "npm:5.5.0"]\
+          ["type-fest", "npm:5.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
