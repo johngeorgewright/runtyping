@@ -618,7 +618,7 @@ __metadata:
     rimraf: "npm:6.1.3"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     typescript-json-schema: "npm:0.67.1"
     vitest: "npm:4.1.4"
     yargs: "npm:18.0.0"
@@ -644,7 +644,7 @@ __metadata:
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vitest: "npm:4.1.4"
   peerDependencies:
     io-ts: ^2.0.0
@@ -676,7 +676,7 @@ __metadata:
     runtypes: "npm:7.0.4"
     source-map-support: "npm:0.5.21"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vite-node: "npm:6.0.0"
     vitest: "npm:4.1.4"
   languageName: unknown
@@ -694,7 +694,7 @@ __metadata:
     runtypes: "npm:7.0.4"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vitest: "npm:4.1.4"
   peerDependencies:
     runtypes: ^7.0.0
@@ -718,7 +718,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
     type-fest: "npm:5.5.0"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vitest: "npm:4.1.4"
   peerDependencies:
     "@runtyping/generator": "workspace:*"
@@ -738,7 +738,7 @@ __metadata:
     rimraf: "npm:6.1.3"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     valibot: "npm:1.3.1"
     vitest: "npm:4.1.4"
   peerDependencies:
@@ -761,7 +761,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     ts-toolbelt: "npm:9.6.0"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vite-node: "npm:6.0.0"
     vitest: "npm:4.1.4"
     yup: "npm:1.7.1"
@@ -780,7 +780,7 @@ __metadata:
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     zod: "npm:4.3.6"
   peerDependencies:
     zod: ^4.0.0
@@ -800,7 +800,7 @@ __metadata:
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vitest: "npm:4.1.4"
     zod: "npm:4.3.6"
   peerDependencies:
@@ -823,7 +823,7 @@ __metadata:
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
-    typescript: "npm:6.0.2"
+    typescript: "npm:6.0.3"
     vitest: "npm:4.1.4"
     zod: "npm:4.3.6"
   peerDependencies:
@@ -5133,13 +5133,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:6.0.2":
-  version: 6.0.2
-  resolution: "typescript@npm:6.0.2"
+"typescript@npm:6.0.3":
+  version: 6.0.3
+  resolution: "typescript@npm:6.0.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/b9fc2fcee7ee8e5ca6f5138181964550531e18e2d20ecb71b802d4d495881e3444e0ef94cbb6e84eb2ba41e913f6feae3ca33cc722b32e6e6dfadb32d23b80e6
+  checksum: 10/0ef2357a4cffd916b52b683a021cdab0f81eea4e9aa35f2d254581c9a5106da02224e3392e1b0ed42b7a48f80c966e5f52b8e1a27941fa0523c1705a9c2e0330
   languageName: node
   linkType: hard
 
@@ -5173,13 +5173,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>":
-  version: 6.0.2
-  resolution: "typescript@patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"
+"typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>":
+  version: 6.0.3
+  resolution: "typescript@patch:typescript@npm%3A6.0.3#optional!builtin<compat/typescript>::version=6.0.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/e5501dfcf8c5b6b9a61f6fa53decc40187cebe3a2b7b2bd51c615007ad4cf6d58298461fef63294f6be9d5f2f33019b2a2e2bf02d9cb7d7f6ec94372bf24ffa2
+  checksum: 10/22b67a18dafedf9b1468b64ca20d9aa02ea61d449b65413d8aa6552aeb63f52ef369e86beb25b6b4c91a803d9726ee5c196f391a9b64201263263410a4223ee6
   languageName: node
   linkType: hard
 
