@@ -604,7 +604,7 @@ __metadata:
     "@ts-morph/common": "npm:0.29.0"
     "@types/js-yaml": "npm:4.0.9"
     "@types/lodash": "npm:4.17.24"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     "@types/prettier": "npm:3.0.0"
     "@types/yargs": "npm:17.0.35"
     js-yaml: "npm:4.1.1"
@@ -633,7 +633,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@ts-morph/common": "npm:0.29.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     fp-ts: "npm:2.16.11"
     io-ts: "npm:2.2.22"
     rimraf: "npm:6.1.3"
@@ -656,7 +656,7 @@ __metadata:
     "@commitlint/cli": "npm:20.5.3"
     "@commitlint/config-conventional": "npm:20.5.3"
     "@commitlint/types": "npm:20.5.0"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     "@types/source-map-support": "npm:0.5.10"
     "@vitest/ui": "npm:4.1.6"
     commitizen: "npm:4.3.1"
@@ -685,7 +685,7 @@ __metadata:
     "@runtyping/generator": "workspace:*"
     "@runtyping/test-type-writers": "workspace:*"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     rimraf: "npm:6.1.3"
     runtypes: "npm:7.0.4"
     ts-morph: "npm:27.0.2"
@@ -706,7 +706,7 @@ __metadata:
     "@runtyping/generator": "workspace:*"
     "@types/json-schema": "npm:7.0.15"
     "@types/mkdirp": "npm:2.0.0"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     "@vitest/runner": "npm:4.1.6"
     assert-never: "npm:1.4.0"
     mkdirp: "npm:3.0.1"
@@ -730,7 +730,7 @@ __metadata:
     "@runtyping/generator": "workspace:*"
     "@runtyping/test-type-writers": "workspace:*"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     rimraf: "npm:6.1.3"
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
@@ -752,7 +752,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@ts-morph/common": "npm:0.29.0"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     rimraf: "npm:6.1.3"
     ts-morph: "npm:27.0.2"
     ts-toolbelt: "npm:9.6.0"
@@ -791,7 +791,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@runtyping/zod-core": "workspace:*"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     rimraf: "npm:6.1.3"
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
@@ -814,7 +814,7 @@ __metadata:
     "@runtyping/test-type-writers": "workspace:*"
     "@runtyping/zod-core": "workspace:*"
     "@types/json-schema": "npm:7.0.15"
-    "@types/node": "npm:24.12.3"
+    "@types/node": "npm:24.12.4"
     rimraf: "npm:6.1.3"
     title-case: "npm:4.3.2"
     ts-morph: "npm:27.0.2"
@@ -1013,7 +1013,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.12.3, @types/node@npm:^24.10.2":
+"@types/node@npm:24.12.4":
+  version: 24.12.4
+  resolution: "@types/node@npm:24.12.4"
+  dependencies:
+    undici-types: "npm:~7.16.0"
+  checksum: 10/4e5ce6faaf0e6f291114d6ac14fe546d491812b306107620802d5bef00ca36fb290637e79ec4fc24f33214f78f58c9b63254bd0ce94788bebfec03f26d45f2ea
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^24.10.2":
   version: 24.12.3
   resolution: "@types/node@npm:24.12.3"
   dependencies:
