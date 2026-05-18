@@ -615,7 +615,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
     typescript: "npm:6.0.3"
-    typescript-json-schema: "npm:0.67.2"
+    typescript-json-schema: "npm:0.67.3"
     vitest: "npm:4.1.6"
     yargs: "npm:18.0.0"
     zod: "npm:4.4.3"
@@ -5128,9 +5128,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-json-schema@npm:0.67.2":
-  version: 0.67.2
-  resolution: "typescript-json-schema@npm:0.67.2"
+"typescript-json-schema@npm:0.67.3":
+  version: 0.67.3
+  resolution: "typescript-json-schema@npm:0.67.3"
   dependencies:
     "@types/json-schema": "npm:^7.0.15"
     "@types/node": "npm:^24.10.2"
@@ -5143,7 +5143,7 @@ __metadata:
     yargs: "npm:^18.0.0"
   bin:
     typescript-json-schema: bin/typescript-json-schema
-  checksum: 10/c6428cf0db6c7670d14cb40f5e2f1ec593db36c3292f7ecb15d10aea26bdfed1bd9720f796cd135acee786b4931589e5450aba624c1b6fa71cfa669a4addce5d
+  checksum: 10/62f82812d8d68e002c6ac7a61692d649d7d83ddf9fc17d6b2b8a09bdd2d2ba66f2b90b084fa8f265917c10adc5d635c2b10c304e5e4a16eb9f5760af6fb87db9
   languageName: node
   linkType: hard
 
