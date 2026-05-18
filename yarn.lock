@@ -615,7 +615,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
     typescript: "npm:6.0.3"
-    typescript-json-schema: "npm:0.67.3"
+    typescript-json-schema: "npm:0.67.4"
     vitest: "npm:4.1.6"
     yargs: "npm:18.0.0"
     zod: "npm:4.4.3"
@@ -5128,9 +5128,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-json-schema@npm:0.67.3":
-  version: 0.67.3
-  resolution: "typescript-json-schema@npm:0.67.3"
+"typescript-json-schema@npm:0.67.4":
+  version: 0.67.4
+  resolution: "typescript-json-schema@npm:0.67.4"
   dependencies:
     "@types/json-schema": "npm:^7.0.15"
     "@types/node": "npm:^24.10.2"
@@ -5139,11 +5139,11 @@ __metadata:
     safe-stable-stringify: "npm:^2.5.0"
     ts-node: "npm:^10.9.2"
     typescript: "npm:~5.9.3"
-    vm2: "npm:^3.10.5"
+    vm2: "npm:^3.11.3"
     yargs: "npm:^18.0.0"
   bin:
     typescript-json-schema: bin/typescript-json-schema
-  checksum: 10/62f82812d8d68e002c6ac7a61692d649d7d83ddf9fc17d6b2b8a09bdd2d2ba66f2b90b084fa8f265917c10adc5d635c2b10c304e5e4a16eb9f5760af6fb87db9
+  checksum: 10/221b8e5efc589cf5784d64e5bf6eaf00f3fe19ef40008e7aaa24dd4c7c5a70c780980cb4824590a969e791606af55875e737d16b899aa296391d2eedbb54811f
   languageName: node
   linkType: hard
 
@@ -5444,15 +5444,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vm2@npm:^3.10.5":
-  version: 3.11.2
-  resolution: "vm2@npm:3.11.2"
+"vm2@npm:^3.11.3":
+  version: 3.11.5
+  resolution: "vm2@npm:3.11.5"
   dependencies:
     acorn: "npm:^8.15.0"
     acorn-walk: "npm:^8.3.4"
   bin:
     vm2: bin/vm2
-  checksum: 10/d4d643b5b3df6cf67fd86206ed2b108c5451c743d4f92503d871dec8ed70e152b242f56611a5161d64878dbbc79e72f7168b9dbe130c049fca493dc696503ab9
+  checksum: 10/aaaea54b3c51e61bcefb38a1c67c2779efb73a83c1dd73e371652f704097ce71822df510e694a523aa8a3fc47b9ef394c1917b7457f30ef6c6fe62f757442dd4
   languageName: node
   linkType: hard
 
