@@ -735,7 +735,7 @@ __metadata:
     ts-morph: "npm:27.0.2"
     tslib: "npm:2.8.1"
     typescript: "npm:6.0.3"
-    valibot: "npm:1.4.0"
+    valibot: "npm:1.4.1"
     vitest: "npm:4.1.6"
   peerDependencies:
     valibot: ^1.0.0
@@ -5292,15 +5292,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"valibot@npm:1.4.0":
-  version: 1.4.0
-  resolution: "valibot@npm:1.4.0"
+"valibot@npm:1.4.1":
+  version: 1.4.1
+  resolution: "valibot@npm:1.4.1"
   peerDependencies:
     typescript: ">=5"
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/c8f93963820762e47c004d9c98f2fc13586cfd3437763c021405090b4e33123af833d6aa254af0c1b1cabaa844bfb685258d3e9275bb12f46d2163ba7b44041f
+  checksum: 10/39092725e4045e332e3593e9b95253c1a3429033e13be1805597fb8d346ad20a727bef82971e3b9a1b7d631bb8ad65fff186ec55d430e16f25b6bbba151c4e80
   languageName: node
   linkType: hard
 
