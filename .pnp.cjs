@@ -829,7 +829,7 @@ const RAW_RUNTIME_STATE =
           ["@types/prettier", "npm:3.0.0"],\
           ["@types/typescript", null],\
           ["@types/yargs", "npm:17.0.35"],\
-          ["js-yaml", "npm:4.1.1"],\
+          ["js-yaml", "npm:4.2.0"],\
           ["json-schema-to-typescript", "npm:15.0.4"],\
           ["lodash", "npm:4.18.1"],\
           ["prettier", "npm:3.8.3"],\
@@ -861,7 +861,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:24.12.4"],\
           ["@types/prettier", "npm:3.0.0"],\
           ["@types/yargs", "npm:17.0.35"],\
-          ["js-yaml", "npm:4.1.1"],\
+          ["js-yaml", "npm:4.2.0"],\
           ["json-schema-to-typescript", "npm:15.0.4"],\
           ["lodash", "npm:4.18.1"],\
           ["prettier", "npm:3.8.3"],\
@@ -3773,11 +3773,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:4.1.1", {\
-        "packageLocation": "./.yarn/cache/js-yaml-npm-4.1.1-86ec786790-a52d0519f0.zip/node_modules/js-yaml/",\
+      ["npm:4.2.0", {\
+        "packageLocation": "./.yarn/cache/js-yaml-npm-4.2.0-0ab78512c1-51de2067a2.zip/node_modules/js-yaml/",\
         "packageDependencies": [\
           ["argparse", "npm:2.0.1"],\
-          ["js-yaml", "npm:4.1.1"]\
+          ["js-yaml", "npm:4.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -12269,7 +12269,7 @@ function getPathForDisplay(p) {
   return npath.normalize(npath.fromPortablePath(p));
 }
 
-const [major, minor] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
+const [major, minor, patch] = process.versions.node.split(`.`).map((value) => parseInt(value, 10));
 const WATCH_MODE_MESSAGE_USES_ARRAYS = major > 19 || major === 19 && minor >= 2 || major === 18 && minor >= 13;
 
 function readPackageScope(checkPath) {
