@@ -43,7 +43,7 @@
     "js-yaml": "4.2.0",
     "json-schema-to-typescript": "15.0.4",
     "lodash": "4.18.1",
-    "ts-morph": "27.0.2",
+    "ts-morph": "28.0.0",
     "tslib": "2.8.1",
     "yargs": "18.0.0",
     "zod": "4.4.3"
