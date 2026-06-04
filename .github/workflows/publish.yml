@@ -42,7 +42,7 @@ jobs:
           permission-contents: write
           permission-pull-requests: write
       - id: release
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           token: ${{ steps.auth.outputs.token }}
 
