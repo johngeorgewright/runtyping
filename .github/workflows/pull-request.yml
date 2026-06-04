@@ -6,7 +6,7 @@ on:
 
 concurrency:
   cancel-in-progress: true
-  group: ${{ github.head_ref }}
+  group: pr-${{ github.event.pull_request.number }}
 
 jobs:
   test:
