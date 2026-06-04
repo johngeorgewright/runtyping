@@ -19,7 +19,8 @@ export function isBuiltInType(type: Type) {
     .getSymbolOrThrow()
     .getDeclarations()
     .some((d) => {
-      if (d.getSourceFile().compilerNode.hasNoDefaultLib) {
+      const program = d.getProject().getProgram().compilerObject
+      if (program.isSourceFileDefaultLibrary(d.getSourceFile().compilerNode)) {
         const name = type.getSymbolOrThrow().getName()
         const parent = d.getParentOrThrow()
         const siblings = (
