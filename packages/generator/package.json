@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/generator",
-  "version": "10.1.1",
+  "version": "10.1.2",
   "description": "The core generator package for runtyping",
   "type": "module",
   "exports": {

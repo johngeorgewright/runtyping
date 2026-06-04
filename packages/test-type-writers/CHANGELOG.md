@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.3](https://github.com/jg-wright/runtyping/compare/@runtyping/test-type-writers-v4.0.2...@runtyping/test-type-writers-v4.0.3) (2026-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ts-morph to v28 ([d3c1663](https://github.com/jg-wright/runtyping/commit/d3c16635c0abd3ea4d1a6d809b5361a075453d45))
+* **deps:** update dependency ts-morph to v28 ([11502c5](https://github.com/jg-wright/runtyping/commit/11502c5819b91049c3e27fa7d50066d44f8e95e1))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @runtyping/generator bumped to 10.1.2
+  * peerDependencies
+    * @runtyping/generator bumped to 10.1.2
+
 ## [4.0.2](https://github.com/johngeorgewright/runtyping/compare/@runtyping/test-type-writers-v4.0.1...@runtyping/test-type-writers-v4.0.2) (2026-04-07)
 
 

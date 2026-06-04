@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/test-type-writers",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "A testing library for runtyping typewriters",
   "type": "module",
   "exports": {
