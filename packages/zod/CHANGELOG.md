@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.0.3](https://github.com/jg-wright/runtyping/compare/@runtyping/zod-v5.0.2...@runtyping/zod-v5.0.3) (2026-06-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ts-morph to v28 ([d3c1663](https://github.com/jg-wright/runtyping/commit/d3c16635c0abd3ea4d1a6d809b5361a075453d45))
+* **deps:** update dependency ts-morph to v28 ([11502c5](https://github.com/jg-wright/runtyping/commit/11502c5819b91049c3e27fa7d50066d44f8e95e1))
+* **deps:** update dependency zod to v4.4.1 ([#802](https://github.com/jg-wright/runtyping/issues/802)) ([a57cfd4](https://github.com/jg-wright/runtyping/commit/a57cfd4d5f017f10ff1dc797564fff69a177b350))
+* **deps:** update dependency zod to v4.4.2 ([#804](https://github.com/jg-wright/runtyping/issues/804)) ([34b89d1](https://github.com/jg-wright/runtyping/commit/34b89d1149f97328d27b6c16a5ce593a7713e003))
+* **deps:** update dependency zod to v4.4.3 ([#805](https://github.com/jg-wright/runtyping/issues/805)) ([67f29f0](https://github.com/jg-wright/runtyping/commit/67f29f0206378088c96e02102e19b44d7ab53308))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @runtyping/generator bumped to 10.1.2
+    * @runtyping/zod-core bumped to 2.0.3
+  * devDependencies
+    * @runtyping/test-type-writers bumped to 4.0.3
+
 ## [5.0.2](https://github.com/johngeorgewright/runtyping/compare/@runtyping/zod-v5.0.1...@runtyping/zod-v5.0.2) (2026-04-07)
 
 

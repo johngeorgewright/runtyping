@@ -1,6 +1,6 @@
 {
   "name": "@runtyping/yup",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Generate yup from static types & JSON schema.",
   "type": "module",
   "exports": {
