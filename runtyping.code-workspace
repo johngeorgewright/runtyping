@@ -1,68 +1,65 @@
 {
   "extensions": {
-    "recommendations": [
-      "arcanis.vscode-zipfs",
-      "esbenp.prettier-vscode"
-    ]
+    "recommendations": ["arcanis.vscode-zipfs", "esbenp.prettier-vscode"],
   },
   "folders": [
     {
       "name": "✨ runtyping",
-      "path": "."
+      "path": ".",
     },
     {
       "name": "🐙 github",
-      "path": ".github"
+      "path": ".github",
     },
     {
       "name": "🏗️ scaffold",
-      "path": "scaffold"
+      "path": "scaffold",
     },
     {
       "name": "📦 @runtyping/generator",
-      "path": "packages/generator"
+      "path": "packages/generator",
     },
     {
       "name": "📦 @runtyping/io-ts",
-      "path": "packages/io-ts"
+      "path": "packages/io-ts",
     },
     {
       "name": "📦 @runtyping/runtypes",
-      "path": "packages/runtypes"
+      "path": "packages/runtypes",
     },
     {
       "name": "📦 @runtyping/test-type-writers",
-      "path": "packages/test-type-writers"
+      "path": "packages/test-type-writers",
     },
     {
       "name": "📦 @runtyping/valibot",
-      "path": "packages/valibot"
+      "path": "packages/valibot",
     },
     {
       "name": "📦 @runtyping/yup",
-      "path": "packages/yup"
+      "path": "packages/yup",
     },
     {
       "name": "📦 @runtyping/zod",
-      "path": "packages/zod"
+      "path": "packages/zod",
     },
     {
       "name": "📦 @runtyping/zod-core",
-      "path": "packages/zod-core"
+      "path": "packages/zod-core",
     },
     {
       "name": "📦 @runtyping/zod-mini",
-      "path": "packages/zod-mini"
-    }
+      "path": "packages/zod-mini",
+    },
   ],
   "settings": {
     "prettier.prettierPath": "../../.yarn/sdks/prettier/index.cjs",
     "search.exclude": {
       "**/dist": true,
       "**/.yarn": true,
-      "**/.pnp.*": true
+      "**/.pnp.*": true,
     },
-    "typescript.enablePromptUseWorkspaceTsdk": true,
-    "typescript.tsdk": "✨ runtyping/.yarn/sdks/typescript/lib"
-  }
+    "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+    "js/ts.tsdk.path": "✨ runtyping/.yarn/sdks/typescript/lib",
+  },
 }

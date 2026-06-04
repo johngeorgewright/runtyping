@@ -19,7 +19,7 @@
     "strict": true,
     "target": "es2020"
   },
-  "include": ["."],
+  "include": [],
   "exclude": ["**/test", "**/fixtures", "**/dist"],
   "references": [
     { "path": "packages/generator/tsconfig.json" },

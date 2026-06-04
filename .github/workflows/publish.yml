@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20, 22, 24, 25]
+        node-version: [22, 24, 26]
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/install
@@ -37,12 +37,12 @@ jobs:
       - uses: actions/create-github-app-token@v3
         id: auth
         with:
-          app-id: ${{ secrets.APP_ID }}
+          client-id: ${{ secrets.APP_CLIENT_ID }}
           private-key: ${{ secrets.APP_PEM }}
           permission-contents: write
           permission-pull-requests: write
       - id: release
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           token: ${{ steps.auth.outputs.token }}
 
@@ -64,7 +64,7 @@ jobs:
         with:
           cache: yarn
           node-version-file: .nvmrc
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - run: yarn --immutable
       - uses: actions/download-artifact@v8
         with:
