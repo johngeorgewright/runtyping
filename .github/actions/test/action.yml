@@ -2,11 +2,6 @@ name: Test
 
 description: Build & Test
 
-inputs:
-  node-version:
-    description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
-    required: true
-
 runs:
   using: composite
   steps:
